@@ -42,7 +42,7 @@ const I18N_STRINGS = {
     langEnTitle: "English",
     langPtTitle: "Português",
     corpusHeading: "The Core Four Noble Truths Corpus",
-    corpusSubtitle: "Four Indispensable Pillars: Proclamation, Doctrinal Anatomy, Right View & The Clinging-Aggregates",
+    corpusSubtitle: "Seven Canonical Pillars: Proclamation, Anatomy, Right View, Simile, Not-Self, Conditionality & The Aggregates",
     establishesLabel: "Core Doctrinal Foundations Established:",
     dutyMatrixTruth: "Noble Truth",
     dutyMatrixPali: "Pāli Duty (Kicca)",
@@ -78,7 +78,7 @@ const I18N_STRINGS = {
     langEnTitle: "Inglês",
     langPtTitle: "Português",
     corpusHeading: "O Corpus Canônico das Quatro Nobres Verdades",
-    corpusSubtitle: "Quatro Pilares Indispensáveis: Proclamação, Anatomia Doutrinária, Visão Correta & Os Agregados de Apego",
+    corpusSubtitle: "Sete Pilares Canônicos: Proclamação, Anatomia, Visão Correta, Símile, Não-Eu, Condicionalidade & Os Agregados",
     establishesLabel: "Fundamentos Doutrinários Estabelecidos:",
     dutyMatrixTruth: "Nobre Verdade",
     dutyMatrixPali: "Dever em Pāli (Kicca)",
@@ -93,7 +93,7 @@ const TOPICS_DATA = [
     id: "cattari-ariyasaccani",
     number: "01",
     paliTitle: "Cattāri Ariyasaccāni",
-    canonicalRef: "SN 56.11 • MN 141 • MN 9 • MN 28",
+    canonicalRef: "SN 56.11 • MN 141 • MN 9 • MN 28 • SN 22.59 • SN 12.23 • SN 56.13",
     en: {
       title: "The Four Noble Truths",
       tagline: "The Diagnostic Framework for Freedom from Psychological Stress & Worldly Entanglement",
@@ -205,6 +205,70 @@ const TOPICS_DATA = [
           suttaCentralUrl: "https://suttacentral.net/mn28/en/sujato",
           excerptPali: "Seyyathāpi, āvuso, yāni kānici jaṅgalānaṁ pāṇānaṁ padajātāni, sabbāni tāni hatthipade samodhānaṁ gacchanti... evameva kho, āvuso, ye keci kusalā dhammā, sabbe te catūsu ariyasaccesu saṅgahaṁ gacchanti.",
           excerptTrans: "Just as the footprint of any living being that walks can be placed within the footprint of an elephant, and the elephant’s footprint is declared supreme among them because of its great size; so too, all wholesome qualities can be included in the Four Noble Truths."
+        },
+        {
+          suttaCode: "SN 22.59",
+          paliTitle: "Anattalakkhaṇa Sutta",
+          transTitle: "The Characteristic of Not-Self",
+          role: "Deep-Dive on the 1st Truth: Systematic Investigation of the Aggregates",
+          summary: "This isn't technically a Four Noble Truths exposition, but is an indispensable inclusion in the Four Truths learning path. Why? Because SN 56.11 proclaims that the five aggregates subject to clinging are Dukkha (pañcupādānakkhandhā dukkhā), and SN 22.59 is the master text systematically investigating those very aggregates.",
+          establishes: [
+            "The five aggregates: rūpa (form), vedanā (feeling), saññā (perception), saṅkhārā (volitional formations), viññāṇa (consciousness)",
+            "Systematic examination of control: if form were self, it would not lead to affliction, and one could command 'let my form be thus'",
+            "Refutation of ownership and identity: 'This is not mine, this I am not, this is not my self' (N'etaṁ mama, n'eso'hamasmi, na meso attā)",
+            "The definitive Theravāda progression: five aggregates → impermanence (anicca) → unsatisfactoriness (dukkha) → not-self (anattā) → disenchantment (nibbidā) → dispassion (virāga) → liberation (vimutti)",
+            "Treated as an essential deep-dive attached to the first noble truth, rather than pretending it is itself a Four Noble Truths sutta"
+          ],
+          deepAnatomy: {
+            title: "The Progression: From Clinging-Aggregates to Liberation",
+            detail: "SN 22.59 provides the exact mechanism for fulfilling the duty of the first truth (pariññeyya — full comprehension). When each aggregate is directly witnessed as impermanent (anicca), whatever is impermanent is unsatisfactory (dukkha), and whatever is unsatisfactory cannot rightly be regarded as 'This is mine, this I am, this is my self' (anattā). Seeing this with correct discernment, the noble disciple experiences disenchantment (nibbindati), through disenchantment becomes dispassionate (virajjati), and through dispassion is liberated (vimuccati)."
+          },
+          suttaCentralUrl: "https://suttacentral.net/sn22.59/en/bodhi",
+          excerptPali: "Rūpaṁ, bhikkhave, anattā... N'etaṁ mama, n'eso'hamasmi, na meso attā'ti: evametaṁ yathābhūtaṁ sammappaññāya daṭṭhabbaṁ... Evaṁ passaṁ, bhikkhave, sutavā ariyasāvako rūpasmimpi nibbindati, vedanāyapi nibbindati, saññāyapi nibbindati, saṅkhāresupi nibbindati, viññāṇasmimpi nibbindati. Nibbindaṁ virajjati; virāgā vimuccati.",
+          excerptTrans: "Form, monastics, is not-self... 'This is not mine, this I am not, this is not my self': thus this should be seen as it really is with correct wisdom... Seeing thus, monastics, the instructed noble disciple experiences disenchantment towards form, feeling, perception, volitional formations, and consciousness. Through disenchantment, dispassion arises; through dispassion, he is liberated."
+        },
+        {
+          suttaCode: "SN 12.23",
+          paliTitle: "Upanisa Sutta",
+          transTitle: "Supporting Conditions",
+          role: "Conditionality of Dukkha & Transcendental Dependent Arising",
+          summary: "One of the foundational texts for illuminating the exact relationship between Dukkha, its causes, and the path. Particularly valuable because it demonstrates that suffering and liberation unfold within a conditional architecture, preventing the common oversimplification that 'craving causes suffering'. The Buddha's teaching is far more structurally sophisticated than a simple psychological slogan.",
+          establishes: [
+            "The Four Truths situated within the overarching canonical teaching on conditionality (Idappaccayatā)",
+            "Tracing suffering backward through the mundane chain: suffering (dukkha) ← birth (jāti) ← existence (bhava) ← clinging (upādāna) ← craving (taṇhā)... ← ignorance (avijjā)",
+            "The forward transcendental sequence (lokuttara paṭiccasamuppāda): suffering → faith (saddhā) → joy (pāmojja) → rapture (pīti) → tranquility (passaddhi) → happiness (sukha) → stillness (samādhi) → knowledge & vision of reality (yathābhūtañāṇadassana) → disenchantment (nibbidā) → dispassion (virāga) → liberation (vimutti) → knowledge of destruction of the taints (āsavakkhaye ñāṇa)",
+            "The transformative role of Dukkha: suffering is not merely a problem, but the direct supporting condition (upanisā) that awakens genuine spiritual faith",
+            "Preventing superficiality: craving causes suffering, yes, but within a multi-link conditional web"
+          ],
+          deepAnatomy: {
+            title: "Beyond Slogans: Conditional Architecture of Suffering & Awakening",
+            detail: "Common discourses often compress the truths into a single cause-effect soundbite: 'craving causes suffering'. SN 12.23 restores the Buddha's full structural genius. Suffering is conditional, arising from birth, existence, clinging, and craving back to ignorance. Most remarkably, Dukkha acts as the pivot: when met with wise discernment rather than blind despair, suffering becomes the supporting condition (upanisā) for faith (saddhā), initiating an unbroken upward spiral all the way to complete liberation."
+          },
+          suttaCentralUrl: "https://suttacentral.net/sn12.23/en/bodhi",
+          excerptPali: "Iti kho, bhikkhave, avijjūpanisā saṅkhārā... jātūpanisaṁ dukkhaṁ, dukkhūpanisā saddhā, saddhūpanisaṁ pāmojjaṁ, pāmojjūpanisā pīti, pītūpanisā passaddhi, passaddhūpanisaṁ sukhaṁ, sukhūpaniso samādhi, samādhūpanisaṁ yathābhūtañāṇadassanaṁ, yathābhūtañāṇadassanūpanisā nibbidā, nibbidūpaniso virāgo, virāgūpanisā vimutti, vimuttūpanisaṁ khaye ñāṇaṁ.",
+          excerptTrans: "Thus, monastics, with ignorance as supporting condition are formations... with birth as supporting condition is suffering; with suffering as supporting condition is faith; with faith as supporting condition joy; with joy rapture; with rapture tranquility; with tranquility happiness; with happiness concentration; with concentration knowledge and vision of things as they really are; with knowledge and vision disenchantment; with disenchantment dispassion; with dispassion liberation; with liberation knowledge of the destruction of the taints."
+        },
+        {
+          suttaCode: "SN 56.13",
+          paliTitle: "Khandha Sutta",
+          transTitle: "The Aggregates",
+          role: "Definitive Canonical Identification: Dukkha as the Clinging-Aggregates",
+          summary: "Short, incisive, and doctrinally essential. It explicitly defines the Noble Truth of Suffering as identical to the five aggregates subject to clinging (pañcupādānakkhandhā). It then provides unambiguous canonical definitions of origin, cessation, and path, concluding with an urgent exhortation to cultivate contemplative practice on each truth.",
+          establishes: [
+            "Explicit canonical equation: The Noble Truth of Suffering = The Five Aggregates Subject to Clinging (pañcupādānakkhandhā)",
+            "Exhaustive list of the five clinging-aggregates: form (rūpupādānakkhandho), feeling (vedanupādānakkhandho), perception (saññupādānakkhandho), formations (saṅkhārupādānakkhandho), consciousness (viññāṇupādānakkhandho)",
+            "Definition of Origin: Craving leading to renewed existence (taṇhā ponobbhavikā)",
+            "Definition of Cessation: Complete fading away and cessation of that very craving (yo tassāyeva taṇhāya asesavirāganirodho)",
+            "Definition of Path: The Noble Eightfold Path from Right View to Right Stillness",
+            "Urgent spiritual imperative: 'An exertion should be made to understand: This is suffering... this is origin... this is cessation... this is the path' (yogo karaṇīyo)"
+          ],
+          deepAnatomy: {
+            title: "Primary Text Card: The Clinging-Aggregates as Dukkha",
+            detail: "The Khandha Sutta strips away all room for vague abstraction. When the Buddha is asked to define the First Truth, he does not speak of bad days or unpleasant sensations; he points directly to the five aggregates gripped by clinging: form, feeling, perception, choices, and consciousness. To understand Dukkha is to understand how the mind grasps at these five processes as a self."
+          },
+          suttaCentralUrl: "https://suttacentral.net/sn56.13/en/bodhi",
+          excerptPali: "Katamañca, bhikkhave, dukkhaṁ ariyasaccaṁ? Pañcupādānakkhandhātissa vacanīyaṁ, seyyathidaṁ: rūpupādānakkhandho, vedanupādānakkhandho, saññupādānakkhandho, saṅkhārupādānakkhandho, viññāṇupādānakkhandho... Tasmātiha, bhikkhave, 'idaṁ dukkhan'ti yogo karaṇīyo... 'ayaṁ dukkhanirodhagāminī paṭipadā'ti yogo karaṇīyo.",
+          excerptTrans: "And what, monastics, is the Noble Truth of Suffering? It should be said: the five aggregates subject to clinging, that is to say: the form clinging-aggregate, feeling clinging-aggregate, perception clinging-aggregate, formations clinging-aggregate, consciousness clinging-aggregate... Therefore, monastics, an exertion should be made to understand: 'This is suffering'... 'This is the way leading to the cessation of suffering'."
         }
       ],
       canonicalExcerpts: [
@@ -344,6 +408,70 @@ const TOPICS_DATA = [
           suttaCentralUrl: "https://suttacentral.net/mn28/en/sujato",
           excerptPali: "Seyyathāpi, āvuso, yāni kānici jaṅgalānaṁ pāṇānaṁ padajātāni, sabbāni tāni hatthipade samodhānaṁ gacchanti... evameva kho, āvuso, ye keci kusalā dhammā, sabbe te catūsu ariyasaccesu saṅgahaṁ gacchanti.",
           excerptTrans: "Assim como a pegada de qualquer ser vivo que caminha sobre a terra cabe dentro da pegada de um elefante; da mesma forma, todos os ensinamentos e qualidades nobres estão compreendidos nas Quatro Nobres Verdades."
+        },
+        {
+          suttaCode: "SN 22.59",
+          paliTitle: "Anattalakkhaṇa Sutta",
+          transTitle: "A Característica de Não-Eu",
+          role: "Investigação Profunda da 1ª Verdade: Exame Sistemático dos Agregados",
+          summary: "Embora não seja tecnicamente uma exposição formal das Quatro Verdades, este texto é indispensável para a rota de aprendizado. Por quê? Porque o SN 56.11 define categoricamente que a essência de Dukkha são 'os cinco agregados sujeitos ao apego' (pañcupādānakkhandhā dukkhā), e o SN 22.59 é o texto canônico primordial que examina minuciosamente esses mesmos agregados.",
+          establishes: [
+            "Os cinco agregados: rūpa (forma), vedanā (sensação), saññā (percepção), saṅkhārā (formações volitivas) e viññāṇa (consciência)",
+            "O teste irrefutável do controle: se o corpo ou a mente fossem um eu soberano, não conduziriam à aflição e seria possível ordenar 'que meu corpo seja assim'",
+            "A negação categórica de posse e identidade: 'Isto não é meu, isto eu não sou, isto não é meu eu' (N'etaṁ mama, n'eso'hamasmi, na meso attā)",
+            "A progressão clássica theravāda: cinco agregados → impermanência (anicca) → insatisfatoriedade (dukkha) → não-eu (anattā) → desencantamento (nibbidā) → despaixão (virāga) → libertação (vimutti)",
+            "Tratado como um aprofundamento vital vinculado à primeira nobre verdade, em vez de tratá-lo artificialmente como um sutta das Quatro Verdades"
+          ],
+          deepAnatomy: {
+            title: "A Progressão: Dos Agregados de Apego à Libertação",
+            detail: "O SN 22.59 fornece a engrenagem exata para cumprir o dever prático da primeira verdade (pariññeyya — compreensão plena). Ao constatar que cada agregado é impermanente (anicca), o que é impermanente é insatisfatório (dukkha), e o que é insatisfatório não pode legitimamente ser considerado como 'Isto é meu, este sou eu, isto é meu eu' (anattā). Percebendo isso com sabedoria reta, o nobre discípulo se desencanta (nibbindati), pelo desencanto atinge a despaixão (virajjati), e pela despaixão encontra a libertação definitiva (vimuccati)."
+          },
+          suttaCentralUrl: "https://suttacentral.net/sn22.59/en/bodhi",
+          excerptPali: "Rūpaṁ, bhikkhave, anattā... N'etaṁ mama, n'eso'hamasmi, na meso attā'ti: evametaṁ yathābhūtaṁ sammappaññāya daṭṭhabbaṁ... Evaṁ passaṁ, bhikkhave, sutavā ariyasāvako rūpasmimpi nibbindati, vedanāyapi nibbindati, saññāyapi nibbindati, saṅkhāresupi nibbindati, viññāṇasmimpi nibbindati. Nibbindaṁ virajjati; virāgā vimuccati.",
+          excerptTrans: "A forma material, monges, é não-eu... 'Isto não é meu, isto eu não sou, isto não é o meu eu': assim deve ser visto como realmente é com correta sabedoria... Vendo assim, monges, o nobre discípulo instruído experimenta o desencantamento em relação à forma, à sensação, à percepção, às formações mentais e à consciência. Pelo desencantamento surge a despaixão; pela despaixão ele é libertado."
+        },
+        {
+          suttaCode: "SN 12.23",
+          paliTitle: "Upanisa Sutta",
+          transTitle: "Condições de Sustentação",
+          role: "Condicionalidade de Dukkha & O Surgimento Dependente Transcendental",
+          summary: "Um dos textos basilares para esclarecer a relação viva entre Dukkha, suas causas e o caminho de libertação. É indispensável porque situa o sofrimento e a emancipação dentro de uma estrutura condicional rigorosa, prevenindo o reducionismo comum do slogan 'o desejo causa o sofrimento'. O ensinamento do Buda é muito mais estruturalmente refinado do que uma simples fórmula psicológica direta.",
+          establishes: [
+            "As Quatro Verdades integradas na grande arquitetura da condicionalidade (Idappaccayatā)",
+            "O rastreamento regressivo de Dukkha: sofrimento (dukkha) ← nascimento (jāti) ← existência (bhava) ← apego (upādāna) ← anseio (taṇhā)... ← ignorância (avijjā)",
+            "A espiral transcendental progressiva (lokuttara paṭiccasamuppāda): sofrimento → fé (saddhā) → alegria (pāmojja) → êxtase (pīti) → tranquilidade (passaddhi) → felicidade (sukha) → concentração/estabilidade (samādhi) → conhecimento e visão das coisas como elas são (yathābhūtañāṇadassana) → desencantamento (nibbidā) → despaixão (virāga) → libertação (vimutti) → conhecimento da extinção das impurezas (āsavakkhaye ñāṇa)",
+            "O papel transformador de Dukkha: o sofrimento não é apenas uma ferida, mas a condição prévia de apoio (upanisā) que desperta a fé sincera",
+            "Superação de slogans superficiais: o anseio causa sofrimento dentro de uma malha causal condicionada"
+          ],
+          deepAnatomy: {
+            title: "Além de Slogans: A Arquitetura Condicional da Libertação",
+            detail: "Muitas exposições reduzem o ensinamento a um lema superficial: 'o desejo causa sofrimento'. O SN 12.23 revela a genialidade estrutural do Buda. O sofrimento emerge condicionalmente através do nascimento, apego e anseio a partir da ignorância. Extraordinariamente, o próprio sofrimento torna-se o trampolim: quando enfrentado com sabedoria em vez de desespero cego, Dukkha torna-se a condição de sustentação (upanisā) para a fé (saddhā), impulsionando uma espiral ascendente ininterrupta até a emancipação total."
+          },
+          suttaCentralUrl: "https://suttacentral.net/sn12.23/en/bodhi",
+          excerptPali: "Iti kho, bhikkhave, avijjūpanisā saṅkhārā... jātūpanisaṁ dukkhaṁ, dukkhūpanisā saddhā, saddhūpanisaṁ pāmojjaṁ, pāmojjūpanisā pīti, pītūpanisā passaddhi, passaddhūpanisaṁ sukhaṁ, sukhūpaniso samādhi, samādhūpanisaṁ yathābhūtañāṇadassanaṁ, yathābhūtañāṇadassanūpanisā nibbidā, nibbidūpaniso virāgo, virāgūpanisā vimutti, vimuttūpanisaṁ khaye ñāṇaṁ.",
+          excerptTrans: "Assim, ó monges, com a ignorância como condição prévia surgem as formações... com o nascimento como condição prévia surge o sofrimento; com o sofrimento como condição prévia surge a fé; com a fé surge a alegria; com a alegria o êxtase; com o êxtase a tranquilidade; com a tranquilidade a felicidade; com a felicidade a concentração estável; com a concentração o conhecimento e visão das coisas como elas realmente são; com isso o desencantamento; com o desencantamento a despaixão; com a despaixão a libertação; com a libertação o conhecimento da destruição das impurezas."
+        },
+        {
+          suttaCode: "SN 56.13",
+          paliTitle: "Khandha Sutta",
+          transTitle: "Os Agregados",
+          role: "Identificação Canônica Primária: Dukkha como os Agregados de Apego",
+          summary: "Conciso, direto e doutrinariamente essencial. Define categoricamente: a Nobre Verdade do Sofrimento equivale aos cinco agregados sujeitos ao apego (pañcupādānakkhandhā). Fornece as definições canônicas incontestáveis de origem, cessação e caminho, concluindo com uma solene exortação ao esforço contemplativo sobre cada verdade.",
+          establishes: [
+            "Equação canônica inequívoca: A Nobre Verdade de Dukkha = Os Cinco Agregados Sujeitos ao Apego (pañcupādānakkhandhā)",
+            "Enumeração formal dos cinco agregados de apego: forma (rūpupādānakkhandho), sensação (vedanupādānakkhandho), percepção (saññupādānakkhandho), formações mentais (saṅkhārupādānakkhandho) e consciência (viññāṇupādānakkhandho)",
+            "Definição de Origem: O anseio que conduz ao renascimento renovado (taṇhā ponobbhavikā)",
+            "Definição de Cessação: O desvanecimento completo, abandono e renúncia desse mesmo anseio (asesavirāganirodho)",
+            "Definição do Caminho: O Nobre Caminho Óctuplo da Visão Correta à Concentração Correta",
+            "O imperativo de esforço espiritual urgente: 'Portanto, monges, um esforço resoluto deve ser empreendido: Isto é sofrimento... Isto é a origem... Isto é a cessação... Isto é o caminho' (yogo karaṇīyo)"
+          ],
+          deepAnatomy: {
+            title: "Texto Primário: Os Agregados de Apego como a Essência de Dukkha",
+            detail: "O Khandha Sutta extingue qualquer ambiguidade filosófica. Ao definir a Primeira Nobre Verdade, o Buda não descreve aborrecimentos corriqueiros; ele aponta diretamente para os cinco agregados aprisionados pelo apego: o corpo, as sensações, as percepções, as formações e a consciência. Compreender Dukkha é discernir precisamente como a mente se agarra a esses cinco fenômenos como sendo 'eu' ou 'meu'."
+          },
+          suttaCentralUrl: "https://suttacentral.net/sn56.13/en/bodhi",
+          excerptPali: "Katamañca, bhikkhave, dukkhaṁ ariyasaccaṁ? Pañcupādānakkhandhātissa vacanīyaṁ, seyyathidaṁ: rūpupādānakkhandho, vedanupādānakkhandho, saññupādānakkhandho, saṅkhārupādānakkhandho, viññāṇupādānakkhandho... Tasmātiha, bhikkhave, 'idaṁ dukkhan'ti yogo karaṇīyo... 'ayaṁ dukkhanirodhagāminī paṭipadā'ti yogo karaṇīyo.",
+          excerptTrans: "E o que, monges, é a Nobre Verdade de Dukkha? Deve-se responder: os cinco agregados sujeitos ao apego, a saber: o agregado de apego da forma, da sensação, da percepção, das formações mentais e da consciência... Portanto, ó monges, um esforço diligente deve ser feito para compreender: 'Isto é sofrimento'... 'Este é o caminho que conduz à cessação do sofrimento'."
         }
       ],
       canonicalExcerpts: [
