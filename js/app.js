@@ -395,14 +395,152 @@ class LayDharmaApp {
       </div>
     `).join('');
 
-    // Canonical Excerpts
-    this.dom.modalExcerptsList.innerHTML = langContent.canonicalExcerpts.map(ex => `
-      <div class="sutta-box">
-        <div class="sutta-source-name">${ex.source}</div>
-        <div class="sutta-pali-passage">${ex.pali}</div>
-        <div class="sutta-english-passage">"${ex.translation}"</div>
-      </div>
-    `).join('');
+    // Canonical Corpus / Excerpts
+    if (langContent.canonicalCorpus && langContent.canonicalCorpus.length > 0) {
+      const jumpNavHtml = `
+        <div class="corpus-intro-banner">
+          <div class="corpus-banner-title"><span>☸</span> ${t.corpusHeading}</div>
+          <div class="corpus-banner-subtitle">${t.corpusSubtitle}</div>
+          <div class="corpus-jump-nav">
+            <span class="corpus-jump-label">${t.quickJumpLabel}</span>
+            <div class="corpus-jump-pills">
+              ${langContent.canonicalCorpus.map((s, idx) => `
+                <a href="#corpus-sutta-${idx}" class="corpus-jump-pill">
+                  <span class="jump-pill-code">${s.suttaCode}</span>
+                  <span class="jump-pill-title">${s.paliTitle}</span>
+                </a>
+              `).join('')}
+            </div>
+          </div>
+        </div>
+      `;
+
+      const corpusCardsHtml = langContent.canonicalCorpus.map((sutta, idx) => {
+        // Establishes List
+        let establishesHtml = '';
+        if (sutta.establishes && sutta.establishes.length > 0) {
+          establishesHtml = `
+            <div class="corpus-section-block">
+              <div class="corpus-block-heading">${t.establishesLabel}</div>
+              <ul class="corpus-establishes-list">
+                ${sutta.establishes.map(item => `<li>${item}</li>`).join('')}
+              </ul>
+            </div>
+          `;
+        }
+
+        // Fourfold Duty Structure (Catukicca) Table
+        let dutyHtml = '';
+        if (sutta.coreDuty) {
+          dutyHtml = `
+            <div class="corpus-duty-card">
+              <div class="corpus-duty-header">
+                <span class="corpus-duty-icon">☸</span>
+                <span class="corpus-duty-title">${sutta.coreDuty.title}</span>
+              </div>
+              <p class="corpus-duty-intro">${sutta.coreDuty.intro}</p>
+              <div class="duty-table-wrapper">
+                <table class="duty-matrix-table">
+                  <thead>
+                    <tr>
+                      <th>${t.dutyMatrixTruth}</th>
+                      <th>${t.dutyMatrixPali}</th>
+                      <th>${t.dutyMatrixAction}</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    ${sutta.coreDuty.matrix.map(row => `
+                      <tr>
+                        <td class="duty-truth-cell">${row.truth}</td>
+                        <td class="duty-pali-cell">${row.paliDuty}</td>
+                        <td class="duty-action-cell">${row.meaning}</td>
+                      </tr>
+                    `).join('')}
+                  </tbody>
+                </table>
+              </div>
+              ${sutta.coreDuty.note ? `<div class="duty-principle-note"><strong>${t.dutyMatrixPrinciple}</strong> ${sutta.coreDuty.note}</div>` : ''}
+            </div>
+          `;
+        }
+
+        // Deep Anatomy Card
+        let anatomyHtml = '';
+        if (sutta.deepAnatomy) {
+          anatomyHtml = `
+            <div class="corpus-anatomy-card">
+              <div class="corpus-anatomy-header">
+                <span class="corpus-anatomy-icon">☸</span>
+                <span class="corpus-anatomy-title">${sutta.deepAnatomy.title}</span>
+              </div>
+              <p class="corpus-anatomy-detail">${sutta.deepAnatomy.detail}</p>
+            </div>
+          `;
+        }
+
+        // Canonical Passage
+        let excerptHtml = '';
+        if (sutta.excerptPali || sutta.excerptTrans) {
+          excerptHtml = `
+            <div class="sutta-box">
+              <div class="sutta-source-name">${sutta.suttaCode} — Canonical Text</div>
+              ${sutta.excerptPali ? `<div class="sutta-pali-passage">${sutta.excerptPali}</div>` : ''}
+              ${sutta.excerptTrans ? `<div class="sutta-english-passage">"${sutta.excerptTrans}"</div>` : ''}
+            </div>
+          `;
+        }
+
+        // SuttaCentral Action Row
+        let scLinkHtml = '';
+        if (sutta.suttaCentralUrl) {
+          scLinkHtml = `
+            <div class="corpus-link-row">
+              <a href="${sutta.suttaCentralUrl}" target="_blank" rel="noopener noreferrer" class="suttacentral-btn">
+                <span>${t.readOnSuttaCentral} (${sutta.suttaCode})</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                  <polyline points="15 3 21 3 21 9"></polyline>
+                  <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg>
+              </a>
+            </div>
+          `;
+        }
+
+        return `
+          <article class="corpus-sutta-card" id="corpus-sutta-${idx}">
+            <header class="corpus-card-header">
+              <div class="corpus-badges-row">
+                <span class="corpus-num-badge">${idx + 1}</span>
+                <span class="corpus-code-badge">${sutta.suttaCode}</span>
+                <span class="corpus-role-badge">${sutta.role}</span>
+              </div>
+              <h3 class="corpus-pali-title">${sutta.paliTitle}</h3>
+              <div class="corpus-trans-title">“${sutta.transTitle}”</div>
+            </header>
+
+            <div class="corpus-card-content">
+              <p class="corpus-summary-lead">${sutta.summary}</p>
+              ${establishesHtml}
+              ${dutyHtml}
+              ${anatomyHtml}
+              ${excerptHtml}
+              ${scLinkHtml}
+            </div>
+          </article>
+        `;
+      }).join('');
+
+      this.dom.modalExcerptsList.innerHTML = jumpNavHtml + corpusCardsHtml;
+    } else if (langContent.canonicalExcerpts) {
+      this.dom.modalExcerptsList.innerHTML = langContent.canonicalExcerpts.map(ex => `
+        <div class="sutta-box">
+          <div class="sutta-source-name">${ex.source}</div>
+          <div class="sutta-pali-passage">${ex.pali}</div>
+          <div class="sutta-english-passage">"${ex.translation}"</div>
+        </div>
+      `).join('');
+    }
 
     // Household Practice
     this.dom.modalHouseholdList.innerHTML = langContent.householdApplication.map(app => `

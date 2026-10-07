@@ -24,7 +24,7 @@ const I18N_STRINGS = {
     hubTopicPrefix: "TOPIC",
     hubClickPrompt: "• Click to study",
     tabOverview: "Overview & Essence",
-    tabCanonical: "Canonical Texts",
+    tabCanonical: "Canonical Corpus",
     tabHousehold: "Householder Practice",
     tabInquiry: "Contemplative Inquiry",
     tabNotes: "Study Notes",
@@ -40,7 +40,16 @@ const I18N_STRINGS = {
     notesSavedFeedback: "✓ Saved locally",
     closeReaderAria: "Close reader",
     langEnTitle: "English",
-    langPtTitle: "Português"
+    langPtTitle: "Português",
+    corpusHeading: "The Core Four Noble Truths Corpus",
+    corpusSubtitle: "Four Indispensable Pillars: Proclamation, Doctrinal Anatomy, Right View & The Clinging-Aggregates",
+    establishesLabel: "Core Doctrinal Foundations Established:",
+    dutyMatrixTruth: "Noble Truth",
+    dutyMatrixPali: "Pāli Duty (Kicca)",
+    dutyMatrixAction: "Action Required / Practice",
+    dutyMatrixPrinciple: "Key Doctrinal Principle:",
+    readOnSuttaCentral: "Read on SuttaCentral",
+    quickJumpLabel: "Jump to Discourse:"
   },
   pt: {
     siteTitle: "O Mārga do Praticante Leigo",
@@ -51,7 +60,7 @@ const I18N_STRINGS = {
     hubTopicPrefix: "TÓPICO",
     hubClickPrompt: "• Clique para estudar",
     tabOverview: "Visão Geral & Essência",
-    tabCanonical: "Textos Canônicos",
+    tabCanonical: "Corpus Canônico",
     tabHousehold: "Prática na Vida Leiga",
     tabInquiry: "Investigação Contemplativa",
     tabNotes: "Notas de Estudo",
@@ -67,7 +76,16 @@ const I18N_STRINGS = {
     notesSavedFeedback: "✓ Salvo localmente",
     closeReaderAria: "Fechar leitor",
     langEnTitle: "Inglês",
-    langPtTitle: "Português"
+    langPtTitle: "Português",
+    corpusHeading: "O Corpus Canônico das Quatro Nobres Verdades",
+    corpusSubtitle: "Quatro Pilares Indispensáveis: Proclamação, Anatomia Doutrinária, Visão Correta & Os Agregados de Apego",
+    establishesLabel: "Fundamentos Doutrinários Estabelecidos:",
+    dutyMatrixTruth: "Nobre Verdade",
+    dutyMatrixPali: "Dever em Pāli (Kicca)",
+    dutyMatrixAction: "Ação Requerida / Prática",
+    dutyMatrixPrinciple: "Princípio Doutrinário Central:",
+    readOnSuttaCentral: "Ler no SuttaCentral",
+    quickJumpLabel: "Navegar para o Discurso:"
   }
 };
 const TOPICS_DATA = [
@@ -75,7 +93,7 @@ const TOPICS_DATA = [
     id: "cattari-ariyasaccani",
     number: "01",
     paliTitle: "Cattāri Ariyasaccāni",
-    canonicalRef: "Dhammacakkappavattana Sutta (SN 56.11), Saccavibhaṅga Sutta (MN 141)",
+    canonicalRef: "SN 56.11 • MN 141 • MN 9 • MN 28",
     en: {
       title: "The Four Noble Truths",
       tagline: "The Diagnostic Framework for Freedom from Psychological Stress & Worldly Entanglement",
@@ -85,19 +103,115 @@ const TOPICS_DATA = [
         { term: "Samudaya", meaning: "Origin or arising, specifically rooted in craving (Taṇhā)" },
         { term: "Nirodha", meaning: "Cessation, unbinding, the extinguishing of compulsive craving (Nibbāna)" },
         { term: "Magga", meaning: "The Path leading to cessation, the Noble Eightfold Path (Ariya Aṭṭhaṅgika Magga)" },
-        { term: "Taṇhā", meaning: "Thirst, feverish craving (sensual pleasures, becoming, and non-becoming)" }
+        { term: "Taṇhā", meaning: "Thirst, feverish craving (sensual pleasures, becoming, and non-becoming)" },
+        { term: "Pañcupādānakkhandhā", meaning: "The five aggregates subject to clinging (form, feeling, perception, formations, consciousness)" }
       ],
       overview: "The Four Noble Truths form the master blueprint of the Buddha's entire dispensation. Far from being a pessimistic creed, they are a supreme clinical diagnosis of the human condition: diagnosing the dis-ease (Dukkha), uncovering its psychological pathogen (Craving), proclaiming the certainty of recovery (Cessation), and prescribing the holistic lifestyle therapy (The Eightfold Path).",
-      canonicalExcerpts: [
+      canonicalCorpus: [
         {
-          source: "SN 56.11 — Setting in Motion the Wheel of Dhamma",
-          pali: "Idam kho pana, bhikkhave, dukkham ariyasaccam: jātipi dukkhā, jarāpi dukkhā, maraṇampi dukkham... saṅkhittena pañcupādānakkhandhā dukkhā.",
-          translation: "Now this, monastics, is the Noble Truth of Dukkha: Birth is stressful, aging is stressful, illness and death are stressful; sorrow, lamentation, pain, distress, and despair are stressful; association with the disliked is stressful; separation from the loved is stressful; not getting what one desires is stressful. In brief, the five clinging-aggregates are stressful."
+          suttaCode: "SN 56.11",
+          paliTitle: "Dhammacakkappavattana Sutta",
+          transTitle: "Setting the Dhamma Wheel in Motion",
+          role: "The Indispensable Primary Text & Proclamation",
+          summary: "This is the indispensable primary text. If this platform has one 'Four Noble Truths' source that every practitioner should encounter, it is this one. It marks the first discourse of the Buddha at the Deer Park in Isipatana.",
+          establishes: [
+            "The two extremes (sensual indulgence & self-mortification)",
+            "The Middle Way (Majjhimā Paṭipadā)",
+            "The Noble Eightfold Path (Ariya Aṭṭhaṅgika Magga)",
+            "The proclamation of the Four Noble Truths",
+            "The definition of Dukkha and its origin in craving (Taṇhā)",
+            "The cessation of Dukkha (Nirodha) and the path (Magga)",
+            "The Three Phases / Twelve Aspects (Tiparivaṭṭa Dvādasākāra)",
+            "The completion of the Buddha's unexcelled supreme awakening",
+            "Koṇḍañña's arising of the pristine Dhamma Eye (Dhammacakkhu)"
+          ],
+          coreDuty: {
+            title: "The Fourfold Structure of Practice & Knowledge (Catukicca)",
+            intro: "Most importantly, the sutta does not merely proclaim that 'there are four truths'. It establishes an operational fourfold imperative of direct practice:",
+            matrix: [
+              { truth: "1. Dukkha (Stress / Unsatisfactoriness)", paliDuty: "Pariññeyya", meaning: "Must be fully understood & comprehended" },
+              { truth: "2. Samudaya (Origin of Stress: Craving)", paliDuty: "Pahātabba", meaning: "Must be abandoned & relinquished" },
+              { truth: "3. Nirodha (Cessation of Stress: Nibbāna)", paliDuty: "Sacchikātabba", meaning: "Must be directly realized & witnessed" },
+              { truth: "4. Magga (The Noble Eightfold Path)", paliDuty: "Bhāvetabba", meaning: "Must be cultivated & developed in everyday life" }
+            ],
+            note: "This operational distinction—comprehend, abandon, realize, cultivate—should remain the central compass of your study and practice."
+          },
+          suttaCentralUrl: "https://suttacentral.net/sn56.11/en/bodhi",
+          excerptPali: "Idam kho pana, bhikkhave, dukkham ariyasaccam: jātipi dukkhā, jarāpi dukkhā, maraṇampi dukkham... saṅkhittena pañcupādānakkhandhā dukkhā.",
+          excerptTrans: "Now this, monastics, is the Noble Truth of Dukkha: Birth is stressful, aging is stressful, illness and death are stressful; sorrow, lamentation, pain, distress, and despair are stressful; association with the disliked is stressful; separation from the loved is stressful; not getting what one desires is stressful. In brief, the five clinging-aggregates are stressful."
         },
         {
-          source: "SN 56.11 — The Core Pathology of Craving",
-          pali: "Yāyaṁ taṇhā ponobbhavikā nandirāgasahagatā tatratatrābhinandinī, seyyathidaṁ: kāmataṇhā, bhavataṇhā, vibhavataṇhā.",
-          translation: "It is this craving which leads to further becoming, accompanied by delight and passion, finding relish now here, now there, namely: craving for sensory pleasures, craving for becoming, craving for non-becoming."
+          suttaCode: "MN 141",
+          paliTitle: "Saccavibhaṅga Sutta",
+          transTitle: "The Analysis of the Truths",
+          role: "The Systematic Doctrinal Anatomy",
+          summary: "SN 56.11 gives the proclamation; MN 141 gives the analysis. Delivered by the Venerable Sāriputta under the Buddha's endorsement, this discourse systematically expands the Four Noble Truths, providing the definitive anatomical breakdown of the first and fourth truths.",
+          establishes: [
+            "Moving from familiar life symptoms into the deeper core of clinging",
+            "The complete canonical inventory of Dukkha: birth, aging, illness, death, sorrow, lamentation, pain, grief, despair",
+            "Interpersonal distress: association with the disliked & separation from the liked",
+            "Psychological frustration: not getting what one desires",
+            "The ultimate diagnosis: the five aggregates subject to clinging (pañcupādānakkhandhā dukkhā)",
+            "Systematic individual definitions for each of the eight path factors of the Noble Eightfold Path"
+          ],
+          deepAnatomy: {
+            title: "Moving to Pañcupādānakkhandhā (The Clinging-Aggregates)",
+            detail: "MN 141 allows your study to move beyond the familiar surface list ('birth, aging, sickness, death...') into the deep canonical formulation: Pañcupādānakkhandhā dukkhā. Suffering is not simply painful events; it is the compulsive clinging to the five aggregates (form, feeling, perception, volitional formations, and consciousness)."
+          },
+          suttaCentralUrl: "https://suttacentral.net/mn141/en/sujato",
+          excerptPali: "Katamañca, āvuso, dukkham ariyasaccaṁ? Jātipi dukkhā, jarāpi dukkhā, maraṇampi dukkhaṁ... saṅkhittena pañcupādānakkhandhā dukkhā.",
+          excerptTrans: "And what, friends, is the Noble Truth of Dukkha? Birth is suffering, aging is suffering, death is suffering; sorrow, lamentation, pain, grief, and despair are suffering; association with the unloved is suffering; separation from the loved is suffering; not getting what one wants is suffering. In brief, the five aggregates subject to clinging are suffering."
+        },
+        {
+          suttaCode: "MN 9",
+          paliTitle: "Sammādiṭṭhi Sutta",
+          transTitle: "Right View",
+          role: "The Four Noble Truths as Right View",
+          summary: "This is one of the most vital texts to understand the Four Noble Truths not as an isolated chapter of philosophy, but as the master diagnostic engine of Right View (Sammādiṭṭhi).",
+          establishes: [
+            "Right View articulated through wholesome and unwholesome roots (kusala & akusala)",
+            "Right View articulated through the four nutriments of existence (physical food, contact, volition, consciousness)",
+            "The Four Truths as the universal diagnostic formula applied across all phenomena",
+            "Direct integration of the Four Truths with Dependent Origination (Paṭiccasamuppāda)",
+            "Eradication of the underlying obsessions / latent tendencies (anusaya)",
+            "Knowing Dukkha, its origin, its cessation, and the path as the essential hallmark of a noble disciple"
+          ],
+          deepAnatomy: {
+            title: "The Four Noble Truths as an Active Diagnostic Lens",
+            detail: "The Venerable Sāriputta demonstrates that the Four Noble Truths are part and parcel of Sammādiṭṭhi. Rather than asking merely 'What are the Four Truths?', this sutta trains the practitioner to see every life situation through the lens of: What is the stress? What is its origin? What is its cessation? What is the practical path to peace?"
+          },
+          suttaCentralUrl: "https://suttacentral.net/mn9/en/sujato",
+          excerptPali: "Yato kho, āvuso, ariyasāvako dukkhañca pajānāti, dukkhasamudayañca pajānāti, dukkhanirodhañca pajānāti, dukkhanirodhagāminiñca paṭipadaṁ pajānāti; ettāvatāpi kho, āvuso, ariyasāvako sammādiṭṭhi hoti...",
+          excerptTrans: "When a noble disciple understands suffering, its origin, its cessation, and the way leading to its cessation, in that way he is one of right view, whose view is straight, who has unwavering confidence in the Dhamma, and has arrived at this true Dhamma."
+        },
+        {
+          suttaCode: "MN 28",
+          paliTitle: "Mahāhatthipadopama Sutta",
+          transTitle: "The Greater Discourse on the Simile of the Elephant's Footprint",
+          role: "The Master Container of All Dhammas & The Clinging-Aggregates",
+          summary: "Particularly crucial for understanding the First Noble Truth. Sāriputta connects the Four Truths directly with the five clinging-aggregates, preventing the app's explanation of Dukkha from becoming psychologically superficial ('just bad experiences').",
+          establishes: [
+            "The Simile of the Elephant's Footprint: just as all animal footprints fit within an elephant's footprint, all wholesome teachings are embraced by the Four Noble Truths",
+            "In-depth canonical examination of Material Form (Rūpa) through the internal and external physical elements (earth, water, fire, wind)",
+            "The contemplation of impermanence across cosmic geological scales and within the human body",
+            "Direct progression from sensory contact to feeling, perception, volitional formations, and consciousness",
+            "The realization that 'the five aggregates subject to clinging are Dukkha' (pañcupādānakkhandhā dukkhā)",
+            "Protection against superficial psychological reductionism: suffering is existential clinging, not mere temporary discomfort"
+          ],
+          deepAnatomy: {
+            title: "The Elephant's Footprint & Beyond Superficiality",
+            detail: "Beginners easily misunderstand Dukkha as simply meaning 'unpleasant occurrences'. That is not sufficient. The deeper formulation is: pañcupādānakkhandhā dukkhā. MN 28 gives an unshakeable canonical route into form, feeling, perception, formations, and consciousness, showing that peace is found when clinging to these processes is dismantled."
+          },
+          suttaCentralUrl: "https://suttacentral.net/mn28/en/sujato",
+          excerptPali: "Seyyathāpi, āvuso, yāni kānici jaṅgalānaṁ pāṇānaṁ padajātāni, sabbāni tāni hatthipade samodhānaṁ gacchanti... evameva kho, āvuso, ye keci kusalā dhammā, sabbe te catūsu ariyasaccesu saṅgahaṁ gacchanti.",
+          excerptTrans: "Just as the footprint of any living being that walks can be placed within the footprint of an elephant, and the elephant’s footprint is declared supreme among them because of its great size; so too, all wholesome qualities can be included in the Four Noble Truths."
+        }
+      ],
+      canonicalExcerpts: [
+        {
+          source: "SN 56.11 — Proclamation of the Four Truths",
+          pali: "Idam kho pana, bhikkhave, dukkham ariyasaccam: jātipi dukkhā, jarāpi dukkhā, maraṇampi dukkham... saṅkhittena pañcupādānakkhandhā dukkhā.",
+          translation: "Now this, monastics, is the Noble Truth of Dukkha: Birth is stressful, aging is stressful, illness and death are stressful; sorrow, lamentation, pain, distress, and despair are stressful; association with the disliked is stressful; separation from the loved is stressful; not getting what one desires is stressful. In brief, the five clinging-aggregates are stressful."
         }
       ],
       householdApplication: [
@@ -128,19 +242,115 @@ const TOPICS_DATA = [
         { term: "Samudaya", meaning: "Origem ou surgimento, especificamente enraizado no anseio compulsivo (Taṇhā)" },
         { term: "Nirodha", meaning: "Cessação, desatamento, a extinção definitiva da sede insaciável (Nibbāna)" },
         { term: "Magga", meaning: "O Nobre Caminho Óctuplo que conduz à cessação do estresse (Ariya Aṭṭhaṅgika Magga)" },
-        { term: "Taṇhā", meaning: "Sede ardente, anseio febril (pelos sentidos, pelo vir-a-ser e pelo aniquilamento)" }
+        { term: "Taṇhā", meaning: "Sede ardente, anseio febril (pelos sentidos, pelo vir-a-ser e pelo aniquilamento)" },
+        { term: "Pañcupādānakkhandhā", meaning: "Os cinco agregados sujeitos ao apego (forma, sensação, percepção, formações mentais, consciência)" }
       ],
       overview: "As Quatro Nobres Verdades constituem o plano-mestre de toda a dispensação do Buda. Longe de representarem um pessimismo passivo, são um diagnóstico clínico supremo da existência humana: identificam a condição dolorosa (Dukkha), desvelam seu patógeno psicológico (o apego febril), proclamam a certeza da libertação (Cessação) e prescrevem a terapêutica de vida integral (O Nobre Caminho Óctuplo).",
-      canonicalExcerpts: [
+      canonicalCorpus: [
         {
-          source: "SN 56.11 — Colocando em Movimento a Roda do Dhamma",
-          pali: "Idam kho pana, bhikkhave, dukkham ariyasaccam: jātipi dukkhā, jarāpi dukkhā, maraṇampi dukkham... saṅkhittena pañcupādānakkhandhā dukkhā.",
-          translation: "Isto, ó monges, é a Nobre Verdade de Dukkha: o nascimento é estresse, o envelhecimento é estresse, a doença e a morte são estresse; tristeza, lamentação, dor, angústia e desespero são estresse; associar-se com o desagradável é estresse; separar-se do que é amado é estresse; não obter o que se deseja é estresse. Em suma, os cinco agregados de apego são estresse."
+          suttaCode: "SN 56.11",
+          paliTitle: "Dhammacakkappavattana Sutta",
+          transTitle: "Colocando a Roda do Dhamma em Movimento",
+          role: "O Texto Primário Indispensável & Proclamação",
+          summary: "Este é o texto primário indispensável. Se este portal possui uma fonte única sobre as 'Quatro Nobres Verdades' que todo praticante deve encontrar, é este discurso primordial proferido no Parque das Gazelas em Isipatana.",
+          establishes: [
+            "Os dois extremos (indulgência sensual e automortificação)",
+            "O Caminho do Meio (Majjhimā Paṭipadā)",
+            "O Nobre Caminho Óctuplo (Ariya Aṭṭhaṅgika Magga)",
+            "A proclamação das Quatro Nobres Verdades",
+            "A definição de Dukkha e sua origem no anseio (Taṇhā)",
+            "A cessação definitiva de Dukkha (Nirodha) e o caminho (Magga)",
+            "As Três Fases e Doze Aspectos (Tiparivaṭṭa Dvādasākāra)",
+            "A consumação do despertar supremo do Buda",
+            "O surgimento do Olho do Dhamma (Dhammacakkhu) no venerável Koṇḍañña"
+          ],
+          coreDuty: {
+            title: "A Estrutura Quádrupla de Prática e Ação (Catukicca)",
+            intro: "Crucialmente, o sutta não se limita a anunciar que 'existem quatro verdades'. Ele estabelece uma estrutura operacional de quatro deveres deliberados de prática:",
+            matrix: [
+              { truth: "1. Dukkha (Sofrimento / Estresse)", paliDuty: "Pariññeyya", meaning: "Deve ser plenamente compreendido e investigado" },
+              { truth: "2. Samudaya (Origem: Anseio / Taṇhā)", paliDuty: "Pahātabba", meaning: "Deve ser abandonado e renunciado" },
+              { truth: "3. Nirodha (Cessação: Nibbāna)", paliDuty: "Sacchikātabba", meaning: "Deve ser diretamente realizado e testemunhado" },
+              { truth: "4. Magga (O Nobre Caminho Óctuplo)", paliDuty: "Bhāvetabba", meaning: "Deve ser cultivado e desenvolvido no cotidiano" }
+            ],
+            note: "Essa distinção fundamental — compreender, abandonar, realizar e cultivar — deve permanecer como o eixo central do seu estudo e prática."
+          },
+          suttaCentralUrl: "https://suttacentral.net/sn56.11/en/bodhi",
+          excerptPali: "Idam kho pana, bhikkhave, dukkham ariyasaccam: jātipi dukkhā, jarāpi dukkhā, maraṇampi dukkham... saṅkhittena pañcupādānakkhandhā dukkhā.",
+          excerptTrans: "Isto, ó monges, é a Nobre Verdade de Dukkha: o nascimento é estresse, o envelhecimento é estresse, a doença e a morte são estresse; tristeza, lamentação, dor, angústia e desespero são estresse; associar-se com o desagradável é estresse; separar-se do que é amado é estresse; não obter o que se deseja é estresse. Em suma, os cinco agregados de apego são estresse."
         },
         {
-          source: "SN 56.11 — A Raiz Patológica do Anseio",
-          pali: "Yāyaṁ taṇhā ponobbhavikā nandirāgasahagatā tatratatrābhinandinī, seyyathidaṁ: kāmataṇhā, bhavataṇhā, vibhavataṇhā.",
-          translation: "É este o anseio que conduz ao contínuo renascimento, acompanhado de deleite e paixão, encontrando apego aqui e além: anseio por prazeres sensoriais, anseio por vir-a-ser e anseio pelo aniquilamento."
+          suttaCode: "MN 141",
+          paliTitle: "Saccavibhaṅga Sutta",
+          transTitle: "A Análise das Verdades",
+          role: "A Anatomia Doutrinária Sistemática",
+          summary: "SN 56.11 proclama as Verdades; MN 141 fornece a análise anatômica. Exposto pelo venerável Sāriputta com o aval do Buda, expande minuciosamente cada componente da primeira e da quarta verdade.",
+          establishes: [
+            "Transição dos sintomas superficiais para a raiz profunda do apego",
+            "O inventário canônico de Dukkha: nascimento, envelhecimento, enfermidade, morte, pesar, lamento, dor, angústia e desespero",
+            "O sofrimento relacional: associação com o desprazeroso e separação do que se ama",
+            "A frustração psicológica: não obter o que se deseja",
+            "O diagnóstico definitivo: os cinco agregados de apego (pañcupādānakkhandhā dukkhā)",
+            "Definições canônicas individuais para cada um dos oito fatores do Nobre Caminho Óctuplo"
+          ],
+          deepAnatomy: {
+            title: "Aprofundando em Pañcupādānakkhandhā (Os Agregados de Apego)",
+            detail: "MN 141 permite que seu estudo ultrapasse a lista conhecida ('nascimento, velhice, doença, morte...') para alcançar a formulação canônica profunda: Pañcupādānakkhandhā dukkhā. O estresse não é apenas passar por momentos desagradáveis; é o apego compulsivo aos cinco agregados (forma, sensação, percepção, formações mentais e consciência)."
+          },
+          suttaCentralUrl: "https://suttacentral.net/mn141/en/sujato",
+          excerptPali: "Katamañca, āvuso, dukkham ariyasaccaṁ? Jātipi dukkhā, jarāpi dukkhā, maraṇampi dukkhaṁ... saṅkhittena pañcupādānakkhandhā dukkhā.",
+          excerptTrans: "E o que, amigos, é a Nobre Verdade de Dukkha? O nascimento é sofrimento, o envelhecimento é sofrimento, a morte é sofrimento; tristeza, lamentação, dor, angústia e desespero são sofrimento; associar-se ao que não se ama é sofrimento; separar-se do que se ama é sofrimento; não obter o que se deseja é sofrimento. Em resumo, os cinco agregados de apego são sofrimento."
+        },
+        {
+          suttaCode: "MN 9",
+          paliTitle: "Sammādiṭṭhi Sutta",
+          transTitle: "Visão Correta",
+          role: "As Quatro Nobres Verdades como Visão Correta",
+          summary: "Um dos textos mais importantes para compreender as Quatro Nobres Verdades não como filosofia abstrata e isolada, mas como o motor mestre da Visão Correta (Sammādiṭṭhi).",
+          establishes: [
+            "Visão Correta explicada através das raízes hábeis e inábeis (kusala & akusala)",
+            "Visão Correta através dos quatro nutrimentos da existência (comida material, contato, volição mental, consciência)",
+            "As Quatro Verdades como a fórmula diagnóstica universal aplicada a todos os fenômenos",
+            "Integração direta entre as Quatro Verdades e a Origem Dependente (Paṭiccasamuppāda)",
+            "Erradicação das tendências latentes obsessivas (anusaya)",
+            "Discernir Dukkha, sua origem, cessação e o caminho como a marca fundamental do nobre discípulo"
+          ],
+          deepAnatomy: {
+            title: "As Quatro Verdades Como Lente Diagnóstica Viva",
+            detail: "O venerável Sāriputta demonstra que as Quatro Verdades fazem parte indissociável de Sammādiṭṭhi. Em vez de perguntar abstratamente 'O que são as Quatro Verdades?', este sutta treina o praticante a examinar qualquer situação através das lentes: Qual é o atrito? Qual é sua origem? Qual é sua cessação? Qual é o caminho prático para a pacificação?"
+          },
+          suttaCentralUrl: "https://suttacentral.net/mn9/en/sujato",
+          excerptPali: "Yato kho, āvuso, ariyasāvako dukkhañca pajānāti, dukkhasamudayañca pajānāti, dukkhanirodhañca pajānāti, dukkhanirodhagāminiñca paṭipadaṁ pajānāti; ettāvatāpi kho, āvuso, ariyasāvako sammādiṭṭhi hoti...",
+          excerptTrans: "Quando um nobre discípulo compreende o sofrimento, sua origem, sua cessação e o caminho que conduz à sua cessação, até esse ponto ele é alguém de visão correta, cuja visão é reta, que possui confiança inabalável no ensinamento e chegou ao verdadeiro Dhamma."
+        },
+        {
+          suttaCode: "MN 28",
+          paliTitle: "Mahāhatthipadopama Sutta",
+          transTitle: "O Grande Discurso sobre a Símile da Pegada do Elefante",
+          role: "O Recipiente Mestre de Todos os Ensinamentos & Os Agregados de Apego",
+          summary: "Particularmente essencial para aprofundar a Primeira Nobre Verdade. O venerável Sāriputta vincula as Quatro Verdades aos cinco agregados de apego, impedindo que a explicação de Dukkha degenere em superficialidade psicológica ('apenas ter dias ruins').",
+          establishes: [
+            "A Símile da Pegada do Elefante: assim como todas as pegadas de animais cabem na pegada do elefante, todas as qualidades nobres estão contidas nas Quatro Nobres Verdades",
+            "Exame canônico aprofundado da Forma Material (Rūpa) através dos elementos físicos internos e externos (terra, água, fogo, ar)",
+            "A contemplação da impermanência cósmica em estruturas físicas gigantescas e no corpo humano",
+            "Progressão direta do contato sensorial para sensação, percepção, formações mentais e consciência",
+            "A constatação de que 'os cinco agregados de apego são Dukkha' (pañcupādānakkhandhā dukkhā)",
+            "Proteção contra a redução psicológica rasa: o sofrimento é o apego existencial ao que é efêmero"
+          ],
+          deepAnatomy: {
+            title: "A Pegada do Elefante & Além da Superficialidade",
+            detail: "Iniciantes frequentemente supõem que Dukkha significa apenas 'experiências desagradáveis'. Isso não é suficiente. A formulação mais profunda é: pañcupādānakkhandhā dukkhā. MN 28 fornece uma rota canônica sólida para investigar forma, sensação, percepção, formações e consciência, comprovando que a paz se estabelece quando o apego a esses processos é desfeito."
+          },
+          suttaCentralUrl: "https://suttacentral.net/mn28/en/sujato",
+          excerptPali: "Seyyathāpi, āvuso, yāni kānici jaṅgalānaṁ pāṇānaṁ padajātāni, sabbāni tāni hatthipade samodhānaṁ gacchanti... evameva kho, āvuso, ye keci kusalā dhammā, sabbe te catūsu ariyasaccesu saṅgahaṁ gacchanti.",
+          excerptTrans: "Assim como a pegada de qualquer ser vivo que caminha sobre a terra cabe dentro da pegada de um elefante; da mesma forma, todos os ensinamentos e qualidades nobres estão compreendidos nas Quatro Nobres Verdades."
+        }
+      ],
+      canonicalExcerpts: [
+        {
+          source: "SN 56.11 — Proclamação das Quatro Verdades",
+          pali: "Idam kho pana, bhikkhave, dukkham ariyasaccam: jātipi dukkhā, jarāpi dukkhā, maraṇampi dukkham... saṅkhittena pañcupādānakkhandhā dukkhā.",
+          translation: "Isto, ó monges, é a Nobre Verdade de Dukkha: o nascimento é estresse, o envelhecimento é estresse, a doença e a morte são estresse; tristeza, lamentação, dor, angústia e desespero são estresse; associar-se com o desagradável é estresse; separar-se do que é amado é estresse; não obter o que se deseja é estresse. Em suma, os cinco agregados de apego são estresse."
         }
       ],
       householdApplication: [
@@ -1299,14 +1509,152 @@ class LayDharmaApp {
       </div>
     `).join('');
 
-    // Canonical Excerpts
-    this.dom.modalExcerptsList.innerHTML = langContent.canonicalExcerpts.map(ex => `
-      <div class="sutta-box">
-        <div class="sutta-source-name">${ex.source}</div>
-        <div class="sutta-pali-passage">${ex.pali}</div>
-        <div class="sutta-english-passage">"${ex.translation}"</div>
-      </div>
-    `).join('');
+    // Canonical Corpus / Excerpts
+    if (langContent.canonicalCorpus && langContent.canonicalCorpus.length > 0) {
+      const jumpNavHtml = `
+        <div class="corpus-intro-banner">
+          <div class="corpus-banner-title"><span>☸</span> ${t.corpusHeading}</div>
+          <div class="corpus-banner-subtitle">${t.corpusSubtitle}</div>
+          <div class="corpus-jump-nav">
+            <span class="corpus-jump-label">${t.quickJumpLabel}</span>
+            <div class="corpus-jump-pills">
+              ${langContent.canonicalCorpus.map((s, idx) => `
+                <a href="#corpus-sutta-${idx}" class="corpus-jump-pill">
+                  <span class="jump-pill-code">${s.suttaCode}</span>
+                  <span class="jump-pill-title">${s.paliTitle}</span>
+                </a>
+              `).join('')}
+            </div>
+          </div>
+        </div>
+      `;
+
+      const corpusCardsHtml = langContent.canonicalCorpus.map((sutta, idx) => {
+        // Establishes List
+        let establishesHtml = '';
+        if (sutta.establishes && sutta.establishes.length > 0) {
+          establishesHtml = `
+            <div class="corpus-section-block">
+              <div class="corpus-block-heading">${t.establishesLabel}</div>
+              <ul class="corpus-establishes-list">
+                ${sutta.establishes.map(item => `<li>${item}</li>`).join('')}
+              </ul>
+            </div>
+          `;
+        }
+
+        // Fourfold Duty Structure (Catukicca) Table
+        let dutyHtml = '';
+        if (sutta.coreDuty) {
+          dutyHtml = `
+            <div class="corpus-duty-card">
+              <div class="corpus-duty-header">
+                <span class="corpus-duty-icon">☸</span>
+                <span class="corpus-duty-title">${sutta.coreDuty.title}</span>
+              </div>
+              <p class="corpus-duty-intro">${sutta.coreDuty.intro}</p>
+              <div class="duty-table-wrapper">
+                <table class="duty-matrix-table">
+                  <thead>
+                    <tr>
+                      <th>${t.dutyMatrixTruth}</th>
+                      <th>${t.dutyMatrixPali}</th>
+                      <th>${t.dutyMatrixAction}</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    ${sutta.coreDuty.matrix.map(row => `
+                      <tr>
+                        <td class="duty-truth-cell">${row.truth}</td>
+                        <td class="duty-pali-cell">${row.paliDuty}</td>
+                        <td class="duty-action-cell">${row.meaning}</td>
+                      </tr>
+                    `).join('')}
+                  </tbody>
+                </table>
+              </div>
+              ${sutta.coreDuty.note ? `<div class="duty-principle-note"><strong>${t.dutyMatrixPrinciple}</strong> ${sutta.coreDuty.note}</div>` : ''}
+            </div>
+          `;
+        }
+
+        // Deep Anatomy Card
+        let anatomyHtml = '';
+        if (sutta.deepAnatomy) {
+          anatomyHtml = `
+            <div class="corpus-anatomy-card">
+              <div class="corpus-anatomy-header">
+                <span class="corpus-anatomy-icon">☸</span>
+                <span class="corpus-anatomy-title">${sutta.deepAnatomy.title}</span>
+              </div>
+              <p class="corpus-anatomy-detail">${sutta.deepAnatomy.detail}</p>
+            </div>
+          `;
+        }
+
+        // Canonical Passage
+        let excerptHtml = '';
+        if (sutta.excerptPali || sutta.excerptTrans) {
+          excerptHtml = `
+            <div class="sutta-box">
+              <div class="sutta-source-name">${sutta.suttaCode} — Canonical Text</div>
+              ${sutta.excerptPali ? `<div class="sutta-pali-passage">${sutta.excerptPali}</div>` : ''}
+              ${sutta.excerptTrans ? `<div class="sutta-english-passage">"${sutta.excerptTrans}"</div>` : ''}
+            </div>
+          `;
+        }
+
+        // SuttaCentral Action Row
+        let scLinkHtml = '';
+        if (sutta.suttaCentralUrl) {
+          scLinkHtml = `
+            <div class="corpus-link-row">
+              <a href="${sutta.suttaCentralUrl}" target="_blank" rel="noopener noreferrer" class="suttacentral-btn">
+                <span>${t.readOnSuttaCentral} (${sutta.suttaCode})</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                  <polyline points="15 3 21 3 21 9"></polyline>
+                  <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg>
+              </a>
+            </div>
+          `;
+        }
+
+        return `
+          <article class="corpus-sutta-card" id="corpus-sutta-${idx}">
+            <header class="corpus-card-header">
+              <div class="corpus-badges-row">
+                <span class="corpus-num-badge">${idx + 1}</span>
+                <span class="corpus-code-badge">${sutta.suttaCode}</span>
+                <span class="corpus-role-badge">${sutta.role}</span>
+              </div>
+              <h3 class="corpus-pali-title">${sutta.paliTitle}</h3>
+              <div class="corpus-trans-title">“${sutta.transTitle}”</div>
+            </header>
+
+            <div class="corpus-card-content">
+              <p class="corpus-summary-lead">${sutta.summary}</p>
+              ${establishesHtml}
+              ${dutyHtml}
+              ${anatomyHtml}
+              ${excerptHtml}
+              ${scLinkHtml}
+            </div>
+          </article>
+        `;
+      }).join('');
+
+      this.dom.modalExcerptsList.innerHTML = jumpNavHtml + corpusCardsHtml;
+    } else if (langContent.canonicalExcerpts) {
+      this.dom.modalExcerptsList.innerHTML = langContent.canonicalExcerpts.map(ex => `
+        <div class="sutta-box">
+          <div class="sutta-source-name">${ex.source}</div>
+          <div class="sutta-pali-passage">${ex.pali}</div>
+          <div class="sutta-english-passage">"${ex.translation}"</div>
+        </div>
+      `).join('');
+    }
 
     // Household Practice
     this.dom.modalHouseholdList.innerHTML = langContent.householdApplication.map(app => `
