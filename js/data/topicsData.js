@@ -33,6 +33,15 @@ export const I18N_STRINGS = {
     langPtTitle: "Português",
     corpusHeading: "The Core Four Noble Truths Corpus",
     corpusSubtitle: "Seven Canonical Pillars: Proclamation, Anatomy, Right View, Simile, Not-Self, Conditionality & The Aggregates",
+    studyProgressionHeading: "Canonical Study Progression",
+    studyProgressionSubtitle: "A sequenced doctrinal roadmap moving from initial proclamation to deep conditionality",
+    levelLabel: "Level",
+    guidingInquiryLabel: "Guiding Doctrinal Question:",
+    doctrinalFrameworkHeading: "The Fourfold Operational Practice (Catukicca)",
+    doctrinalFrameworkSubtitle: "The authentic Theravāda imperative vs. crude popularized slogans",
+    popularSloganLabel: "Crude Popular Slogan:",
+    canonicalRealityLabel: "Authentic Canonical Reality:",
+    dutyRequiredLabel: "Operational Duty:",
     establishesLabel: "Core Doctrinal Foundations Established:",
     dutyMatrixTruth: "Noble Truth",
     dutyMatrixPali: "Pāli Duty (Kicca)",
@@ -69,6 +78,15 @@ export const I18N_STRINGS = {
     langPtTitle: "Português",
     corpusHeading: "O Corpus Canônico das Quatro Nobres Verdades",
     corpusSubtitle: "Sete Pilares Canônicos: Proclamação, Anatomia, Visão Correta, Símile, Não-Eu, Condicionalidade & Os Agregados",
+    studyProgressionHeading: "Progressão do Estudo Canônico",
+    studyProgressionSubtitle: "Um roteiro doutrinário sequenciado da proclamação inicial à condicionalidade profunda",
+    levelLabel: "Nível",
+    guidingInquiryLabel: "Pergunta Doutrinária Orientadora:",
+    doctrinalFrameworkHeading: "A Prática Operacional Quádrupla (Catukicca)",
+    doctrinalFrameworkSubtitle: "O imperativo autêntico do Theravāda vs. slogans populares simplistas",
+    popularSloganLabel: "Slogan Popular Simplista:",
+    canonicalRealityLabel: "Realidade Canônica Autêntica:",
+    dutyRequiredLabel: "Dever Operacional:",
     establishesLabel: "Fundamentos Doutrinários Estabelecidos:",
     dutyMatrixTruth: "Nobre Verdade",
     dutyMatrixPali: "Dever em Pāli (Kicca)",
@@ -98,8 +116,56 @@ export const TOPICS_DATA = [
         { term: "Pañcupādānakkhandhā", meaning: "The five aggregates subject to clinging (form, feeling, perception, formations, consciousness)" }
       ],
       overview: "The Four Noble Truths form the master blueprint of the Buddha's entire dispensation. Far from being a pessimistic creed, they are a supreme clinical diagnosis of the human condition: diagnosing the dis-ease (Dukkha), uncovering its psychological pathogen (Craving), proclaiming the certainty of recovery (Cessation), and prescribing the holistic lifestyle therapy (The Eightfold Path).",
+      doctrinalMatrix: {
+        intro: "Theravāda study distinguishes sharply between popular modern simplifications and the authentic operational architecture proclaimed by the Buddha. The truths are not static philosophical beliefs, but four specific actions of direct cultivation:",
+        truths: [
+          {
+            number: "1",
+            paliName: "Dukkha",
+            transName: "The Noble Truth of Suffering",
+            dutyPali: "Pariññeyya",
+            dutyQuestion: "What is to be fully understood?",
+            crudeSlogan: "“Life is suffering” / “Everything is pain”",
+            canonicalReality: "Not merely “pain” or unfortunate circumstances. The canonical formulation explicitly defines Dukkha as the five aggregates subject to clinging (pañcupādānakkhandhā): form, feeling, perception, volitional formations, and consciousness.",
+            highlight: "To be comprehended directly through mindful investigation."
+          },
+          {
+            number: "2",
+            paliName: "Dukkha-samudaya",
+            transName: "The Origin of Suffering",
+            dutyPali: "Pahātabba",
+            dutyQuestion: "What is to be abandoned?",
+            crudeSlogan: "“Desire causes suffering” (vague psychological desire)",
+            canonicalReality: "Taṇhā (feverish thirst), specifically the threefold craving defined in SN 56.11: sensual craving (kāma-taṇhā), craving for becoming/existence (bhava-taṇhā), and craving for non-becoming/annihilation (vibhava-taṇhā).",
+            highlight: "To be abandoned by discerning its arising and relinquishing attachment."
+          },
+          {
+            number: "3",
+            paliName: "Dukkha-nirodha",
+            transName: "The Cessation of Suffering",
+            dutyPali: "Sacchikātabba",
+            dutyQuestion: "What is to be realized?",
+            crudeSlogan: "“Stop desiring / Enter a relaxed peaceful mindset”",
+            canonicalReality: "The remainderless fading, relinquishment, and cessation of that very craving (yo tassāyeva taṇhāya asesavirāganirodho). Nibbāna must never be reduced to merely “a peaceful state” or psychological relaxation.",
+            highlight: "To be directly experienced and realized here and now."
+          },
+          {
+            number: "4",
+            paliName: "Dukkha-nirodhagāminī paṭipadā",
+            transName: "The Path Leading to Cessation",
+            dutyPali: "Bhāvetabba",
+            dutyQuestion: "What is to be developed?",
+            crudeSlogan: "“Follow the Eightfold Path as philosophical dogma or ethical rules”",
+            canonicalReality: "The Noble Eightfold Path (Ariya Aṭṭhaṅgika Magga). Critically, the Buddha emphasizes that the path is something that is actively developed (bhāvetabba / cultivated through practice), not merely believed in or intellectually entertained.",
+            highlight: "To be actively cultivated across every domain of daily life."
+          }
+        ]
+      },
       canonicalCorpus: [
         {
+          levelNumber: 1,
+          levelTitle: "Level 1 — The Buddha's First Exposition",
+          guidingQuestion: "What are the Four Noble Truths?",
           suttaCode: "SN 56.11",
           paliTitle: "Dhammacakkappavattana Sutta",
           transTitle: "Setting the Dhamma Wheel in Motion",
@@ -132,6 +198,9 @@ export const TOPICS_DATA = [
           excerptTrans: "Now this, monastics, is the Noble Truth of Dukkha: Birth is stressful, aging is stressful, illness and death are stressful; sorrow, lamentation, pain, distress, and despair are stressful; association with the disliked is stressful; separation from the loved is stressful; not getting what one desires is stressful. In brief, the five clinging-aggregates are stressful."
         },
         {
+          levelNumber: 2,
+          levelTitle: "Level 2 — Detailed Analysis",
+          guidingQuestion: "What does each truth contain?",
           suttaCode: "MN 141",
           paliTitle: "Saccavibhaṅga Sutta",
           transTitle: "The Analysis of the Truths",
@@ -154,6 +223,9 @@ export const TOPICS_DATA = [
           excerptTrans: "And what, friends, is the Noble Truth of Dukkha? Birth is suffering, aging is suffering, death is suffering; sorrow, lamentation, pain, grief, and despair are suffering; association with the unloved is suffering; separation from the loved is suffering; not getting what one wants is suffering. In brief, the five aggregates subject to clinging are suffering."
         },
         {
+          levelNumber: 3,
+          levelTitle: "Level 3 — Right View",
+          guidingQuestion: "Why are the Four Noble Truths fundamental to right view?",
           suttaCode: "MN 9",
           paliTitle: "Sammādiṭṭhi Sutta",
           transTitle: "Right View",
@@ -176,6 +248,9 @@ export const TOPICS_DATA = [
           excerptTrans: "When a noble disciple understands suffering, its origin, its cessation, and the way leading to its cessation, in that way he is one of right view, whose view is straight, who has unwavering confidence in the Dhamma, and has arrived at this true Dhamma."
         },
         {
+          levelNumber: 4,
+          levelTitle: "Level 4 — Understanding Dukkha",
+          guidingQuestion: "Why are the five aggregates subject to clinging dukkha?",
           suttaCode: "MN 28",
           paliTitle: "Mahāhatthipadopama Sutta",
           transTitle: "The Greater Discourse on the Simile of the Elephant's Footprint",
@@ -198,6 +273,9 @@ export const TOPICS_DATA = [
           excerptTrans: "Just as the footprint of any living being that walks can be placed within the footprint of an elephant, and the elephant’s footprint is declared supreme among them because of its great size; so too, all wholesome qualities can be included in the Four Noble Truths."
         },
         {
+          levelNumber: 4,
+          levelTitle: "Level 4 — Understanding Dukkha",
+          guidingQuestion: "Why can't these aggregates be regarded as self?",
           suttaCode: "SN 22.59",
           paliTitle: "Anattalakkhaṇa Sutta",
           transTitle: "The Characteristic of Not-Self",
@@ -219,27 +297,9 @@ export const TOPICS_DATA = [
           excerptTrans: "Form, monastics, is not-self... 'This is not mine, this I am not, this is not my self': thus this should be seen as it really is with correct wisdom... Seeing thus, monastics, the instructed noble disciple experiences disenchantment towards form, feeling, perception, volitional formations, and consciousness. Through disenchantment, dispassion arises; through dispassion, he is liberated."
         },
         {
-          suttaCode: "SN 12.23",
-          paliTitle: "Upanisa Sutta",
-          transTitle: "Supporting Conditions",
-          role: "Conditionality of Dukkha & Transcendental Dependent Arising",
-          summary: "One of the foundational texts for illuminating the exact relationship between Dukkha, its causes, and the path. Particularly valuable because it demonstrates that suffering and liberation unfold within a conditional architecture, preventing the common oversimplification that 'craving causes suffering'. The Buddha's teaching is far more structurally sophisticated than a simple psychological slogan.",
-          establishes: [
-            "The Four Truths situated within the overarching canonical teaching on conditionality (Idappaccayatā)",
-            "Tracing suffering backward through the mundane chain: suffering (dukkha) ← birth (jāti) ← existence (bhava) ← clinging (upādāna) ← craving (taṇhā)... ← ignorance (avijjā)",
-            "The forward transcendental sequence (lokuttara paṭiccasamuppāda): suffering → faith (saddhā) → joy (pāmojja) → rapture (pīti) → tranquility (passaddhi) → happiness (sukha) → stillness (samādhi) → knowledge & vision of reality (yathābhūtañāṇadassana) → disenchantment (nibbidā) → dispassion (virāga) → liberation (vimutti) → knowledge of destruction of the taints (āsavakkhaye ñāṇa)",
-            "The transformative role of Dukkha: suffering is not merely a problem, but the direct supporting condition (upanisā) that awakens genuine spiritual faith",
-            "Preventing superficiality: craving causes suffering, yes, but within a multi-link conditional web"
-          ],
-          deepAnatomy: {
-            title: "Beyond Slogans: Conditional Architecture of Suffering & Awakening",
-            detail: "Common discourses often compress the truths into a single cause-effect soundbite: 'craving causes suffering'. SN 12.23 restores the Buddha's full structural genius. Suffering is conditional, arising from birth, existence, clinging, and craving back to ignorance. Most remarkably, Dukkha acts as the pivot: when met with wise discernment rather than blind despair, suffering becomes the supporting condition (upanisā) for faith (saddhā), initiating an unbroken upward spiral all the way to complete liberation."
-          },
-          suttaCentralUrl: "https://suttacentral.net/sn12.23/en/bodhi",
-          excerptPali: "Iti kho, bhikkhave, avijjūpanisā saṅkhārā... jātūpanisaṁ dukkhaṁ, dukkhūpanisā saddhā, saddhūpanisaṁ pāmojjaṁ, pāmojjūpanisā pīti, pītūpanisā passaddhi, passaddhūpanisaṁ sukhaṁ, sukhūpaniso samādhi, samādhūpanisaṁ yathābhūtañāṇadassanaṁ, yathābhūtañāṇadassanūpanisā nibbidā, nibbidūpaniso virāgo, virāgūpanisā vimutti, vimuttūpanisaṁ khaye ñāṇaṁ.",
-          excerptTrans: "Thus, monastics, with ignorance as supporting condition are formations... with birth as supporting condition is suffering; with suffering as supporting condition is faith; with faith as supporting condition joy; with joy rapture; with rapture tranquility; with tranquility happiness; with happiness concentration; with concentration knowledge and vision of things as they really are; with knowledge and vision disenchantment; with disenchantment dispassion; with dispassion liberation; with liberation knowledge of the destruction of the taints."
-        },
-        {
+          levelNumber: 4,
+          levelTitle: "Level 4 — Understanding Dukkha",
+          guidingQuestion: "What is the primary canonical definition of suffering?",
           suttaCode: "SN 56.13",
           paliTitle: "Khandha Sutta",
           transTitle: "The Aggregates",
@@ -260,6 +320,30 @@ export const TOPICS_DATA = [
           suttaCentralUrl: "https://suttacentral.net/sn56.13/en/bodhi",
           excerptPali: "Katamañca, bhikkhave, dukkhaṁ ariyasaccaṁ? Pañcupādānakkhandhātissa vacanīyaṁ, seyyathidaṁ: rūpupādānakkhandho, vedanupādānakkhandho, saññupādānakkhandho, saṅkhārupādānakkhandho, viññāṇupādānakkhandho... Tasmātiha, bhikkhave, 'idaṁ dukkhan'ti yogo karaṇīyo... 'ayaṁ dukkhanirodhagāminī paṭipadā'ti yogo karaṇīyo.",
           excerptTrans: "And what, monastics, is the Noble Truth of Suffering? It should be said: the five aggregates subject to clinging, that is to say: the form clinging-aggregate, feeling clinging-aggregate, perception clinging-aggregate, formations clinging-aggregate, consciousness clinging-aggregate... Therefore, monastics, an exertion should be made to understand: 'This is suffering'... 'This is the way leading to the cessation of suffering'."
+        },
+        {
+          levelNumber: 5,
+          levelTitle: "Level 5 — Understanding Conditionality",
+          guidingQuestion: "How does suffering relate to the conditions leading toward liberation?",
+          suttaCode: "SN 12.23",
+          paliTitle: "Upanisa Sutta",
+          transTitle: "Supporting Conditions",
+          role: "Conditionality of Dukkha & Transcendental Dependent Arising",
+          summary: "One of the foundational texts for illuminating the exact relationship between Dukkha, its causes, and the path. Particularly valuable because it demonstrates that suffering and liberation unfold within a conditional architecture, preventing the common oversimplification that 'craving causes suffering'. The Buddha's teaching is far more structurally sophisticated than a simple psychological slogan.",
+          establishes: [
+            "The Four Truths situated within the overarching canonical teaching on conditionality (Idappaccayatā)",
+            "Tracing suffering backward through the mundane chain: suffering (dukkha) ← birth (jāti) ← existence (bhava) ← clinging (upādāna) ← craving (taṇhā)... ← ignorance (avijjā)",
+            "The forward transcendental sequence (lokuttara paṭiccasamuppāda): suffering → faith (saddhā) → joy (pāmojja) → rapture (pīti) → tranquility (passaddhi) → happiness (sukha) → stillness (samādhi) → knowledge & vision of reality (yathābhūtañāṇadassana) → disenchantment (nibbidā) → dispassion (virāga) → liberation (vimutti) → knowledge of destruction of the taints (āsavakkhaye ñāṇa)",
+            "The transformative role of Dukkha: suffering is not merely a problem, but the direct supporting condition (upanisā) that awakens genuine spiritual faith",
+            "Preventing superficiality: craving causes suffering, yes, but within a multi-link conditional web"
+          ],
+          deepAnatomy: {
+            title: "Beyond Slogans: Conditional Architecture of Suffering & Awakening",
+            detail: "Common discourses often compress the truths into a single cause-effect soundbite: 'craving causes suffering'. SN 12.23 restores the Buddha's full structural genius. Suffering is conditional, arising from birth, existence, clinging, and craving back to ignorance. Most remarkably, Dukkha acts as the pivot: when met with wise discernment rather than blind despair, suffering becomes the supporting condition (upanisā) for faith (saddhā), initiating an unbroken upward spiral all the way to complete liberation."
+          },
+          suttaCentralUrl: "https://suttacentral.net/sn12.23/en/bodhi",
+          excerptPali: "Iti kho, bhikkhave, avijjūpanisā saṅkhārā... jātūpanisaṁ dukkhaṁ, dukkhūpanisā saddhā, saddhūpanisaṁ pāmojjaṁ, pāmojjūpanisā pīti, pītūpanisā passaddhi, passaddhūpanisaṁ sukhaṁ, sukhūpaniso samādhi, samādhūpanisaṁ yathābhūtañāṇadassanaṁ, yathābhūtañāṇadassanūpanisā nibbidā, nibbidūpaniso virāgo, virāgūpanisā vimutti, vimuttūpanisaṁ khaye ñāṇaṁ.",
+          excerptTrans: "Thus, monastics, with ignorance as supporting condition are formations... with birth as supporting condition is suffering; with suffering as supporting condition is faith; with faith as supporting condition joy; with joy rapture; with rapture tranquility; with tranquility happiness; with happiness concentration; with concentration knowledge and vision of things as they really are; with knowledge and vision disenchantment; with disenchantment dispassion; with dispassion liberation; with liberation knowledge of the destruction of the taints."
         }
       ],
       canonicalExcerpts: [
@@ -301,8 +385,56 @@ export const TOPICS_DATA = [
         { term: "Pañcupādānakkhandhā", meaning: "Os cinco agregados sujeitos ao apego (forma, sensação, percepção, formações mentais, consciência)" }
       ],
       overview: "As Quatro Nobres Verdades constituem o plano-mestre de toda a dispensação do Buda. Longe de representarem um pessimismo passivo, são um diagnóstico clínico supremo da existência humana: identificam a condição dolorosa (Dukkha), desvelam seu patógeno psicológico (o apego febril), proclamam a certeza da libertação (Cessação) e prescrevem a terapêutica de vida integral (O Nobre Caminho Óctuplo).",
+      doctrinalMatrix: {
+        intro: "O estudo no Theravāda distingue com rigor as simplificações modernas populares da arquitetura operacional autêntica proclamada pelo Buda. As Quatro Verdades não são dogmas filosóficos estáticos, mas quatro ações deliberadas de cultivo prático direto:",
+        truths: [
+          {
+            number: "1",
+            paliName: "Dukkha",
+            transName: "A Nobre Verdade do Sofrimento",
+            dutyPali: "Pariññeyya",
+            dutyQuestion: "O que deve ser plenamente compreendido?",
+            crudeSlogan: "“A vida é sofrimento” / “Tudo é dor”",
+            canonicalReality: "Não meramente “dor” física ou acontecimentos desagradáveis. O Buda define Dukkha formalmente como os cinco agregados sujeitos ao apego (pañcupādānakkhandhā): forma, sensação, percepção, formações mentais e consciência.",
+            highlight: "Deve ser plenamente investigado e compreendido pela atenção lúcida."
+          },
+          {
+            number: "2",
+            paliName: "Dukkha-samudaya",
+            transName: "A Origem do Sofrimento",
+            dutyPali: "Pahātabba",
+            dutyQuestion: "O que deve ser abandonado?",
+            crudeSlogan: "“O desejo causa sofrimento” (desejo psicológico genérico)",
+            canonicalReality: "Taṇhā (sede ardente/anseio febril), especificamente a tríade canônica expressa no SN 56.11: anseio sensorial (kāma-taṇhā), anseio pelo vir-a-ser/existência (bhava-taṇhā) e anseio pelo não-vir-a-ser/aniquilamento (vibhava-taṇhā).",
+            highlight: "Deve ser abandonado pelo desapego desvelado na raiz de seu surgimento."
+          },
+          {
+            number: "3",
+            paliName: "Dukkha-nirodha",
+            transName: "A Cessação do Sofrimento",
+            dutyPali: "Sacchikātabba",
+            dutyQuestion: "O que deve ser realizado?",
+            crudeSlogan: "“Pare de desejar / Entre num estado mental relaxado e calmo”",
+            canonicalReality: "O desvanecimento total, abandono e cessação sem vestígios desse mesmo anseio (asesavirāganirodho). Nibbāna jamais deve ser rebaixado a meramente “um estado relaxado e tranquilo” ou calma emocional temporária.",
+            highlight: "Deve ser diretamente testemunhado e realizado por experiência viva."
+          },
+          {
+            number: "4",
+            paliName: "Dukkha-nirodhagāminī paṭipadā",
+            transName: "O Caminho que Conduz à Cessação",
+            dutyPali: "Bhāvetabba",
+            dutyQuestion: "O que deve ser desenvolvido?",
+            crudeSlogan: "“Siga o Caminho Óctuplo como mandamentos ou filosofia intelectual”",
+            canonicalReality: "O Nobre Caminho Óctuplo (Ariya Aṭṭhaṅgika Magga). O Buda enfatiza com veemência que o caminho é algo que se cultiva e desenvolve ativamente (bhāvetabba / prática transformadora viva), e não algo em que apenas se acredita ou se compreende teoricamente.",
+            highlight: "Deve ser ativamente cultivado em todos os momentos da existência diária."
+          }
+        ]
+      },
       canonicalCorpus: [
         {
+          levelNumber: 1,
+          levelTitle: "Nível 1 — A Primeira Exposição do Buda",
+          guidingQuestion: "O que são as Quatro Nobres Verdades?",
           suttaCode: "SN 56.11",
           paliTitle: "Dhammacakkappavattana Sutta",
           transTitle: "Colocando a Roda do Dhamma em Movimento",
@@ -335,6 +467,9 @@ export const TOPICS_DATA = [
           excerptTrans: "Isto, ó monges, é a Nobre Verdade de Dukkha: o nascimento é estresse, o envelhecimento é estresse, a doença e a morte são estresse; tristeza, lamentação, dor, angústia e desespero são estresse; associar-se com o desagradável é estresse; separar-se do que é amado é estresse; não obter o que se deseja é estresse. Em suma, os cinco agregados de apego são estresse."
         },
         {
+          levelNumber: 2,
+          levelTitle: "Nível 2 — Análise Detalhada",
+          guidingQuestion: "O que cada verdade contém?",
           suttaCode: "MN 141",
           paliTitle: "Saccavibhaṅga Sutta",
           transTitle: "A Análise das Verdades",
@@ -357,6 +492,9 @@ export const TOPICS_DATA = [
           excerptTrans: "E o que, amigos, é a Nobre Verdade de Dukkha? O nascimento é sofrimento, o envelhecimento é sofrimento, a morte é sofrimento; tristeza, lamentação, dor, angústia e desespero são sofrimento; associar-se ao que não se ama é sofrimento; separar-se do que se ama é sofrimento; não obter o que se deseja é sofrimento. Em resumo, os cinco agregados de apego são sofrimento."
         },
         {
+          levelNumber: 3,
+          levelTitle: "Nível 3 — Visão Correta",
+          guidingQuestion: "Por que as Quatro Nobres Verdades são fundamentais para a visão correta?",
           suttaCode: "MN 9",
           paliTitle: "Sammādiṭṭhi Sutta",
           transTitle: "Visão Correta",
@@ -379,6 +517,9 @@ export const TOPICS_DATA = [
           excerptTrans: "Quando um nobre discípulo compreende o sofrimento, sua origem, sua cessação e o caminho que conduz à sua cessação, até esse ponto ele é alguém de visão correta, cuja visão é reta, que possui confiança inabalável no ensinamento e chegou ao verdadeiro Dhamma."
         },
         {
+          levelNumber: 4,
+          levelTitle: "Nível 4 — Compreendendo Dukkha",
+          guidingQuestion: "Por que os cinco agregados sujeitos ao apego são dukkha?",
           suttaCode: "MN 28",
           paliTitle: "Mahāhatthipadopama Sutta",
           transTitle: "O Grande Discurso sobre a Símile da Pegada do Elefante",
@@ -401,6 +542,9 @@ export const TOPICS_DATA = [
           excerptTrans: "Assim como a pegada de qualquer ser vivo que caminha sobre a terra cabe dentro da pegada de um elefante; da mesma forma, todos os ensinamentos e qualidades nobres estão compreendidos nas Quatro Nobres Verdades."
         },
         {
+          levelNumber: 4,
+          levelTitle: "Nível 4 — Compreendendo Dukkha",
+          guidingQuestion: "Por que esses agregados não podem ser considerados como o eu?",
           suttaCode: "SN 22.59",
           paliTitle: "Anattalakkhaṇa Sutta",
           transTitle: "A Característica de Não-Eu",
@@ -422,27 +566,9 @@ export const TOPICS_DATA = [
           excerptTrans: "A forma material, monges, é não-eu... 'Isto não é meu, isto eu não sou, isto não é o meu eu': assim deve ser visto como realmente é com correta sabedoria... Vendo assim, monges, o nobre discípulo instruído experimenta o desencantamento em relação à forma, à sensação, à percepção, às formações mentais e à consciência. Pelo desencantamento surge a despaixão; pela despaixão ele é libertado."
         },
         {
-          suttaCode: "SN 12.23",
-          paliTitle: "Upanisa Sutta",
-          transTitle: "Condições de Sustentação",
-          role: "Condicionalidade de Dukkha & O Surgimento Dependente Transcendental",
-          summary: "Um dos textos basilares para esclarecer a relação viva entre Dukkha, suas causas e o caminho de libertação. É indispensável porque situa o sofrimento e a emancipação dentro de uma estrutura condicional rigorosa, prevenindo o reducionismo comum do slogan 'o desejo causa o sofrimento'. O ensinamento do Buda é muito mais estruturalmente refinado do que uma simples fórmula psicológica direta.",
-          establishes: [
-            "As Quatro Verdades integradas na grande arquitetura da condicionalidade (Idappaccayatā)",
-            "O rastreamento regressivo de Dukkha: sofrimento (dukkha) ← nascimento (jāti) ← existência (bhava) ← apego (upādāna) ← anseio (taṇhā)... ← ignorância (avijjā)",
-            "A espiral transcendental progressiva (lokuttara paṭiccasamuppāda): sofrimento → fé (saddhā) → alegria (pāmojja) → êxtase (pīti) → tranquilidade (passaddhi) → felicidade (sukha) → concentração/estabilidade (samādhi) → conhecimento e visão das coisas como elas são (yathābhūtañāṇadassana) → desencantamento (nibbidā) → despaixão (virāga) → libertação (vimutti) → conhecimento da extinção das impurezas (āsavakkhaye ñāṇa)",
-            "O papel transformador de Dukkha: o sofrimento não é apenas uma ferida, mas a condição prévia de apoio (upanisā) que desperta a fé sincera",
-            "Superação de slogans superficiais: o anseio causa sofrimento dentro de uma malha causal condicionada"
-          ],
-          deepAnatomy: {
-            title: "Além de Slogans: A Arquitetura Condicional da Libertação",
-            detail: "Muitas exposições reduzem o ensinamento a um lema superficial: 'o desejo causa sofrimento'. O SN 12.23 revela a genialidade estrutural do Buda. O sofrimento emerge condicionalmente através do nascimento, apego e anseio a partir da ignorância. Extraordinariamente, o próprio sofrimento torna-se o trampolim: quando enfrentado com sabedoria em vez de desespero cego, Dukkha torna-se a condição de sustentação (upanisā) para a fé (saddhā), impulsionando uma espiral ascendente ininterrupta até a emancipação total."
-          },
-          suttaCentralUrl: "https://suttacentral.net/sn12.23/en/bodhi",
-          excerptPali: "Iti kho, bhikkhave, avijjūpanisā saṅkhārā... jātūpanisaṁ dukkhaṁ, dukkhūpanisā saddhā, saddhūpanisaṁ pāmojjaṁ, pāmojjūpanisā pīti, pītūpanisā passaddhi, passaddhūpanisaṁ sukhaṁ, sukhūpaniso samādhi, samādhūpanisaṁ yathābhūtañāṇadassanaṁ, yathābhūtañāṇadassanūpanisā nibbidā, nibbidūpaniso virāgo, virāgūpanisā vimutti, vimuttūpanisaṁ khaye ñāṇaṁ.",
-          excerptTrans: "Assim, ó monges, com a ignorância como condição prévia surgem as formações... com o nascimento como condição prévia surge o sofrimento; com o sofrimento como condição prévia surge a fé; com a fé surge a alegria; com a alegria o êxtase; com o êxtase a tranquilidade; com a tranquilidade a felicidade; com a felicidade a concentração estável; com a concentração o conhecimento e visão das coisas como elas realmente são; com isso o desencantamento; com o desencantamento a despaixão; com a despaixão a libertação; com a libertação o conhecimento da destruição das impurezas."
-        },
-        {
+          levelNumber: 4,
+          levelTitle: "Nível 4 — Compreendendo Dukkha",
+          guidingQuestion: "Qual é a definição canônica primária de sofrimento?",
           suttaCode: "SN 56.13",
           paliTitle: "Khandha Sutta",
           transTitle: "Os Agregados",
@@ -463,6 +589,30 @@ export const TOPICS_DATA = [
           suttaCentralUrl: "https://suttacentral.net/sn56.13/en/bodhi",
           excerptPali: "Katamañca, bhikkhave, dukkhaṁ ariyasaccaṁ? Pañcupādānakkhandhātissa vacanīyaṁ, seyyathidaṁ: rūpupādānakkhandho, vedanupādānakkhandho, saññupādānakkhandho, saṅkhārupādānakkhandho, viññāṇupādānakkhandho... Tasmātiha, bhikkhave, 'idaṁ dukkhan'ti yogo karaṇīyo... 'ayaṁ dukkhanirodhagāminī paṭipadā'ti yogo karaṇīyo.",
           excerptTrans: "E o que, monges, é a Nobre Verdade de Dukkha? Deve-se responder: os cinco agregados sujeitos ao apego, a saber: o agregado de apego da forma, da sensação, da percepção, das formações mentais e da consciência... Portanto, ó monges, um esforço diligente deve ser feito para compreender: 'Isto é sofrimento'... 'Este é o caminho que conduz à cessação do sofrimento'."
+        },
+        {
+          levelNumber: 5,
+          levelTitle: "Nível 5 — Compreendendo a Condicionalidade",
+          guidingQuestion: "Como o sofrimento se relaciona com as condições que conduzem à libertação?",
+          suttaCode: "SN 12.23",
+          paliTitle: "Upanisa Sutta",
+          transTitle: "Condições de Sustentação",
+          role: "Condicionalidade de Dukkha & O Surgimento Dependente Transcendental",
+          summary: "Um dos textos basilares para esclarecer a relação viva entre Dukkha, suas causas e o caminho de libertação. É indispensável porque situa o sofrimento e a emancipação dentro de uma estrutura condicional rigorosa, prevenindo o reducionismo comum do slogan 'o desejo causa o sofrimento'. O ensinamento do Buda é muito mais estruturalmente refinado do que uma simples fórmula psicológica direta.",
+          establishes: [
+            "As Quatro Verdades integradas na grande arquitetura da condicionalidade (Idappaccayatā)",
+            "O rastreamento regressivo de Dukkha: sofrimento (dukkha) ← nascimento (jāti) ← existência (bhava) ← apego (upādāna) ← anseio (taṇhā)... ← ignorância (avijjā)",
+            "A espiral transcendental progressiva (lokuttara paṭiccasamuppāda): sofrimento → fé (saddhā) → alegria (pāmojja) → êxtase (pīti) → tranquilidade (passaddhi) → felicidade (sukha) → concentração/estabilidade (samādhi) → conhecimento e visão das coisas como elas são (yathābhūtañāṇadassana) → desencantamento (nibbidā) → despaixão (virāga) → libertação (vimutti) → conhecimento da extinção das impurezas (āsavakkhaye ñāṇa)",
+            "O papel transformador de Dukkha: o sofrimento não é apenas uma ferida, mas a condição prévia de apoio (upanisā) que desperta a fé sincera",
+            "Superação de slogans superficiais: o anseio causa sofrimento dentro de uma malha causal condicionada"
+          ],
+          deepAnatomy: {
+            title: "Além de Slogans: A Arquitetura Condicional da Libertação",
+            detail: "Muitas exposições reduzem o ensinamento a um lema superficial: 'o desejo causa sofrimento'. O SN 12.23 revela a genialidade estrutural do Buda. O sofrimento emerge condicionalmente através do nascimento, apego e anseio a partir da ignorância. Extraordinariamente, o próprio sofrimento torna-se o trampolim: quando enfrentado com sabedoria em vez de desespero cego, Dukkha torna-se a condição de sustentação (upanisā) para a fé (saddhā), impulsionando uma espiral ascendente ininterrupta até a emancipação total."
+          },
+          suttaCentralUrl: "https://suttacentral.net/sn12.23/en/bodhi",
+          excerptPali: "Iti kho, bhikkhave, avijjūpanisā saṅkhārā... jātūpanisaṁ dukkhaṁ, dukkhūpanisā saddhā, saddhūpanisaṁ pāmojjaṁ, pāmojjūpanisā pīti, pītūpanisā passaddhi, passaddhūpanisaṁ sukhaṁ, sukhūpaniso samādhi, samādhūpanisaṁ yathābhūtañāṇadassanaṁ, yathābhūtañāṇadassanūpanisā nibbidā, nibbidūpaniso virāgo, virāgūpanisā vimutti, vimuttūpanisaṁ khaye ñāṇaṁ.",
+          excerptTrans: "Assim, ó monges, com a ignorância como condição prévia surgem as formações... com o nascimento como condição prévia surge o sofrimento; com o sofrimento como condição prévia surge a fé; com a fé surge a alegria; com a alegria o êxtase; com o êxtase a tranquilidade; com a tranquilidade a felicidade; com a felicidade a concentração estável; com a concentração o conhecimento e visão das coisas como elas realmente são; com isso o desencantamento; com o desencantamento a despaixão; com a despaixão a libertação; com a libertação o conhecimento da destruição das impurezas."
         }
       ],
       canonicalExcerpts: [

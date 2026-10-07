@@ -50,6 +50,7 @@ class LayDharmaApp {
       modalEngTitle: document.getElementById('modalEngTitle'),
       modalCitation: document.getElementById('modalCitation'),
       modalOverview: document.getElementById('modalOverview'),
+      modalDoctrinalFramework: document.getElementById('modalDoctrinalFramework'),
       modalPaliTerms: document.getElementById('modalPaliTerms'),
       modalExcerptsList: document.getElementById('modalExcerptsList'),
       modalHouseholdList: document.getElementById('modalHouseholdList'),
@@ -368,27 +369,104 @@ class LayDharmaApp {
       </div>
     `).join('');
 
-    // Canonical Corpus / Excerpts
-    if (langContent.canonicalCorpus && langContent.canonicalCorpus.length > 0) {
-      const jumpNavHtml = `
-        <div class="corpus-intro-banner">
-          <div class="corpus-banner-title"><span>☸</span> ${t.corpusHeading}</div>
-          <div class="corpus-banner-subtitle">${t.corpusSubtitle}</div>
-          <div class="corpus-jump-nav">
-            <span class="corpus-jump-label">${t.quickJumpLabel}</span>
-            <div class="corpus-jump-pills">
-              ${langContent.canonicalCorpus.map((s, idx) => `
-                <a href="#corpus-sutta-${idx}" class="corpus-jump-pill">
-                  <span class="jump-pill-code">${s.suttaCode}</span>
-                  <span class="jump-pill-title">${s.paliTitle}</span>
-                </a>
+    // Doctrinal Operational Matrix (Catukicca Framework)
+    if (this.dom.modalDoctrinalFramework) {
+      if (langContent.doctrinalMatrix) {
+        const dm = langContent.doctrinalMatrix;
+        this.dom.modalDoctrinalFramework.innerHTML = `
+          <div class="doctrinal-matrix-container">
+            <div class="doctrinal-matrix-header">
+              <div class="doctrinal-matrix-title"><span>☸</span> ${t.doctrinalFrameworkHeading}</div>
+              <div class="doctrinal-matrix-subtitle">${t.doctrinalFrameworkSubtitle}</div>
+            </div>
+            <p class="doctrinal-matrix-intro">${dm.intro}</p>
+            <div class="doctrinal-truths-grid">
+              ${dm.truths.map(truth => `
+                <div class="doctrinal-truth-card">
+                  <div class="doctrinal-truth-top">
+                    <div>
+                      <div class="doctrinal-truth-name-pali">${truth.number} — ${truth.paliName}</div>
+                      <div class="doctrinal-truth-name-trans">${truth.transName}</div>
+                    </div>
+                    <span class="doctrinal-duty-badge">${truth.dutyPali}</span>
+                  </div>
+                  <div class="doctrinal-question-row">
+                    <span>☸</span> ${truth.dutyQuestion}
+                  </div>
+                  <div class="doctrinal-comparison-row">
+                    <div class="doctrinal-crude-box">
+                      <div class="doctrinal-crude-label">⚠ ${t.popularSloganLabel}</div>
+                      <div>${truth.crudeSlogan}</div>
+                    </div>
+                    <div class="doctrinal-reality-box">
+                      <div class="doctrinal-reality-label">✓ ${t.canonicalRealityLabel}</div>
+                      <div>${truth.canonicalReality}</div>
+                    </div>
+                  </div>
+                  <div class="doctrinal-highlight-chip">
+                    ${truth.highlight}
+                  </div>
+                </div>
               `).join('')}
             </div>
+          </div>
+        `;
+        this.dom.modalDoctrinalFramework.style.display = 'block';
+      } else {
+        this.dom.modalDoctrinalFramework.innerHTML = '';
+        this.dom.modalDoctrinalFramework.style.display = 'none';
+      }
+    }
+
+    // Canonical Corpus / Excerpts
+    if (langContent.canonicalCorpus && langContent.canonicalCorpus.length > 0) {
+      // Group distinct levels for roadmap banner
+      const roadmapItems = [
+        { level: "1", code: "SN 56.11", target: "#corpus-sutta-0" },
+        { level: "2", code: "MN 141", target: "#corpus-sutta-1" },
+        { level: "3", code: "MN 9", target: "#corpus-sutta-2" },
+        { level: "4", code: "MN 28 • SN 22.59 • SN 56.13", target: "#corpus-sutta-3" },
+        { level: "5", code: "SN 12.23", target: "#corpus-sutta-6" }
+      ];
+
+      const jumpNavHtml = `
+        <div class="progression-roadmap-banner">
+          <div class="progression-header-title"><span>☸</span> ${t.studyProgressionHeading}</div>
+          <div class="progression-header-subtitle">${t.studyProgressionSubtitle}</div>
+          <div class="progression-flow-bar">
+            ${roadmapItems.map((item, rIdx) => `
+              <a href="${item.target}" class="progression-level-pill">
+                <span class="pill-level-tag">L${item.level}</span>
+                <span class="jump-pill-code">${item.code}</span>
+              </a>
+              ${rIdx < roadmapItems.length - 1 ? '<span class="progression-arrow-sep">→</span>' : ''}
+            `).join('')}
           </div>
         </div>
       `;
 
+      let lastLevel = null;
       const corpusCardsHtml = langContent.canonicalCorpus.map((sutta, idx) => {
+        // Level Transition Header & Guiding Inquiry
+        let levelHeaderHtml = '';
+        if (sutta.levelNumber && sutta.levelNumber !== lastLevel) {
+          levelHeaderHtml = `
+            ${idx > 0 ? '<div class="progression-down-arrow">↓</div>' : ''}
+            <div class="progression-level-divider">
+              <div class="progression-level-divider-title">${sutta.levelTitle}</div>
+              <div class="progression-level-question-tag">${sutta.guidingQuestion}</div>
+            </div>
+          `;
+          lastLevel = sutta.levelNumber;
+        } else if (sutta.levelNumber && sutta.levelNumber === lastLevel && sutta.guidingQuestion) {
+          levelHeaderHtml = `
+            <div class="progression-down-arrow">↓</div>
+            <div style="display: flex; justify-content: flex-end; margin-bottom: 12px;">
+              <span class="progression-level-question-tag">${sutta.guidingQuestion}</span>
+            </div>
+          `;
+        }
+
         // Establishes List
         let establishesHtml = '';
         if (sutta.establishes && sutta.establishes.length > 0) {
@@ -481,10 +559,12 @@ class LayDharmaApp {
         }
 
         return `
+          ${levelHeaderHtml}
           <article class="corpus-sutta-card" id="corpus-sutta-${idx}">
             <header class="corpus-card-header">
               <div class="corpus-badges-row">
                 <span class="corpus-num-badge">${idx + 1}</span>
+                ${sutta.levelNumber ? `<span class="pill-level-tag">Level ${sutta.levelNumber}</span>` : ''}
                 <span class="corpus-code-badge">${sutta.suttaCode}</span>
                 <span class="corpus-role-badge">${sutta.role}</span>
               </div>
