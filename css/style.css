@@ -109,6 +109,60 @@ body {
   position: relative;
 }
 
+/* Language Selector (EN / PT) */
+.lang-selector-wrap {
+  position: absolute;
+  top: 18px;
+  right: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(19, 26, 38, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--gold-border);
+  border-radius: 24px;
+  padding: 3px 8px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.45);
+  z-index: 10;
+  transition: var(--transition-smooth);
+}
+
+.lang-selector-wrap:hover {
+  border-color: var(--gold-primary);
+  box-shadow: 0 0 16px var(--gold-glow);
+}
+
+.lang-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  padding: 4px 9px;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.lang-btn:hover {
+  color: var(--gold-light);
+}
+
+.lang-btn.active {
+  background: rgba(224, 169, 68, 0.22);
+  color: var(--gold-primary);
+  box-shadow: 0 0 10px rgba(224, 169, 68, 0.35);
+}
+
+.lang-divider {
+  color: rgba(255, 255, 255, 0.2);
+  font-size: 0.72rem;
+  user-select: none;
+}
+
 .dharmachakra-emblem {
   width: 68px;
   height: 68px;
@@ -731,6 +785,15 @@ body {
 }
 
 @media (max-width: 680px) {
+  .lang-selector-wrap {
+    top: 10px;
+    right: 8px;
+    padding: 2px 6px;
+  }
+  .lang-btn {
+    font-size: 0.74rem;
+    padding: 2px 6px;
+  }
   .site-title {
     font-size: 1.65rem;
   }

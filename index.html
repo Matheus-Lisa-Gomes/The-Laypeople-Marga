@@ -4,9 +4,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Laypeople Mārga</title>
+  <title>The Lay Dharma Household Mārga</title>
   <meta name="description"
-    content="Authentic Buddhist teachings, canonical suttas, and practical ethical guidance tailored specifically for householders and lay practitioners living active worldly lives.">
+    content="Authentic Buddhist teachings, canonical suttas, Pāli terminology, and practical ethical guidance tailored specifically for householders and lay practitioners.">
   <link rel="stylesheet" href="css/style.css">
   <link rel="icon"
     href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23e0a944'><circle cx='12' cy='12' r='10' stroke='%23e0a944' stroke-width='2' fill='none'/><circle cx='12' cy='12' r='2' fill='%23e0a944'/></svg>">
@@ -19,8 +19,15 @@
   <div class="container">
     <!-- Header with Dharmachakra (Wheel of Dhamma) -->
     <header class="site-header">
+      <!-- Language Selector (EN / PT) -->
+      <div class="lang-selector-wrap" id="langSelector" role="group" aria-label="Language selection">
+        <button class="lang-btn active" id="langBtnEn" data-lang="en" aria-label="Switch to English" title="English">EN</button>
+        <span class="lang-divider">/</span>
+        <button class="lang-btn" id="langBtnPt" data-lang="pt" aria-label="Mudar para Português" title="Português">PT</button>
+      </div>
+
       <!-- 8-Spoked Wheel of Dhamma (Noble Eightfold Path) -->
-      <svg class="dharmachakra-emblem" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg class="dharmachakra-emblem" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
         <circle cx="50" cy="50" r="46" stroke="url(#goldGrad)" stroke-width="3" />
         <circle cx="50" cy="50" r="40" stroke="url(#goldGrad)" stroke-width="1.5" stroke-dasharray="3 3" />
         <circle cx="50" cy="50" r="14" fill="#131a26" stroke="url(#goldGrad)" stroke-width="2.5" />
@@ -45,8 +52,8 @@
         </defs>
       </svg>
 
-      <h1 class="site-title">The Laypeople Mārga</h1>
-      <div class="site-subtitle">Focused Teachings for Laypeople</div>
+      <h1 class="site-title" id="siteTitle">The Lay Dharma Household Mārga</h1>
+      <div class="site-subtitle" id="siteSubtitle">Focused Teachings for Laypeople</div>
     </header>
 
     <!-- Radial Menu with 9 Annular Sectors -->
@@ -83,12 +90,12 @@
         </div>
 
         <!-- Center Interactive Hub -->
-        <div class="wheel-center-hub" id="wheelCenterHub">
+        <div class="wheel-center-hub" id="wheelCenterHub" role="button" tabindex="0" aria-label="Center Wheel Hub">
           <div class="hub-emblem-wrap">
-            <svg class="hub-dharmachakra" viewBox="0 0 100 100" fill="none">
+            <svg class="hub-dharmachakra" viewBox="0 0 100 100" fill="none" aria-hidden="true">
               <circle cx="50" cy="50" r="46" stroke="url(#goldGradHub)" stroke-width="2.5" />
               <circle cx="50" cy="50" r="14" fill="#131a26" stroke="url(#goldGradHub)" stroke-width="2" />
-              <circle cx="50" cy="50" r="6" fill="url(#goldGradHub)" />
+              <circle cx="50" cy="6" fill="url(#goldGradHub)" />
               <g stroke="url(#goldGradHub)" stroke-width="2">
                 <line x1="50" y1="10" x2="50" y2="36" />
                 <line x1="50" y1="64" x2="50" y2="90" />
@@ -102,9 +109,9 @@
             </svg>
           </div>
           <div class="hub-text-wrap">
-            <span class="hub-badge" id="hubBadge">09 ANNULAR SECTORS</span>
+            <span class="hub-badge" id="hubBadge">09 CANONICAL PILLARS</span>
             <h3 class="hub-title" id="hubTitle">Ariya Magga</h3>
-            <p class="hub-desc" id="hubDesc">Hover or click any sector to enter contemplation</p>
+            <p class="hub-desc" id="hubDesc">Hover or click any sector to enter study</p>
           </div>
         </div>
       </div>
@@ -133,11 +140,11 @@
 
       <!-- Navigation Tabs -->
       <div class="reader-tabs-nav">
-        <button class="tab-nav-btn active" data-tab="tab-overview">Overview & Essence</button>
-        <button class="tab-nav-btn" data-tab="tab-canonical">Canonical Texts</button>
-        <button class="tab-nav-btn" data-tab="tab-household">Householder Practice</button>
-        <button class="tab-nav-btn" data-tab="tab-inquiry">Contemplative Inquiry</button>
-        <button class="tab-nav-btn" data-tab="tab-notes">Study Notes</button>
+        <button class="tab-nav-btn active" data-tab="tab-overview" id="tabBtnOverview">Overview & Essence</button>
+        <button class="tab-nav-btn" data-tab="tab-canonical" id="tabBtnCanonical">Canonical Texts</button>
+        <button class="tab-nav-btn" data-tab="tab-household" id="tabBtnHousehold">Householder Practice</button>
+        <button class="tab-nav-btn" data-tab="tab-inquiry" id="tabBtnInquiry">Contemplative Inquiry</button>
+        <button class="tab-nav-btn" data-tab="tab-notes" id="tabBtnNotes">Study Notes</button>
       </div>
 
       <!-- Tab Content Area -->
@@ -147,8 +154,8 @@
           <div class="canonical-citation-tag" id="modalCitation">SN 56.11, MN 141</div>
           <p class="lead-overview" id="modalOverview"></p>
 
-          <div class="section-label">
-            <span>☸</span> Key Pali Terminology
+          <div class="section-label" id="headingKeyPali">
+            <span>☸</span> Key Pāli Terminology
           </div>
           <div class="pali-terms-grid" id="modalPaliTerms"></div>
         </div>
@@ -160,7 +167,7 @@
 
         <!-- Tab 3: Householder Practice -->
         <div class="tab-content" id="tab-household">
-          <p style="color: var(--text-secondary); margin-bottom: 20px; font-size: 0.95rem;">
+          <p id="householdIntroText" style="color: var(--text-secondary); margin-bottom: 20px; font-size: 0.95rem;">
             Specific strategies, psychological guardrails, and behavioral advice for integrating this teaching into
             family dynamics, career, and household governance:
           </p>
@@ -169,10 +176,10 @@
 
         <!-- Tab 4: Contemplative Inquiry -->
         <div class="tab-content" id="tab-inquiry">
-          <div class="section-label">
+          <div class="section-label" id="headingInquiry">
             <span>☸</span> Yoniso Manasikāra (Wise Reflection Prompts)
           </div>
-          <p style="color: var(--text-secondary); margin-bottom: 16px; font-size: 0.92rem;">
+          <p id="inquiryIntroText" style="color: var(--text-secondary); margin-bottom: 16px; font-size: 0.92rem;">
             Use these reflective questions during your morning sitting, evening review, or whenever life triggers
             emotional reactivity:
           </p>
@@ -181,10 +188,10 @@
 
         <!-- Tab 5: Personal Study Notes -->
         <div class="tab-content" id="tab-notes">
-          <div class="section-label">
+          <div class="section-label" id="headingNotes">
             <span>☸</span> Personal Practice Journal & Notes
           </div>
-          <p style="color: var(--text-secondary); margin-bottom: 12px; font-size: 0.88rem;">
+          <p id="notesIntroText" style="color: var(--text-secondary); margin-bottom: 12px; font-size: 0.88rem;">
             Your personal reflections and commitments for this topic are saved locally on this device.
           </p>
           <div class="notes-container">

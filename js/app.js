@@ -1,23 +1,38 @@
 /**
  * The Lay Dharma Household Mārga — Main Application Script
  * Radial Menu with 9 Annular Sectors (Wheel of Dhamma)
+ * Bilingual Engine: English (EN) & Portuguese (PT)
  */
 
-import { TOPICS_DATA } from './data/topicsData.js';
+import { TOPICS_DATA, I18N_STRINGS } from './data/topicsData.js';
 
 class LayDharmaApp {
   constructor() {
     this.topics = TOPICS_DATA;
+    this.i18n = I18N_STRINGS;
+    this.currentLang = localStorage.getItem('lay_dharma_lang') || 'en';
+    if (!this.i18n[this.currentLang]) {
+      this.currentLang = 'en';
+    }
+
     this.currentTopic = null;
     this.currentPreviewTopic = null;
 
     this.initDOM();
     this.bindEvents();
     this.renderRadialMenu();
+    this.applyLanguageUI();
   }
 
   initDOM() {
     this.dom = {
+      // Language controls
+      langBtnEn: document.getElementById('langBtnEn'),
+      langBtnPt: document.getElementById('langBtnPt'),
+      siteTitle: document.getElementById('siteTitle'),
+      siteSubtitle: document.getElementById('siteSubtitle'),
+
+      // Radial stage elements
       radialMenuWrapper: document.getElementById('radialMenuWrapper'),
       annularSectorsGroup: document.getElementById('annularSectorsGroup'),
       radialLabelsContainer: document.getElementById('radialLabelsContainer'),
@@ -43,11 +58,32 @@ class LayDharmaApp {
       saveNotesBtn: document.getElementById('saveNotesBtn'),
       notesSavedFeedback: document.getElementById('notesSavedFeedback'),
       tabBtns: document.querySelectorAll('.tab-nav-btn'),
-      tabContents: document.querySelectorAll('.tab-content')
+      tabContents: document.querySelectorAll('.tab-content'),
+
+      // Translatable UI nodes
+      tabBtnOverview: document.getElementById('tabBtnOverview'),
+      tabBtnCanonical: document.getElementById('tabBtnCanonical'),
+      tabBtnHousehold: document.getElementById('tabBtnHousehold'),
+      tabBtnInquiry: document.getElementById('tabBtnInquiry'),
+      tabBtnNotes: document.getElementById('tabBtnNotes'),
+      headingKeyPali: document.getElementById('headingKeyPali'),
+      householdIntroText: document.getElementById('householdIntroText'),
+      headingInquiry: document.getElementById('headingInquiry'),
+      inquiryIntroText: document.getElementById('inquiryIntroText'),
+      headingNotes: document.getElementById('headingNotes'),
+      notesIntroText: document.getElementById('notesIntroText')
     };
   }
 
   bindEvents() {
+    // Language switcher buttons
+    if (this.dom.langBtnEn) {
+      this.dom.langBtnEn.addEventListener('click', () => this.setLanguage('en'));
+    }
+    if (this.dom.langBtnPt) {
+      this.dom.langBtnPt.addEventListener('click', () => this.setLanguage('pt'));
+    }
+
     // Close reader modal
     this.dom.closeModalBtn.addEventListener('click', () => this.closeReaderModal());
     this.dom.readerModal.addEventListener('click', (e) => {
@@ -73,6 +109,86 @@ class LayDharmaApp {
 
     // Save reflection notes
     this.dom.saveNotesBtn.addEventListener('click', () => this.saveCurrentTopicNotes());
+  }
+
+  /**
+   * Switch language and update all texts in real time
+   * @param {'en'|'pt'} lang
+   */
+  setLanguage(lang) {
+    if (this.currentLang === lang && document.documentElement.lang === lang) return;
+    this.currentLang = lang;
+    localStorage.setItem('lay_dharma_lang', lang);
+    this.applyLanguageUI();
+  }
+
+  /**
+   * Update all UI labels, sector cards, and reader modal according to current language
+   */
+  applyLanguageUI() {
+    const t = this.i18n[this.currentLang] || this.i18n.en;
+    document.documentElement.lang = this.currentLang;
+
+    // Toggle button active classes
+    if (this.dom.langBtnEn) {
+      this.dom.langBtnEn.classList.toggle('active', this.currentLang === 'en');
+    }
+    if (this.dom.langBtnPt) {
+      this.dom.langBtnPt.classList.toggle('active', this.currentLang === 'pt');
+    }
+
+    // Header & Subtitles
+    if (this.dom.siteTitle) this.dom.siteTitle.textContent = t.siteTitle;
+    if (this.dom.siteSubtitle) this.dom.siteSubtitle.textContent = t.siteSubtitle;
+
+    // Tab buttons in modal
+    if (this.dom.tabBtnOverview) this.dom.tabBtnOverview.textContent = t.tabOverview;
+    if (this.dom.tabBtnCanonical) this.dom.tabBtnCanonical.textContent = t.tabCanonical;
+    if (this.dom.tabBtnHousehold) this.dom.tabBtnHousehold.textContent = t.tabHousehold;
+    if (this.dom.tabBtnInquiry) this.dom.tabBtnInquiry.textContent = t.tabInquiry;
+    if (this.dom.tabBtnNotes) this.dom.tabBtnNotes.textContent = t.tabNotes;
+
+    // Section headings & intro texts in modal
+    if (this.dom.headingKeyPali) this.dom.headingKeyPali.innerHTML = `<span>☸</span> ${t.keyPaliTermsHeading}`;
+    if (this.dom.householdIntroText) this.dom.householdIntroText.textContent = t.householdIntro;
+    if (this.dom.headingInquiry) this.dom.headingInquiry.innerHTML = `<span>☸</span> ${t.inquiryHeading}`;
+    if (this.dom.inquiryIntroText) this.dom.inquiryIntroText.textContent = t.inquiryIntro;
+    if (this.dom.headingNotes) this.dom.headingNotes.innerHTML = `<span>☸</span> ${t.notesHeading}`;
+    if (this.dom.notesIntroText) this.dom.notesIntroText.textContent = t.notesIntro;
+    if (this.dom.topicNotesInput) this.dom.topicNotesInput.placeholder = t.notesPlaceholder;
+    if (this.dom.saveNotesBtn) this.dom.saveNotesBtn.textContent = t.saveNotesBtn;
+    if (this.dom.notesSavedFeedback) this.dom.notesSavedFeedback.textContent = t.notesSavedFeedback;
+    if (this.dom.closeModalBtn) this.dom.closeModalBtn.setAttribute('aria-label', t.closeReaderAria);
+
+    // Update sector labels on radial wheel
+    this.topics.forEach((topic) => {
+      const label = document.getElementById(`label-${topic.id}`);
+      const sector = document.getElementById(`sector-${topic.id}`);
+      const langContent = topic[this.currentLang] || topic.en;
+
+      if (label) {
+        const transElem = label.querySelector('.sector-eng-title');
+        if (transElem) {
+          transElem.textContent = langContent.title;
+        }
+        label.setAttribute('aria-label', `${topic.number}. ${topic.paliTitle} — ${langContent.title}`);
+      }
+      if (sector) {
+        sector.setAttribute('aria-label', `${topic.number}. ${topic.paliTitle} — ${langContent.title}`);
+      }
+    });
+
+    // Update center hub
+    if (this.currentPreviewTopic) {
+      this.previewTopicInHub(this.currentPreviewTopic);
+    } else {
+      this.resetHub();
+    }
+
+    // If modal is actively open, refresh its content in the new language
+    if (this.currentTopic && this.dom.readerModal.classList.contains('active')) {
+      this.populateReaderModal(this.currentTopic);
+    }
   }
 
   /**
@@ -125,6 +241,8 @@ class LayDharmaApp {
       const dx = Math.round(Math.cos(alphaMid) * 8);
       const dy = Math.round(Math.sin(alphaMid) * 8);
 
+      const langContent = topic[this.currentLang] || topic.en;
+
       sectorsSvgHtml += `
         <path class="annular-sector-path" 
               id="sector-${topic.id}"
@@ -133,7 +251,7 @@ class LayDharmaApp {
               d="${pathD}" 
               tabindex="0"
               role="button"
-              aria-label="${topic.number}. ${topic.paliTitle} — ${topic.englishTitle}">
+              aria-label="${topic.number}. ${topic.paliTitle} — ${langContent.title}">
         </path>
       `;
 
@@ -145,10 +263,10 @@ class LayDharmaApp {
              style="--x: ${lx}px; --y: ${ly}px; --dx: ${dx}px; --dy: ${dy}px;"
              tabindex="0"
              role="button"
-             aria-label="${topic.number}. ${topic.paliTitle} — ${topic.englishTitle}">
+             aria-label="${topic.number}. ${topic.paliTitle} — ${langContent.title}">
           <span class="sector-num-badge">${topic.number}</span>
           <div class="sector-pali-title">${topic.paliTitle}</div>
-          <div class="sector-eng-title">${topic.englishTitle}</div>
+          <div class="sector-eng-title">${langContent.title}</div>
         </div>
       `;
     });
@@ -206,22 +324,33 @@ class LayDharmaApp {
         this.openReaderModal(this.topics[0].id);
       }
     });
+
+    this.dom.wheelCenterHub.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        this.dom.wheelCenterHub.click();
+      }
+    });
   }
 
   previewTopicInHub(topic) {
     this.currentPreviewTopic = topic;
-    this.dom.hubBadge.textContent = `TOPIC ${topic.number}`;
+    const t = this.i18n[this.currentLang] || this.i18n.en;
+    const langContent = topic[this.currentLang] || topic.en;
+
+    this.dom.hubBadge.textContent = `${t.hubTopicPrefix} ${topic.number}`;
     this.dom.hubTitle.textContent = topic.paliTitle;
-    this.dom.hubDesc.textContent = `${topic.englishTitle} • Click to read`;
+    this.dom.hubDesc.textContent = `${langContent.title} ${t.hubClickPrompt}`;
     this.dom.wheelCenterHub.style.borderColor = 'var(--gold-primary)';
     this.dom.wheelCenterHub.style.boxShadow = '0 0 35px rgba(224, 169, 68, 0.45), inset 0 0 20px rgba(0, 0, 0, 0.8)';
   }
 
   resetHub() {
     this.currentPreviewTopic = null;
-    this.dom.hubBadge.textContent = '09 ANNULAR SECTORS';
-    this.dom.hubTitle.textContent = 'Ariya Magga';
-    this.dom.hubDesc.textContent = 'Hover or click any sector to enter contemplation';
+    const t = this.i18n[this.currentLang] || this.i18n.en;
+    this.dom.hubBadge.textContent = t.hubBadge;
+    this.dom.hubTitle.textContent = t.hubDefaultTitle;
+    this.dom.hubDesc.textContent = t.hubDefaultDesc;
     this.dom.wheelCenterHub.style.borderColor = '';
     this.dom.wheelCenterHub.style.boxShadow = '';
   }
@@ -231,46 +360,7 @@ class LayDharmaApp {
     if (!topic) return;
 
     this.currentTopic = topic;
-
-    // Populate Modal Header
-    this.dom.modalNumber.textContent = topic.number;
-    this.dom.modalCategory.textContent = topic.category;
-    this.dom.modalPaliTitle.textContent = topic.paliTitle;
-    this.dom.modalEngTitle.textContent = topic.englishTitle;
-    this.dom.modalCitation.textContent = `Canonical Sources: ${topic.canonicalRef}`;
-    this.dom.modalOverview.textContent = topic.overview;
-
-    // Key Pali Terms
-    this.dom.modalPaliTerms.innerHTML = topic.keyPaliTerms.map(k => `
-      <div class="pali-term-chip">
-        <div class="pali-term-name">${k.term}</div>
-        <div class="pali-term-def">${k.meaning}</div>
-      </div>
-    `).join('');
-
-    // Canonical Excerpts
-    this.dom.modalExcerptsList.innerHTML = topic.canonicalExcerpts.map(ex => `
-      <div class="sutta-box">
-        <div class="sutta-source-name">${ex.source}</div>
-        <div class="sutta-pali-passage">${ex.pali}</div>
-        <div class="sutta-english-passage">"${ex.translation}"</div>
-      </div>
-    `).join('');
-
-    // Household Practice
-    this.dom.modalHouseholdList.innerHTML = topic.householdApplication.map(app => `
-      <div class="practice-card">
-        <div class="practice-card-title">
-          <span>☸</span> ${app.title}
-        </div>
-        <div class="practice-card-detail">${app.detail}</div>
-      </div>
-    `).join('');
-
-    // Contemplative Inquiry
-    this.dom.modalInquiryList.innerHTML = topic.contemplativeInquiry.map(q => `
-      <li class="inquiry-item">${q}</li>
-    `).join('');
+    this.populateReaderModal(topic);
 
     // Load saved reflection notes for this topic
     const savedNotes = localStorage.getItem(`lay_dharma_note_${topic.id}`) || '';
@@ -283,6 +373,51 @@ class LayDharmaApp {
     // Display modal
     this.dom.readerModal.classList.add('active');
     document.body.style.overflow = 'hidden';
+  }
+
+  populateReaderModal(topic) {
+    const t = this.i18n[this.currentLang] || this.i18n.en;
+    const langContent = topic[this.currentLang] || topic.en;
+
+    // Populate Modal Header
+    this.dom.modalNumber.textContent = topic.number;
+    this.dom.modalCategory.textContent = langContent.category;
+    this.dom.modalPaliTitle.textContent = topic.paliTitle;
+    this.dom.modalEngTitle.textContent = langContent.title;
+    this.dom.modalCitation.textContent = `${t.canonicalSourcesPrefix} ${topic.canonicalRef}`;
+    this.dom.modalOverview.textContent = langContent.overview;
+
+    // Key Pali Terms
+    this.dom.modalPaliTerms.innerHTML = langContent.keyPaliTerms.map(k => `
+      <div class="pali-term-chip">
+        <div class="pali-term-name">${k.term}</div>
+        <div class="pali-term-def">${k.meaning}</div>
+      </div>
+    `).join('');
+
+    // Canonical Excerpts
+    this.dom.modalExcerptsList.innerHTML = langContent.canonicalExcerpts.map(ex => `
+      <div class="sutta-box">
+        <div class="sutta-source-name">${ex.source}</div>
+        <div class="sutta-pali-passage">${ex.pali}</div>
+        <div class="sutta-english-passage">"${ex.translation}"</div>
+      </div>
+    `).join('');
+
+    // Household Practice
+    this.dom.modalHouseholdList.innerHTML = langContent.householdApplication.map(app => `
+      <div class="practice-card">
+        <div class="practice-card-title">
+          <span>☸</span> ${app.title}
+        </div>
+        <div class="practice-card-detail">${app.detail}</div>
+      </div>
+    `).join('');
+
+    // Contemplative Inquiry
+    this.dom.modalInquiryList.innerHTML = langContent.contemplativeInquiry.map(q => `
+      <li class="inquiry-item">${q}</li>
+    `).join('');
   }
 
   closeReaderModal() {

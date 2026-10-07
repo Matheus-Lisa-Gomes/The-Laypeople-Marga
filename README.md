@@ -55,6 +55,7 @@ Each of the nine pillars provides a dedicated five-section study portal:
 - **3. Canonical Texts & Translations**: Parallel excerpts showing the original Pāli verses alongside precise English translations with canonical sutta references (e.g., SN 56.11, DN 31, MN 10).
 - **4. Householder Practice (*Gahapati-Dharma*)**: Concrete, no-nonsense applications addressing conflict resolution, ethical speech at work, financial distribution, and domestic balance.
 - **5. Wise Reflection & Study Notes**: Structured contemplative inquiry prompts (*yoniso manasikāra*) and persistent local personal study notes saved directly in your browser.
+- **6. Native Dual-Language Support (EN / PT)**: Full instant bilingual toggle between English and Portuguese (*Português*), translating all UI elements, radial wheel titles, Pāli glossaries, sutta translations, and practical guidance in real-time.
 
 ---
 
