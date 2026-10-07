@@ -551,7 +551,7 @@ body {
 /* Modal Segmented Navigation Bar */
 .reader-tabs-nav {
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 8px;
   padding: 8px;
   margin: 16px 28px 0 28px;
@@ -1249,17 +1249,20 @@ body {
   .reader-tabs-nav {
     margin: 10px 14px 0 14px;
     padding: 6px;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 6px;
   }
   .tab-nav-btn {
     font-size: 0.78rem;
     padding: 8px 6px;
   }
-  .tab-nav-btn:last-child {
-    grid-column: span 2;
-  }
   .reader-title-pali {
     font-size: 1.35rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .reader-tabs-nav {
+    grid-template-columns: 1fr;
   }
 }

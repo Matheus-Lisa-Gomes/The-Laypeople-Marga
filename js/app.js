@@ -53,10 +53,6 @@ class LayDharmaApp {
       modalPaliTerms: document.getElementById('modalPaliTerms'),
       modalExcerptsList: document.getElementById('modalExcerptsList'),
       modalHouseholdList: document.getElementById('modalHouseholdList'),
-      modalInquiryList: document.getElementById('modalInquiryList'),
-      topicNotesInput: document.getElementById('topicNotesInput'),
-      saveNotesBtn: document.getElementById('saveNotesBtn'),
-      notesSavedFeedback: document.getElementById('notesSavedFeedback'),
       tabBtns: document.querySelectorAll('.tab-nav-btn'),
       tabContents: document.querySelectorAll('.tab-content'),
 
@@ -64,14 +60,8 @@ class LayDharmaApp {
       tabBtnOverview: document.getElementById('tabBtnOverview'),
       tabBtnCanonical: document.getElementById('tabBtnCanonical'),
       tabBtnHousehold: document.getElementById('tabBtnHousehold'),
-      tabBtnInquiry: document.getElementById('tabBtnInquiry'),
-      tabBtnNotes: document.getElementById('tabBtnNotes'),
       headingKeyPali: document.getElementById('headingKeyPali'),
-      householdIntroText: document.getElementById('householdIntroText'),
-      headingInquiry: document.getElementById('headingInquiry'),
-      inquiryIntroText: document.getElementById('inquiryIntroText'),
-      headingNotes: document.getElementById('headingNotes'),
-      notesIntroText: document.getElementById('notesIntroText')
+      householdIntroText: document.getElementById('householdIntroText')
     };
   }
 
@@ -106,9 +96,6 @@ class LayDharmaApp {
         this.switchTab(targetTabId);
       });
     });
-
-    // Save reflection notes
-    this.dom.saveNotesBtn.addEventListener('click', () => this.saveCurrentTopicNotes());
   }
 
   /**
@@ -145,19 +132,10 @@ class LayDharmaApp {
     if (this.dom.tabBtnOverview) this.dom.tabBtnOverview.textContent = t.tabOverview;
     if (this.dom.tabBtnCanonical) this.dom.tabBtnCanonical.textContent = t.tabCanonical;
     if (this.dom.tabBtnHousehold) this.dom.tabBtnHousehold.textContent = t.tabHousehold;
-    if (this.dom.tabBtnInquiry) this.dom.tabBtnInquiry.textContent = t.tabInquiry;
-    if (this.dom.tabBtnNotes) this.dom.tabBtnNotes.textContent = t.tabNotes;
 
     // Section headings & intro texts in modal
     if (this.dom.headingKeyPali) this.dom.headingKeyPali.innerHTML = `<span>☸</span> ${t.keyPaliTermsHeading}`;
     if (this.dom.householdIntroText) this.dom.householdIntroText.textContent = t.householdIntro;
-    if (this.dom.headingInquiry) this.dom.headingInquiry.innerHTML = `<span>☸</span> ${t.inquiryHeading}`;
-    if (this.dom.inquiryIntroText) this.dom.inquiryIntroText.textContent = t.inquiryIntro;
-    if (this.dom.headingNotes) this.dom.headingNotes.innerHTML = `<span>☸</span> ${t.notesHeading}`;
-    if (this.dom.notesIntroText) this.dom.notesIntroText.textContent = t.notesIntro;
-    if (this.dom.topicNotesInput) this.dom.topicNotesInput.placeholder = t.notesPlaceholder;
-    if (this.dom.saveNotesBtn) this.dom.saveNotesBtn.textContent = t.saveNotesBtn;
-    if (this.dom.notesSavedFeedback) this.dom.notesSavedFeedback.textContent = t.notesSavedFeedback;
     if (this.dom.closeModalBtn) this.dom.closeModalBtn.setAttribute('aria-label', t.closeReaderAria);
 
     // Update sector labels on radial wheel
@@ -362,11 +340,6 @@ class LayDharmaApp {
     this.currentTopic = topic;
     this.populateReaderModal(topic);
 
-    // Load saved reflection notes for this topic
-    const savedNotes = localStorage.getItem(`lay_dharma_note_${topic.id}`) || '';
-    this.dom.topicNotesInput.value = savedNotes;
-    this.dom.notesSavedFeedback.style.display = 'none';
-
     // Reset to first tab
     this.switchTab('tab-overview');
 
@@ -551,11 +524,6 @@ class LayDharmaApp {
         <div class="practice-card-detail">${app.detail}</div>
       </div>
     `).join('');
-
-    // Contemplative Inquiry
-    this.dom.modalInquiryList.innerHTML = langContent.contemplativeInquiry.map(q => `
-      <li class="inquiry-item">${q}</li>
-    `).join('');
   }
 
   closeReaderModal() {
@@ -571,18 +539,6 @@ class LayDharmaApp {
     this.dom.tabContents.forEach(content => {
       content.classList.toggle('active', content.id === targetTabId);
     });
-  }
-
-  saveCurrentTopicNotes() {
-    if (!this.currentTopic) return;
-
-    const notes = this.dom.topicNotesInput.value.trim();
-    localStorage.setItem(`lay_dharma_note_${this.currentTopic.id}`, notes);
-
-    this.dom.notesSavedFeedback.style.display = 'inline-block';
-    setTimeout(() => {
-      this.dom.notesSavedFeedback.style.display = 'none';
-    }, 2500);
   }
 }
 
