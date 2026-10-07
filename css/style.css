@@ -134,6 +134,9 @@ body {
 }
 
 .lang-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
   background: transparent;
   border: none;
   color: var(--text-muted);
@@ -141,10 +144,28 @@ body {
   font-size: 0.82rem;
   font-weight: 700;
   letter-spacing: 0.8px;
-  padding: 4px 9px;
-  border-radius: 14px;
+  padding: 4px 10px;
+  border-radius: 16px;
   cursor: pointer;
   transition: var(--transition-smooth);
+}
+
+.flag-icon {
+  width: 20px;
+  height: 13.3px;
+  border-radius: 3px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.45);
+  flex-shrink: 0;
+  display: block;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease;
+}
+
+.lang-btn:hover .flag-icon {
+  transform: scale(1.08);
+}
+
+.lang-text {
+  line-height: 1;
 }
 
 .lang-btn:hover {
@@ -155,6 +176,10 @@ body {
   background: rgba(224, 169, 68, 0.22);
   color: var(--gold-primary);
   box-shadow: 0 0 10px rgba(224, 169, 68, 0.35);
+}
+
+.lang-btn.active .flag-icon {
+  box-shadow: 0 0 7px rgba(224, 169, 68, 0.75);
 }
 
 .lang-divider {
@@ -792,7 +817,12 @@ body {
   }
   .lang-btn {
     font-size: 0.74rem;
-    padding: 2px 6px;
+    padding: 2px 7px;
+    gap: 5px;
+  }
+  .flag-icon {
+    width: 17px;
+    height: 11.3px;
   }
   .site-title {
     font-size: 1.65rem;

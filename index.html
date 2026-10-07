@@ -19,11 +19,50 @@
   <div class="container">
     <!-- Header with Dharmachakra (Wheel of Dhamma) -->
     <header class="site-header">
-      <!-- Language Selector (EN / PT) -->
+      <!-- Language Selector with USA & Brazil Flags (EN / PT) -->
       <div class="lang-selector-wrap" id="langSelector" role="group" aria-label="Language selection">
-        <button class="lang-btn active" id="langBtnEn" data-lang="en" aria-label="Switch to English" title="English">EN</button>
+        <button class="lang-btn active" id="langBtnEn" data-lang="en" aria-label="Switch to English (USA)" title="English">
+          <svg class="flag-icon" viewBox="0 0 60 40" aria-hidden="true">
+            <defs>
+              <g id="usStar">
+                <polygon fill="#ffffff" points="0,-1.05 0.31,-0.32 1.0,-0.32 0.44,0.08 0.65,0.8 0,0.36 -0.65,0.8 -0.44,0.08 -1.0,-0.32 -0.31,-0.32"/>
+              </g>
+            </defs>
+            <clipPath id="usFlagClip"><rect width="60" height="40" rx="3" ry="3"/></clipPath>
+            <g clip-path="url(#usFlagClip)">
+              <rect width="60" height="40" fill="#b22234"/>
+              <path stroke="#ffffff" stroke-width="3.08" d="M0 4.62h60M0 10.77h60M0 16.92h60M0 23.08h60M0 29.23h60M0 35.38h60"/>
+              <rect width="25" height="21.54" fill="#3c3b6e"/>
+              <g transform="translate(1.2, 0.6)">
+                <use href="#usStar" x="2.5" y="2.5"/><use href="#usStar" x="6.8" y="2.5"/><use href="#usStar" x="11.1" y="2.5"/><use href="#usStar" x="15.4" y="2.5"/><use href="#usStar" x="19.7" y="2.5"/>
+                <use href="#usStar" x="4.65" y="5.5"/><use href="#usStar" x="8.95" y="5.5"/><use href="#usStar" x="13.25" y="5.5"/><use href="#usStar" x="17.55" y="5.5"/>
+                <use href="#usStar" x="2.5" y="8.5"/><use href="#usStar" x="6.8" y="8.5"/><use href="#usStar" x="11.1" y="8.5"/><use href="#usStar" x="15.4" y="8.5"/><use href="#usStar" x="19.7" y="8.5"/>
+                <use href="#usStar" x="4.65" y="11.5"/><use href="#usStar" x="8.95" y="11.5"/><use href="#usStar" x="13.25" y="11.5"/><use href="#usStar" x="17.55" y="11.5"/>
+                <use href="#usStar" x="2.5" y="14.5"/><use href="#usStar" x="6.8" y="14.5"/><use href="#usStar" x="11.1" y="14.5"/><use href="#usStar" x="15.4" y="14.5"/><use href="#usStar" x="19.7" y="14.5"/>
+                <use href="#usStar" x="4.65" y="17.5"/><use href="#usStar" x="8.95" y="17.5"/><use href="#usStar" x="13.25" y="17.5"/><use href="#usStar" x="17.55" y="17.5"/>
+              </g>
+            </g>
+          </svg>
+          <span class="lang-text">EN</span>
+        </button>
         <span class="lang-divider">/</span>
-        <button class="lang-btn" id="langBtnPt" data-lang="pt" aria-label="Mudar para Português" title="Português">PT</button>
+        <button class="lang-btn" id="langBtnPt" data-lang="pt" aria-label="Mudar para Português (Brasil)" title="Português">
+          <svg class="flag-icon" viewBox="0 0 60 40" aria-hidden="true">
+            <clipPath id="brFlagClip"><rect width="60" height="40" rx="3" ry="3"/></clipPath>
+            <g clip-path="url(#brFlagClip)">
+              <rect width="60" height="40" fill="#009b3a"/>
+              <polygon points="30,4.5 54,20 30,35.5 6,20" fill="#fedf00"/>
+              <circle cx="30" cy="20" r="8.2" fill="#002776"/>
+              <path d="M 22.2,21.8 C 24.5,18.8 34.5,17.2 38,20.8 C 34.8,18.2 24.8,19.6 22.2,21.8 Z" fill="#ffffff"/>
+              <circle cx="28" cy="23" r="0.5" fill="#ffffff"/>
+              <circle cx="30" cy="24.2" r="0.45" fill="#ffffff"/>
+              <circle cx="31.8" cy="22.8" r="0.4" fill="#ffffff"/>
+              <circle cx="30" cy="22" r="0.45" fill="#ffffff"/>
+              <circle cx="30.2" cy="18" r="0.4" fill="#ffffff"/>
+            </g>
+          </svg>
+          <span class="lang-text">PT</span>
+        </button>
       </div>
 
       <!-- 8-Spoked Wheel of Dhamma (Noble Eightfold Path) -->
