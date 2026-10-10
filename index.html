@@ -96,7 +96,7 @@
     </header>
 
     <!-- Radial Menu with 9 Annular Sectors -->
-    <main class="wheel-stage">
+    <section class="wheel-stage" id="wheelStage" aria-label="Wheel of Dhamma Radial Navigation">
       <div class="radial-menu-wrapper" id="radialMenuWrapper">
         <!-- SVG Radial Canvas for the 9 Annular Sectors -->
         <svg class="radial-svg" id="radialSvg" viewBox="0 0 700 700" xmlns="http://www.w3.org/2000/svg">
@@ -154,67 +154,86 @@
           </div>
         </div>
       </div>
+    </section>
+
+    <!-- Full In-Page Canonical Study Portal (No Longer a Pop-up Modal) -->
+    <main class="study-portal-section" id="studyPortal" aria-label="Canonical Study Portal">
+      <article class="reader-dialog" id="readerDialog">
+        <!-- Reader Header -->
+        <header class="reader-header">
+          <div>
+            <div class="reader-badge-wrap">
+              <span class="modal-enumeration" id="modalNumber">01</span>
+              <span class="category-pill" id="modalCategory">Foundational Wisdom</span>
+            </div>
+            <h2 class="reader-title-pali" id="modalPaliTitle">Cattāri Ariyasaccāni</h2>
+            <div class="reader-title-eng" id="modalEngTitle">The Four Noble Truths</div>
+          </div>
+        </header>
+
+        <!-- Navigation Tabs (Sticky Segmented Control) -->
+        <nav class="reader-tabs-nav" aria-label="Study Tabs">
+          <button class="tab-nav-btn active" data-tab="tab-overview" id="tabBtnOverview">Overview & Essence</button>
+          <button class="tab-nav-btn" data-tab="tab-canonical" id="tabBtnCanonical">Canonical Corpus</button>
+          <button class="tab-nav-btn" data-tab="tab-household" id="tabBtnHousehold">Householder Practice</button>
+        </nav>
+
+        <!-- Tab Content Area -->
+        <div class="reader-body">
+          <!-- Tab 1: Overview -->
+          <div class="tab-content active" id="tab-overview">
+            <div class="canonical-citation-tag" id="modalCitation">SN 56.11, MN 141</div>
+            <p class="lead-overview" id="modalOverview"></p>
+
+            <!-- Doctrinal Operational Matrix (Catukicca Framework) -->
+            <div id="modalDoctrinalFramework"></div>
+
+            <div class="section-label" id="headingKeyPali">
+              <span>☸</span> Key Pāli Terminology
+            </div>
+            <div class="pali-terms-grid" id="modalPaliTerms"></div>
+          </div>
+
+          <!-- Tab 2: Canonical Texts -->
+          <div class="tab-content" id="tab-canonical">
+            <div id="modalExcerptsList"></div>
+          </div>
+
+          <!-- Tab 3: Householder Practice -->
+          <div class="tab-content" id="tab-household">
+            <p id="householdIntroText" style="color: var(--text-secondary); margin-bottom: 20px; font-size: 0.95rem;">
+              Specific strategies, psychological guardrails, and behavioral advice for integrating this teaching into
+              family dynamics, career, and household governance:
+            </p>
+            <div id="modalHouseholdList"></div>
+          </div>
+        </div>
+
+        <!-- Reader Bottom Navigation Footer -->
+        <footer class="reader-footer-nav">
+          <button class="footer-nav-btn" id="footerPrevBtn">
+            <span>←</span> <span id="footerPrevText">Previous Pillar</span>
+          </button>
+          <a href="#wheelStage" class="footer-wheel-btn" id="footerWheelBtn">
+            <span>☸</span> <span id="footerWheelText">Return to Dhamma Wheel</span>
+          </a>
+          <button class="footer-nav-btn" id="footerNextBtn">
+            <span id="footerNextText">Next Pillar</span> <span>→</span>
+          </button>
+        </footer>
+      </article>
     </main>
-  </div>
 
-  <!-- Full Study Portal & Reader Modal -->
-  <div class="modal-backdrop" id="readerModal">
-    <div class="reader-dialog" role="dialog" aria-modal="true">
-      <div class="reader-header">
-        <div>
-          <div class="reader-badge-wrap">
-            <span class="modal-enumeration" id="modalNumber">01</span>
-            <span class="category-pill" id="modalCategory">Foundational Wisdom</span>
-          </div>
-          <h2 class="reader-title-pali" id="modalPaliTitle">Cattāri Ariyasaccāni</h2>
-          <div class="reader-title-eng" id="modalEngTitle">The Four Noble Truths</div>
+    <!-- Sacred Site Footer -->
+    <footer class="site-footer">
+      <div class="footer-divider"></div>
+      <div class="footer-content">
+        <div class="footer-quote">
+          “Dhammo have rakkhati dhammacāriṁ” — <span class="footer-quote-trans">The Dhamma protects the one who lives by the Dhamma.</span>
         </div>
-        <button class="modal-close-btn" id="closeModalBtn" aria-label="Close reader">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <line x1="18" y1="6" x2="6" y2="18"></line>
-            <line x1="6" y1="6" x2="18" y2="18"></line>
-          </svg>
-        </button>
+        <div class="footer-meta">The Lay Dharma Household Mārga • Upāsaka-Dharma Canonical Study Portal</div>
       </div>
-
-      <!-- Navigation Tabs -->
-      <div class="reader-tabs-nav">
-        <button class="tab-nav-btn active" data-tab="tab-overview" id="tabBtnOverview">Overview & Essence</button>
-        <button class="tab-nav-btn" data-tab="tab-canonical" id="tabBtnCanonical">Canonical Corpus</button>
-        <button class="tab-nav-btn" data-tab="tab-household" id="tabBtnHousehold">Householder Practice</button>
-      </div>
-
-      <!-- Tab Content Area -->
-      <div class="reader-body">
-        <!-- Tab 1: Overview -->
-        <div class="tab-content active" id="tab-overview">
-          <div class="canonical-citation-tag" id="modalCitation">SN 56.11, MN 141</div>
-          <p class="lead-overview" id="modalOverview"></p>
-
-          <!-- Doctrinal Operational Matrix (Catukicca Framework) -->
-          <div id="modalDoctrinalFramework"></div>
-
-          <div class="section-label" id="headingKeyPali">
-            <span>☸</span> Key Pāli Terminology
-          </div>
-          <div class="pali-terms-grid" id="modalPaliTerms"></div>
-        </div>
-
-        <!-- Tab 2: Canonical Texts -->
-        <div class="tab-content" id="tab-canonical">
-          <div id="modalExcerptsList"></div>
-        </div>
-
-        <!-- Tab 3: Householder Practice -->
-        <div class="tab-content" id="tab-household">
-          <p id="householdIntroText" style="color: var(--text-secondary); margin-bottom: 20px; font-size: 0.95rem;">
-            Specific strategies, psychological guardrails, and behavioral advice for integrating this teaching into
-            family dynamics, career, and household governance:
-          </p>
-          <div id="modalHouseholdList"></div>
-        </div>
-      </div>
-    </div>
+    </footer>
   </div>
 
   <!-- Standalone Universal Web Bundle (Works on file://, localhost, and live servers) -->

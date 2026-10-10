@@ -48,7 +48,13 @@ export const I18N_STRINGS = {
     dutyMatrixAction: "Action Required / Practice",
     dutyMatrixPrinciple: "Key Doctrinal Principle:",
     readOnSuttaCentral: "Read on SuttaCentral",
-    quickJumpLabel: "Jump to Discourse:"
+    quickJumpLabel: "Jump to Discourse:",
+    hubStudyingPrompt: "• Currently studying",
+    backToWheel: "Wheel of Dhamma",
+    prevPillar: "Previous Pillar",
+    nextPillar: "Next Pillar",
+    returnToWheel: "Return to Wheel of Dhamma",
+    quickPillarNavLabel: "Jump to Pillar:"
   },
   pt: {
     siteTitle: "O Mārga do Praticante Leigo",
@@ -93,7 +99,13 @@ export const I18N_STRINGS = {
     dutyMatrixAction: "Ação Requerida / Prática",
     dutyMatrixPrinciple: "Princípio Doutrinário Central:",
     readOnSuttaCentral: "Ler no SuttaCentral",
-    quickJumpLabel: "Navegar para o Discurso:"
+    quickJumpLabel: "Navegar para o Discurso:",
+    hubStudyingPrompt: "• Em estudo atual",
+    backToWheel: "Roda do Dhamma",
+    prevPillar: "Pilar Anterior",
+    nextPillar: "Próximo Pilar",
+    returnToWheel: "Retornar à Roda do Dhamma",
+    quickPillarNavLabel: "Navegar para o Pilar:"
   }
 };
 

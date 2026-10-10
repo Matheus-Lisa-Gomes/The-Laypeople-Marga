@@ -58,7 +58,13 @@ const I18N_STRINGS = {
     dutyMatrixAction: "Action Required / Practice",
     dutyMatrixPrinciple: "Key Doctrinal Principle:",
     readOnSuttaCentral: "Read on SuttaCentral",
-    quickJumpLabel: "Jump to Discourse:"
+    quickJumpLabel: "Jump to Discourse:",
+    hubStudyingPrompt: "• Currently studying",
+    backToWheel: "Wheel of Dhamma",
+    prevPillar: "Previous Pillar",
+    nextPillar: "Next Pillar",
+    returnToWheel: "Return to Wheel of Dhamma",
+    quickPillarNavLabel: "Jump to Pillar:"
   },
   pt: {
     siteTitle: "O Mārga do Praticante Leigo",
@@ -103,7 +109,13 @@ const I18N_STRINGS = {
     dutyMatrixAction: "Ação Requerida / Prática",
     dutyMatrixPrinciple: "Princípio Doutrinário Central:",
     readOnSuttaCentral: "Ler no SuttaCentral",
-    quickJumpLabel: "Navegar para o Discurso:"
+    quickJumpLabel: "Navegar para o Discurso:",
+    hubStudyingPrompt: "• Em estudo atual",
+    backToWheel: "Roda do Dhamma",
+    prevPillar: "Pilar Anterior",
+    nextPillar: "Próximo Pilar",
+    returnToWheel: "Retornar à Roda do Dhamma",
+    quickPillarNavLabel: "Navegar para o Pilar:"
   }
 };
 const TOPICS_DATA = [
@@ -1394,8 +1406,9 @@ const TOPICS_DATA = [
   // 2. APPLICATION CONTROLLER
   // ==========================================
 /**
- * The Lay Dharma Household Mārga — Main Application Script
+ * The Lay Dharma Household Mārga — Main Application Controller
  * Radial Menu with 9 Annular Sectors (Wheel of Dhamma)
+ * In-Page Canonical Study Portal Architecture (Full-Page Display)
  * Bilingual Engine: English (EN) & Portuguese (PT)
  */
 class LayDharmaApp {
@@ -1409,11 +1422,17 @@ class LayDharmaApp {
 
     this.currentTopic = null;
     this.currentPreviewTopic = null;
+    this.activeTabId = 'tab-overview';
 
     this.initDOM();
     this.bindEvents();
     this.renderRadialMenu();
     this.applyLanguageUI();
+
+    // Check URL hash for initial topic or default to Topic 01 (Cattāri Ariyasaccāni)
+    const hash = window.location.hash.replace('#', '');
+    const initialTopic = this.topics.find(t => t.id === hash) || this.topics[0];
+    this.selectTopic(initialTopic.id, false);
   }
 
   initDOM() {
@@ -1425,6 +1444,7 @@ class LayDharmaApp {
       siteSubtitle: document.getElementById('siteSubtitle'),
 
       // Radial stage elements
+      wheelStage: document.getElementById('wheelStage'),
       radialMenuWrapper: document.getElementById('radialMenuWrapper'),
       annularSectorsGroup: document.getElementById('annularSectorsGroup'),
       radialLabelsContainer: document.getElementById('radialLabelsContainer'),
@@ -1433,9 +1453,9 @@ class LayDharmaApp {
       hubTitle: document.getElementById('hubTitle'),
       hubDesc: document.getElementById('hubDesc'),
 
-      // Modal elements
-      readerModal: document.getElementById('readerModal'),
-      closeModalBtn: document.getElementById('closeModalBtn'),
+      // In-Page Study Portal elements
+      studyPortal: document.getElementById('studyPortal'),
+      readerDialog: document.getElementById('readerDialog'),
       modalNumber: document.getElementById('modalNumber'),
       modalCategory: document.getElementById('modalCategory'),
       modalPaliTitle: document.getElementById('modalPaliTitle'),
@@ -1454,7 +1474,15 @@ class LayDharmaApp {
       tabBtnCanonical: document.getElementById('tabBtnCanonical'),
       tabBtnHousehold: document.getElementById('tabBtnHousehold'),
       headingKeyPali: document.getElementById('headingKeyPali'),
-      householdIntroText: document.getElementById('householdIntroText')
+      householdIntroText: document.getElementById('householdIntroText'),
+
+      // Bottom Navigation Footer
+      footerPrevBtn: document.getElementById('footerPrevBtn'),
+      footerPrevText: document.getElementById('footerPrevText'),
+      footerWheelBtn: document.getElementById('footerWheelBtn'),
+      footerWheelText: document.getElementById('footerWheelText'),
+      footerNextBtn: document.getElementById('footerNextBtn'),
+      footerNextText: document.getElementById('footerNextText')
     };
   }
 
@@ -1467,27 +1495,50 @@ class LayDharmaApp {
       this.dom.langBtnPt.addEventListener('click', () => this.setLanguage('pt'));
     }
 
-    // Close reader modal
-    this.dom.closeModalBtn.addEventListener('click', () => this.closeReaderModal());
-    this.dom.readerModal.addEventListener('click', (e) => {
-      if (e.target === this.dom.readerModal) {
-        this.closeReaderModal();
-      }
-    });
+    // Step navigation buttons (Prev / Next Pillar at bottom footer)
+    if (this.dom.footerPrevBtn) {
+      this.dom.footerPrevBtn.addEventListener('click', () => this.stepTopic(-1));
+    }
+    if (this.dom.footerNextBtn) {
+      this.dom.footerNextBtn.addEventListener('click', () => this.stepTopic(1));
+    }
 
-    // Keyboard navigation (Escape to close modal)
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && this.dom.readerModal.classList.contains('active')) {
-        this.closeReaderModal();
+    // Smooth scroll to Wheel of Dhamma
+    const scrollToWheel = (e) => {
+      e.preventDefault();
+      if (this.dom.wheelStage) {
+        this.dom.wheelStage.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
-    });
+    };
+    if (this.dom.footerWheelBtn) {
+      this.dom.footerWheelBtn.addEventListener('click', scrollToWheel);
+    }
 
-    // Tab switching inside reader modal
+    // Tab switching inside reader
     this.dom.tabBtns.forEach(btn => {
       btn.addEventListener('click', () => {
         const targetTabId = btn.dataset.tab;
         this.switchTab(targetTabId);
       });
+    });
+
+    // Keyboard shortcuts: Alt + ArrowLeft / Alt + ArrowRight for sequential pillar study
+    document.addEventListener('keydown', (e) => {
+      if (document.activeElement && ['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName)) return;
+      if (e.key === 'ArrowLeft' && e.altKey) {
+        this.stepTopic(-1);
+      } else if (e.key === 'ArrowRight' && e.altKey) {
+        this.stepTopic(1);
+      }
+    });
+
+    // Hash change listener for browser navigation
+    window.addEventListener('hashchange', () => {
+      const hash = window.location.hash.replace('#', '');
+      if (hash && this.currentTopic && this.currentTopic.id !== hash) {
+        const topic = this.topics.find(t => t.id === hash);
+        if (topic) this.selectTopic(topic.id, false);
+      }
     });
   }
 
@@ -1521,15 +1572,17 @@ class LayDharmaApp {
     if (this.dom.siteTitle) this.dom.siteTitle.textContent = t.siteTitle;
     if (this.dom.siteSubtitle) this.dom.siteSubtitle.textContent = t.siteSubtitle;
 
-    // Tab buttons in modal
+    // In-Page Navigation Labels
+    if (this.dom.footerWheelText) this.dom.footerWheelText.textContent = t.returnToWheel;
+
+    // Tab buttons in reader
     if (this.dom.tabBtnOverview) this.dom.tabBtnOverview.textContent = t.tabOverview;
     if (this.dom.tabBtnCanonical) this.dom.tabBtnCanonical.textContent = t.tabCanonical;
     if (this.dom.tabBtnHousehold) this.dom.tabBtnHousehold.textContent = t.tabHousehold;
 
-    // Section headings & intro texts in modal
+    // Section headings & intro texts in reader
     if (this.dom.headingKeyPali) this.dom.headingKeyPali.innerHTML = `<span>☸</span> ${t.keyPaliTermsHeading}`;
     if (this.dom.householdIntroText) this.dom.householdIntroText.textContent = t.householdIntro;
-    if (this.dom.closeModalBtn) this.dom.closeModalBtn.setAttribute('aria-label', t.closeReaderAria);
 
     // Update sector labels on radial wheel
     this.topics.forEach((topic) => {
@@ -1551,14 +1604,17 @@ class LayDharmaApp {
 
     // Update center hub
     if (this.currentPreviewTopic) {
-      this.previewTopicInHub(this.currentPreviewTopic);
+      this.previewTopicInHub(this.currentPreviewTopic, false);
+    } else if (this.currentTopic) {
+      this.previewTopicInHub(this.currentTopic, true);
     } else {
       this.resetHub();
     }
 
-    // If modal is actively open, refresh its content in the new language
-    if (this.currentTopic && this.dom.readerModal.classList.contains('active')) {
-      this.populateReaderModal(this.currentTopic);
+    // If a topic is selected, refresh its content in the new language
+    if (this.currentTopic) {
+      this.populateReader(this.currentTopic);
+      this.updateStepLabels();
     }
   }
 
@@ -1604,7 +1660,7 @@ class LayDharmaApp {
       // SVG path definition for annular sector
       const pathD = `M ${x1} ${y1} A ${rOut} ${rOut} 0 0 1 ${x2} ${y2} L ${x3} ${y3} A ${rIn} ${rIn} 0 0 0 ${x4} ${y4} Z`;
 
-      // Centroid coordinates for HTML label
+      // Centroid coordinates for HTML label (measured from 50%, 50% center of the wheel)
       const lx = Math.round(rMid * Math.cos(alphaMid));
       const ly = Math.round(rMid * Math.sin(alphaMid));
 
@@ -1649,15 +1705,16 @@ class LayDharmaApp {
     this.topics.forEach((topic, i) => {
       const sector = document.getElementById(`sector-${topic.id}`);
       const label = document.getElementById(`label-${topic.id}`);
+      if (!sector || !label) return;
 
       const onEnter = () => {
         sector.classList.add('active-sector');
         label.classList.add('hovered');
         const alphaMid = (-90 + (i * stepDeg)) * Math.PI / 180;
-        const dx = (Math.cos(alphaMid) * 8).toFixed(1);
-        const dy = (Math.sin(alphaMid) * 8).toFixed(1);
+        const dx = Math.round(Math.cos(alphaMid) * 8);
+        const dy = Math.round(Math.sin(alphaMid) * 8);
         sector.style.transform = `translate(${dx}px, ${dy}px)`;
-        this.previewTopicInHub(topic);
+        this.previewTopicInHub(topic, false);
       };
 
       const onLeave = () => {
@@ -1668,11 +1725,10 @@ class LayDharmaApp {
       };
 
       const onClick = () => {
-        this.openReaderModal(topic.id);
+        this.selectTopic(topic.id, true);
       };
 
       [sector, label].forEach(elem => {
-        if (!elem) return;
         elem.addEventListener('mouseenter', onEnter);
         elem.addEventListener('mouseleave', onLeave);
         elem.addEventListener('focus', onEnter);
@@ -1687,12 +1743,16 @@ class LayDharmaApp {
       });
     });
 
-    // Clicking the center hub opens the currently previewed topic
+    // Center Hub interaction
     this.dom.wheelCenterHub.addEventListener('click', () => {
       if (this.currentPreviewTopic) {
-        this.openReaderModal(this.currentPreviewTopic.id);
+        this.selectTopic(this.currentPreviewTopic.id, true);
+      } else if (this.currentTopic) {
+        if (this.dom.studyPortal) {
+          this.dom.studyPortal.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
       } else if (this.topics.length > 0) {
-        this.openReaderModal(this.topics[0].id);
+        this.selectTopic(this.topics[0].id, true);
       }
     });
 
@@ -1704,20 +1764,57 @@ class LayDharmaApp {
     });
   }
 
-  previewTopicInHub(topic) {
-    this.currentPreviewTopic = topic;
+  /**
+   * Step between the 9 pillars sequentially
+   * @param {number} direction - -1 for previous, 1 for next
+   */
+  stepTopic(direction) {
+    if (!this.currentTopic) return;
+    const currentIndex = this.topics.findIndex(t => t.id === this.currentTopic.id);
+    let newIndex = currentIndex + direction;
+    if (newIndex < 0) newIndex = this.topics.length - 1;
+    if (newIndex >= this.topics.length) newIndex = 0;
+    this.selectTopic(this.topics[newIndex].id, false);
+  }
+
+  /**
+   * Update Next/Previous pillar button labels and accessibility titles
+   */
+  updateStepLabels() {
+    if (!this.currentTopic) return;
+    const curIdx = this.topics.findIndex(t => t.id === this.currentTopic.id);
+    const prevIdx = (curIdx - 1 + this.topics.length) % this.topics.length;
+    const nextIdx = (curIdx + 1) % this.topics.length;
+    const prevTopic = this.topics[prevIdx];
+    const nextTopic = this.topics[nextIdx];
+
+    const t = this.i18n[this.currentLang] || this.i18n.en;
+    if (this.dom.footerPrevText) {
+      this.dom.footerPrevText.textContent = `${t.prevPillar}: ${prevTopic.number} ${prevTopic.paliTitle}`;
+    }
+    if (this.dom.footerNextText) {
+      this.dom.footerNextText.textContent = `${t.nextPillar}: ${nextTopic.number} ${nextTopic.paliTitle}`;
+    }
+  }
+
+  previewTopicInHub(topic, isSelected = false) {
+    this.currentPreviewTopic = isSelected ? null : topic;
     const t = this.i18n[this.currentLang] || this.i18n.en;
     const langContent = topic[this.currentLang] || topic.en;
 
     this.dom.hubBadge.textContent = `${t.hubTopicPrefix} ${topic.number}`;
     this.dom.hubTitle.textContent = topic.paliTitle;
-    this.dom.hubDesc.textContent = `${langContent.title} ${t.hubClickPrompt}`;
+    this.dom.hubDesc.textContent = `${langContent.title} ${isSelected ? (t.hubStudyingPrompt || '• Currently studying') : t.hubClickPrompt}`;
     this.dom.wheelCenterHub.style.borderColor = 'var(--gold-primary)';
     this.dom.wheelCenterHub.style.boxShadow = '0 0 35px rgba(224, 169, 68, 0.45), inset 0 0 20px rgba(0, 0, 0, 0.8)';
   }
 
   resetHub() {
     this.currentPreviewTopic = null;
+    if (this.currentTopic) {
+      this.previewTopicInHub(this.currentTopic, true);
+      return;
+    }
     const t = this.i18n[this.currentLang] || this.i18n.en;
     this.dom.hubBadge.textContent = t.hubBadge;
     this.dom.hubTitle.textContent = t.hubDefaultTitle;
@@ -1726,26 +1823,49 @@ class LayDharmaApp {
     this.dom.wheelCenterHub.style.boxShadow = '';
   }
 
-  openReaderModal(topicId) {
+  /**
+   * Select a topic to display in the in-page study portal
+   * @param {string} topicId
+   * @param {boolean} scrollIntoView - Smoothly scroll to the reader card
+   */
+  selectTopic(topicId, scrollIntoView = false) {
     const topic = this.topics.find(t => t.id === topicId);
     if (!topic) return;
 
     this.currentTopic = topic;
-    this.populateReaderModal(topic);
+    this.populateReader(topic);
 
-    // Reset to first tab
-    this.switchTab('tab-overview');
+    // Update active sector and label on Dharmachakra wheel
+    this.topics.forEach(t => {
+      const s = document.getElementById(`sector-${t.id}`);
+      const l = document.getElementById(`label-${t.id}`);
+      const isCurrent = t.id === topic.id;
+      if (s) s.classList.toggle('selected-sector', isCurrent);
+      if (l) l.classList.toggle('selected', isCurrent);
+    });
 
-    // Display modal
-    this.dom.readerModal.classList.add('active');
-    document.body.style.overflow = 'hidden';
+    // Update center hub state
+    this.previewTopicInHub(topic, true);
+
+    // Update step button tooltips and labels
+    this.updateStepLabels();
+
+    // Update browser URL hash without causing a jump
+    if (window.history && window.history.replaceState) {
+      window.history.replaceState(null, '', `#${topic.id}`);
+    }
+
+    // Smooth scroll down to study reader if requested (e.g. when clicking wheel)
+    if (scrollIntoView && this.dom.studyPortal) {
+      this.dom.studyPortal.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
   }
 
-  populateReaderModal(topic) {
+  populateReader(topic) {
     const t = this.i18n[this.currentLang] || this.i18n.en;
     const langContent = topic[this.currentLang] || topic.en;
 
-    // Populate Modal Header
+    // Populate Reader Header
     this.dom.modalNumber.textContent = topic.number;
     this.dom.modalCategory.textContent = langContent.category;
     this.dom.modalPaliTitle.textContent = topic.paliTitle;
@@ -1812,16 +1932,26 @@ class LayDharmaApp {
 
     // Canonical Corpus / Excerpts
     if (langContent.canonicalCorpus && langContent.canonicalCorpus.length > 0) {
-      // Group distinct levels for roadmap banner
-      const roadmapItems = [
-        { level: "1", code: "SN 56.11", target: "#corpus-sutta-0" },
-        { level: "2", code: "MN 141", target: "#corpus-sutta-1" },
-        { level: "3", code: "MN 9", target: "#corpus-sutta-2" },
-        { level: "4", code: "MN 28 • SN 22.59 • SN 56.13", target: "#corpus-sutta-3" },
-        { level: "5", code: "SN 12.23", target: "#corpus-sutta-6" }
-      ];
+      // Dynamically group distinct levels for roadmap banner
+      const levelsMap = new Map();
+      langContent.canonicalCorpus.forEach((sutta, idx) => {
+        const lvl = sutta.levelNumber ? String(sutta.levelNumber) : null;
+        if (lvl) {
+          if (!levelsMap.has(lvl)) {
+            levelsMap.set(lvl, { level: lvl, codes: [sutta.suttaCode], target: `#corpus-sutta-${idx}` });
+          } else {
+            levelsMap.get(lvl).codes.push(sutta.suttaCode);
+          }
+        }
+      });
 
-      const jumpNavHtml = `
+      const roadmapItems = Array.from(levelsMap.values()).map(item => ({
+        level: item.level,
+        code: item.codes.join(' • '),
+        target: item.target
+      }));
+
+      const jumpNavHtml = roadmapItems.length > 0 ? `
         <div class="progression-roadmap-banner">
           <div class="progression-header-title"><span>☸</span> ${t.studyProgressionHeading}</div>
           <div class="progression-header-subtitle">${t.studyProgressionSubtitle}</div>
@@ -1835,7 +1965,7 @@ class LayDharmaApp {
             `).join('')}
           </div>
         </div>
-      `;
+      ` : '';
 
       let lastLevel = null;
       const corpusCardsHtml = langContent.canonicalCorpus.map((sutta, idx) => {
@@ -1998,12 +2128,8 @@ class LayDharmaApp {
     `).join('');
   }
 
-  closeReaderModal() {
-    this.dom.readerModal.classList.remove('active');
-    document.body.style.overflow = '';
-  }
-
   switchTab(targetTabId) {
+    this.activeTabId = targetTabId;
     this.dom.tabBtns.forEach(btn => {
       btn.classList.toggle('active', btn.dataset.tab === targetTabId);
     });
