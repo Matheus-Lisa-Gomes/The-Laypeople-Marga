@@ -2739,3 +2739,2741 @@ body {
   }
 }
 
+/* ==========================================================================
+   TOPIC 02: DEPENDENT ARISING IN EVERYDAY LIFE (PAṬICCA-SAMUPPĀDA)
+   Contemplative Buddhist Study Library Aesthetic
+   ========================================================================== */
+
+/* Hero Section */
+.pa-hero-wrap {
+  background: linear-gradient(135deg, rgba(22, 17, 10, 0.95) 0%, rgba(13, 18, 26, 0.95) 100%);
+  border: 1px solid var(--gold-border);
+  border-radius: 12px;
+  padding: 36px 32px;
+  margin-bottom: 32px;
+  position: relative;
+  box-shadow: var(--shadow-md);
+}
+
+.pa-hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-serif-sacred);
+  font-size: 0.75rem;
+  letter-spacing: 0.16em;
+  color: var(--gold-primary);
+  text-transform: uppercase;
+  background: rgba(224, 169, 68, 0.12);
+  padding: 5px 12px;
+  border-radius: 20px;
+  border: 1px solid rgba(224, 169, 68, 0.3);
+  margin-bottom: 14px;
+}
+
+.pa-hero-title {
+  font-family: var(--font-serif-sacred);
+  font-size: 2.1rem;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+  line-height: 1.25;
+  background: var(--gold-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.pa-hero-pali {
+  font-family: var(--font-canonical);
+  font-size: 1.25rem;
+  color: var(--text-pali);
+  font-style: italic;
+  margin-bottom: 12px;
+}
+
+.pa-hero-subtitle {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  color: var(--gold-light);
+  margin-bottom: 16px;
+  font-weight: 500;
+}
+
+.pa-hero-intro {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  max-width: 900px;
+  margin-bottom: 24px;
+}
+
+/* Canonical Passage Box */
+.pa-canonical-box {
+  background: rgba(10, 14, 20, 0.85);
+  border-left: 3px solid var(--gold-primary);
+  border-radius: 0 8px 8px 0;
+  padding: 18px 22px;
+  margin-bottom: 24px;
+  border-top: 1px solid rgba(224, 169, 68, 0.15);
+  border-right: 1px solid rgba(224, 169, 68, 0.15);
+  border-bottom: 1px solid rgba(224, 169, 68, 0.15);
+}
+
+.pa-canonical-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.pa-canonical-badge {
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: var(--gold-primary);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.pa-canonical-link {
+  font-size: 0.82rem;
+  color: var(--gold-light);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: var(--transition-smooth);
+}
+.pa-canonical-link:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.pa-canonical-pali {
+  font-family: var(--font-canonical);
+  font-size: 0.98rem;
+  color: var(--text-pali);
+  font-style: italic;
+  line-height: 1.65;
+  margin-bottom: 8px;
+}
+
+.pa-canonical-trans {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* Primary Action Buttons */
+.pa-hero-actions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.pa-action-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  font-weight: 600;
+  padding: 10px 18px;
+  border-radius: 6px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  border: 1px solid var(--gold-border);
+  background: rgba(224, 169, 68, 0.08);
+  color: var(--gold-light);
+}
+
+.pa-action-btn:hover {
+  background: var(--gold-primary);
+  color: #0d1219;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px var(--gold-glow);
+}
+
+/* Section Containers */
+.pa-section-block {
+  margin-bottom: 40px;
+}
+
+.pa-section-title-wrap {
+  margin-bottom: 22px;
+}
+
+.pa-section-title {
+  font-family: var(--font-serif-sacred);
+  font-size: 1.55rem;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+
+.pa-section-title span {
+  color: var(--gold-primary);
+}
+
+.pa-section-subtitle {
+  font-family: var(--font-body);
+  font-size: 0.94rem;
+  color: var(--text-secondary);
+}
+
+/* Three Levels Cards */
+.pa-levels-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 28px;
+}
+
+.pa-level-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 10px;
+  padding: 24px;
+  transition: var(--transition-smooth);
+}
+
+.pa-level-card:hover {
+  border-color: rgba(224, 169, 68, 0.35);
+  box-shadow: var(--shadow-sm);
+}
+
+.pa-level-badge {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--gold-primary);
+  background: rgba(224, 169, 68, 0.12);
+  padding: 4px 10px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.pa-level-title {
+  font-family: var(--font-serif-sacred);
+  font-size: 1.25rem;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+}
+
+.pa-formula-box {
+  background: rgba(9, 12, 16, 0.7);
+  border: 1px solid rgba(224, 169, 68, 0.2);
+  border-radius: 6px;
+  padding: 14px 16px;
+  margin-bottom: 14px;
+}
+
+.pa-formula-pali {
+  font-family: var(--font-canonical);
+  font-size: 0.96rem;
+  color: var(--text-pali);
+  font-style: italic;
+  margin-bottom: 6px;
+  line-height: 1.5;
+}
+
+.pa-formula-trans {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.pa-level-detail {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+/* Links Sequence Pills in Level 2 */
+.pa-sequence-pills {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 8px;
+  margin: 16px 0;
+}
+
+.pa-seq-pill {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(15, 20, 29, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 0.86rem;
+}
+
+.pa-seq-num {
+  font-family: var(--font-serif-sacred);
+  font-size: 0.75rem;
+  color: var(--gold-primary);
+  background: rgba(224, 169, 68, 0.1);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.pa-seq-pali {
+  font-family: var(--font-canonical);
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.pa-seq-trans {
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  margin-left: auto;
+  text-align: right;
+}
+
+.pa-caveat-box {
+  background: rgba(201, 84, 56, 0.08);
+  border-left: 3px solid var(--vermilion);
+  padding: 12px 16px;
+  border-radius: 0 6px 6px 0;
+  font-size: 0.88rem;
+  color: #e5b3a3;
+  line-height: 1.6;
+  margin-top: 14px;
+}
+
+/* Comparison Panel */
+.pa-comparison-panel {
+  background: rgba(15, 20, 29, 0.85);
+  border: 1px solid var(--border-subtle);
+  border-radius: 10px;
+  padding: 24px;
+  margin-top: 24px;
+}
+
+.pa-comp-header {
+  margin-bottom: 18px;
+}
+
+.pa-comp-title {
+  font-family: var(--font-serif-sacred);
+  font-size: 1.15rem;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pa-comp-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+}
+
+.pa-comp-card {
+  background: rgba(9, 12, 16, 0.75);
+  border-radius: 8px;
+  padding: 18px;
+  border-top: 3px solid;
+}
+
+.pa-comp-arising {
+  border-top-color: var(--vermilion);
+}
+.pa-comp-cessation {
+  border-top-color: var(--jade-calm);
+}
+.pa-comp-practice {
+  border-top-color: var(--gold-primary);
+}
+
+.pa-comp-badge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 8px;
+}
+
+.pa-comp-arising .pa-comp-badge { color: var(--vermilion); }
+.pa-comp-cessation .pa-comp-badge { color: var(--jade-calm); }
+.pa-comp-practice .pa-comp-badge { color: var(--gold-primary); }
+
+.pa-comp-desc {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+
+/* Twelve Links Explorer */
+.pa-explorer-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(14, 18, 25, 0.9);
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  padding: 12px 18px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.pa-mode-control {
+  display: flex;
+  gap: 6px;
+  background: rgba(9, 12, 16, 0.8);
+  padding: 4px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.pa-mode-btn {
+  background: transparent;
+  border: none;
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  padding: 6px 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.pa-mode-btn.active {
+  background: var(--gold-primary);
+  color: #090c10;
+  box-shadow: 0 2px 8px var(--gold-glow);
+}
+
+.pa-mode-notice {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  font-style: italic;
+  max-width: 520px;
+}
+
+.pa-links-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.pa-link-item {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 10px;
+  padding: 22px 24px;
+  transition: var(--transition-smooth);
+  position: relative;
+}
+
+.pa-link-item:hover {
+  border-color: rgba(224, 169, 68, 0.35);
+}
+
+.pa-link-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.pa-link-title-group {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.pa-link-num-tag {
+  font-family: var(--font-serif-sacred);
+  font-size: 0.82rem;
+  color: var(--gold-primary);
+  background: rgba(224, 169, 68, 0.12);
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-weight: 700;
+}
+
+.pa-link-pali-name {
+  font-family: var(--font-canonical);
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.pa-link-trans-name {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--gold-light);
+}
+
+.pa-link-ref-badge {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  background: rgba(255, 255, 255, 0.05);
+  padding: 3px 8px;
+  border-radius: 4px;
+}
+
+.pa-link-relations-bar {
+  display: flex;
+  gap: 14px;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+  font-size: 0.8rem;
+}
+
+.pa-rel-tag {
+  color: var(--text-muted);
+}
+.pa-rel-tag strong {
+  color: var(--text-secondary);
+}
+
+.pa-link-body-text {
+  font-size: 0.94rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  margin-bottom: 14px;
+}
+
+.pa-link-reflection-card {
+  background: rgba(62, 168, 118, 0.07);
+  border-left: 3px solid var(--jade-calm);
+  padding: 10px 14px;
+  border-radius: 0 6px 6px 0;
+  margin-bottom: 12px;
+  font-size: 0.88rem;
+  color: #b8e6ce;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  line-height: 1.5;
+}
+
+.pa-toggle-note-btn {
+  background: transparent;
+  border: none;
+  font-size: 0.82rem;
+  color: var(--gold-primary);
+  cursor: pointer;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: var(--transition-smooth);
+}
+.pa-toggle-note-btn:hover {
+  text-decoration: underline;
+  color: var(--gold-light);
+}
+
+.pa-study-note-drawer {
+  background: rgba(9, 12, 16, 0.7);
+  border: 1px dashed rgba(224, 169, 68, 0.25);
+  border-radius: 6px;
+  padding: 12px 14px;
+  margin-top: 10px;
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  display: none;
+}
+.pa-study-note-drawer.open {
+  display: block;
+}
+
+/* Sutta Library in Tab 2 */
+.pa-library-controls {
+  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.pa-search-wrap {
+  position: relative;
+  width: 100%;
+}
+
+.pa-search-input {
+  width: 100%;
+  background: rgba(15, 20, 29, 0.95);
+  border: 1px solid rgba(224, 169, 68, 0.25);
+  border-radius: 8px;
+  padding: 12px 16px 12px 42px;
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  transition: var(--transition-smooth);
+}
+.pa-search-input:focus {
+  outline: none;
+  border-color: var(--gold-primary);
+  box-shadow: 0 0 15px var(--gold-glow);
+}
+
+.pa-search-icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+  pointer-events: none;
+}
+
+.pa-filter-pills {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.pa-filter-pill {
+  background: rgba(15, 20, 29, 0.7);
+  border: 1px solid var(--border-subtle);
+  border-radius: 20px;
+  padding: 6px 14px;
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+.pa-filter-pill:hover {
+  border-color: var(--gold-border);
+  color: var(--text-primary);
+}
+.pa-filter-pill.active {
+  background: rgba(224, 169, 68, 0.15);
+  border-color: var(--gold-primary);
+  color: var(--gold-light);
+  font-weight: 600;
+}
+
+.pa-suttas-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.pa-sutta-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 10px;
+  padding: 24px;
+  transition: var(--transition-smooth);
+}
+.pa-sutta-card:hover {
+  border-color: rgba(224, 169, 68, 0.35);
+  box-shadow: var(--shadow-sm);
+}
+
+.pa-sutta-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.pa-sutta-badges {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.pa-sutta-code-tag {
+  font-family: var(--font-serif-sacred);
+  font-size: 0.78rem;
+  color: var(--gold-primary);
+  background: rgba(224, 169, 68, 0.12);
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-weight: 700;
+}
+
+.pa-sutta-cat-tag {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  background: rgba(255, 255, 255, 0.05);
+  padding: 3px 8px;
+  border-radius: 4px;
+}
+
+.pa-sutta-time-tag {
+  font-size: 0.75rem;
+  color: var(--jade-calm);
+  background: rgba(62, 168, 118, 0.08);
+  padding: 3px 8px;
+  border-radius: 4px;
+}
+
+.pa-read-toggle-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  cursor: pointer;
+  user-select: none;
+}
+.pa-read-toggle-wrap input[type="checkbox"] {
+  accent-color: var(--gold-primary);
+  cursor: pointer;
+}
+.pa-read-toggle-wrap.completed {
+  color: var(--gold-light);
+}
+
+.pa-sutta-titles {
+  margin-bottom: 12px;
+}
+
+.pa-sutta-pali-title {
+  font-family: var(--font-serif-sacred);
+  font-size: 1.35rem;
+  color: var(--text-primary);
+  margin-bottom: 2px;
+}
+
+.pa-sutta-trans-title {
+  font-family: var(--font-body);
+  font-size: 0.98rem;
+  color: var(--gold-light);
+}
+
+.pa-sutta-nikaya {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+.pa-sutta-importance {
+  font-size: 0.94rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+
+.pa-lay-relevance-card {
+  background: rgba(62, 168, 118, 0.08);
+  border-left: 3px solid var(--jade-calm);
+  padding: 10px 14px;
+  border-radius: 0 6px 6px 0;
+  margin-bottom: 14px;
+  font-size: 0.88rem;
+  color: #c0ebd5;
+  line-height: 1.55;
+}
+
+.pa-concepts-row {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.pa-concept-chip {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 2px 8px;
+  border-radius: 12px;
+}
+
+.pa-sutta-action-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* Scenarios in Tab 3 */
+.pa-scenarios-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-bottom: 36px;
+}
+
+.pa-scenario-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 10px;
+  padding: 26px;
+  transition: var(--transition-smooth);
+}
+.pa-scenario-card:hover {
+  border-color: rgba(224, 169, 68, 0.35);
+}
+
+.pa-scenario-header {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.pa-sc-num {
+  font-family: var(--font-serif-sacred);
+  font-size: 0.8rem;
+  color: var(--gold-primary);
+  background: rgba(224, 169, 68, 0.12);
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-weight: 700;
+}
+
+.pa-sc-title {
+  font-family: var(--font-serif-sacred);
+  font-size: 1.25rem;
+  color: var(--text-primary);
+}
+
+.pa-sc-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+.pa-sc-item {
+  background: rgba(9, 12, 16, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 6px;
+  padding: 12px 14px;
+}
+
+.pa-sc-item.dhamma-response {
+  background: rgba(224, 169, 68, 0.06);
+  border-color: rgba(224, 169, 68, 0.25);
+  border-left: 3px solid var(--gold-primary);
+}
+
+.pa-sc-label {
+  font-size: 0.74rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--gold-primary);
+  margin-bottom: 4px;
+}
+
+.pa-sc-text {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.pa-sc-suttas {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-top: 6px;
+}
+
+/* Interactive Guided Exercise */
+.pa-exercise-wrap {
+  background: linear-gradient(135deg, rgba(16, 22, 32, 0.95) 0%, rgba(10, 14, 20, 0.95) 100%);
+  border: 1px solid var(--gold-border);
+  border-radius: 12px;
+  padding: 30px 28px;
+  margin-bottom: 36px;
+  box-shadow: var(--shadow-md);
+}
+
+.pa-exercise-progress-bar {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 24px;
+}
+
+.pa-progress-step {
+  flex: 1;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+  transition: var(--transition-smooth);
+}
+.pa-progress-step.active {
+  background: var(--gold-primary);
+}
+.pa-progress-step.done {
+  background: var(--jade-calm);
+}
+
+.pa-step-card {
+  min-height: 200px;
+}
+
+.pa-step-title {
+  font-family: var(--font-serif-sacred);
+  font-size: 1.2rem;
+  color: var(--text-primary);
+  margin-bottom: 10px;
+}
+
+.pa-step-prompt {
+  font-size: 0.95rem;
+  color: var(--gold-light);
+  margin-bottom: 16px;
+  line-height: 1.5;
+}
+
+.pa-step-options {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.pa-option-btn {
+  background: rgba(9, 12, 16, 0.7);
+  border: 1px solid var(--border-subtle);
+  border-radius: 6px;
+  padding: 10px 14px;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  text-align: left;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+.pa-option-btn:hover {
+  border-color: rgba(224, 169, 68, 0.3);
+  color: var(--text-primary);
+}
+.pa-option-btn.selected {
+  background: rgba(224, 169, 68, 0.15);
+  border-color: var(--gold-primary);
+  color: var(--gold-light);
+  font-weight: 600;
+}
+
+.pa-step-textarea {
+  width: 100%;
+  min-height: 90px;
+  background: rgba(9, 12, 16, 0.85);
+  border: 1px solid var(--border-subtle);
+  border-radius: 6px;
+  padding: 12px;
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  line-height: 1.5;
+  resize: vertical;
+}
+.pa-step-textarea:focus {
+  outline: none;
+  border-color: var(--gold-primary);
+}
+
+.pa-step-nav-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.pa-nav-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-subtle);
+  border-radius: 6px;
+  padding: 8px 16px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+.pa-nav-btn:hover:not(:disabled) {
+  border-color: var(--gold-border);
+  color: var(--text-primary);
+}
+.pa-nav-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.pa-finish-btn {
+  background: var(--gold-primary);
+  border: none;
+  border-radius: 6px;
+  padding: 10px 20px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #090c10;
+  cursor: pointer;
+  box-shadow: 0 2px 10px var(--gold-glow);
+  transition: var(--transition-smooth);
+}
+.pa-finish-btn:hover {
+  background: var(--gold-light);
+  transform: translateY(-2px);
+}
+
+.pa-summary-card {
+  background: rgba(9, 12, 16, 0.9);
+  border: 1px solid var(--gold-primary);
+  border-radius: 8px;
+  padding: 22px;
+  margin-top: 20px;
+}
+
+.pa-summary-title {
+  font-family: var(--font-serif-sacred);
+  font-size: 1.15rem;
+  color: var(--gold-primary);
+  margin-bottom: 14px;
+}
+
+.pa-summary-item {
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+.pa-summary-item strong {
+  color: var(--text-primary);
+}
+
+/* Study Pathways */
+.pa-track-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 18px;
+  flex-wrap: wrap;
+}
+
+.pa-track-tab {
+  background: rgba(15, 20, 29, 0.7);
+  border: 1px solid var(--border-subtle);
+  border-radius: 6px;
+  padding: 8px 16px;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+.pa-track-tab.active {
+  background: rgba(224, 169, 68, 0.15);
+  border-color: var(--gold-primary);
+  color: var(--gold-light);
+  font-weight: 600;
+}
+
+.pa-track-progress-bar {
+  height: 6px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 3px;
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+
+.pa-track-fill {
+  height: 100%;
+  background: var(--jade-calm);
+  width: 0%;
+  transition: width 0.3s ease;
+}
+
+.pa-days-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 30px;
+}
+
+.pa-day-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 6px;
+  padding: 10px 14px;
+}
+
+.pa-day-check {
+  accent-color: var(--jade-calm);
+  cursor: pointer;
+  width: 16px;
+  height: 16px;
+}
+
+.pa-day-num {
+  font-family: var(--font-serif-sacred);
+  font-size: 0.78rem;
+  color: var(--gold-primary);
+  background: rgba(224, 169, 68, 0.1);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.pa-day-sutta {
+  font-weight: 600;
+  font-size: 0.88rem;
+  color: var(--text-primary);
+  min-width: 140px;
+}
+
+.pa-day-task {
+  font-size: 0.86rem;
+  color: var(--text-secondary);
+}
+
+/* Reflection Journal */
+.pa-journal-wrap {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 10px;
+  padding: 26px;
+  margin-bottom: 36px;
+}
+
+.pa-journal-form {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.pa-journal-prompt-label {
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: var(--gold-light);
+  margin-bottom: 4px;
+}
+
+.pa-journal-entries-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.pa-journal-entry-card {
+  background: rgba(9, 12, 16, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.pa-entry-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.pa-entry-delete-btn {
+  background: transparent;
+  border: none;
+  color: var(--vermilion);
+  cursor: pointer;
+  font-size: 0.78rem;
+  transition: var(--transition-smooth);
+}
+.pa-entry-delete-btn:hover {
+  text-decoration: underline;
+}
+
+/* Frequently Asked Questions (Accordion) */
+.pa-faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.pa-faq-item {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: var(--transition-smooth);
+}
+
+.pa-faq-q-btn {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  background: transparent;
+  border: none;
+  font-family: var(--font-body);
+  font-size: 0.96rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  text-align: left;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+.pa-faq-q-btn:hover {
+  color: var(--gold-light);
+}
+
+.pa-faq-icon {
+  font-size: 0.85rem;
+  color: var(--gold-primary);
+  transition: transform 0.25s ease;
+}
+.pa-faq-item.open .pa-faq-icon {
+  transform: rotate(180deg);
+}
+
+.pa-faq-a-body {
+  padding: 0 20px 18px 20px;
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  display: none;
+}
+.pa-faq-item.open .pa-faq-a-body {
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .pa-hero-wrap {
+    padding: 24px 18px;
+  }
+  .pa-hero-title {
+    font-size: 1.6rem;
+  }
+  .pa-comp-grid {
+    grid-template-columns: 1fr;
+  }
+  .pa-sutta-top {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* ==========================================================================
+   BUDDHIST COSMOLOGY (LOKADHĀTU & THE 31 PLANES) DESIGN SYSTEM
+   Celestial Midnight Blue, Warm Ivory, Muted Gold & Restrained Earth Tones
+   ========================================================================== */
+
+.cosmo-hero-wrap {
+  background: linear-gradient(150deg, rgba(8, 14, 24, 0.98) 0%, rgba(12, 22, 38, 0.95) 50%, rgba(7, 12, 20, 0.98) 100%);
+  border: 1px solid rgba(224, 169, 68, 0.28);
+  border-radius: 14px;
+  padding: 36px 32px;
+  margin-bottom: 36px;
+  position: relative;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.65), 0 0 25px rgba(224, 169, 68, 0.08);
+  overflow: hidden;
+}
+
+.cosmo-hero-wrap::before {
+  content: '';
+  position: absolute;
+  top: -60px;
+  right: -60px;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(224, 169, 68, 0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.cosmo-hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(224, 169, 68, 0.12);
+  border: 1px solid rgba(224, 169, 68, 0.35);
+  color: var(--gold-light);
+  font-size: 0.76rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 5px 14px;
+  border-radius: 20px;
+  margin-bottom: 16px;
+  font-weight: 600;
+}
+
+.cosmo-hero-title {
+  font-family: var(--font-serif-sacred);
+  font-size: 2.2rem;
+  color: #fffaf0;
+  letter-spacing: 0.04em;
+  margin-bottom: 6px;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.cosmo-hero-pali {
+  font-family: var(--font-canonical);
+  font-style: italic;
+  font-size: 1.05rem;
+  color: var(--gold-primary);
+  margin-bottom: 8px;
+}
+
+.cosmo-hero-subtitle {
+  font-size: 1.02rem;
+  color: #d1d9e6;
+  margin-bottom: 18px;
+  font-weight: 400;
+}
+
+.cosmo-hero-intro {
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: #b5c2d4;
+  margin-bottom: 24px;
+  max-width: 900px;
+}
+
+.cosmo-canonical-box {
+  background: rgba(4, 9, 16, 0.7);
+  border: 1px solid rgba(224, 169, 68, 0.22);
+  border-left: 4px solid var(--gold-primary);
+  border-radius: 8px;
+  padding: 18px 22px;
+  margin-bottom: 20px;
+}
+
+.cosmo-canonical-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.cosmo-canonical-badge {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--gold-light);
+  letter-spacing: 0.04em;
+}
+
+.cosmo-canonical-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  color: var(--gold-light);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--gold-border);
+  transition: var(--transition-smooth);
+}
+.cosmo-canonical-link:hover {
+  color: #fff;
+  border-bottom-color: var(--gold-light);
+}
+
+.cosmo-canonical-pali {
+  font-family: var(--font-canonical);
+  font-style: italic;
+  font-size: 0.95rem;
+  color: #d8c29d;
+  margin-bottom: 8px;
+  line-height: 1.6;
+}
+
+.cosmo-canonical-trans {
+  font-size: 0.92rem;
+  color: #f0ebe1;
+  line-height: 1.65;
+}
+
+.cosmo-system-notice {
+  background: rgba(30, 22, 14, 0.6);
+  border: 1px solid rgba(224, 169, 68, 0.35);
+  border-radius: 8px;
+  padding: 14px 18px;
+  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.cosmo-notice-badge {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--gold-light);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.cosmo-system-notice p {
+  font-size: 0.86rem;
+  color: #d6cfc2;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.cosmo-hero-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.cosmo-action-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(18, 28, 45, 0.85);
+  border: 1px solid rgba(224, 169, 68, 0.35);
+  color: #f5f0e6;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-size: 0.88rem;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+.cosmo-action-btn:hover {
+  background: rgba(224, 169, 68, 0.15);
+  border-color: var(--gold-primary);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+/* Sections */
+.cosmo-section-block {
+  margin-bottom: 48px;
+}
+
+.cosmo-section-title-wrap {
+  margin-bottom: 20px;
+}
+
+.cosmo-section-title {
+  font-family: var(--font-serif-sacred);
+  font-size: 1.55rem;
+  color: #fffaf0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 4px;
+}
+.cosmo-section-title span {
+  color: var(--gold-primary);
+  font-size: 1.25rem;
+}
+
+.cosmo-section-subtitle {
+  font-size: 0.92rem;
+  color: var(--text-muted);
+}
+
+.cosmo-lead-text {
+  font-size: 0.95rem;
+  color: #b5c2d4;
+  line-height: 1.75;
+  margin-bottom: 24px;
+}
+
+/* Three Overarching Tiers Grid */
+.cosmo-tiers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.cosmo-tier-card {
+  background: rgba(14, 22, 35, 0.88);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  transition: var(--transition-smooth);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+.cosmo-tier-card:hover {
+  border-color: rgba(224, 169, 68, 0.35);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.55), 0 0 15px rgba(224, 169, 68, 0.08);
+}
+
+.cosmo-tier-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 12px;
+  gap: 10px;
+}
+
+.cosmo-tier-badge {
+  background: rgba(224, 169, 68, 0.15);
+  color: var(--gold-light);
+  border: 1px solid rgba(224, 169, 68, 0.35);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 12px;
+  white-space: nowrap;
+}
+
+.cosmo-tier-title {
+  font-family: var(--font-serif-sacred);
+  font-size: 1.18rem;
+  color: #fffaf0;
+  line-height: 1.35;
+}
+
+.cosmo-tier-desc {
+  font-size: 0.88rem;
+  color: #aebfd1;
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.cosmo-subdivisions-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 16px;
+  background: rgba(6, 12, 20, 0.6);
+  padding: 14px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.cosmo-subdiv-name {
+  font-size: 0.85rem;
+  color: var(--gold-light);
+  display: block;
+  margin-bottom: 2px;
+}
+
+.cosmo-subdiv-detail {
+  font-size: 0.82rem;
+  color: #9bb0c7;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.cosmo-tier-reflection {
+  background: rgba(62, 168, 118, 0.08);
+  border-left: 3px solid var(--jade-calm);
+  border-radius: 6px;
+  padding: 12px 14px;
+  margin-top: auto;
+  display: flex;
+  gap: 10px;
+  font-size: 0.84rem;
+  color: #d8ede3;
+  line-height: 1.55;
+}
+.cosmo-tier-reflection span {
+  color: var(--jade-calm);
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.cosmo-tier-caveat {
+  background: rgba(201, 84, 56, 0.08);
+  border-left: 3px solid var(--vermilion);
+  border-radius: 6px;
+  padding: 12px 14px;
+  margin-top: 12px;
+  display: flex;
+  gap: 10px;
+  font-size: 0.84rem;
+  color: #f7d2ca;
+  line-height: 1.55;
+}
+.cosmo-tier-caveat span {
+  color: var(--vermilion);
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+/* 31 Planes Explorer */
+.cosmo-planes-notice {
+  background: rgba(18, 28, 45, 0.6);
+  border: 1px solid rgba(224, 169, 68, 0.25);
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin-bottom: 20px;
+  display: flex;
+  gap: 10px;
+  font-size: 0.86rem;
+  color: #cfd8e5;
+  line-height: 1.55;
+}
+.cosmo-planes-notice span {
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.cosmo-planes-toolbar {
+  margin-bottom: 20px;
+}
+
+.cosmo-tier-filters {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.cosmo-filter-btn {
+  background: rgba(14, 22, 35, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #b0bac9;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.84rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+.cosmo-filter-btn:hover,
+.cosmo-filter-btn.active {
+  background: rgba(224, 169, 68, 0.18);
+  border-color: var(--gold-primary);
+  color: #fff;
+  box-shadow: 0 0 12px rgba(224, 169, 68, 0.15);
+}
+
+.cosmo-planes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 18px;
+}
+
+.cosmo-plane-card {
+  background: rgba(12, 19, 31, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  transition: var(--transition-smooth);
+  position: relative;
+}
+.cosmo-plane-card:hover {
+  border-color: rgba(224, 169, 68, 0.4);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.55), 0 0 15px rgba(224, 169, 68, 0.08);
+  transform: translateY(-2px);
+}
+
+.cosmo-plane-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.cosmo-plane-num-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cosmo-plane-num {
+  font-size: 0.8rem;
+  font-weight: 700;
+  background: rgba(224, 169, 68, 0.15);
+  color: var(--gold-light);
+  padding: 2px 8px;
+  border-radius: 4px;
+  border: 1px solid rgba(224, 169, 68, 0.25);
+}
+
+.cosmo-plane-subtier {
+  font-size: 0.74rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.cosmo-plane-lifespan {
+  font-size: 0.75rem;
+  color: #9bb0c7;
+  background: rgba(255, 255, 255, 0.04);
+  padding: 2px 8px;
+  border-radius: 10px;
+}
+
+.cosmo-plane-titles {
+  margin-bottom: 12px;
+}
+
+.cosmo-plane-pali {
+  font-family: var(--font-canonical);
+  font-size: 1.15rem;
+  color: #f7f1e6;
+  margin-bottom: 2px;
+}
+
+.cosmo-plane-trans {
+  font-size: 0.88rem;
+  color: var(--gold-light);
+}
+
+.cosmo-plane-meta-row {
+  margin-bottom: 12px;
+}
+
+.cosmo-meta-box {
+  background: rgba(6, 11, 18, 0.6);
+  border-left: 2px solid var(--gold-primary);
+  border-radius: 4px;
+  padding: 8px 12px;
+}
+
+.cosmo-meta-label {
+  font-size: 0.74rem;
+  font-weight: 600;
+  color: var(--gold-light);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  display: block;
+  margin-bottom: 2px;
+}
+
+.cosmo-meta-val {
+  font-size: 0.82rem;
+  color: #cfd8e5;
+  line-height: 1.5;
+}
+
+.cosmo-plane-chars {
+  font-size: 0.86rem;
+  color: #a8b8cc;
+  line-height: 1.6;
+  margin-bottom: 16px;
+  flex-grow: 1;
+}
+
+.cosmo-plane-action-row {
+  margin-top: auto;
+}
+
+.cosmo-toggle-drawer-btn {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  background: rgba(20, 30, 48, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #d1d9e6;
+  padding: 8px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+.cosmo-toggle-drawer-btn:hover {
+  background: rgba(224, 169, 68, 0.15);
+  border-color: var(--gold-border);
+  color: #fff;
+}
+
+.cosmo-plane-drawer {
+  display: none;
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 0.82rem;
+  line-height: 1.6;
+}
+.cosmo-plane-drawer.open {
+  display: block;
+  animation: fadeIn 0.25s ease-out;
+}
+
+.cosmo-source-line {
+  color: #b5c2d4;
+  margin-bottom: 8px;
+}
+.cosmo-source-line.commentarial {
+  color: #a8b5a5;
+  font-style: italic;
+}
+
+.cosmo-drawer-reflection {
+  background: rgba(224, 169, 68, 0.06);
+  border-left: 2px solid var(--gold-primary);
+  border-radius: 4px;
+  padding: 10px 12px;
+  margin-top: 10px;
+  display: flex;
+  gap: 8px;
+  color: #e8dcc4;
+}
+.cosmo-drawer-reflection span {
+  color: var(--gold-primary);
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+/* Nibbāna Is Not Another Realm */
+.cosmo-nibbana-card {
+  background: linear-gradient(155deg, rgba(8, 14, 25, 0.96) 0%, rgba(14, 24, 42, 0.94) 50%, rgba(6, 11, 20, 0.98) 100%);
+  border: 1px solid rgba(224, 169, 68, 0.4);
+  border-radius: 14px;
+  padding: 36px 32px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7), 0 0 30px rgba(224, 169, 68, 0.12);
+}
+
+.cosmo-nibbana-header {
+  margin-bottom: 18px;
+}
+
+.cosmo-nibbana-badge {
+  display: inline-block;
+  background: rgba(224, 169, 68, 0.15);
+  color: var(--gold-light);
+  border: 1px solid rgba(224, 169, 68, 0.35);
+  font-size: 0.76rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 4px 12px;
+  border-radius: 16px;
+  margin-bottom: 10px;
+}
+
+.cosmo-nibbana-title {
+  font-family: var(--font-serif-sacred);
+  font-size: 1.85rem;
+  color: #fffaf0;
+  margin-bottom: 6px;
+}
+
+.cosmo-nibbana-subtitle {
+  font-size: 0.98rem;
+  color: var(--gold-light);
+  font-style: italic;
+}
+
+.cosmo-nibbana-lead {
+  font-size: 0.95rem;
+  color: #b5c2d4;
+  line-height: 1.75;
+  margin-bottom: 24px;
+}
+
+.cosmo-nibbana-points-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.cosmo-nibbana-point-card {
+  background: rgba(6, 12, 22, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 10px;
+  padding: 18px;
+}
+
+.cosmo-nibbana-point-title {
+  font-family: var(--font-serif-sacred);
+  font-size: 1.02rem;
+  color: #fffaf0;
+  margin-bottom: 8px;
+}
+
+.cosmo-nibbana-point-desc {
+  font-size: 0.86rem;
+  color: #aebfd1;
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+
+.cosmo-nibbana-ref-tag {
+  font-size: 0.75rem;
+  color: var(--gold-light);
+  background: rgba(224, 169, 68, 0.08);
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.cosmo-nibbana-reflection-box {
+  background: rgba(224, 169, 68, 0.1);
+  border: 1px solid rgba(224, 169, 68, 0.35);
+  border-radius: 10px;
+  padding: 20px 24px;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.cosmo-reflection-icon {
+  font-size: 2rem;
+  color: var(--gold-primary);
+  flex-shrink: 0;
+}
+
+.cosmo-reflection-title {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--gold-light);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 4px;
+}
+
+.cosmo-reflection-text {
+  font-size: 0.98rem;
+  font-style: italic;
+  color: #fffaf0;
+  line-height: 1.6;
+}
+
+/* Sutta Library */
+.cosmo-library-controls {
+  margin-bottom: 28px;
+}
+
+.cosmo-search-wrap {
+  position: relative;
+  margin-bottom: 16px;
+  max-width: 600px;
+}
+
+.cosmo-search-icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+  pointer-events: none;
+}
+
+.cosmo-search-input {
+  width: 100%;
+  background: rgba(12, 19, 31, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  padding: 12px 14px 12px 42px;
+  font-size: 0.9rem;
+  color: #f5f0e6;
+  outline: none;
+  transition: var(--transition-smooth);
+}
+.cosmo-search-input:focus {
+  border-color: var(--gold-primary);
+  box-shadow: 0 0 14px rgba(224, 169, 68, 0.2);
+}
+
+.cosmo-filter-pills {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.cosmo-filter-pill {
+  background: rgba(14, 22, 35, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #b0bac9;
+  padding: 7px 14px;
+  border-radius: 16px;
+  font-size: 0.82rem;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+.cosmo-filter-pill:hover,
+.cosmo-filter-pill.active {
+  background: rgba(224, 169, 68, 0.18);
+  border-color: var(--gold-primary);
+  color: #fff;
+}
+
+.cosmo-suttas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 22px;
+}
+
+.cosmo-sutta-card {
+  background: rgba(12, 19, 31, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  transition: var(--transition-smooth);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+}
+.cosmo-sutta-card:hover {
+  border-color: rgba(224, 169, 68, 0.35);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.6), 0 0 15px rgba(224, 169, 68, 0.08);
+}
+
+.cosmo-sutta-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.cosmo-sutta-badges {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.cosmo-sutta-code-tag {
+  background: rgba(224, 169, 68, 0.15);
+  color: var(--gold-light);
+  border: 1px solid rgba(224, 169, 68, 0.3);
+  font-size: 0.74rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.cosmo-sutta-cat-tag {
+  background: rgba(255, 255, 255, 0.05);
+  color: #9bb0c7;
+  font-size: 0.72rem;
+  padding: 2px 7px;
+  border-radius: 4px;
+}
+
+.cosmo-sutta-level-tag {
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+.cosmo-sutta-level-tag.beginner {
+  background: rgba(62, 168, 118, 0.15);
+  color: #4ade80;
+  border: 1px solid rgba(62, 168, 118, 0.3);
+}
+.cosmo-sutta-level-tag.intermediate {
+  background: rgba(224, 169, 68, 0.15);
+  color: var(--gold-light);
+  border: 1px solid rgba(224, 169, 68, 0.3);
+}
+.cosmo-sutta-level-tag.advanced {
+  background: rgba(201, 84, 56, 0.15);
+  color: #f87171;
+  border: 1px solid rgba(201, 84, 56, 0.3);
+}
+
+.cosmo-sutta-time-tag {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+.cosmo-read-toggle-wrap {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.76rem;
+  color: #8c9bb0;
+  cursor: pointer;
+  user-select: none;
+}
+.cosmo-read-toggle-wrap.completed {
+  color: #4ade80;
+}
+
+.cosmo-sutta-titles {
+  margin-bottom: 12px;
+}
+
+.cosmo-sutta-pali-title {
+  font-family: var(--font-canonical);
+  font-size: 1.25rem;
+  color: #fffaf0;
+  margin-bottom: 2px;
+}
+
+.cosmo-sutta-trans-title {
+  font-size: 0.95rem;
+  color: var(--gold-light);
+  margin-bottom: 2px;
+}
+
+.cosmo-sutta-nikaya {
+  font-size: 0.76rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.cosmo-sutta-importance {
+  font-size: 0.88rem;
+  color: #b5c2d4;
+  line-height: 1.65;
+  margin-bottom: 14px;
+}
+
+.cosmo-lay-relevance-card {
+  background: rgba(6, 12, 20, 0.6);
+  border-left: 3px solid var(--gold-primary);
+  border-radius: 6px;
+  padding: 10px 14px;
+  font-size: 0.84rem;
+  color: #e5ded3;
+  line-height: 1.55;
+  margin-bottom: 14px;
+}
+
+.cosmo-concepts-row {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+
+.cosmo-concept-chip {
+  background: rgba(255, 255, 255, 0.04);
+  color: #9bb0c7;
+  font-size: 0.74rem;
+  padding: 3px 8px;
+  border-radius: 4px;
+}
+
+.cosmo-link-reflection-card {
+  background: rgba(62, 168, 118, 0.06);
+  border-left: 2px solid var(--jade-calm);
+  border-radius: 4px;
+  padding: 10px 12px;
+  margin-bottom: 14px;
+  display: flex;
+  gap: 8px;
+  font-size: 0.82rem;
+  color: #d1e8dc;
+  line-height: 1.55;
+}
+.cosmo-link-reflection-card span {
+  color: var(--jade-calm);
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.cosmo-toggle-note-btn {
+  background: transparent;
+  border: none;
+  color: var(--gold-light);
+  font-size: 0.8rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  padding: 4px 0;
+  transition: var(--transition-smooth);
+}
+.cosmo-toggle-note-btn:hover {
+  color: #fff;
+}
+
+.cosmo-study-note-drawer {
+  display: none;
+  background: rgba(6, 11, 18, 0.6);
+  border-radius: 6px;
+  padding: 12px 14px;
+  margin-top: 8px;
+  font-size: 0.82rem;
+  color: #9bb0c7;
+  line-height: 1.6;
+}
+.cosmo-study-note-drawer.open {
+  display: block;
+  animation: fadeIn 0.25s ease-out;
+}
+
+.cosmo-sutta-action-row {
+  margin-top: auto;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* Scenarios */
+.cosmo-scenarios-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.cosmo-scenario-card {
+  background: rgba(12, 19, 31, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.cosmo-sc-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.cosmo-sc-num {
+  background: rgba(224, 169, 68, 0.15);
+  color: var(--gold-light);
+  font-weight: 700;
+  font-size: 0.84rem;
+  padding: 3px 10px;
+  border-radius: 6px;
+  border: 1px solid rgba(224, 169, 68, 0.3);
+}
+
+.cosmo-sc-title {
+  font-family: var(--font-serif-sacred);
+  font-size: 1.25rem;
+  color: #fffaf0;
+}
+
+.cosmo-sc-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.cosmo-sc-item {
+  background: rgba(6, 11, 18, 0.5);
+  border-radius: 8px;
+  padding: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+}
+.cosmo-sc-item.dhamma-response {
+  border-left: 3px solid var(--jade-calm);
+  background: rgba(62, 168, 118, 0.06);
+}
+
+.cosmo-sc-label {
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: var(--gold-light);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 6px;
+}
+
+.cosmo-sc-text {
+  font-size: 0.88rem;
+  color: #cfd8e5;
+  line-height: 1.6;
+}
+
+.cosmo-sc-suttas {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+/* Principles */
+.cosmo-principles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+  margin-bottom: 36px;
+}
+
+.cosmo-principle-card {
+  background: rgba(14, 22, 35, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.cosmo-principle-badge {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--gold-light);
+  display: block;
+  margin-bottom: 8px;
+}
+
+.cosmo-principle-title {
+  font-family: var(--font-serif-sacred);
+  font-size: 1.05rem;
+  color: #fffaf0;
+  margin-bottom: 8px;
+}
+
+.cosmo-principle-desc {
+  font-size: 0.86rem;
+  color: #aebfd1;
+  line-height: 1.6;
+}
+
+/* Decision Exercise */
+.cosmo-decision-wrap {
+  background: rgba(8, 14, 24, 0.95);
+  border: 1px solid rgba(224, 169, 68, 0.3);
+  border-radius: 12px;
+  padding: 28px;
+  margin-bottom: 36px;
+}
+
+.cosmo-decision-header {
+  margin-bottom: 12px;
+}
+
+.cosmo-decision-title {
+  font-family: var(--font-serif-sacred);
+  font-size: 1.35rem;
+  color: #fffaf0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+.cosmo-decision-title span {
+  color: var(--gold-primary);
+}
+
+.cosmo-decision-subtitle {
+  font-size: 0.9rem;
+  color: var(--gold-light);
+}
+
+.cosmo-decision-intro {
+  font-size: 0.9rem;
+  color: #b5c2d4;
+  line-height: 1.65;
+  margin-bottom: 8px;
+}
+
+.cosmo-decision-disclaimer {
+  background: rgba(224, 169, 68, 0.08);
+  border-left: 3px solid var(--gold-primary);
+  padding: 8px 12px;
+  font-size: 0.82rem;
+  color: #e5ded3;
+  margin-bottom: 24px;
+  border-radius: 4px;
+}
+
+.cosmo-dilemmas-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.cosmo-dilemma-card {
+  background: rgba(14, 22, 35, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.cosmo-dilemma-top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.cosmo-dilemma-num {
+  font-size: 0.75rem;
+  font-weight: 700;
+  background: rgba(224, 169, 68, 0.15);
+  color: var(--gold-light);
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.cosmo-dilemma-heading {
+  font-family: var(--font-serif-sacred);
+  font-size: 1.05rem;
+  color: #fffaf0;
+  margin: 0;
+}
+
+.cosmo-dilemma-context {
+  font-size: 0.88rem;
+  color: #cfd8e5;
+  line-height: 1.6;
+  margin-bottom: 14px;
+}
+
+.cosmo-dilemma-options {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.cosmo-opt-btn {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  background: rgba(6, 11, 18, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  padding: 10px 14px;
+  color: #cfd8e5;
+  font-size: 0.86rem;
+  text-align: left;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+.cosmo-opt-btn:hover {
+  background: rgba(224, 169, 68, 0.12);
+  border-color: var(--gold-border);
+  color: #fff;
+}
+.cosmo-opt-btn.selected {
+  background: rgba(224, 169, 68, 0.2);
+  border-color: var(--gold-primary);
+  color: #fff;
+  box-shadow: 0 0 12px rgba(224, 169, 68, 0.15);
+}
+
+.cosmo-opt-key {
+  font-weight: 700;
+  color: var(--gold-light);
+  flex-shrink: 0;
+}
+
+.cosmo-dilemma-feedback {
+  background: rgba(6, 12, 22, 0.9);
+  border: 1px solid rgba(224, 169, 68, 0.3);
+  border-radius: 8px;
+  padding: 14px 18px;
+  margin-top: 12px;
+  animation: fadeIn 0.25s ease-out;
+}
+
+.cosmo-fb-header {
+  margin-bottom: 8px;
+}
+
+.cosmo-fb-badge {
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: var(--gold-light);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.cosmo-fb-row {
+  font-size: 0.85rem;
+  color: #d1d9e6;
+  margin-bottom: 6px;
+  line-height: 1.55;
+}
+
+.cosmo-fb-reflection {
+  font-size: 0.86rem;
+  color: #e5ded3;
+  margin-top: 10px;
+  padding-top: 8px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  line-height: 1.6;
+}
+
+/* Pathways */
+.cosmo-track-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.cosmo-track-tab {
+  background: rgba(14, 22, 35, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #b0bac9;
+  padding: 8px 18px;
+  border-radius: 8px;
+  font-size: 0.86rem;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+.cosmo-track-tab:hover,
+.cosmo-track-tab.active {
+  background: rgba(224, 169, 68, 0.2);
+  border-color: var(--gold-primary);
+  color: #fff;
+}
+
+.cosmo-track-overview {
+  background: rgba(12, 19, 31, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.cosmo-track-title {
+  font-family: var(--font-serif-sacred);
+  font-size: 1.25rem;
+  color: #fffaf0;
+  margin-bottom: 6px;
+}
+
+.cosmo-track-target {
+  font-size: 0.84rem;
+  color: var(--gold-light);
+  margin-bottom: 8px;
+}
+
+.cosmo-track-desc {
+  font-size: 0.88rem;
+  color: #b5c2d4;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.cosmo-days-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.cosmo-day-card {
+  background: rgba(12, 19, 31, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  padding: 16px;
+  transition: var(--transition-smooth);
+}
+.cosmo-day-card.completed {
+  border-color: rgba(62, 168, 118, 0.4);
+  background: rgba(10, 24, 20, 0.7);
+}
+
+.cosmo-day-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.cosmo-day-badge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  background: rgba(224, 169, 68, 0.15);
+  color: var(--gold-light);
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.cosmo-day-check-wrap {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.76rem;
+  color: #8c9bb0;
+  cursor: pointer;
+}
+
+.cosmo-day-focus {
+  font-family: var(--font-serif-sacred);
+  font-size: 0.95rem;
+  color: #fffaf0;
+  margin-bottom: 8px;
+}
+
+.cosmo-day-reading,
+.cosmo-day-practice {
+  font-size: 0.82rem;
+  color: #b5c2d4;
+  line-height: 1.55;
+  margin-bottom: 6px;
+}
+
+/* Journal */
+.cosmo-journal-wrap {
+  background: rgba(8, 14, 24, 0.92);
+  border: 1px solid rgba(224, 169, 68, 0.3);
+  border-radius: 12px;
+  padding: 28px;
+}
+
+.cosmo-journal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.cosmo-prompt-row {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.cosmo-journal-prompt-label {
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: #fffaf0;
+}
+
+.cosmo-step-textarea {
+  width: 100%;
+  background: rgba(6, 11, 18, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 0.88rem;
+  color: #f5f0e6;
+  min-height: 65px;
+  resize: vertical;
+  outline: none;
+  font-family: var(--font-body);
+  transition: var(--transition-smooth);
+}
+.cosmo-step-textarea:focus {
+  border-color: var(--gold-primary);
+  box-shadow: 0 0 10px rgba(224, 169, 68, 0.2);
+}
+
+.cosmo-finish-btn {
+  background: var(--gold-gradient);
+  color: #0c121d;
+  font-weight: 700;
+  font-size: 0.9rem;
+  padding: 10px 24px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+.cosmo-finish-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(224, 169, 68, 0.35);
+}
+
+.cosmo-journal-entry-card {
+  background: rgba(14, 22, 35, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 12px;
+}
+
+.cosmo-entry-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+}
+
+.cosmo-entry-delete-btn {
+  background: transparent;
+  border: none;
+  color: #f87171;
+  font-size: 0.76rem;
+  cursor: pointer;
+  padding: 2px 6px;
+}
+.cosmo-entry-delete-btn:hover {
+  text-decoration: underline;
+}
+
+/* FAQ Accordion */
+.cosmo-faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cosmo-faq-item {
+  background: rgba(12, 19, 31, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: var(--transition-smooth);
+}
+.cosmo-faq-item:hover {
+  border-color: rgba(224, 169, 68, 0.25);
+}
+
+.cosmo-faq-q-btn {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: transparent;
+  border: none;
+  padding: 16px 20px;
+  color: #fffaf0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+  font-family: var(--font-body);
+}
+
+.cosmo-faq-icon {
+  font-size: 1.1rem;
+  color: var(--gold-primary);
+  transition: transform 0.2s ease;
+  flex-shrink: 0;
+}
+.cosmo-faq-item.open .cosmo-faq-icon {
+  transform: rotate(180deg);
+}
+
+.cosmo-faq-a-body {
+  padding: 0 20px 18px 20px;
+  font-size: 0.88rem;
+  color: #b5c2d4;
+  line-height: 1.65;
+  display: none;
+}
+.cosmo-faq-item.open .cosmo-faq-a-body {
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .cosmo-hero-wrap {
+    padding: 24px 18px;
+  }
+  .cosmo-hero-title {
+    font-size: 1.6rem;
+  }
+  .cosmo-tiers-grid,
+  .cosmo-planes-grid,
+  .cosmo-suttas-grid {
+    grid-template-columns: 1fr;
+  }
+  .cosmo-sutta-top {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .cosmo-nibbana-reflection-box {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+

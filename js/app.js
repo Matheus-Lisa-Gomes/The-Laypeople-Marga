@@ -477,6 +477,48 @@ class LayDharmaApp {
       </div>
     `).join('');
 
+    // If Dependent Arising Module is available, render its full learning portal
+    if (langContent.dependentArisingModule) {
+      const pam = langContent.dependentArisingModule;
+      if (this.dom.modalOverview) this.dom.modalOverview.textContent = '';
+      if (this.dom.modalDoctrinalFramework) {
+        this.dom.modalDoctrinalFramework.innerHTML = this.renderDependentArisingOverview(pam, this.currentLang);
+        this.dom.modalDoctrinalFramework.style.display = 'block';
+      }
+      if (this.dom.modalExcerptsList) {
+        this.dom.modalExcerptsList.innerHTML = this.renderDependentArisingCanonical(pam, this.currentLang);
+      }
+      if (this.dom.householdIntroText) {
+        this.dom.householdIntroText.textContent = pam.dailyScenarios.intro;
+      }
+      if (this.dom.modalHouseholdList) {
+        this.dom.modalHouseholdList.innerHTML = this.renderDependentArisingHousehold(pam, this.currentLang);
+      }
+      this.bindDependentArisingInteractions(pam, this.currentLang);
+      return;
+    }
+
+    // If Buddhist Cosmology Module is available, render its full learning portal
+    if (langContent.buddhistCosmologyModule) {
+      const cm = langContent.buddhistCosmologyModule;
+      if (this.dom.modalOverview) this.dom.modalOverview.textContent = '';
+      if (this.dom.modalDoctrinalFramework) {
+        this.dom.modalDoctrinalFramework.innerHTML = this.renderCosmologyOverview(cm, this.currentLang);
+        this.dom.modalDoctrinalFramework.style.display = 'block';
+      }
+      if (this.dom.modalExcerptsList) {
+        this.dom.modalExcerptsList.innerHTML = this.renderCosmologyCanonical(cm, this.currentLang);
+      }
+      if (this.dom.householdIntroText) {
+        this.dom.householdIntroText.textContent = cm.layScenarios.intro;
+      }
+      if (this.dom.modalHouseholdList) {
+        this.dom.modalHouseholdList.innerHTML = this.renderCosmologyHousehold(cm, this.currentLang);
+      }
+      this.bindCosmologyInteractions(cm, this.currentLang);
+      return;
+    }
+
     // Doctrinal Operational Matrix (Catukicca Framework)
     if (this.dom.modalDoctrinalFramework) {
       if (langContent.doctrinalMatrix) {
@@ -1243,6 +1285,1748 @@ class LayDharmaApp {
     `;
   }
 
+
+  renderDependentArisingOverview(m, lang) {
+    if (!m) return '';
+
+    // Hero Section
+    const hero = m.hero;
+    const heroHtml = `
+      <div class="pa-hero-wrap" id="pa-hero">
+        <div class="pa-hero-badge"><span>☸</span> ${hero.paliTitle}</div>
+        <h2 class="pa-hero-title">${hero.title}</h2>
+        <div class="pa-hero-pali">${hero.paliTitle}</div>
+        <div class="pa-hero-subtitle">${hero.subtitle}</div>
+        <p class="pa-hero-intro">${hero.introText}</p>
+
+        <div class="pa-canonical-box">
+          <div class="pa-canonical-header">
+            <span class="pa-canonical-badge">${hero.canonicalPassage.citation}</span>
+            <a href="${hero.canonicalPassage.sourceUrl}" target="_blank" rel="noopener noreferrer" class="pa-canonical-link">
+              <span>${lang === 'pt' ? 'Ler no SuttaCentral' : 'Read on SuttaCentral'}</span>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+            </a>
+          </div>
+          <div class="pa-canonical-pali">"${hero.canonicalPassage.excerptPali}"</div>
+          <div class="pa-canonical-trans">"${hero.canonicalPassage.excerptTrans}"</div>
+        </div>
+
+        <div class="pa-hero-actions">
+          ${hero.primaryActions.map(act => `
+            <a href="${act.target}" class="pa-action-btn" data-target="${act.target}">
+              <span>${act.icon}</span> <span>${act.label}</span>
+            </a>
+          `).join('')}
+        </div>
+      </div>
+    `;
+
+    // Section B: What is Dependent Arising?
+    const w = m.whatIs;
+    const l1 = w.level1;
+    const l2 = w.level2;
+    const l3 = w.level3;
+    const comp = w.comparisonPanel;
+
+    const whatIsHtml = `
+      <section class="pa-section-block" id="pa-what-is">
+        <div class="pa-section-title-wrap">
+          <h3 class="pa-section-title"><span>☸</span> ${w.sectionTitle}</h3>
+          <div class="pa-section-subtitle">${w.sectionSubtitle}</div>
+        </div>
+
+        <div class="pa-levels-grid">
+          <!-- Level 1 -->
+          <article class="pa-level-card">
+            <span class="pa-level-badge">${l1.badge}</span>
+            <h4 class="pa-level-title">${l1.title}</h4>
+            <div class="pa-formula-box">
+              <div class="pa-formula-pali">"${l1.paliFormula}"</div>
+              <div class="pa-formula-trans">"${l1.translationFormula}"</div>
+            </div>
+            <p class="pa-level-detail">${l1.detail}</p>
+          </article>
+
+          <!-- Level 2 -->
+          <article class="pa-level-card">
+            <span class="pa-level-badge">${l2.badge}</span>
+            <h4 class="pa-level-title">${l2.title}</h4>
+            <p class="pa-level-detail" style="margin-bottom: 12px;">${l2.intro}</p>
+            <div class="pa-sequence-pills">
+              ${l2.linksSequence.map(link => `
+                <div class="pa-seq-pill">
+                  <span class="pa-seq-num">${link.num}</span>
+                  <span class="pa-seq-pali">${link.pali}</span>
+                  <span class="pa-seq-trans">${link.trans}</span>
+                </div>
+              `).join('')}
+            </div>
+            <div class="pa-formula-box" style="margin-top: 14px;">
+              <div class="pa-formula-trans" style="font-style: italic; color: var(--gold-light);">
+                "${l2.canonicalCulmination}"
+              </div>
+            </div>
+            <div class="pa-caveat-box">${l2.caveat}</div>
+          </article>
+
+          <!-- Level 3 -->
+          <article class="pa-level-card">
+            <span class="pa-level-badge">${l3.badge}</span>
+            <h4 class="pa-level-title">${l3.title}</h4>
+            <div class="pa-formula-box">
+              <div class="pa-formula-pali">"${l3.paliFormula}"</div>
+              <div class="pa-formula-trans">"${l3.translationFormula}"</div>
+            </div>
+            <p class="pa-level-detail">${l3.detail}</p>
+          </article>
+        </div>
+
+        <!-- Comparison Panel -->
+        <div class="pa-comparison-panel">
+          <div class="pa-comp-header">
+            <h4 class="pa-comp-title"><span>☸</span> ${comp.title}</h4>
+            <div style="font-size: 0.88rem; color: var(--text-muted); margin-top: 4px;">${comp.subtitle}</div>
+          </div>
+          <div class="pa-comp-grid">
+            <div class="pa-comp-card pa-comp-arising">
+              <div class="pa-comp-badge">▼ ${comp.arisingBox.title}</div>
+              <p class="pa-comp-desc">${comp.arisingBox.desc}</p>
+            </div>
+            <div class="pa-comp-card pa-comp-cessation">
+              <div class="pa-comp-badge">▲ ${comp.cessationBox.title}</div>
+              <p class="pa-comp-desc">${comp.cessationBox.desc}</p>
+            </div>
+            <div class="pa-comp-card pa-comp-practice">
+              <div class="pa-comp-badge">☸ ${comp.practiceBox.title}</div>
+              <p class="pa-comp-desc">${comp.practiceBox.desc}</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    `;
+
+    // Section C: The Twelve Links Explorer
+    const tle = m.twelveLinksExplorer;
+    const linksExplorerHtml = `
+      <section class="pa-section-block" id="pa-twelve-links">
+        <div class="pa-section-title-wrap">
+          <h3 class="pa-section-title"><span>☸</span> ${tle.sectionTitle}</h3>
+          <div class="pa-section-subtitle">${tle.sectionSubtitle}</div>
+        </div>
+
+        <div class="pa-explorer-toolbar">
+          <div class="pa-mode-control" role="group" aria-label="Explorer Mode">
+            <button class="pa-mode-btn active" id="paModeCanonical" data-mode="canonical">
+              📜 ${tle.canonicalModeLabel}
+            </button>
+            <button class="pa-mode-btn" id="paModeEveryday" data-mode="everyday">
+              🏡 ${tle.everydayModeLabel}
+            </button>
+          </div>
+          <div class="pa-mode-notice">${tle.modeNotice}</div>
+        </div>
+
+        <div class="pa-links-list" id="paLinksList">
+          ${tle.links.map(link => `
+            <article class="pa-link-item" id="pa-link-${link.num}">
+              <header class="pa-link-top">
+                <div class="pa-link-title-group">
+                  <span class="pa-link-num-tag">${String(link.num).padStart(2, '0')}</span>
+                  <h4 class="pa-link-pali-name">${link.pali}</h4>
+                  <span class="pa-link-trans-name">— ${link.trans}</span>
+                </div>
+                <span class="pa-link-ref-badge">${link.canonicalRef}</span>
+              </header>
+
+              <div class="pa-link-relations-bar">
+                <span class="pa-rel-tag"><strong>← Preceding:</strong> ${link.preceding}</span>
+                <span class="pa-rel-tag"><strong>→ Following:</strong> ${link.following}</span>
+              </div>
+
+              <div class="pa-link-body-text pa-canonical-mode-content">
+                ${link.canonicalDef}
+              </div>
+
+              <div class="pa-link-body-text pa-everyday-mode-content" style="display: none; color: #f5f0e6; background: rgba(224, 169, 68, 0.05); padding: 12px; border-radius: 6px; border-left: 3px solid var(--gold-primary);">
+                <strong>${lang === 'pt' ? 'Aplicação Prática no Cotidiano:' : 'Everyday Lay Illustration:'}</strong> ${link.everydayIllustration}
+              </div>
+
+              <div class="pa-link-reflection-card">
+                <span>☸</span>
+                <div><strong>Yoniso Manasikāra:</strong> ${link.reflectionQuestion}</div>
+              </div>
+
+              <div>
+                <button class="pa-toggle-note-btn" data-target="pa-note-${link.num}">
+                  <span>▼</span> <span>${lang === 'pt' ? 'Nota Doutrinária Detalhada' : 'Full Doctrinal Study Note'}</span>
+                </button>
+                <div class="pa-study-note-drawer" id="pa-note-${link.num}">
+                  ${link.studyNote}
+                </div>
+              </div>
+            </article>
+          `).join('')}
+        </div>
+      </section>
+    `;
+
+    // Section J: FAQs
+    const faqs = m.faqs;
+    const faqsHtml = `
+      <section class="pa-section-block" id="pa-faqs">
+        <div class="pa-section-title-wrap">
+          <h3 class="pa-section-title"><span>☸</span> ${faqs.sectionTitle}</h3>
+          <div class="pa-section-subtitle">${faqs.sectionSubtitle}</div>
+        </div>
+
+        <div class="pa-faq-list">
+          ${faqs.items.map((item, idx) => `
+            <div class="pa-faq-item" id="pa-faq-${idx}">
+              <button class="pa-faq-q-btn" data-faq-index="${idx}">
+                <span>${idx + 1}. ${item.q}</span>
+                <span class="pa-faq-icon">▾</span>
+              </button>
+              <div class="pa-faq-a-body">
+                ${item.a}
+              </div>
+            </div>
+          `).join('')}
+        </div>
+      </section>
+    `;
+
+    return heroHtml + whatIsHtml + linksExplorerHtml + faqsHtml;
+  }
+
+  renderDependentArisingCanonical(m, lang) {
+    if (!m) return '';
+    const lib = m.suttaLibrary;
+
+    const toolbarHtml = `
+      <div class="pa-library-controls">
+        <div class="pa-section-title-wrap">
+          <h3 class="pa-section-title"><span>☸</span> ${lib.sectionTitle}</h3>
+          <div class="pa-section-subtitle">${lib.sectionSubtitle}</div>
+        </div>
+
+        <div class="pa-search-wrap">
+          <svg class="pa-search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <input type="search" class="pa-search-input" id="paSuttaSearch" placeholder="${lib.searchPlaceholder}" aria-label="Search Suttas">
+        </div>
+
+        <div class="pa-filter-pills" id="paFilterPills">
+          ${lib.filterCategories.map(cat => `
+            <button class="pa-filter-pill ${cat.id === 'all' ? 'active' : ''}" data-cat="${cat.id}">
+              ${cat.label}
+            </button>
+          `).join('')}
+        </div>
+      </div>
+    `;
+
+    // Sutta Cards
+    const suttasHtml = `
+      <div class="pa-suttas-grid" id="paSuttasGrid">
+        ${lib.suttas.map((s, idx) => `
+          <article class="pa-sutta-card" id="pa-sutta-${idx}" data-code="${s.code}" data-cat="${s.category}" data-search="${(s.code + ' ' + s.paliTitle + ' ' + s.transTitle + ' ' + s.keyConcepts.join(' ')).toLowerCase()}">
+            <header class="pa-sutta-top">
+              <div class="pa-sutta-badges">
+                <span class="pa-sutta-code-tag">${s.code}</span>
+                <span class="pa-sutta-cat-tag">${s.category}</span>
+                <span class="pa-sutta-time-tag">⏱ ${s.readingTime}</span>
+              </div>
+              <label class="pa-read-toggle-wrap" data-code="${s.code}">
+                <input type="checkbox" class="pa-sutta-read-check" data-code="${s.code}">
+                <span class="pa-read-label">${lang === 'pt' ? 'Marcar como Lido' : 'Mark as Read'}</span>
+              </label>
+            </header>
+
+            <div class="pa-sutta-titles">
+              <h3 class="pa-sutta-pali-title">${s.paliTitle}</h3>
+              <div class="pa-sutta-trans-title">“${s.transTitle}”</div>
+              <div class="pa-sutta-nikaya">${s.nikaya}</div>
+            </div>
+
+            <p class="pa-sutta-importance">${s.importance}</p>
+
+            <div class="pa-lay-relevance-card">
+              <strong>${lang === 'pt' ? 'Relevância para a Vida Leiga:' : 'Lay Relevance:'}</strong> ${s.layRelevance}
+            </div>
+
+            <div class="pa-concepts-row">
+              ${s.keyConcepts.map(c => `<span class="pa-concept-chip">#${c}</span>`).join('')}
+            </div>
+
+            <div class="pa-link-reflection-card" style="margin-bottom: 14px;">
+              <span>☸</span>
+              <div><strong>${lang === 'pt' ? 'Reflexão:' : 'Reflection:'}</strong> ${s.reflectionQuestion}</div>
+            </div>
+
+            <div style="margin-bottom: 14px;">
+              <button class="pa-toggle-note-btn" data-target="pa-sutta-note-${idx}">
+                <span>▼</span> <span>${lang === 'pt' ? 'Notas de Estudo' : 'Study Notes'}</span>
+              </button>
+              <div class="pa-study-note-drawer" id="pa-sutta-note-${idx}">
+                ${s.studyNotes}
+              </div>
+            </div>
+
+            <footer class="pa-sutta-action-row">
+              <a href="${s.suttaCentralUrl}" target="_blank" rel="noopener noreferrer" class="suttacentral-btn">
+                <span>${lang === 'pt' ? 'Ler no SuttaCentral' : 'Read on SuttaCentral'} (${s.code})</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+              </a>
+            </footer>
+          </article>
+        `).join('')}
+      </div>
+    `;
+
+    return toolbarHtml + suttasHtml;
+  }
+
+  renderDependentArisingHousehold(m, lang) {
+    if (!m) return '';
+
+    // Section E: Daily Scenarios
+    const ds = m.dailyScenarios;
+    const scenariosHtml = `
+      <section class="pa-section-block" id="pa-scenarios">
+        <div class="pa-section-title-wrap">
+          <h3 class="pa-section-title"><span>☸</span> ${ds.sectionTitle}</h3>
+          <div class="pa-section-subtitle">${ds.sectionSubtitle}</div>
+        </div>
+
+        <div class="pa-scenarios-list">
+          ${ds.scenarios.map(sc => `
+            <article class="pa-scenario-card" id="${sc.id}">
+              <header class="pa-scenario-header">
+                <span class="pa-sc-num">${sc.number}</span>
+                <h4 class="pa-sc-title">${sc.title}</h4>
+              </header>
+
+              <div class="pa-sc-grid">
+                <div class="pa-sc-item">
+                  <div class="pa-sc-label">${lang === 'pt' ? 'Situação' : 'Situation'}</div>
+                  <div class="pa-sc-text">${sc.situation}</div>
+                </div>
+
+                <div class="pa-sc-item">
+                  <div class="pa-sc-label">${lang === 'pt' ? 'Experiência Direta (Phassa & Vedanā)' : 'Directly Experienced (Phassa & Vedanā)'}</div>
+                  <div class="pa-sc-text">${sc.directlyExperienced}</div>
+                </div>
+
+                <div class="pa-sc-item">
+                  <div class="pa-sc-label">${lang === 'pt' ? 'Condições Presentes' : 'Conditions Present'}</div>
+                  <div class="pa-sc-text">${sc.conditionsPresent}</div>
+                </div>
+
+                <div class="pa-sc-item">
+                  <div class="pa-sc-label">${lang === 'pt' ? 'Ponto de Desejo & Apego (Taṇhā & Upādāna)' : 'Where Craving & Clinging Develop (Taṇhā & Upādāna)'}</div>
+                  <div class="pa-sc-text"><strong>${lang === 'pt' ? 'Desejo:' : 'Craving:'}</strong> ${sc.cravingPoint}</div>
+                  <div class="pa-sc-text" style="margin-top: 4px;"><strong>${lang === 'pt' ? 'Apego:' : 'Clinging:'}</strong> ${sc.clingingPoint}</div>
+                </div>
+
+                <div class="pa-sc-item dhamma-response">
+                  <div class="pa-sc-label">✓ ${lang === 'pt' ? 'Resposta Prática do Dhamma' : 'Practical Dhamma Response'}</div>
+                  <div class="pa-sc-text">${sc.dhammaResponse}</div>
+                </div>
+
+                <div class="pa-sc-item">
+                  <div class="pa-sc-label">☸ ${lang === 'pt' ? 'Pergunta Reflexiva' : 'Contemplative Question'}</div>
+                  <div class="pa-sc-text" style="color: var(--gold-light); font-style: italic;">"${sc.reflectionQuestion}"</div>
+                  <div class="pa-sc-suttas">
+                    ${sc.suttas.map(st => `<span class="pa-concept-chip">📖 ${st}</span>`).join('')}
+                  </div>
+                </div>
+              </div>
+            </article>
+          `).join('')}
+        </div>
+      </section>
+    `;
+
+    // Section F: Practical Exercise (Observe the Links)
+    const ge = m.guidedExercise;
+    const exerciseHtml = `
+      <section class="pa-section-block" id="pa-exercise">
+        <div class="pa-exercise-wrap">
+          <div class="pa-section-title-wrap">
+            <h3 class="pa-section-title"><span>☸</span> ${ge.title}</h3>
+            <div class="pa-section-subtitle">${ge.subtitle}</div>
+          </div>
+          <div style="display: flex; gap: 12px; margin-bottom: 20px; flex-wrap: wrap;">
+            <span class="pa-canonical-badge">${ge.privacyNotice}</span>
+          </div>
+          <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 20px; line-height: 1.5;">${ge.disclaimer}</p>
+
+          <div class="pa-exercise-progress-bar" id="paExerciseProgressBar">
+            ${ge.steps.map((_, i) => `<div class="pa-progress-step ${i === 0 ? 'active' : ''}" data-step="${i + 1}"></div>`).join('')}
+          </div>
+
+          <div class="pa-step-card" id="paStepCard">
+            <!-- Dynamic step injected by JS -->
+          </div>
+
+          <div class="pa-step-nav-row">
+            <button class="pa-nav-btn" id="paStepPrevBtn" disabled>${lang === 'pt' ? '← Passo Anterior' : '← Previous Step'}</button>
+            <span id="paStepIndicator" style="font-size: 0.85rem; color: var(--text-muted);">Step 1 of 7</span>
+            <button class="pa-nav-btn" id="paStepNextBtn">${lang === 'pt' ? 'Próximo Passo →' : 'Next Step →'}</button>
+          </div>
+
+          <div id="paExerciseSummaryWrap" style="display: none;"></div>
+        </div>
+      </section>
+    `;
+
+    // Section G: The Path of Practice
+    const pop = m.pathOfPractice;
+    const pathHtml = `
+      <section class="pa-section-block" id="pa-path">
+        <div class="pa-section-title-wrap">
+          <h3 class="pa-section-title"><span>☸</span> ${pop.sectionTitle}</h3>
+          <div class="pa-section-subtitle">${pop.sectionSubtitle}</div>
+        </div>
+        <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 22px;">${pop.intro}</p>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px; margin-bottom: 30px;">
+          ${pop.factors.map(fac => `
+            <div class="pa-level-card" style="padding: 16px;">
+              <span class="pa-level-badge">${fac.factor}</span>
+              <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6; margin-top: 6px;">${fac.relation}</p>
+            </div>
+          `).join('')}
+        </div>
+
+        <h4 class="pa-comp-title" style="margin-bottom: 14px;"><span>☸</span> ${lang === 'pt' ? 'Rotina Cotidiana do Praticante Leigo' : 'Daily Lay Routine'}</h4>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; margin-bottom: 36px;">
+          ${pop.dailyPractices.map(dp => `
+            <div class="pa-comp-card pa-comp-practice">
+              <div class="pa-comp-badge">⏱ ${dp.timing}</div>
+              <strong style="color: var(--text-primary); font-size: 0.92rem; display: block; margin-bottom: 6px;">${dp.title}</strong>
+              <p class="pa-comp-desc">${dp.practice}</p>
+            </div>
+          `).join('')}
+        </div>
+      </section>
+    `;
+
+    // Section H: Study Pathways
+    const sp = m.studyPathways;
+    const pathwaysHtml = `
+      <section class="pa-section-block" id="pa-pathways">
+        <div class="pa-section-title-wrap">
+          <h3 class="pa-section-title"><span>☸</span> ${sp.sectionTitle}</h3>
+          <div class="pa-section-subtitle">${sp.sectionSubtitle}</div>
+        </div>
+        <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 16px;">${sp.disclaimer}</p>
+
+        <div class="pa-track-tabs" id="paTrackTabs">
+          ${sp.tracks.map((track, i) => `
+            <button class="pa-track-tab ${i === 0 ? 'active' : ''}" data-track-id="${track.id}">
+              ${track.name}
+            </button>
+          `).join('')}
+        </div>
+
+        <div id="paActiveTrackContent">
+          <!-- Dynamic track days injected by JS -->
+        </div>
+      </section>
+    `;
+
+    // Section I: Reflection Journal
+    const rj = m.reflectionJournal;
+    const journalHtml = `
+      <section class="pa-section-block" id="pa-journal">
+        <div class="pa-journal-wrap">
+          <div class="pa-section-title-wrap">
+            <h3 class="pa-section-title"><span>☸</span> ${rj.sectionTitle}</h3>
+            <div class="pa-section-subtitle">${rj.sectionSubtitle}</div>
+          </div>
+
+          <form id="paJournalForm" class="pa-journal-form">
+            ${rj.prompts.map(p => `
+              <div>
+                <label class="pa-journal-prompt-label" for="pa-journal-${p.id}">${p.label}</label>
+                <textarea class="pa-step-textarea" id="pa-journal-${p.id}" style="min-height: 60px;" placeholder="${p.placeholder}"></textarea>
+              </div>
+            `).join('')}
+            <div style="display: flex; gap: 12px; margin-top: 10px;">
+              <button type="submit" class="pa-finish-btn">${rj.saveButtonText}</button>
+            </div>
+          </form>
+
+          <div style="border-top: 1px solid var(--border-subtle); padding-top: 24px; margin-top: 24px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 10px;">
+              <h4 class="pa-comp-title"><span>☸</span> ${rj.entriesHeading}</h4>
+              <div style="display: flex; gap: 8px;">
+                <button class="pa-action-btn" id="paExportJournalBtn" style="padding: 6px 12px; font-size: 0.78rem;">${rj.exportButtonText}</button>
+                <button class="pa-action-btn" id="paClearJournalBtn" style="padding: 6px 12px; font-size: 0.78rem; border-color: rgba(201, 84, 56, 0.4); color: #e5b3a3;">${rj.clearAllButtonText}</button>
+              </div>
+            </div>
+            <div class="pa-journal-entries-list" id="paJournalEntriesList"></div>
+          </div>
+        </div>
+      </section>
+    `;
+
+    return scenariosHtml + exerciseHtml + pathHtml + pathwaysHtml + journalHtml;
+  }
+
+  bindDependentArisingInteractions(m, lang) {
+    // 1. Jump Action Buttons inside Hero
+    const actionBtns = document.querySelectorAll('.pa-action-btn[data-target]');
+    actionBtns.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const target = btn.dataset.target;
+        if (target === '#tab-household') {
+          e.preventDefault();
+          this.switchTab('tab-household');
+          const scEl = document.getElementById('pa-scenarios');
+          if (scEl) scEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        } else if (target && target.startsWith('#')) {
+          e.preventDefault();
+          const el = document.querySelector(target);
+          if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    // 2. Mode Switcher (Canonical vs Everyday)
+    const btnCanon = document.getElementById('paModeCanonical');
+    const btnEveryday = document.getElementById('paModeEveryday');
+    const canonContents = document.querySelectorAll('.pa-canonical-mode-content');
+    const everydayContents = document.querySelectorAll('.pa-everyday-mode-content');
+
+    const setExplorerMode = (mode) => {
+      if (btnCanon) btnCanon.classList.toggle('active', mode === 'canonical');
+      if (btnEveryday) btnEveryday.classList.toggle('active', mode === 'everyday');
+      canonContents.forEach(el => el.style.display = (mode === 'canonical' ? 'block' : 'none'));
+      everydayContents.forEach(el => el.style.display = (mode === 'everyday' ? 'block' : 'none'));
+    };
+
+    if (btnCanon) btnCanon.addEventListener('click', () => setExplorerMode('canonical'));
+    if (btnEveryday) btnEveryday.addEventListener('click', () => setExplorerMode('everyday'));
+
+    // 3. Collapsible Drawers (Study Notes)
+    document.querySelectorAll('.pa-toggle-note-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const targetId = btn.dataset.target;
+        const drawer = document.getElementById(targetId);
+        if (drawer) {
+          drawer.classList.toggle('open');
+          const isOpen = drawer.classList.contains('open');
+          const arrow = btn.querySelector('span:first-child');
+          if (arrow) arrow.textContent = isOpen ? '▲' : '▼';
+        }
+      });
+    });
+
+    // 4. FAQ Accordion
+    document.querySelectorAll('.pa-faq-q-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.pa-faq-item');
+        if (item) {
+          const wasOpen = item.classList.contains('open');
+          document.querySelectorAll('.pa-faq-item').forEach(i => i.classList.remove('open'));
+          if (!wasOpen) item.classList.add('open');
+        }
+      });
+    });
+
+    // 5. Sutta Library Search & Category Filter
+    const searchInput = document.getElementById('paSuttaSearch');
+    const filterPills = document.querySelectorAll('.pa-filter-pill');
+    const suttaCards = document.querySelectorAll('.pa-sutta-card');
+
+    let currentCat = 'all';
+    let currentSearch = '';
+
+    const filterSuttas = () => {
+      suttaCards.forEach(card => {
+        const cardCat = card.dataset.cat || '';
+        const searchBlob = card.dataset.search || '';
+        const matchesCat = (currentCat === 'all' || cardCat === currentCat);
+        const matchesSearch = (!currentSearch || searchBlob.includes(currentSearch));
+        card.style.display = (matchesCat && matchesSearch) ? 'block' : 'none';
+      });
+    };
+
+    if (searchInput) {
+      searchInput.addEventListener('input', (e) => {
+        currentSearch = e.target.value.trim().toLowerCase();
+        filterSuttas();
+      });
+    }
+
+    filterPills.forEach(pill => {
+      pill.addEventListener('click', () => {
+        filterPills.forEach(p => p.classList.remove('active'));
+        pill.classList.add('active');
+        currentCat = pill.dataset.cat || 'all';
+        filterSuttas();
+      });
+    });
+
+    // 6. Sutta "Mark as Read" Checkboxes (Local Storage)
+    const readStorageKey = 'lay_dharma_pa_read';
+    let readSuttas = [];
+    try {
+      readSuttas = JSON.parse(localStorage.getItem(readStorageKey) || '[]');
+    } catch (e) {
+      readSuttas = [];
+    }
+
+    document.querySelectorAll('.pa-sutta-read-check').forEach(chk => {
+      const code = chk.dataset.code;
+      if (readSuttas.includes(code)) {
+        chk.checked = true;
+        const wrap = chk.closest('.pa-read-toggle-wrap');
+        if (wrap) wrap.classList.add('completed');
+      }
+      chk.addEventListener('change', () => {
+        if (chk.checked) {
+          if (!readSuttas.includes(code)) readSuttas.push(code);
+        } else {
+          readSuttas = readSuttas.filter(c => c !== code);
+        }
+        localStorage.setItem(readStorageKey, JSON.stringify(readSuttas));
+        const wrap = chk.closest('.pa-read-toggle-wrap');
+        if (wrap) wrap.classList.toggle('completed', chk.checked);
+      });
+    });
+
+    // 7. Guided Exercise (Observe the Links - 7 Steps)
+    const ge = m.guidedExercise;
+    if (ge && ge.steps) {
+      let currentStepIdx = 0;
+      const userAnswers = {};
+
+      const stepCard = document.getElementById('paStepCard');
+      const prevBtn = document.getElementById('paStepPrevBtn');
+      const nextBtn = document.getElementById('paStepNextBtn');
+      const indicator = document.getElementById('paStepIndicator');
+      const progressSteps = document.querySelectorAll('.pa-progress-step');
+      const summaryWrap = document.getElementById('paExerciseSummaryWrap');
+
+      const renderStep = (idx) => {
+        if (!stepCard) return;
+        const s = ge.steps[idx];
+        const stepNum = idx + 1;
+        const currentAns = userAnswers[stepNum] || {};
+
+        let optionsHtml = '';
+        if (s.options && s.options.length > 0) {
+          optionsHtml = `
+            <div class="pa-step-options">
+              ${s.options.map((opt, oIdx) => `
+                <button type="button" class="pa-option-btn ${currentAns.selectedOpt === opt ? 'selected' : ''}" data-opt-idx="${oIdx}">
+                  ${opt}
+                </button>
+              `).join('')}
+            </div>
+          `;
+        }
+
+        stepCard.innerHTML = `
+          <h4 class="pa-step-title">${s.title}</h4>
+          <p class="pa-step-prompt">${s.prompt}</p>
+          ${optionsHtml}
+          <textarea class="pa-step-textarea" id="paStepTextInput" placeholder="${s.placeholder}">${currentAns.text || ''}</textarea>
+        `;
+
+        if (prevBtn) prevBtn.disabled = (idx === 0);
+        if (nextBtn) {
+          nextBtn.textContent = (idx === ge.steps.length - 1) ? ge.finishButton : (lang === 'pt' ? 'Próximo Passo →' : 'Next Step →');
+        }
+        if (indicator) indicator.textContent = `${lang === 'pt' ? 'Passo' : 'Step'} ${stepNum} ${lang === 'pt' ? 'de' : 'of'} ${ge.steps.length}`;
+
+        progressSteps.forEach((ps, pIdx) => {
+          ps.classList.toggle('active', pIdx === idx);
+          ps.classList.toggle('done', pIdx < idx);
+        });
+
+        stepCard.querySelectorAll('.pa-option-btn').forEach(btn => {
+          btn.addEventListener('click', () => {
+            stepCard.querySelectorAll('.pa-option-btn').forEach(b => b.classList.remove('selected'));
+            btn.classList.add('selected');
+            if (!userAnswers[stepNum]) userAnswers[stepNum] = {};
+            userAnswers[stepNum].selectedOpt = btn.textContent.trim();
+          });
+        });
+
+        const ta = document.getElementById('paStepTextInput');
+        if (ta) {
+          ta.addEventListener('input', (e) => {
+            if (!userAnswers[stepNum]) userAnswers[stepNum] = {};
+            userAnswers[stepNum].text = e.target.value;
+          });
+        }
+      };
+
+      const showSummary = () => {
+        if (!summaryWrap) return;
+        const summaryRows = ge.steps.map((st, i) => {
+          const ans = userAnswers[i + 1] || {};
+          const ansText = [ans.selectedOpt, ans.text].filter(Boolean).join(' — ') || (lang === 'pt' ? '(Nenhuma nota informada)' : '(No note entered)');
+          return `
+            <div class="pa-summary-item">
+              <strong>${st.title}:</strong>
+              <div>${ansText}</div>
+            </div>
+          `;
+        }).join('');
+
+        summaryWrap.innerHTML = `
+          <div class="pa-summary-card">
+            <h4 class="pa-summary-title">☸ ${lang === 'pt' ? 'Síntese Contemplativa da Investigação' : 'Contemplative Investigation Summary'}</h4>
+            ${summaryRows}
+            <div style="display: flex; gap: 10px; margin-top: 18px; flex-wrap: wrap;">
+              <button class="pa-finish-btn" id="paSaveToJournalFromSummary">
+                ${lang === 'pt' ? 'Salvar no Diário de Reflexão' : 'Save into Reflection Journal'}
+              </button>
+              <button class="pa-nav-btn" id="paResetExerciseBtn">
+                ${ge.resetButton}
+              </button>
+            </div>
+          </div>
+        `;
+        summaryWrap.style.display = 'block';
+        summaryWrap.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+        const saveBtn = document.getElementById('paSaveToJournalFromSummary');
+        if (saveBtn) {
+          saveBtn.addEventListener('click', () => {
+            const jWhat = document.getElementById('pa-journal-q1');
+            const jVedana = document.getElementById('pa-journal-q2');
+            const jTanha = document.getElementById('pa-journal-q3');
+            const jUpadana = document.getElementById('pa-journal-q4');
+            const jLesson = document.getElementById('pa-journal-q5');
+            const jSutta = document.getElementById('pa-journal-q6');
+
+            if (jWhat && userAnswers[1]) jWhat.value = userAnswers[1].text || '';
+            if (jVedana && userAnswers[3]) jVedana.value = [userAnswers[3].selectedOpt, userAnswers[3].text].filter(Boolean).join(' ');
+            if (jTanha && userAnswers[4]) jTanha.value = [userAnswers[4].selectedOpt, userAnswers[4].text].filter(Boolean).join(' ');
+            if (jUpadana && userAnswers[5]) jUpadana.value = userAnswers[5].text || '';
+            if (jLesson && userAnswers[7]) jLesson.value = userAnswers[7].text || '';
+            if (jSutta) jSutta.value = 'SN 36.6 • SN 12.20';
+
+            const jForm = document.getElementById('paJournalForm');
+            if (jForm) jForm.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          });
+        }
+
+        const rstBtn = document.getElementById('paResetExerciseBtn');
+        if (rstBtn) {
+          rstBtn.addEventListener('click', () => {
+            currentStepIdx = 0;
+            summaryWrap.style.display = 'none';
+            renderStep(0);
+          });
+        }
+      };
+
+      if (prevBtn) {
+        prevBtn.addEventListener('click', () => {
+          if (currentStepIdx > 0) {
+            currentStepIdx--;
+            renderStep(currentStepIdx);
+          }
+        });
+      }
+
+      if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+          if (currentStepIdx < ge.steps.length - 1) {
+            currentStepIdx++;
+            renderStep(currentStepIdx);
+          } else {
+            showSummary();
+          }
+        });
+      }
+
+      renderStep(0);
+    }
+
+    // 8. Study Pathways (Tracks and Checkboxes)
+    const sp = m.studyPathways;
+    if (sp && sp.tracks) {
+      const pathwayStorageKey = 'lay_dharma_pa_pathway';
+      let pathwayState = {};
+      try {
+        pathwayState = JSON.parse(localStorage.getItem(pathwayStorageKey) || '{}');
+      } catch (e) {
+        pathwayState = {};
+      }
+
+      const activeContentWrap = document.getElementById('paActiveTrackContent');
+      const trackTabs = document.querySelectorAll('.pa-track-tab');
+
+      const renderTrack = (trackId) => {
+        const track = sp.tracks.find(t => t.id === trackId) || sp.tracks[0];
+        if (!activeContentWrap || !track) return;
+
+        const checkedDays = pathwayState[track.id] || [];
+        const percent = Math.round((checkedDays.length / track.days.length) * 100);
+
+        activeContentWrap.innerHTML = `
+          <div style="margin-bottom: 14px;">
+            <div style="display: flex; justify-content: space-between; font-size: 0.85rem; color: var(--gold-light); margin-bottom: 6px;">
+              <span><strong>${track.duration}:</strong> ${track.description}</span>
+              <span><strong>${percent}%</strong> ${lang === 'pt' ? 'Concluído' : 'Completed'}</span>
+            </div>
+            <div class="pa-track-progress-bar">
+              <div class="pa-track-fill" style="width: ${percent}%;"></div>
+            </div>
+          </div>
+
+          <div class="pa-days-list">
+            ${track.days.map(d => {
+              const isChecked = checkedDays.includes(d.day);
+              return `
+                <label class="pa-day-row">
+                  <input type="checkbox" class="pa-day-check" data-track="${track.id}" data-day="${d.day}" ${isChecked ? 'checked' : ''}>
+                  <span class="pa-day-num">${lang === 'pt' ? 'Dia' : 'Day'} ${String(d.day).padStart(2, '0')}</span>
+                  <span class="pa-day-sutta">${d.sutta}</span>
+                  <span class="pa-day-task">${d.task}</span>
+                </label>
+              `;
+            }).join('')}
+          </div>
+        `;
+
+        activeContentWrap.querySelectorAll('.pa-day-check').forEach(chk => {
+          chk.addEventListener('change', () => {
+            const trkId = chk.dataset.track;
+            const dayNum = parseInt(chk.dataset.day, 10);
+            if (!pathwayState[trkId]) pathwayState[trkId] = [];
+
+            if (chk.checked) {
+              if (!pathwayState[trkId].includes(dayNum)) pathwayState[trkId].push(dayNum);
+            } else {
+              pathwayState[trkId] = pathwayState[trkId].filter(d => d !== dayNum);
+            }
+            localStorage.setItem(pathwayStorageKey, JSON.stringify(pathwayState));
+            renderTrack(trkId);
+          });
+        });
+      };
+
+      trackTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          trackTabs.forEach(t => t.classList.remove('active'));
+          tab.classList.add('active');
+          renderTrack(tab.dataset.trackId);
+        });
+      });
+
+      renderTrack(sp.tracks[0].id);
+    }
+
+    // 9. Reflection Journal Form and Persistence
+    const journalStorageKey = 'lay_dharma_pa_journal';
+    let journalEntries = [];
+    try {
+      journalEntries = JSON.parse(localStorage.getItem(journalStorageKey) || '[]');
+    } catch (e) {
+      journalEntries = [];
+    }
+
+    const journalList = document.getElementById('paJournalEntriesList');
+    const journalForm = document.getElementById('paJournalForm');
+    const exportBtn = document.getElementById('paExportJournalBtn');
+    const clearBtn = document.getElementById('paClearJournalBtn');
+
+    const renderJournalList = () => {
+      if (!journalList) return;
+      if (journalEntries.length === 0) {
+        journalList.innerHTML = `<p style="font-size: 0.88rem; color: var(--text-muted); font-style: italic;">${m.reflectionJournal.noEntriesNotice}</p>`;
+        return;
+      }
+
+      journalList.innerHTML = journalEntries.map((entry, idx) => `
+        <article class="pa-journal-entry-card" id="pa-entry-${idx}">
+          <header class="pa-entry-header">
+            <span>📅 ${new Date(entry.timestamp).toLocaleString()}</span>
+            <button class="pa-entry-delete-btn" data-entry-idx="${idx}">🗑 ${lang === 'pt' ? 'Excluir' : 'Delete'}</button>
+          </header>
+          <div style="font-size: 0.9rem; line-height: 1.6; color: var(--text-secondary);">
+            <div style="margin-bottom: 4px;"><strong>1. Event:</strong> ${entry.q1 || '-'}</div>
+            <div style="margin-bottom: 4px;"><strong>2. Feeling (Vedanā):</strong> ${entry.q2 || '-'}</div>
+            <div style="margin-bottom: 4px;"><strong>3. Craving/Aversion (Taṇhā):</strong> ${entry.q3 || '-'}</div>
+            <div style="margin-bottom: 4px;"><strong>4. Clinging (Upādāna):</strong> ${entry.q4 || '-'}</div>
+            <div style="margin-bottom: 4px;"><strong>5. Conditionality Lesson:</strong> ${entry.q5 || '-'}</div>
+            <div><strong>6. Sutta Reference:</strong> ${entry.q6 || '-'}</div>
+          </div>
+        </article>
+      `).join('');
+
+      journalList.querySelectorAll('.pa-entry-delete-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const idx = parseInt(btn.dataset.entryIdx, 10);
+          journalEntries.splice(idx, 1);
+          localStorage.setItem(journalStorageKey, JSON.stringify(journalEntries));
+          renderJournalList();
+        });
+      });
+    };
+
+    if (journalForm) {
+      journalForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const entry = {
+          timestamp: new Date().toISOString(),
+          q1: document.getElementById('pa-journal-q1')?.value.trim() || '',
+          q2: document.getElementById('pa-journal-q2')?.value.trim() || '',
+          q3: document.getElementById('pa-journal-q3')?.value.trim() || '',
+          q4: document.getElementById('pa-journal-q4')?.value.trim() || '',
+          q5: document.getElementById('pa-journal-q5')?.value.trim() || '',
+          q6: document.getElementById('pa-journal-q6')?.value.trim() || ''
+        };
+
+        if (!entry.q1 && !entry.q2 && !entry.q3) {
+          alert(lang === 'pt' ? 'Por favor, preencha pelo menos um campo para salvar a reflexão.' : 'Please enter at least one field to save your reflection.');
+          return;
+        }
+
+        journalEntries.unshift(entry);
+        localStorage.setItem(journalStorageKey, JSON.stringify(journalEntries));
+        journalForm.reset();
+        renderJournalList();
+      });
+    }
+
+    if (exportBtn) {
+      exportBtn.addEventListener('click', () => {
+        const dataStr = 'data:text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(journalEntries, null, 2));
+        const dlAnchor = document.createElement('a');
+        dlAnchor.setAttribute('href', dataStr);
+        dlAnchor.setAttribute('download', 'dependent_arising_journal.json');
+        dlAnchor.click();
+      });
+    }
+
+    if (clearBtn) {
+      clearBtn.addEventListener('click', () => {
+        if (confirm(lang === 'pt' ? 'Tem certeza de que deseja limpar todo o histórico de reflexões?' : 'Are you sure you want to clear all saved reflections?')) {
+          journalEntries = [];
+          localStorage.removeItem(journalStorageKey);
+          renderJournalList();
+        }
+      });
+    }
+
+    renderJournalList();
+  }
+
+  // =========================================================================
+  // BUDDHIST COSMOLOGY (LOKADHĀTU & THE 31 PLANES) METHODS
+  // =========================================================================
+
+  renderCosmologyOverview(m, lang) {
+    if (!m) return '';
+
+    // Hero Section
+    const hero = m.hero;
+    const heroHtml = `
+      <div class="cosmo-hero-wrap" id="cosmo-hero">
+        <div class="cosmo-hero-badge"><span>☸</span> ${hero.paliTitle}</div>
+        <h2 class="cosmo-hero-title">${hero.title}</h2>
+        <div class="cosmo-hero-pali">${hero.paliTitle}</div>
+        <div class="cosmo-hero-subtitle">${hero.subtitle}</div>
+        <p class="cosmo-hero-intro">${hero.introText}</p>
+
+        <div class="cosmo-canonical-box">
+          <div class="cosmo-canonical-header">
+            <span class="cosmo-canonical-badge">${hero.canonicalPassage.citation}</span>
+            <a href="${hero.canonicalPassage.sourceUrl}" target="_blank" rel="noopener noreferrer" class="cosmo-canonical-link">
+              <span>${lang === 'pt' ? 'Ler no SuttaCentral' : 'Read on SuttaCentral'}</span>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+            </a>
+          </div>
+          <div class="cosmo-canonical-pali">"${hero.canonicalPassage.excerptPali}"</div>
+          <div class="cosmo-canonical-trans">"${hero.canonicalPassage.excerptTrans}"</div>
+        </div>
+
+        <div class="cosmo-system-notice">
+          <div class="cosmo-notice-badge">⚖️ ${lang === 'pt' ? 'Nota Doutrinária Fundamental' : 'Doctrinal Clarification'}</div>
+          <p>${hero.systematizationNote}</p>
+        </div>
+
+        <div class="cosmo-hero-actions">
+          ${hero.primaryActions.map(act => `
+            <a href="${act.target}" class="cosmo-action-btn" data-target="${act.target}">
+              <span>${act.icon}</span> <span>${act.label}</span>
+            </a>
+          `).join('')}
+        </div>
+      </div>
+    `;
+
+    // Understanding the Buddhist Cosmos (Kāmaloka, Rūpaloka, Arūpaloka)
+    const uc = m.understandingCosmos;
+    const universeHtml = `
+      <section class="cosmo-section-block" id="cosmo-universe">
+        <div class="cosmo-section-title-wrap">
+          <h3 class="cosmo-section-title"><span>☸</span> ${uc.sectionTitle}</h3>
+          <div class="cosmo-section-subtitle">${uc.sectionSubtitle}</div>
+        </div>
+        <p class="cosmo-lead-text">${uc.leadText}</p>
+
+        <div class="cosmo-tiers-grid">
+          ${uc.tiers.map(tier => `
+            <article class="cosmo-tier-card" id="tier-${tier.id}">
+              <div class="cosmo-tier-header">
+                <span class="cosmo-tier-badge">${tier.planesCount}</span>
+                <h4 class="cosmo-tier-title">${tier.name}</h4>
+              </div>
+              <p class="cosmo-tier-desc">${tier.description}</p>
+              
+              <div class="cosmo-subdivisions-list">
+                ${tier.subdivisions.map(sub => `
+                  <div class="cosmo-subdiv-item">
+                    <strong class="cosmo-subdiv-name">${sub.name}</strong>
+                    <p class="cosmo-subdiv-detail">${sub.detail}</p>
+                  </div>
+                `).join('')}
+              </div>
+
+              ${tier.practicalReflection ? `
+                <div class="cosmo-tier-reflection">
+                  <span>☸</span>
+                  <div><strong>${lang === 'pt' ? 'Reflexão Prática:' : 'Practical Reflection:'}</strong> ${tier.practicalReflection}</div>
+                </div>
+              ` : ''}
+
+              ${tier.doctrinalNote ? `
+                <div class="cosmo-tier-caveat">
+                  <span>⚠</span>
+                  <div>${tier.doctrinalNote}</div>
+                </div>
+              ` : ''}
+
+              ${tier.reflectionQuestion ? `
+                <div class="cosmo-tier-reflection">
+                  <span>☸</span>
+                  <div><strong>${lang === 'pt' ? 'Pergunta Reflexiva:' : 'Contemplative Question:'}</strong> ${tier.reflectionQuestion}</div>
+                </div>
+              ` : ''}
+            </article>
+          `).join('')}
+        </div>
+      </section>
+    `;
+
+    // Interactive Exploration of the 31 Planes
+    const pe = m.planesExplorer;
+    const planesHtml = `
+      <section class="cosmo-section-block" id="cosmo-31-planes">
+        <div class="cosmo-section-title-wrap">
+          <h3 class="cosmo-section-title"><span>☸</span> ${pe.sectionTitle}</h3>
+          <div class="cosmo-section-subtitle">${pe.sectionSubtitle}</div>
+        </div>
+
+        <div class="cosmo-planes-notice">
+          <span>ℹ️</span> <div>${pe.planesNotice}</div>
+        </div>
+
+        <div class="cosmo-planes-toolbar">
+          <div class="cosmo-tier-filters" id="cosmoTierFilters" role="group" aria-label="Planes Filter">
+            <button class="cosmo-filter-btn active" data-tier="all">🌌 ${pe.categoryFilterLabels.all}</button>
+            <button class="cosmo-filter-btn" data-tier="kama">🔥 ${pe.categoryFilterLabels.kama}</button>
+            <button class="cosmo-filter-btn" data-tier="rupa">✨ ${pe.categoryFilterLabels.rupa}</button>
+            <button class="cosmo-filter-btn" data-tier="arupa">💠 ${pe.categoryFilterLabels.arupa}</button>
+          </div>
+        </div>
+
+        <div class="cosmo-planes-grid" id="cosmoPlanesGrid">
+          ${pe.planes.map(p => `
+            <article class="cosmo-plane-card" id="${p.id}" data-tier="${p.tier}">
+              <header class="cosmo-plane-header">
+                <div class="cosmo-plane-num-wrap">
+                  <span class="cosmo-plane-num">#${String(p.number).padStart(2, '0')}</span>
+                  <span class="cosmo-plane-subtier">${p.subTier}</span>
+                </div>
+                <span class="cosmo-plane-lifespan">⏱ ${p.lifespan}</span>
+              </header>
+
+              <div class="cosmo-plane-titles">
+                <h4 class="cosmo-plane-pali">${p.paliName}</h4>
+                <div class="cosmo-plane-trans">— ${p.englishName}</div>
+              </div>
+
+              <div class="cosmo-plane-meta-row">
+                <div class="cosmo-meta-box">
+                  <span class="cosmo-meta-label">⚖️ ${lang === 'pt' ? 'Causa Cármica / Condição:' : 'Kammic Cause / Conditions:'}</span>
+                  <div class="cosmo-meta-val">${p.kammaCause}</div>
+                </div>
+              </div>
+
+              <p class="cosmo-plane-chars">${p.characteristics}</p>
+
+              <div class="cosmo-plane-action-row">
+                <button class="cosmo-toggle-drawer-btn" data-target="drawer-${p.id}">
+                  <span>▼</span> <span>${lang === 'pt' ? 'Fontes Canônicas & Estudo' : 'Canonical Sources & Study'}</span>
+                </button>
+              </div>
+
+              <div class="cosmo-plane-drawer" id="drawer-${p.id}">
+                <div class="cosmo-drawer-content">
+                  <div class="cosmo-source-line">
+                    <strong>📜 ${lang === 'pt' ? 'Fontes Canônicas (Suttas):' : 'Canonical Sources (Suttas):'}</strong> ${p.canonicalSources}
+                  </div>
+                  <div class="cosmo-source-line commentarial">
+                    <strong>📚 ${lang === 'pt' ? 'Fontes Comentariais (Tradição Posterior):' : 'Commentarial Sources (Later Systematization):'}</strong> ${p.commentarialSources}
+                  </div>
+                  <div class="cosmo-drawer-reflection">
+                    <span>☸</span>
+                    <div><strong>${lang === 'pt' ? 'Reflexão Yoniso Manasikāra:' : 'Contemplative Reflection:'}</strong> ${p.reflection}</div>
+                  </div>
+                </div>
+              </div>
+            </article>
+          `).join('')}
+        </div>
+      </section>
+    `;
+
+    // Section: Nibbāna Is Not Another Realm
+    const bp = m.beyondPlanes;
+    const beyondHtml = `
+      <section class="cosmo-section-block" id="cosmo-nibbana">
+        <div class="cosmo-nibbana-card">
+          <div class="cosmo-nibbana-header">
+            <span class="cosmo-nibbana-badge">☸ ${lang === 'pt' ? 'A Meta Além do Saṁsāra' : 'The Goal Beyond Saṁsāra'}</span>
+            <h3 class="cosmo-nibbana-title">${bp.sectionTitle}</h3>
+            <div class="cosmo-nibbana-subtitle">${bp.sectionSubtitle}</div>
+          </div>
+          <p class="cosmo-nibbana-lead">${bp.leadText}</p>
+
+          <div class="cosmo-nibbana-points-grid">
+            ${bp.points.map(pt => `
+              <div class="cosmo-nibbana-point-card">
+                <h4 class="cosmo-nibbana-point-title">✨ ${pt.title}</h4>
+                <p class="cosmo-nibbana-point-desc">${pt.detail}</p>
+              </div>
+            `).join('')}
+          </div>
+
+          <div class="cosmo-nibbana-reflection-box">
+            <div class="cosmo-reflection-icon">☸</div>
+            <div>
+              <div class="cosmo-reflection-title">${lang === 'pt' ? 'Reflexão Doutrinária Central' : 'Central Doctrinal Inquiry'}</div>
+              <div class="cosmo-reflection-text">"${bp.reflectionQuestion}"</div>
+            </div>
+          </div>
+        </div>
+      </section>
+    `;
+
+    // FAQs Section
+    const faqs = m.faqs;
+    const faqsHtml = `
+      <section class="cosmo-section-block" id="cosmo-faqs">
+        <div class="cosmo-section-title-wrap">
+          <h3 class="cosmo-section-title"><span>☸</span> ${faqs.sectionTitle}</h3>
+          <div class="cosmo-section-subtitle">${faqs.sectionSubtitle}</div>
+        </div>
+
+        <div class="cosmo-faq-list">
+          ${faqs.items.map((item, idx) => `
+            <div class="cosmo-faq-item" id="cosmo-faq-${idx}">
+              <button class="cosmo-faq-q-btn" data-faq-index="${idx}">
+                <span>${idx + 1}. ${item.q}</span>
+                <span class="cosmo-faq-icon">▾</span>
+              </button>
+              <div class="cosmo-faq-a-body">
+                ${item.a}
+              </div>
+            </div>
+          `).join('')}
+        </div>
+      </section>
+    `;
+
+    return heroHtml + universeHtml + planesHtml + beyondHtml + faqsHtml;
+  }
+
+  renderCosmologyCanonical(m, lang) {
+    if (!m) return '';
+    const lib = m.suttaLibrary;
+
+    const toolbarHtml = `
+      <div class="cosmo-library-controls">
+        <div class="cosmo-section-title-wrap">
+          <h3 class="cosmo-section-title"><span>☸</span> ${lib.sectionTitle}</h3>
+          <div class="cosmo-section-subtitle">${lib.sectionSubtitle}</div>
+        </div>
+
+        <div class="cosmo-search-wrap">
+          <svg class="cosmo-search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <input type="search" class="cosmo-search-input" id="cosmoSuttaSearch" placeholder="${lib.searchPlaceholder}" aria-label="Search Suttas">
+        </div>
+
+        <div class="cosmo-filter-pills" id="cosmoFilterPills">
+          ${lib.filterCategories.map(cat => `
+            <button class="cosmo-filter-pill ${cat.id === 'all' ? 'active' : ''}" data-cat="${cat.id}">
+              ${cat.label}
+            </button>
+          `).join('')}
+        </div>
+      </div>
+    `;
+
+    const suttasHtml = `
+      <div class="cosmo-suttas-grid" id="cosmoSuttasGrid">
+        ${lib.suttas.map((s, idx) => {
+          const lvl = s.level || 'intermediate';
+          return `
+          <article class="cosmo-sutta-card" id="cosmo-sutta-${idx}" data-code="${s.code}" data-cat="${s.category}" data-level="${lvl}" data-search="${(s.code + ' ' + s.paliTitle + ' ' + s.transTitle + ' ' + s.keyConcepts.join(' ')).toLowerCase()}">
+            <header class="cosmo-sutta-top">
+              <div class="cosmo-sutta-badges">
+                <span class="cosmo-sutta-code-tag">${s.code}</span>
+                <span class="cosmo-sutta-cat-tag">${s.category}</span>
+                <span class="cosmo-sutta-level-tag ${lvl}">${lvl.toUpperCase()}</span>
+                <span class="cosmo-sutta-time-tag">⏱ ${s.readingTime}</span>
+              </div>
+              <label class="cosmo-read-toggle-wrap" data-code="${s.code}">
+                <input type="checkbox" class="cosmo-sutta-read-check" data-code="${s.code}">
+                <span class="cosmo-read-label">${lang === 'pt' ? 'Marcar como Lido' : 'Mark as Read'}</span>
+              </label>
+            </header>
+
+            <div class="cosmo-sutta-titles">
+              <h3 class="cosmo-sutta-pali-title">${s.paliTitle}</h3>
+              <div class="cosmo-sutta-trans-title">“${s.transTitle}”</div>
+              <div class="cosmo-sutta-nikaya">${s.nikaya}</div>
+            </div>
+
+            <p class="cosmo-sutta-importance">${s.importance}</p>
+
+            <div class="cosmo-lay-relevance-card">
+              <strong>${lang === 'pt' ? 'Relevância para a Vida Leiga:' : 'Lay Relevance:'}</strong> ${s.layRelevance}
+            </div>
+
+            <div class="cosmo-concepts-row">
+              ${s.keyConcepts.map(c => `<span class="cosmo-concept-chip">#${c}</span>`).join('')}
+            </div>
+
+            <div class="cosmo-link-reflection-card">
+              <span>☸</span>
+              <div><strong>${lang === 'pt' ? 'Reflexão Yoniso Manasikāra:' : 'Reflection:'}</strong> ${s.reflectionQuestion}</div>
+            </div>
+
+            <div style="margin-bottom: 14px;">
+              <button class="cosmo-toggle-note-btn" data-target="cosmo-sutta-note-${idx}">
+                <span>▼</span> <span>${lang === 'pt' ? 'Notas de Estudo Canônico' : 'Canonical Study Notes'}</span>
+              </button>
+              <div class="cosmo-study-note-drawer" id="cosmo-sutta-note-${idx}">
+                ${s.studyNotes}
+              </div>
+            </div>
+
+            <footer class="cosmo-sutta-action-row">
+              <a href="${s.suttaCentralUrl}" target="_blank" rel="noopener noreferrer" class="suttacentral-btn">
+                <span>${lang === 'pt' ? 'Ler no SuttaCentral' : 'Read on SuttaCentral'} (${s.code})</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+              </a>
+            </footer>
+          </article>
+        `;
+        }).join('')}
+      </div>
+    `;
+
+    return toolbarHtml + suttasHtml;
+  }
+
+  renderCosmologyHousehold(m, lang) {
+    if (!m) return '';
+
+    // Section 1: 5 Daily Scenarios
+    const ls = m.layScenarios;
+    const scenariosHtml = `
+      <section class="cosmo-section-block" id="cosmo-scenarios">
+        <div class="cosmo-section-title-wrap">
+          <h3 class="cosmo-section-title"><span>☸</span> ${ls.sectionTitle}</h3>
+          <div class="cosmo-section-subtitle">${ls.sectionSubtitle}</div>
+        </div>
+
+        <div class="cosmo-scenarios-list">
+          ${ls.scenarios.map(sc => `
+            <article class="cosmo-scenario-card" id="${sc.id}">
+              <header class="cosmo-sc-header">
+                <span class="cosmo-sc-num">${sc.number}</span>
+                <h4 class="cosmo-sc-title">${sc.title}</h4>
+              </header>
+
+              <div class="cosmo-sc-grid">
+                <div class="cosmo-sc-item">
+                  <div class="cosmo-sc-label">${lang === 'pt' ? 'Situação Cotidiana' : 'Everyday Situation'}</div>
+                  <div class="cosmo-sc-text">${sc.narrative}</div>
+                </div>
+
+                <div class="cosmo-sc-item">
+                  <div class="cosmo-sc-label">☸ ${lang === 'pt' ? 'Princípio do Dhamma' : 'Dhamma Principle'}</div>
+                  <div class="cosmo-sc-text">${sc.dhammaPrinciple}</div>
+                </div>
+
+                <div class="cosmo-sc-item dhamma-response">
+                  <div class="cosmo-sc-label">✓ ${lang === 'pt' ? 'Prática Recomendada' : 'Recommended Practice'}</div>
+                  <div class="cosmo-sc-text">${sc.practicalExercise}</div>
+                </div>
+
+                <div class="cosmo-sc-item">
+                  <div class="cosmo-sc-label">❓ ${lang === 'pt' ? 'Pergunta Reflexiva' : 'Reflection Question'}</div>
+                  <div class="cosmo-sc-text" style="font-style: italic; color: var(--gold-light);">"${sc.reflectionQuestion}"</div>
+                  <div class="cosmo-sc-suttas">
+                    ${sc.suttas.map(st => `<span class="cosmo-concept-chip">📖 ${st}</span>`).join('')}
+                  </div>
+                </div>
+              </div>
+            </article>
+          `).join('')}
+        </div>
+      </section>
+    `;
+
+    // Section 2: Kamma, Rebirth & Ethical Responsibility + Decision Exercise
+    const ks = m.kammaSection;
+    const de = ks.decisionExercise;
+    const kammaHtml = `
+      <section class="cosmo-section-block" id="cosmo-kamma">
+        <div class="cosmo-section-title-wrap">
+          <h3 class="cosmo-section-title"><span>☸</span> ${ks.sectionTitle}</h3>
+          <div class="cosmo-section-subtitle">${ks.sectionSubtitle}</div>
+        </div>
+        <p class="cosmo-lead-text">${ks.leadText}</p>
+
+        <div class="cosmo-principles-grid">
+          ${ks.corePrinciples.map(pr => `
+            <div class="cosmo-principle-card">
+              <span class="cosmo-principle-badge">⚖️ ${lang === 'pt' ? 'Princípio Canônico' : 'Canonical Principle'}</span>
+              <h4 class="cosmo-principle-title">${pr.title}</h4>
+              <p class="cosmo-principle-desc">${pr.detail}</p>
+            </div>
+          `).join('')}
+        </div>
+
+        <!-- Interactive Ethical Decision Exercise -->
+        <div class="cosmo-decision-wrap" id="cosmo-decision-exercise">
+          <div class="cosmo-decision-header">
+            <h4 class="cosmo-decision-title"><span>☸</span> ${de.title}</h4>
+            <div class="cosmo-decision-subtitle">${de.subtitle}</div>
+          </div>
+          <p class="cosmo-decision-intro">${lang === 'pt' ? 'Selecione uma resposta para analisar o momentum kármico de cada escolha sem especulações fatalistas:' : 'Select a response to analyze the intentional momentum and karmic mechanics without fatalistic speculation:'}</p>
+
+          <div class="cosmo-dilemmas-list">
+            ${de.dilemmas.map((d, dIdx) => `
+              <div class="cosmo-dilemma-card" id="${d.id}" data-dilemma-index="${dIdx}">
+                <div class="cosmo-dilemma-top">
+                  <span class="cosmo-dilemma-num">${lang === 'pt' ? 'Dilema' : 'Dilemma'} ${dIdx + 1}</span>
+                  <h5 class="cosmo-dilemma-heading">${d.situation}</h5>
+                </div>
+
+                <div class="cosmo-dilemma-options">
+                  ${d.options.map((opt, optIdx) => `
+                    <button class="cosmo-opt-btn" data-dilemma-id="${d.id}" data-opt-idx="${optIdx}">
+                      <span class="cosmo-opt-key">${String.fromCharCode(65 + optIdx)}</span>
+                      <span class="cosmo-opt-text">${opt.text}</span>
+                    </button>
+                  `).join('')}
+                </div>
+
+                <div class="cosmo-dilemma-feedback" id="feedback-${d.id}" style="display: none;"></div>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      </section>
+    `;
+
+    // Section 3: Guided Study Pathways
+    const sp = m.studyPathways;
+    const pathwaysHtml = `
+      <section class="cosmo-section-block" id="cosmo-pathways">
+        <div class="cosmo-section-title-wrap">
+          <h3 class="cosmo-section-title"><span>☸</span> ${sp.sectionTitle}</h3>
+          <div class="cosmo-section-subtitle">${sp.sectionSubtitle}</div>
+        </div>
+        <p class="cosmo-lead-text" style="margin-bottom: 8px;">${sp.disclaimer}</p>
+
+        <div class="cosmo-track-tabs" id="cosmoTrackTabs">
+          ${sp.tracks.map((track, i) => `
+            <button class="cosmo-track-tab ${i === 0 ? 'active' : ''}" data-track-id="${track.id}">
+              ${track.name}
+            </button>
+          `).join('')}
+        </div>
+
+        <div id="cosmoActiveTrackContent"></div>
+      </section>
+    `;
+
+    // Section 4: Contemplative Reflection Journal
+    const rj = m.reflectionJournal;
+    const journalHtml = `
+      <section class="cosmo-section-block" id="cosmo-journal">
+        <div class="cosmo-journal-wrap">
+          <div class="cosmo-section-title-wrap">
+            <h3 class="cosmo-section-title"><span>☸</span> ${rj.sectionTitle}</h3>
+            <div class="cosmo-section-subtitle">${rj.sectionSubtitle}</div>
+          </div>
+
+          <form id="cosmoJournalForm" class="cosmo-journal-form">
+            ${rj.prompts.map(p => `
+              <div class="cosmo-prompt-row">
+                <label class="cosmo-journal-prompt-label" for="cosmo-journal-${p.id}">${p.label}</label>
+                <textarea class="cosmo-step-textarea" id="cosmo-journal-${p.id}" placeholder="${p.placeholder}"></textarea>
+              </div>
+            `).join('')}
+            <div style="display: flex; gap: 12px; margin-top: 14px;">
+              <button type="submit" class="cosmo-finish-btn">${rj.saveButtonText}</button>
+            </div>
+          </form>
+
+          <div style="border-top: 1px solid var(--border-subtle); padding-top: 24px; margin-top: 30px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 10px;">
+              <h4 class="cosmo-comp-title"><span>☸</span> ${rj.entriesHeading}</h4>
+              <div style="display: flex; gap: 8px;">
+                <button class="cosmo-action-btn" id="cosmoExportJournalBtn" style="padding: 6px 12px; font-size: 0.78rem;">${rj.exportButtonText}</button>
+                <button class="cosmo-action-btn" id="cosmoClearJournalBtn" style="padding: 6px 12px; font-size: 0.78rem; border-color: rgba(201, 84, 56, 0.4); color: #e5b3a3;">${rj.clearAllButtonText}</button>
+              </div>
+            </div>
+            <div class="cosmo-journal-entries-list" id="cosmoJournalEntriesList"></div>
+          </div>
+        </div>
+      </section>
+    `;
+
+    return scenariosHtml + kammaHtml + pathwaysHtml + journalHtml;
+  }
+
+  bindCosmologyInteractions(m, lang) {
+    // 1. Jump Action Buttons inside Hero
+    const actionBtns = document.querySelectorAll('.cosmo-action-btn[data-target]');
+    actionBtns.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const target = btn.dataset.target;
+        if (target === '#tab-canonical') {
+          e.preventDefault();
+          this.switchTab('tab-canonical');
+          const libEl = document.getElementById('cosmoSuttasGrid');
+          if (libEl) libEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        } else if (target === '#tab-household') {
+          e.preventDefault();
+          this.switchTab('tab-household');
+          const scEl = document.getElementById('cosmo-scenarios');
+          if (scEl) scEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        } else if (target && target.startsWith('#')) {
+          e.preventDefault();
+          const el = document.querySelector(target);
+          if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    // 2. 31 Planes Tier Filters (All, Kama, Rupa, Arupa)
+    const tierFilters = document.querySelectorAll('.cosmo-tier-filters .cosmo-filter-btn');
+    const planeCards = document.querySelectorAll('.cosmo-plane-card');
+
+    tierFilters.forEach(btn => {
+      btn.addEventListener('click', () => {
+        tierFilters.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const selectedTier = btn.dataset.tier;
+        planeCards.forEach(card => {
+          if (selectedTier === 'all' || card.dataset.tier === selectedTier) {
+            card.style.display = 'block';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+
+    // 3. Collapsible Drawers (Plane detail drawers & Sutta notes)
+    document.querySelectorAll('.cosmo-toggle-drawer-btn, .cosmo-toggle-note-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const targetId = btn.dataset.target;
+        const drawer = document.getElementById(targetId);
+        if (drawer) {
+          drawer.classList.toggle('open');
+          const isOpen = drawer.classList.contains('open');
+          const arrow = btn.querySelector('span:first-child');
+          if (arrow) arrow.textContent = isOpen ? '▲' : '▼';
+        }
+      });
+    });
+
+    // 4. FAQ Accordion
+    document.querySelectorAll('.cosmo-faq-q-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.cosmo-faq-item');
+        if (item) {
+          const wasOpen = item.classList.contains('open');
+          document.querySelectorAll('.cosmo-faq-item').forEach(i => i.classList.remove('open'));
+          if (!wasOpen) item.classList.add('open');
+        }
+      });
+    });
+
+    // 5. Sutta Library Search & Category Filter
+    const searchInput = document.getElementById('cosmoSuttaSearch');
+    const filterPills = document.querySelectorAll('#cosmoFilterPills .cosmo-filter-pill');
+    const suttaCards = document.querySelectorAll('.cosmo-sutta-card');
+
+    let currentCat = 'all';
+    let currentSearch = '';
+
+    const filterSuttas = () => {
+      suttaCards.forEach(card => {
+        const cardCat = card.dataset.cat || '';
+        const searchBlob = card.dataset.search || '';
+        const matchesCat = (currentCat === 'all' || cardCat === currentCat);
+        const matchesSearch = (!currentSearch || searchBlob.includes(currentSearch));
+        card.style.display = (matchesCat && matchesSearch) ? 'block' : 'none';
+      });
+    };
+
+    if (searchInput) {
+      searchInput.addEventListener('input', (e) => {
+        currentSearch = e.target.value.trim().toLowerCase();
+        filterSuttas();
+      });
+    }
+
+    filterPills.forEach(pill => {
+      pill.addEventListener('click', () => {
+        filterPills.forEach(p => p.classList.remove('active'));
+        pill.classList.add('active');
+        currentCat = pill.dataset.cat || 'all';
+        filterSuttas();
+      });
+    });
+
+    // 6. Sutta "Mark as Read" Checkboxes (Local Storage)
+    const readStorageKey = 'lay_dharma_cosmo_read';
+    let readSuttas = [];
+    try {
+      readSuttas = JSON.parse(localStorage.getItem(readStorageKey) || '[]');
+    } catch (e) {
+      readSuttas = [];
+    }
+
+    document.querySelectorAll('.cosmo-sutta-read-check').forEach(chk => {
+      const code = chk.dataset.code;
+      if (readSuttas.includes(code)) {
+        chk.checked = true;
+        const wrap = chk.closest('.cosmo-read-toggle-wrap');
+        if (wrap) wrap.classList.add('completed');
+      }
+      chk.addEventListener('change', () => {
+        if (chk.checked) {
+          if (!readSuttas.includes(code)) readSuttas.push(code);
+        } else {
+          readSuttas = readSuttas.filter(c => c !== code);
+        }
+        localStorage.setItem(readStorageKey, JSON.stringify(readSuttas));
+        const wrap = chk.closest('.cosmo-read-toggle-wrap');
+        if (wrap) wrap.classList.toggle('completed', chk.checked);
+      });
+    });
+
+    // 7. Interactive Decision Exercise
+    const dilemmas = m.kammaSection?.decisionExercise?.dilemmas || [];
+    document.querySelectorAll('.cosmo-opt-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const dilemmaId = btn.dataset.dilemmaId;
+        const optIdx = parseInt(btn.dataset.optIdx, 10);
+        const parentCard = btn.closest('.cosmo-dilemma-card');
+        if (!parentCard) return;
+
+        parentCard.querySelectorAll('.cosmo-opt-btn').forEach(b => b.classList.remove('selected'));
+        btn.classList.add('selected');
+
+        const dilemmaData = dilemmas.find(d => d.id === dilemmaId);
+        if (!dilemmaData) return;
+        const optData = dilemmaData.options[optIdx];
+        if (!optData) return;
+
+        const fbEl = document.getElementById(`feedback-${dilemmaId}`);
+        if (fbEl) {
+          fbEl.innerHTML = `
+            <div class="cosmo-fb-header">
+              <span class="cosmo-fb-badge">⚖️ ${lang === 'pt' ? 'Momentum Kármico & Psicológico' : 'Kammic Momentum & Mechanics'}</span>
+            </div>
+            <div class="cosmo-fb-row">${optData.momentum}</div>
+          `;
+          fbEl.style.display = 'block';
+        }
+      });
+    });
+
+    // 8. Study Pathways Track Tabs & Checkbox Persistence
+    const sp = m.studyPathways;
+    if (sp && sp.tracks) {
+      const trackTabs = document.querySelectorAll('.cosmo-track-tab');
+      const trackContent = document.getElementById('cosmoActiveTrackContent');
+      const pathwayStorageKey = 'lay_dharma_cosmo_pathway';
+      let pathwayState = {};
+      try {
+        pathwayState = JSON.parse(localStorage.getItem(pathwayStorageKey) || '{}');
+      } catch (e) {
+        pathwayState = {};
+      }
+
+      const renderTrack = (trackId) => {
+        if (!trackContent) return;
+        const trk = sp.tracks.find(t => t.id === trackId) || sp.tracks[0];
+        trackContent.innerHTML = `
+          <div class="cosmo-track-overview">
+            <h4 class="cosmo-track-title">${trk.name} — ${trk.duration}</h4>
+            <p class="cosmo-track-desc">${trk.description}</p>
+          </div>
+          <div class="cosmo-days-grid">
+            ${trk.days.map(d => {
+              const itemKey = `${trackId}-day-${d.day}`;
+              const isDone = !!pathwayState[itemKey];
+              return `
+                <div class="cosmo-day-card ${isDone ? 'completed' : ''}" id="${itemKey}">
+                  <header class="cosmo-day-header">
+                    <span class="cosmo-day-badge">${lang === 'pt' ? 'Dia' : 'Day'} ${d.day}</span>
+                    <label class="cosmo-day-check-wrap">
+                      <input type="checkbox" class="cosmo-day-check" data-item-key="${itemKey}" ${isDone ? 'checked' : ''}>
+                      <span>${lang === 'pt' ? 'Concluído' : 'Done'}</span>
+                    </label>
+                  </header>
+                  <h5 class="cosmo-day-focus">${d.sutta}</h5>
+                  <div class="cosmo-day-reading"><strong>☸ ${lang === 'pt' ? 'Estudo & Prática:' : 'Study & Practice:'}</strong> ${d.task}</div>
+                </div>
+              `;
+            }).join('')}
+          </div>
+        `;
+
+        trackContent.querySelectorAll('.cosmo-day-check').forEach(chk => {
+          chk.addEventListener('change', () => {
+            const k = chk.dataset.itemKey;
+            pathwayState[k] = chk.checked;
+            localStorage.setItem(pathwayStorageKey, JSON.stringify(pathwayState));
+            const dayCard = document.getElementById(k);
+            if (dayCard) dayCard.classList.toggle('completed', chk.checked);
+          });
+        });
+      };
+
+      trackTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          trackTabs.forEach(t => t.classList.remove('active'));
+          tab.classList.add('active');
+          renderTrack(tab.dataset.trackId);
+        });
+      });
+
+      renderTrack(sp.tracks[0].id);
+    }
+
+    // 9. Reflection Journal Form and Persistence
+    const journalStorageKey = 'lay_dharma_cosmo_journal';
+    let journalEntries = [];
+    try {
+      journalEntries = JSON.parse(localStorage.getItem(journalStorageKey) || '[]');
+    } catch (e) {
+      journalEntries = [];
+    }
+
+    const journalList = document.getElementById('cosmoJournalEntriesList');
+    const journalForm = document.getElementById('cosmoJournalForm');
+    const exportBtn = document.getElementById('cosmoExportJournalBtn');
+    const clearBtn = document.getElementById('cosmoClearJournalBtn');
+
+    const renderJournalList = () => {
+      if (!journalList) return;
+      if (journalEntries.length === 0) {
+        journalList.innerHTML = `<p style="font-size: 0.88rem; color: var(--text-muted); font-style: italic;">${m.reflectionJournal.noEntriesNotice}</p>`;
+        return;
+      }
+
+      journalList.innerHTML = journalEntries.map((entry, idx) => `
+        <article class="cosmo-journal-entry-card" id="cosmo-entry-${idx}">
+          <header class="cosmo-entry-header">
+            <span>📅 ${new Date(entry.timestamp).toLocaleString()}</span>
+            <button class="cosmo-entry-delete-btn" data-entry-idx="${idx}">🗑 ${lang === 'pt' ? 'Excluir' : 'Delete'}</button>
+          </header>
+          <div style="font-size: 0.9rem; line-height: 1.6; color: var(--text-secondary);">
+            <div style="margin-bottom: 4px;"><strong>1. Range of Existence:</strong> ${entry.q1 || '-'}</div>
+            <div style="margin-bottom: 4px;"><strong>2. Kamma & Intention:</strong> ${entry.q2 || '-'}</div>
+            <div style="margin-bottom: 4px;"><strong>3. Impermanence:</strong> ${entry.q3 || '-'}</div>
+            <div style="margin-bottom: 4px;"><strong>4. Aspiration vs Liberation:</strong> ${entry.q4 || '-'}</div>
+            <div style="margin-bottom: 4px;"><strong>5. Non-judgmental Compassion:</strong> ${entry.q5 || '-'}</div>
+            <div><strong>6. Canonical Sutta:</strong> ${entry.q6 || '-'}</div>
+          </div>
+        </article>
+      `).join('');
+
+      journalList.querySelectorAll('.cosmo-entry-delete-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const idx = parseInt(btn.dataset.entryIdx, 10);
+          journalEntries.splice(idx, 1);
+          localStorage.setItem(journalStorageKey, JSON.stringify(journalEntries));
+          renderJournalList();
+        });
+      });
+    };
+
+    if (journalForm) {
+      journalForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const entry = {
+          timestamp: new Date().toISOString(),
+          q1: document.getElementById('cosmo-journal-cq1')?.value.trim() || '',
+          q2: document.getElementById('cosmo-journal-cq2')?.value.trim() || '',
+          q3: document.getElementById('cosmo-journal-cq3')?.value.trim() || '',
+          q4: document.getElementById('cosmo-journal-cq4')?.value.trim() || '',
+          q5: document.getElementById('cosmo-journal-cq5')?.value.trim() || '',
+          q6: document.getElementById('cosmo-journal-cq6')?.value.trim() || ''
+        };
+
+        if (!entry.q1 && !entry.q2 && !entry.q3 && !entry.q4 && !entry.q5 && !entry.q6) {
+          alert(lang === 'pt' ? 'Por favor, preencha pelo menos um campo para salvar a reflexão.' : 'Please enter at least one field to save your reflection.');
+          return;
+        }
+
+        journalEntries.unshift(entry);
+        localStorage.setItem(journalStorageKey, JSON.stringify(journalEntries));
+        journalForm.reset();
+        renderJournalList();
+      });
+    }
+
+    if (exportBtn) {
+      exportBtn.addEventListener('click', () => {
+        const dataStr = 'data:text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(journalEntries, null, 2));
+        const dlAnchor = document.createElement('a');
+        dlAnchor.setAttribute('href', dataStr);
+        dlAnchor.setAttribute('download', 'buddhist_cosmology_journal.json');
+        dlAnchor.click();
+      });
+    }
+
+    if (clearBtn) {
+      clearBtn.addEventListener('click', () => {
+        if (confirm(lang === 'pt' ? 'Tem certeza de que deseja limpar todo o histórico de reflexões?' : 'Are you sure you want to clear all saved reflections?')) {
+          journalEntries = [];
+          localStorage.removeItem(journalStorageKey);
+          renderJournalList();
+        }
+      });
+    }
+
+    renderJournalList();
+  }
 
   switchTab(targetTabId) {
     this.activeTabId = targetTabId;

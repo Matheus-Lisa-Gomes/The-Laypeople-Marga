@@ -7,7 +7,1557 @@
   'use strict';
 
   // ==========================================
-  // 1. FOURTH NOBLE TRUTH DATA MODULE
+  // 1. DEPENDENT ARISING DATA MODULE
+  // ==========================================
+/**
+ * The Lay Dharma Household Mārga (Upāsaka-Dharma)
+ * Topic 02: Dependent Arising in Everyday Life (Paṭiccasamuppāda)
+ * Comprehensive Theravāda Learning Module:
+ * Canonical Source Material, The 12 Links Explorer, 12 Suttas Library,
+ * 5 Daily-Life Scenarios, 7-Step Practical Exercise, Noble Eightfold Path Integration,
+ * 3 Study Pathways, Reflection Journal Prompts, and 10 Canonical FAQs.
+ * Bilingual: English (EN) and Portuguese (PT-BR).
+ */
+const DEPENDENT_ARISING_MODULE_EN = {
+  // A. Hero Section & Master Principle
+  hero: {
+    title: "Dependent Arising in Everyday Life",
+    paliTitle: "Paṭiccasamuppāda",
+    subtitle: "Understanding how suffering arises, how it is sustained, and how it can cease.",
+    introText: "Dependent arising is the Buddha's teaching on conditionality: when particular conditions are present, corresponding phenomena arise; when those conditions cease, the dependent phenomena cease. It provides a framework for understanding suffering and the possibility of liberation.",
+    canonicalPassage: {
+      suttaCode: "SN 12.20",
+      paliTitle: "Paccaya Sutta",
+      englishTitle: "Conditions",
+      excerptPali: "Uppādā vā, bhikkhave, tathāgatānaṁ anuppādā vā tathāgatānaṁ, ṭhitāva sā dhātu dhammaṭṭhitatā dhammaniyāmatā idappaccayatā.",
+      excerptTrans: "Whether Realized Ones arise or not, this fundamental reality remains: the stability of the Dhamma, the law of the Dhamma, specific conditionality.",
+      sourceUrl: "https://suttacentral.net/sn12.20/en/sujato",
+      citation: "Saṁyutta Nikāya 12.20 • Paccaya Sutta"
+    },
+    primaryActions: [
+      { id: "action-study", label: "Begin the Study", target: "#pa-what-is", icon: "📖" },
+      { id: "action-links", label: "Explore the Twelve Links", target: "#pa-twelve-links", icon: "🔗" },
+      { id: "action-daily", label: "Practice in Daily Life", target: "#tab-household", icon: "🏡" }
+    ]
+  },
+
+  // B. What is Dependent Arising? (Three Levels & Comparison Panel)
+  whatIs: {
+    sectionTitle: "What is Dependent Arising?",
+    sectionSubtitle: "A graduated three-level exposition of conditionality and liberation",
+    level1: {
+      number: "1",
+      badge: "Level 1 — The Master Principle",
+      title: "Specific Conditionality (Idappaccayatā)",
+      paliFormula: "Imasmiṁ sati idaṁ hoti, imassuppādā idaṁ uppajjati; imasmiṁ asati idaṁ na hoti, imassa nirodhā idaṁ nirujjhati.",
+      translationFormula: "When this exists, that comes to be; with the arising of this, that arises. When this does not exist, that does not come to be; with the cessation of this, that ceases.",
+      detail: "Conditionality is not a rigid linear chain of mechanical predetermination, nor is it the decree of a cosmic creator. In early Buddhism, all experiences—thoughts, physical sensations, emotional states, and interpersonal dynamics—arise when supporting conditions converge, and naturally dissolve when those conditions disperse. For lay practitioners, this principle immediately removes guilt and personal condemnation: when irritation or fear arises, instead of identifying with it ('I am an angry person'), you investigate: 'What conditions gave rise to this state?'"
+    },
+    level2: {
+      number: "2",
+      badge: "Level 2 — The Arising of Suffering (Samudaya-vāra)",
+      title: "The Standard Sequence of Twelve Links",
+      intro: "The standard canonical formulation articulates the specific chain through which psychological friction and cyclical suffering (*saṁsāra*) are sustained:",
+      linksSequence: [
+        { num: "01", pali: "Avijjā", trans: "Ignorance / Unawareness of the Four Truths" },
+        { num: "02", pali: "Saṅkhārā", trans: "Volitional Formations / Karmic Fabrications" },
+        { num: "03", pali: "Viññāṇa", trans: "Consciousness / Discriminative Awareness" },
+        { num: "04", pali: "Nāmarūpa", trans: "Name-and-Form / Mental Factors & Physicality" },
+        { num: "05", pali: "Saḷāyatana", trans: "Six Sense Bases (Eye, Ear, Nose, Tongue, Body, Mind)" },
+        { num: "06", pali: "Phassa", trans: "Contact (Meeting of Sense Faculty, Object, & Consciousness)" },
+        { num: "07", pali: "Vedanā", trans: "Feeling Tone (Pleasant, Unpleasant, Neither-Pleasant-nor-Unpleasant)" },
+        { num: "08", pali: "Taṇhā", trans: "Craving / Thirst (For Pleasures, Becoming, or Non-becoming)" },
+        { num: "09", pali: "Upādāna", trans: "Clinging / Grasping (Onto Views, Pleasures, Rites, & Self-identity)" },
+        { num: "10", pali: "Bhava", trans: "Becoming / Sustained States of Being" },
+        { num: "11", pali: "Jāti", trans: "Birth / Arising of Identity & Conception" },
+        { num: "12", pali: "Jarāmaraṇa", trans: "Aging & Death, Sorrow, Lamentation, Pain, Distress, & Despair" }
+      ],
+      canonicalCulmination: "Evametassa kevalassa dukkhakkhandhassa samudayo hoti — 'Such is the origin of this whole mass of suffering.'",
+      caveat: "Doctrinal Safeguard: These twelve factors must neither be viewed as twelve isolated philosophical objects nor reduced to a purely momentary psychological sequence without karmic continuity. In classical Theravāda, the links describe the profound conditionality spanning both life-to-life continuity and moment-to-moment experience."
+    },
+    level3: {
+      number: "3",
+      badge: "Level 3 — The Cessation of Suffering (Nirodha-vāra)",
+      title: "The Reverse Formulation & True Liberation",
+      paliFormula: "Avijjāya tv’eva asesavirāganirodhā saṅkhāranirodho; saṅkhāranirodhā viññāṇanirodho... evametassa kevalassa dukkhakkhandhassa nirodho hoti.",
+      translationFormula: "With the remainderless fading away and cessation of ignorance, volitional formations cease; with the cessation of formations, consciousness ceases... such is the cessation of this whole mass of suffering.",
+      detail: "Cessation is the unbinding of compulsive craving, not physical annihilation. An awakened householder or monastic does not cease to physically exist or lose the ability to perceive the world; rather, because delusion has been extinguished, sensory contact occurs without generating craving, clinging, or suffering. The chain of reactivity is permanently disconnected at the contact-feeling junction."
+    },
+    comparisonPanel: {
+      title: "The Three Dimensions of Conditionality",
+      subtitle: "A comparative operational overview of Theravāda practice",
+      arisingBox: {
+        title: "Arising (Samudaya)",
+        desc: "Conditions actively sustain the continuation of suffering: ignorance fuels volitional fabrications, and unexamined pleasant or unpleasant feeling tones condition impulsive craving and clinging."
+      },
+      cessationBox: {
+        title: "Cessation (Nirodha)",
+        desc: "The relevant conditions are brought to a complete end: with direct experiential insight into impermanence, craving finds no foothold, grasping ceases, and the fuel of becoming burns out."
+      },
+      practiceBox: {
+        title: "Practice (Magga)",
+        desc: "Ethical conduct (sīla), collectedness (samādhi), and discerning wisdom (paññā) systematically transform the mind, replacing ignorance with clear seeing."
+      }
+    }
+  },
+
+  // C. The Twelve Links Explorer (Canonical & Everyday Modes)
+  twelveLinksExplorer: {
+    sectionTitle: "The Twelve Links Interactive Explorer",
+    sectionSubtitle: "Inspect each link through authentic canonical definitions or concrete everyday lay applications",
+    canonicalModeLabel: "Canonical Sutta Mode",
+    everydayModeLabel: "Everyday-Life Mode",
+    modeNotice: "Note: Everyday-life examples are illustrative psychological applications showing how conditionality operates in daily experience, not verbatim accounts of all twelve links in a single sutta.",
+    links: [
+      {
+        num: 1,
+        pali: "Avijjā",
+        trans: "Ignorance / Delusion",
+        preceding: "Root condition (sustained by the asavas/taints and unwise attention)",
+        following: "Conditions Volitional Formations (Saṅkhārā)",
+        canonicalRef: "SN 12.2 • SN 12.12",
+        canonicalDef: "Not knowing suffering, not knowing its origin, not knowing its cessation, and not knowing the path leading to its cessation. Assuming permanence in the impermanent, satisfaction in the stressful, and a permanent self in selfless phenomena.",
+        everydayIllustration: "Believing that securing one more purchase, winning an argument, or achieving status will deliver lasting happiness. Operating on automatic pilot without awareness of our underlying reactivity.",
+        reflectionQuestion: "Where in my daily life am I operating on the unquestioned assumption that external worldly conditions can give permanent fulfillment?",
+        studyNote: "Avijjā is not mere lack of intellectual information, but lack of penetrative experiential clarity regarding the Four Noble Truths."
+      },
+      {
+        num: 2,
+        pali: "Saṅkhārā",
+        trans: "Volitional Formations",
+        preceding: "Conditioned by Ignorance (Avijjā)",
+        following: "Conditions Consciousness (Viññāṇa)",
+        canonicalRef: "SN 12.2 • MN 44",
+        canonicalDef: "Bodily formations (in-and-out breathing), verbal formations (directed thought and evaluation), and mental formations (perception and feeling) driven by volition (cetanā) with karmic consequences.",
+        everydayIllustration: "Formulating mental narratives, plotting future conversations, rehearsing justifications, and brewing intentions to retaliate or indulge.",
+        reflectionQuestion: "What habitual mental scripts and emotional momentum am I manufacturing right now?",
+        studyNote: "Formations are active karmic constructions. Unwholesome formations construct future vulnerability to distress."
+      },
+      {
+        num: 3,
+        pali: "Viññāṇa",
+        trans: "Consciousness",
+        preceding: "Conditioned by Volitional Formations (Saṅkhārā)",
+        following: "Conditions Name-and-Form (Nāmarūpa)",
+        canonicalRef: "SN 12.2 • SN 12.38 • DN 15",
+        canonicalDef: "Cognizance through the six sense doors: eye-consciousness, ear-consciousness, nose-consciousness, tongue-consciousness, body-consciousness, and mind-consciousness.",
+        everydayIllustration: "The moment of awareness lighting up when a smartphone screen flashes, registering a sound or an incoming email subject line.",
+        reflectionQuestion: "Can I observe the bare awareness of knowing a sight or sound before mental commentary begins?",
+        studyNote: "Consciousness is not an independent unchanging soul, but a dependently arisen process of cognizance."
+      },
+      {
+        num: 4,
+        pali: "Nāmarūpa",
+        trans: "Name-and-Form",
+        preceding: "Conditioned by Consciousness (Viññāṇa)",
+        following: "Conditions Six Sense Bases (Saḷāyatana)",
+        canonicalRef: "SN 12.2 • DN 15 • MN 9",
+        canonicalDef: "Name (nāma): feeling, perception, intention, contact, and attention. Form (rūpa): the four great elements (earth, water, fire, wind) and physical matter derived from them.",
+        everydayIllustration: "Your physical body sitting in the chair combined with the psychological processes of labeling, intending, and focusing attention on workplace tasks.",
+        reflectionQuestion: "How do mental labels (nāma) alter my perception of physical sensations (rūpa)?",
+        studyNote: "In DN 15, consciousness and name-and-form are mutually conditioning, like two sheaves of reeds leaning against one another (SN 12.67)."
+      },
+      {
+        num: 5,
+        pali: "Saḷāyatana",
+        trans: "Six Sense Bases",
+        preceding: "Conditioned by Name-and-Form (Nāmarūpa)",
+        following: "Conditions Contact (Phassa)",
+        canonicalRef: "SN 12.2 • SN 35.28",
+        canonicalDef: "The six internal sense faculties: eye-base, ear-base, nose-base, tongue-base, body-base, and intellect-base (manāyatana) through which the world is received.",
+        everydayIllustration: "Having functional eyes, ears, touch, and an active thinking mind open to the modern sensory environment of screens, noise, and conversations.",
+        reflectionQuestion: "Are my six sense doors well-guarded, or are they constantly flooded by unregulated digital inputs?",
+        studyNote: "Sense restraint (indriya-saṁvara) is the householder's first fortress protecting the six bases."
+      },
+      {
+        num: 6,
+        pali: "Phassa",
+        trans: "Contact",
+        preceding: "Conditioned by Six Sense Bases (Saḷāyatana)",
+        following: "Conditions Feeling Tone (Vedanā)",
+        canonicalRef: "SN 12.2 • MN 148 • MN 18",
+        canonicalDef: "The meeting or convergence of sense organ, sense object, and corresponding consciousness. Eye + visible form + eye-consciousness = visual contact.",
+        everydayIllustration: "Hearing a harsh voice speak your name across an office corridor. Contact is the actual point of impact between external sound and conscious hearing.",
+        reflectionQuestion: "Can I notice the precise split second when sensory contact occurs before my personality reacts?",
+        studyNote: "Contact is the friction point where raw sensory data is delivered into conscious experience."
+      },
+      {
+        num: 7,
+        pali: "Vedanā",
+        trans: "Feeling Tone",
+        preceding: "Conditioned by Contact (Phassa)",
+        following: "Conditions Craving (Taṇhā)",
+        canonicalRef: "SN 12.2 • SN 36.6 • MN 38",
+        canonicalDef: "The immediate affective tone of contact: pleasant (sukha), unpleasant (dukkha), or neither-pleasant-nor-unpleasant (adukkhamasukha).",
+        everydayIllustration: "The instant bodily tightening and uncomfortable visceral flash when you read a critical review or aggressive text message.",
+        reflectionQuestion: "Am I confusing this bare feeling tone (vedanā) with a full emotional story about myself?",
+        studyNote: "Crucial Insight: Vedanā is not 'emotion'. It is the immediate raw valence. Emotion emerges when craving and mental proliferation (papañca) latch onto vedanā."
+      },
+      {
+        num: 8,
+        pali: "Taṇhā",
+        trans: "Craving / Thirst",
+        preceding: "Conditioned by Feeling Tone (Vedanā)",
+        following: "Conditions Clinging (Upādāna)",
+        canonicalRef: "SN 12.2 • SN 56.11 • MN 9",
+        canonicalDef: "The compulsive thirst that seeks delight here and there: craving for sensual pleasures (kāma-taṇhā), craving for becoming (bhava-taṇhā), and craving for non-becoming/annihilation (vibhava-taṇhā).",
+        everydayIllustration: "A colleague criticizes you. Hearing the words conditions an unpleasant feeling tone. Craving immediately appears: a desperate urge to eliminate the discomfort, prove yourself right, or make the other person suffer.",
+        reflectionQuestion: "Notice the golden gap: Can I feel this unpleasant sensation without allowing craving to demand immediate action?",
+        studyNote: "This link is the definitive pivot point for lay practice. Feeling arises due to past conditions, but craving requires our present consent."
+      },
+      {
+        num: 9,
+        pali: "Upādāna",
+        trans: "Clinging / Grasping",
+        preceding: "Conditioned by Craving (Taṇhā)",
+        following: "Conditions Becoming (Bhava)",
+        canonicalRef: "SN 12.2 • MN 11 • MN 141",
+        canonicalDef: "Intensified grasping in four domains: clinging to sensual pleasures (kāmupādāna), clinging to views (diṭṭhupādāna), clinging to rules and rituals (sīlabbatupādāna), and clinging to self-identity (attavādupādāna).",
+        everydayIllustration: "Digging in your heels during an argument: 'I am right, you are wrong! My reputation is at stake.' Fastening onto a political view or domestic expectation with clenched fists.",
+        reflectionQuestion: "What self-image or rigid expectation am I clutching onto with white knuckles?",
+        studyNote: "Upādāna also literally means 'fuel' (like wood feeding fire). Craving ignites the spark, and clinging fuels the furnace of stress."
+      },
+      {
+        num: 10,
+        pali: "Bhava",
+        trans: "Becoming",
+        preceding: "Conditioned by Clinging (Upādāna)",
+        following: "Conditions Birth (Jāti)",
+        canonicalRef: "SN 12.2 • AN 3.76 • SN 12.38",
+        canonicalDef: "The taking shape of existence: the sensual realm (kāma-bhava), the subtle form realm (rūpa-bhava), and the formless realm (arūpa-bhava). Volitional energy ripe for fruition.",
+        everydayIllustration: "Becoming fully absorbed in the persona of 'the mistreated employee' or 'the anxious parent'. A complete psychological state takes over your reality.",
+        reflectionQuestion: "What persona or reactive world have I just stepped into?",
+        studyNote: "In AN 3.76, the Buddha compares kamma to field, consciousness to seed, and craving to moisture producing renewed becoming."
+      },
+      {
+        num: 11,
+        pali: "Jāti",
+        trans: "Birth",
+        preceding: "Conditioned by Becoming (Bhava)",
+        following: "Conditions Aging and Death (Jarāmaraṇa)",
+        canonicalRef: "SN 12.2 • MN 141",
+        canonicalDef: "The birth, manifestation of the aggregates, and acquisition of the sense spheres of beings in a given class of existence. Psychologically: the birth of a rigid self-concept.",
+        everydayIllustration: "The complete crystallization of the 'victim' or 'champion' identity. You have stepped into the ring and are fully identified with the drama.",
+        reflectionQuestion: "Who has just been 'born' in this mental state, and what vulnerability did that birth create?",
+        studyNote: "Whenever a self-identity is born in the mind, it immediately inherits vulnerability to offense, aging, and loss."
+      },
+      {
+        num: 12,
+        pali: "Jarāmaraṇa",
+        trans: "Aging & Death",
+        preceding: "Conditioned by Birth (Jāti)",
+        following: "Culminates in Sorrow, Lamentation, Pain, Grief, and Despair",
+        canonicalRef: "SN 12.2 • MN 141 • SN 12.23",
+        canonicalDef: "The aging, decay, and dissolution of living beings; and psychological heartbreak: sorrow (soka), lamentation (parideva), pain (dukkha), grief (domanassa), and despair (upāyāsa).",
+        everydayIllustration: "The eventual collapse of your expectations. The argument ends in exhaustion, distance, lingering resentment, and emotional distress.",
+        reflectionQuestion: "Can I clearly trace how this current grief or exhaustion arose naturally from initial clinging and craving?",
+        studyNote: "Jarāmaraṇa proves the tragic law: whatever is born of craving must decay and perish. True peace is found only when the cycle ceases."
+      }
+    ]
+  },
+
+  // D. Essential Sutta Library (12 Suttas)
+  suttaLibrary: {
+    sectionTitle: "Essential Sutta Library",
+    sectionSubtitle: "12 Curated canonical discourses on conditionality, verification, and lay application",
+    searchPlaceholder: "Search by title, number, Pāli term, or keyword...",
+    filterCategories: [
+      { id: "all", label: "All Suttas (12)" },
+      { id: "foundational", label: "Foundational (6)" },
+      { id: "daily-life", label: "Lay Life & Causation (3)" },
+      { id: "mindfulness", label: "Mindfulness & Vedanā (3)" },
+      { id: "liberation", label: "Liberation & Cessation (2)" }
+    ],
+    suttas: [
+      {
+        code: "SN 12.2",
+        paliTitle: "Vibhaṅga Sutta",
+        transTitle: "Analysis of Dependent Arising",
+        nikaya: "Saṁyutta Nikāya (Nidānavagga)",
+        category: "foundational",
+        readingTime: "5 min",
+        importance: "The definitive analytical dictionary of the early canon for the twelve links.",
+        layRelevance: "Equips the lay practitioner with precise canonical definitions for each link, preventing vague pop-psychology interpretations.",
+        keyConcepts: ["12 Links", "Analytical Definitions", "Conditionality", "Avijjā", "Jarāmaraṇa"],
+        suttaCentralUrl: "https://suttacentral.net/sn12.2/en/sujato",
+        studyNotes: "In this discourse, the Buddha systematically takes each term—from aging-and-death back to ignorance—and defines exactly what it entails. It is the gold standard reference.",
+        reflectionQuestion: "When I experience emotional turbulence, can I reference these specific definitions rather than viewing my mind as a mystery?"
+      },
+      {
+        code: "SN 12.15",
+        paliTitle: "Kaccāyanagotta Sutta",
+        transTitle: "Discourse to Kaccāyana",
+        nikaya: "Saṁyutta Nikāya (Nidānavagga)",
+        category: "foundational",
+        readingTime: "4 min",
+        importance: "Articulates Right View as the Middle Way steering between the twin ontological extremes of absolute existence ('all exists') and absolute non-existence ('all does not exist').",
+        layRelevance: "Shields lay practitioners from both materialist cynicism (nihilism) and spiritual eternalism, providing psychological balance.",
+        keyConcepts: ["Right View", "Middle Way", "All Exists (Atthitā)", "All Does Not Exist (Natthitā)"],
+        suttaCentralUrl: "https://suttacentral.net/sn12.15/en/sujato",
+        studyNotes: "The Buddha clarifies that seeing the arising of the world through conditionality dispels nihilism, while seeing the cessation of the world dispels eternalism.",
+        reflectionQuestion: "Am I caught in either the view that 'everything is meaningless' or the fantasy that my life situation should be permanently stable?"
+      },
+      {
+        code: "MN 9",
+        paliTitle: "Sammādiṭṭhi Sutta",
+        transTitle: "Right View Discourse",
+        nikaya: "Majjhima Nikāya",
+        category: "foundational",
+        readingTime: "12 min",
+        importance: "Ven. Sāriputta unifies Dependent Arising with the Four Nutriments (āhāra) and wholesome/unwholesome roots.",
+        layRelevance: "Provides an exhaustive master framework for ethical decisions, emotional hygiene, and liberation in domestic life.",
+        keyConcepts: ["Right View", "Four Nutriments", "Kusala & Akusala", "Underlying Tendencies (Anusaya)"],
+        suttaCentralUrl: "https://suttacentral.net/mn9/en/sujato",
+        studyNotes: "Sāriputta demonstrates that a disciple of the noble ones attains Right View by knowing the unwholesome, its root, the wholesome, its root, and the dependent arising of nutriments and taints.",
+        reflectionQuestion: "What mental 'nutriment' am I consuming throughout my workday, and is it wholesome or unwholesome?"
+      },
+      {
+        code: "SN 12.20",
+        paliTitle: "Paccaya Sutta",
+        transTitle: "Conditions",
+        nikaya: "Saṁyutta Nikāya (Nidānavagga)",
+        category: "foundational",
+        readingTime: "4 min",
+        importance: "Explicitly distinguishes between 'dependent arising' (the underlying natural law) and 'dependently arisen phenomena' (the conditioned things).",
+        layRelevance: "Reminds householders that conditionality is an immutable law of nature, not an arbitrary opinion or sectarian dogma.",
+        keyConcepts: ["Dhamma-ṭṭhitatā", "Dhamma-niyāmatā", "Idappaccayatā", "Dependently Arisen Phenomena"],
+        suttaCentralUrl: "https://suttacentral.net/sn12.20/en/sujato",
+        studyNotes: "The Buddha asserts that whether Buddhas arise or do not arise, conditionality remains constant. Knowing this brings unshakable confidence in the Dhamma.",
+        reflectionQuestion: "Can I relax into the realization that life's challenges unfold according to natural laws rather than personal conspiracies?"
+      },
+      {
+        code: "SN 12.23",
+        paliTitle: "Upanisa Sutta",
+        transTitle: "Prerequisites / Proximate Causes",
+        nikaya: "Saṁyutta Nikāya (Nidānavagga)",
+        category: "liberation",
+        readingTime: "6 min",
+        importance: "Expounds Transcendental Dependent Arising: showing how suffering itself becomes the supporting condition for faith, joy, tranquility, and release.",
+        layRelevance: "Shows laypeople how household pain and disappointment can be transformed into the very springboard for spiritual awakening.",
+        keyConcepts: ["Transcendental Conditionality", "Dukkha as Proximate Cause for Saddhā", "Joy (Pāmojja)", "Dispassion (Virāga)"],
+        suttaCentralUrl: "https://suttacentral.net/sn12.23/en/bodhi",
+        studyNotes: "Where ordinary dependent arising spirals into distress, transcendental dependent arising shifts upward: Dukkha -> Faith (Saddhā) -> Joy -> Rapture -> Tranquility -> Happiness -> Concentration -> Vision of things as they are -> Dispassion -> Liberation.",
+        reflectionQuestion: "Can I use my current difficulties as an impetus for spiritual refuge and deeper contemplation?"
+      },
+      {
+        code: "DN 15",
+        paliTitle: "Mahānidāna Sutta",
+        transTitle: "The Great Causes Discourse",
+        nikaya: "Dīgha Nikāya",
+        category: "foundational",
+        readingTime: "20 min",
+        importance: "The Buddha's most comprehensive and profound canonical exploration of causation, consciousness, and social conflict.",
+        layRelevance: "Explains how craving leads to seeking, acquisition, attachment, possessiveness, and societal quarrels—directly relevant to family and political conflict.",
+        keyConcepts: ["Deep Conditionality", "Reciprocal Consciousness & Nāmarūpa", "Origin of Conflict & Hostility", "Social Strife"],
+        suttaCentralUrl: "https://suttacentral.net/dn15/en/sujato",
+        studyNotes: "When Ānanda remarks that dependent arising appears simple, the Buddha admonishes him: 'Do not say so, Ānanda! This dependent arising is deep and appears deep.' It is through not understanding it that beings are tangled like a matted ball of yarn.",
+        reflectionQuestion: "In arguments with relatives or coworkers, can I see how possessiveness and defensiveness arose from the initial link of craving?"
+      },
+      {
+        code: "SN 12.11",
+        paliTitle: "Āhāra Sutta",
+        transTitle: "Nutriment Discourse",
+        nikaya: "Saṁyutta Nikāya (Nidānavagga)",
+        category: "daily-life",
+        readingTime: "5 min",
+        importance: "Examines the four nutriments that sustain living beings: physical food, contact, mental volition, and consciousness.",
+        layRelevance: "Vital for investigating what feeds compulsive browsing, consumerism, and toxic mental loops in daily life.",
+        keyConcepts: ["Four Nutriments", "Kabaḷīkāro Āhāro", "Phassāhāro", "Manosañcetanāhāro", "Viññāṇāhāro"],
+        suttaCentralUrl: "https://suttacentral.net/sn12.11/en/sujato",
+        studyNotes: "Each nutriment has craving as its source. By understanding what we feed our senses, we starve unwholesome habits and nourish clarity.",
+        reflectionQuestion: "What sensory impressions (phassāhāra) am I continuously feeding my mind during off-hours?"
+      },
+      {
+        code: "SN 12.17",
+        paliTitle: "Acela Sutta",
+        transTitle: "Discourse to the Naked Ascetic Kassapa",
+        nikaya: "Saṁyutta Nikāya (Nidānavagga)",
+        category: "daily-life",
+        readingTime: "5 min",
+        importance: "Examines moral agency and causation: rejecting both self-created suffering (fatalistic guilt) and other-created suffering (victimhood).",
+        layRelevance: "Prevents toxic guilt while maintaining ethical responsibility in household and professional environments.",
+        keyConcepts: ["Self-made Suffering", "Other-made Suffering", "Ethical Responsibility", "Middle Path of Causation"],
+        suttaCentralUrl: "https://suttacentral.net/sn12.17/en/sujato",
+        studyNotes: "To say 'one who acts is the one who experiences' leads to eternalism; to say 'one acts and another experiences' leads to annihilationism. The Buddha teaches the Dhamma in the middle by dependent origination.",
+        reflectionQuestion: "Am I caught in either paralyzing self-blame or resentful victimhood toward others?"
+      },
+      {
+        code: "SN 12.38",
+        paliTitle: "Cetanā Sutta",
+        transTitle: "Volition & Intention Discourse",
+        nikaya: "Saṁyutta Nikāya (Nidānavagga)",
+        category: "daily-life",
+        readingTime: "4 min",
+        importance: "Reveals how what one intends, what one plans, and whatever one has an underlying obsession with establishes a landing base for consciousness.",
+        layRelevance: "Alerts householders to how private mental daydreaming and planning silently shape tomorrow's reality and character.",
+        keyConcepts: ["Intention (Cetanā)", "Planning (Pakappeti)", "Underlying Obsession (Anuseti)", "Station of Consciousness"],
+        suttaCentralUrl: "https://suttacentral.net/sn12.38/en/sujato",
+        studyNotes: "Even if you do not actively intend or plan, underlying dormant tendencies (anusaya) still provide a foothold for consciousness and future stress.",
+        reflectionQuestion: "What background preoccupations am I continually rehearsing in the quiet moments of my day?"
+      },
+      {
+        code: "SN 36.6",
+        paliTitle: "Salla Sutta",
+        transTitle: "The Dart / The Arrow",
+        nikaya: "Saṁyutta Nikāya (Vedanāsaṁyutta)",
+        category: "mindfulness",
+        readingTime: "5 min",
+        importance: "The foundational canonical teaching distinguishing the first arrow (physical pain) from the second arrow (mental resistance and anguish).",
+        layRelevance: "The single most liberating practical framework for navigating physical illness, fatigue, criticism, and emotional setbacks.",
+        keyConcepts: ["First Arrow (Kāyika Vedanā)", "Second Arrow (Cetasika Dukkha)", "Aversion (Paṭigha)", "Sensory Escapism"],
+        suttaCentralUrl: "https://suttacentral.net/sn36.6/en/sujato",
+        studyNotes: "An uninstructed run-of-the-mill person struck by a painful feeling grieves and resists, being struck by two darts. The instructed noble disciple feels the first dart without shooting themselves with the second.",
+        reflectionQuestion: "Can I distinguish the unavoidable physical or verbal situation from my own emotional protest against it?"
+      },
+      {
+        code: "SN 35.28",
+        paliTitle: "Ādittapariyāya Sutta",
+        transTitle: "The Fire Sermon",
+        nikaya: "Saṁyutta Nikāya (Saḷāyatanasaṁyutta)",
+        category: "mindfulness",
+        readingTime: "6 min",
+        importance: "Delivered on Gayāsīsa hill: proclaims that the all is burning—eyes, forms, consciousness, contact, and feeling are ablaze with greed, hatred, and delusion.",
+        layRelevance: "Awakens the lay practitioner from sensory complacency in our hyper-stimulating digital world.",
+        keyConcepts: ["All is Burning (Sabbaṁ Ādittaṁ)", "Fire of Greed, Hatred, Delusion", "Disenchantment (Nibbidā)", "Sensory Fire"],
+        suttaCentralUrl: "https://suttacentral.net/sn35.28/en/sujato",
+        studyNotes: "Seeing the sense faculties as burning cools the compulsive thirst to chase after endless sensations and brings dispassionate freedom.",
+        reflectionQuestion: "Is my screen usage and entertainment cooling my mind, or pouring more fuel on sensory flames?"
+      },
+      {
+        code: "SN 47.13",
+        paliTitle: "Cunda Sutta",
+        transTitle: "Discourse with Cunda",
+        nikaya: "Saṁyutta Nikāya (Satipaṭṭhānasaṁyutta)",
+        category: "mindfulness",
+        readingTime: "7 min",
+        importance: "Spoken when Venerable Sāriputta passes away: the Buddha consoles Ānanda and directs him to dwell with oneself as an island, with the Dhamma as a refuge, through the four foundations of mindfulness.",
+        layRelevance: "Essential guidance for coping with grief, loss of family members, mentorship endings, and major life transitions.",
+        keyConcepts: ["Dwell as an Island (Attadīpā)", "Dhamma as Refuge (Dhammadīpā)", "Four Satipaṭṭhānas", "Acceptance of Dissolution"],
+        suttaCentralUrl: "https://suttacentral.net/sn47.13/en/sujato",
+        studyNotes: "The Buddha asks Ānanda: 'Did Sāriputta take the aggregate of virtue, concentration, wisdom, or release with him?' Seeing the natural impermanence of all conditioned things, mindfulness provides the unshakable refuge.",
+        reflectionQuestion: "When facing major loss or family changes, am I resting on external crutches or anchoring in the Dhamma within?"
+      }
+    ]
+  },
+
+  // E. Daily-Life Applications (5 Realistic Lay Scenarios)
+  dailyScenarios: {
+    sectionTitle: "Dependent Arising in Ordinary Life",
+    sectionSubtitle: "Five realistic lay scenarios demonstrating how the links operate and how mindful Dhamma intervenes",
+    intro: "The links of dependent arising are not abstract scholastic formulas; they describe your actual daily psychology. Inspect the five scenarios below to see where reactive chains begin and how wisdom interrupts them:",
+    scenarios: [
+      {
+        id: "scenario-1",
+        number: "01",
+        title: "Criticism at Work",
+        situation: "During a team presentation, a manager or colleague publicly criticizes your proposal as flawed, inefficient, and poorly thought out.",
+        directlyExperienced: "Acoustic sound waves strike the ear (phassa), recognized as verbal meaning (viññāṇa + saññā). A sharp, immediate visceral contraction and heat in the chest (unpleasant vedanā).",
+        conditionsPresent: "Workplace fatigue, vulnerability about job security, an underlying desire for professional approval, and the expectation of mutual respect.",
+        cravingPoint: "Taṇhā for non-becoming (vibhava-taṇhā): a fierce thirst to annihilate the uncomfortable feeling, silence the critic, retaliate, or defend ego.",
+        clingingPoint: "Upādāna to identity: 'I am a competent professional! How dare they disrespect my work?' Clinging to the view that everyone must agree with my proposal.",
+        dhammaResponse: "Apply the Salla Sutta (SN 36.6): Pause immediately. Recognize: 'The first dart (the words and the unpleasant physical feeling) has landed. Do I shoot myself with the second dart of rage, justification, or resentment?' Breathe, allow the unpleasant vedanā to be felt as bare sensation without feeding speech, and respond with calm, objective professional clarity.",
+        reflectionQuestion: "Can I let the criticism hang in the air for five full seconds before opening my mouth to respond?",
+        suttas: ["SN 36.6 (The Arrow)", "MN 21 (The Simile of the Saw)", "SN 12.2 (Vibhaṅga)"]
+      },
+      {
+        id: "scenario-2",
+        number: "02",
+        title: "The Compulsive Desire to Buy Something",
+        situation: "While browsing an online store late at night, you see a sleek gadget or luxury item on discount that you didn't know existed ten minutes ago.",
+        directlyExperienced: "Photons strike the eye-base (phassa), followed by pleasant visual feeling tone (sukha-vedanā) and mental images of how owning the item will enhance your life.",
+        conditionsPresent: "Tiredness from a long workday, boredom, stress, easy digital one-click payment, and consumerist marketing designed to induce lack.",
+        cravingPoint: "Kāma-taṇhā: thirsty craving for the anticipated pleasant dopamine hit of unboxing, possessing, and showing off the new acquisition.",
+        clingingPoint: "Clinging to the identity of being upgraded: 'With this item, I will finally be organized, stylish, and happy.' Rationalizing the purchase as an emergency necessity.",
+        dhammaResponse: "Apply the Āhāra Sutta (SN 12.11) & MN 13: Notice that the craving is a burning sensation of hunger, not a true need. Step away from the screen. Wait 48 hours before purchasing. Contemplate the lifecycle of the object: its manufacture, cost, eventual obsolescence, and clutter. Enjoy freedom from being hooked.",
+        reflectionQuestion: "What hole in my immediate emotional state am I attempting to patch with this purchase?",
+        suttas: ["SN 12.11 (Nutriment)", "MN 13 (The Mass of Suffering)", "AN 4.62 (Anaṇa Sutta)"]
+      },
+      {
+        id: "scenario-3",
+        number: "03",
+        title: "Conflict with a Partner or Family Member",
+        situation: "Your spouse or family member makes an exasperated remark about household chores, finances, or family scheduling, triggering deep frustration.",
+        directlyExperienced: "Hearing tone of voice (ear-contact). Instant sting of feeling misunderstood or unappreciated (unpleasant vedanā).",
+        conditionsPresent: "Accumulated domestic stress, old historical grievances, sleep deprivation, and the presumption that family should never express frustration.",
+        cravingPoint: "Craving for vindication: the urge to prove the other person hypocritical, bring up their past mistakes, or shut down emotionally through stonewalling.",
+        clingingPoint: "Clinging to self-righteousness (diṭṭhupādāna): 'I sacrifice so much for this household, and nobody values me.' Clinging to past narratives.",
+        dhammaResponse: "Apply DN 15 & Cetanā Sutta (SN 12.38): See that the conflict is not an isolated demon, but a dependently arisen event. The other person's sharp tone arose from their own exhaustion, fear, and conditioning. Drop the mental courtroom trial. Acknowledge their stress with compassion (karuṇā), speak with truthful restraint, and address the logistical task cooperatively.",
+        reflectionQuestion: "Am I trying to solve the practical situation, or am I trying to win an ideological victory over my partner?",
+        suttas: ["DN 15 (Mahānidāna)", "SN 12.38 (Intention)", "MN 128 (Upakkilesa Sutta)"]
+      },
+      {
+        id: "scenario-4",
+        number: "04",
+        title: "Anxiety About Money and Future Security",
+        situation: "Looking at inflation rates, investment accounts, mortgage statements, or business revenue reports brings on sudden worry about future insolvency.",
+        directlyExperienced: "Reading financial numbers (eye-contact), followed by mental evaluation (manosaṅkhāra). Constriction in the throat and shallow breathing (unpleasant vedanā).",
+        conditionsPresent: "Real economic uncertainty, societal financial pressures, family obligations, and our natural instinct to build permanent fortifications in an impermanent world.",
+        cravingPoint: "Bhava-taṇhā: craving for permanent stability and absolute guaranteed security in an inherently unstable and changing world.",
+        clingingPoint: "Clinging to control: obsessively refreshing spreadsheets, catastrophic future projections ('What if we lose everything?'), and ruminative worry.",
+        dhammaResponse: "Apply SN 12.20 & AN 4.62 (The Bliss of Wealth): Clearly separate prudent lay financial stewardship from catastrophic mental proliferation. Prudent planning is wholesome right livelihood; panic is unwholesome saṅkhāra. Take the wise practical steps (budgeting, emergency saving), while holding worldly wealth with an open hand, knowing that true wealth is ethical integrity (sīla-dhana).",
+        reflectionQuestion: "Can I distinguish between actionable practical planning and compulsive, unproductive worry?",
+        suttas: ["SN 12.20 (Conditions)", "AN 4.62 (Anaṇa Sutta)", "AN 8.54 (Dīghajāṇu)"]
+      },
+      {
+        id: "scenario-5",
+        number: "05",
+        title: "Pleasure, Distraction & Modern Addiction",
+        situation: "You open social media or video streaming 'just for two minutes' to unwind, and find yourself still scrolling ninety minutes later, feeling drained and irritable.",
+        directlyExperienced: "Rapid visual and auditory contact (phassa), generating continuous micro-bursts of mild pleasant feeling (sukha-vedanā) followed by immediate neutral emptiness.",
+        conditionsPresent: "Algorithmic dopamine engineering, resistance to starting a difficult work project, mental restlessness (uddhacca), and easy mobile access.",
+        cravingPoint: "Kāma-taṇhā for the next burst of novel stimulation. Craving to avoid silence and self-reflection.",
+        clingingPoint: "Clinging to distraction: 'Just one more post; I need to relax.' Identifying with the endless stream of online drama.",
+        dhammaResponse: "Apply the Fire Sermon (SN 35.28): Observe directly: 'Is this fire cooling me, or burning me?' Feel the dry agitation in the eyes and mind. Put the device face down in another room. Stand up, feel the soles of the feet on the earth, take five conscious breaths, and return to meaningful presence with family or contemplative stillness.",
+        reflectionQuestion: "What authentic inner peace am I sacrificing in exchange for five seconds of algorithmic stimulation?",
+        suttas: ["SN 35.28 (The Fire Sermon)", "MN 118 (Ānāpānasati)", "MN 20 (Vitakkasaṇṭhāna)"]
+      }
+    ]
+  },
+
+  // F. Practical Exercise: Observe the Links (Interactive Guided Tool)
+  guidedExercise: {
+    title: "Interactive Exercise: Observe the Links",
+    subtitle: "A 3–5 minute contemplative tool to inspect real-life conditionality in your own experience",
+    privacyNotice: "🔒 100% Private: Your responses remain strictly on this local device and are never sent to external servers.",
+    disclaimer: "Note: This is a gradual training in mindfulness and discernment (sati-sampajañña). It does not claim to instantly eradicate all craving, but builds the capacity to pause between feeling and reaction.",
+    steps: [
+      {
+        step: 1,
+        title: "1. Recall the Manageable Experience",
+        prompt: "Bring to mind a recent, mild situation involving attraction, irritation, or frustration (e.g. an annoying email, a sudden craving, or a minor delay):",
+        placeholder: "Describe the situation briefly (e.g., received an unexpected bill / colleague spoke sharply)..."
+      },
+      {
+        step: 2,
+        title: "2. Identify the Sense Contact (Phassa)",
+        prompt: "Which sense door received the initial impact? What was the raw contact before you formed a mental narrative?",
+        options: [
+          "Eye (Saw something)",
+          "Ear (Heard words or sound)",
+          "Nose / Tongue (Smell or taste)",
+          "Body (Physical pain, touch, or temperature)",
+          "Mind (A sudden memory, thought, or daydream)"
+        ],
+        placeholder: "Name the raw sensory contact..."
+      },
+      {
+        step: 3,
+        title: "3. Name the Feeling Tone (Vedanā)",
+        prompt: "What immediate affective tone arose at that split second?",
+        options: [
+          "Pleasant (Sukha — liked it, felt rewarding)",
+          "Unpleasant (Dukkha — stung, felt tight or painful)",
+          "Neither-pleasant-nor-unpleasant (Upekkhā — neutral, flat)"
+        ],
+        placeholder: "Describe the physical sensation of that feeling tone..."
+      },
+      {
+        step: 4,
+        title: "4. Notice Craving (Taṇhā)",
+        prompt: "Did craving arise? In what direction did the mind pull?",
+        options: [
+          "Wanting to hold onto and prolong the pleasure (Kāma-taṇhā)",
+          "Wanting to achieve or secure a self-state / status (Bhava-taṇhā)",
+          "Wanting to eliminate, destroy, or escape the discomfort (Vibhava-taṇhā)",
+          "Mindfulness was present: No reactive craving arose"
+        ],
+        placeholder: "Describe the impulse or urge you noticed..."
+      },
+      {
+        step: 5,
+        title: "5. Observe Clinging (Upādāna)",
+        prompt: "Did the mind grasp onto an identity, expectation, or rigid viewpoint?",
+        placeholder: "e.g., 'They should respect me' / 'I must have this right now' / 'This shouldn't happen'..."
+      },
+      {
+        step: 6,
+        title: "6. Reflect on Consequences",
+        prompt: "What were (or would be) the consequences of blindly following that reactive chain into speech or action?",
+        placeholder: "e.g., Damaged relationship, financial waste, hours of regret, renewed mental agitation..."
+      },
+      {
+        step: 7,
+        title: "7. The Power of the Golden Gap",
+        prompt: "What changes if the feeling tone is clearly recognized at the contact point without automatically fueling reaction?",
+        placeholder: "e.g., The feeling arises and dissolves on its own; my speech remains kind and composed..."
+      }
+    ],
+    finishButton: "Generate Contemplative Summary",
+    resetButton: "Reset Exercise"
+  },
+
+  // G. The Path of Practice (Noble Eightfold Path Integration)
+  pathOfPractice: {
+    sectionTitle: "The Path of Practice: Dependent Arising & The Eightfold Path",
+    sectionSubtitle: "How conditionality is systematically harnessed through the eight factors of the Noble Path",
+    intro: "Dependent arising is not merely a model for passive observation; it reveals the levers of liberation. The Noble Eightfold Path (Ariya Aṭṭhaṅgika Magga) systematically dismantles the conditions of ignorance and craving, establishing wholesome conditions for peace.",
+    factors: [
+      {
+        factor: "Right View (Sammā-diṭṭhi)",
+        pali: "Sammā-diṭṭhi",
+        relation: "Directly perceives conditionality: knowing that suffering arises from craving, and that cultivating the Path leads to freedom (MN 9, SN 12.15)."
+      },
+      {
+        factor: "Right Intention (Sammā-saṅkappa)",
+        pali: "Sammā-saṅkappa",
+        relation: "Replaces the cravings of greed, ill-will, and cruelty with intentions of renunciation (nekkhamma), goodwill (mettā), and harmlessness (ahiṁsā)."
+      },
+      {
+        factor: "Right Speech (Sammā-vācā)",
+        pali: "Sammā-vācā",
+        relation: "Interrupts the reactive link between unpleasant feeling tone and verbal malice. Abandons false speech, divisive speech, harsh speech, and idle chatter."
+      },
+      {
+        factor: "Right Action (Sammā-kammanta)",
+        pali: "Sammā-kammanta",
+        relation: "Ensures volitional formations (saṅkhārā) do not produce harm: refraining from killing, taking what is not given, and sexual misconduct."
+      },
+      {
+        factor: "Right Livelihood (Sammā-ājīva)",
+        pali: "Sammā-ājīva",
+        relation: "Structures work so it does not nourish greed, deception, or weaponized commerce, building clean conditions for household peace."
+      },
+      {
+        factor: "Right Effort (Sammā-vāyāma)",
+        pali: "Sammā-vāyāma",
+        relation: "Guards the mind: preventing unarisen unwholesome states, abandoning arisen ones, cultivating unarisen wholesome states, and sustaining wholesome momentum."
+      },
+      {
+        factor: "Right Mindfulness (Sammā-sati)",
+        pali: "Sammā-sati",
+        relation: "Maintains clear awareness at the six sense doors, catching feeling tones at the contact point before craving can ignite."
+      },
+      {
+        factor: "Right Concentration (Sammā-samādhi)",
+        pali: "Sammā-samādhi",
+        relation: "Unifies and gladdens the mind, providing the steady calm required to see conditionality clearly without distraction or panic."
+      }
+    ],
+    dailyPractices: [
+      {
+        timing: "Morning Contemplation (5–10 min)",
+        title: "Establishing the Compass of Conditionality",
+        practice: "Before checking screens, sit quietly and contemplate SN 12.20: 'Whatever I encounter today will arise dependent on conditions. I will guard the six sense doors and not shoot myself with second arrows.'"
+      },
+      {
+        timing: "Midday Work Mindfulness",
+        title: "Catching the Contact-Feeling Gap",
+        practice: "Set an hourly bell or reminder. Pause for three conscious breaths whenever an unpleasant email, notification, or conversation arrives. Notice the raw feeling tone before replying."
+      },
+      {
+        timing: "Evening Ethical Review (5 min)",
+        title: "Non-Judgmental Daily Debrief",
+        practice: "Review the day: Where did craving arise? Where was clinging unhooked? Rejoice in any moment of restraint, and dedicate the wholesome merit to family harmony."
+      },
+      {
+        timing: "Regular Sitting Meditation",
+        title: "Samatha & Vipassanā as Co-Workers",
+        practice: "Develop breath collectedness (ānāpānasati) to steady the mind, then observe the rising, staying, and passing of physical sensations and mental formations as dependently arisen phenomena."
+      }
+    ]
+  },
+
+  // H. Study Pathways (Three Learning Tracks)
+  studyPathways: {
+    sectionTitle: "Structured Study Pathways",
+    sectionSubtitle: "Configurable tracks designed to guide lay study from introductory clarity to deep textual mastery",
+    disclaimer: "These pathways are pedagogical study guides designed for lay study, not rigid dogmatic requirements.",
+    tracks: [
+      {
+        id: "beginner-track",
+        name: "Beginner Track — 7 Days",
+        duration: "7 Days (15 min/day)",
+        description: "A foundational introduction to the master principle, the 12 links, and daily emotional management.",
+        days: [
+          { day: 1, sutta: "SN 12.20 (Paccaya Sutta)", task: "Read the principle of conditionality. Reflect on natural laws vs personal control." },
+          { day: 2, sutta: "SN 12.2 (Vibhaṅga Sutta)", task: "Read the canonical sequence of the twelve links. Memorize the 12 terms." },
+          { day: 3, sutta: "SN 36.6 (Salla Sutta)", task: "Read the Arrow Sutta. Practice spotting the first vs second arrow during workday." },
+          { day: 4, sutta: "SN 35.28 (Ādittapariyāya)", task: "Read the Fire Sermon. Observe how screens and digital media fuel restlessness." },
+          { day: 5, sutta: "SN 12.15 (Kaccāyanagotta)", task: "Read the Right View discourse. Avoid the extremes of nihilism and eternalism." },
+          { day: 6, sutta: "5 Lay Scenarios", task: "Review the five workplace and relationship scenarios. Run the interactive exercise." },
+          { day: 7, sutta: "Synthesis & Reflection", task: "Write a reflection in the journal on what you discovered about your mind." }
+        ]
+      },
+      {
+        id: "intermediate-track",
+        name: "Intermediate Track — 14 Days",
+        duration: "14 Days (25 min/day)",
+        description: "Deeps study into nutriment, intention, moral agency, and transcendental conditionality.",
+        days: [
+          { day: 1, sutta: "MN 9 (Part 1)", task: "Study wholesome and unwholesome roots with Ven. Sāriputta." },
+          { day: 2, sutta: "MN 9 (Part 2)", task: "Study the four nutriments of existence and their relationship to suffering." },
+          { day: 3, sutta: "SN 12.11 (Āhāra Sutta)", task: "Audit your sensory consumption (phassāhāra) throughout the day." },
+          { day: 4, sutta: "SN 12.17 (Acela Sutta)", task: "Contemplate causation without victimhood or fatalistic guilt." },
+          { day: 5, sutta: "SN 12.38 (Cetanā Sutta)", task: "Inspect your silent background planning and latent mental preoccupations." },
+          { day: 6, sutta: "Guided Exercise", task: "Complete the 7-step 'Observe the Links' reflection on a real relationship tension." },
+          { day: 7, sutta: "Midway Review", task: "Review journal entries and consolidate understanding of the contact-feeling link." },
+          { day: 8, sutta: "SN 12.23 (Upanisa Sutta)", task: "Study Transcendental Dependent Arising: suffering as springboard for faith." },
+          { day: 9, sutta: "SN 12.23 (Meditation)", task: "Sit in breath meditation contemplating the progression from joy to release." },
+          { day: 10, sutta: "SN 47.13 (Cunda Sutta)", task: "Mindfulness as an island refuge when facing grief and family changes." },
+          { day: 11, sutta: "MN 141 (Saccavibhaṅga)", task: "Connect the 12 links to the Five Aggregates (pañcupādānakkhandhā)." },
+          { day: 12, sutta: "Eightfold Path Integration", task: "Examine how each of the eight path factors operates in your career." },
+          { day: 13, sutta: "Sense Restraint Day", task: "Practice mindful guarding of the six sense doors during mobile phone use." },
+          { day: 14, sutta: "Reflection & Dedication", task: "Summarize your 14-day study and set intentions for ongoing daily practice." }
+        ]
+      },
+      {
+        id: "advanced-track",
+        name: "Advanced Track — 30 Days",
+        duration: "30 Days (40 min/day)",
+        description: "Rigorous canonical deep dive into DN 15, cross-sutta doctrinal comparison, and commentarial perspectives.",
+        days: [
+          { day: 1, sutta: "DN 15 (Section 1)", task: "The Buddha's warning to Ānanda: the deep, tangled nature of dependent arising." },
+          { day: 2, sutta: "DN 15 (Section 2)", task: "The reciprocal relationship between consciousness and name-and-form." },
+          { day: 3, sutta: "DN 15 (Section 3)", task: "The sociological chain: from craving to seeking, acquisition, and strife." },
+          { day: 4, sutta: "DN 15 (Synthesis)", task: "Write a comprehensive study note on the social psychology of causation." },
+          { day: 5, sutta: "SN 12.65 (Nagara Sutta)", task: "The Ancient City discourse: the Buddha rediscovering the forgotten path." },
+          { day: 6, sutta: "SN 12.67 (Naḷakalāpī)", task: "Ven. Sāriputta's simile of the two sheaves of reeds supporting each other." },
+          { day: 7, sutta: "Doctrinal Evaluation", task: "Compare the 3-lives model (Buddhaghosa) vs the moment-to-moment model." }
+        ]
+      }
+    ]
+  },
+
+  // I. Reflection Journal
+  reflectionJournal: {
+    sectionTitle: "Contemplative Reflection Journal",
+    sectionSubtitle: "Log real observations of conditionality in your life. Stored strictly in local browser storage.",
+    formHeading: "New Reflection Entry",
+    prompts: [
+      { id: "q1", label: "1. What happened? (Situation or event)", placeholder: "Briefly record the event or circumstance..." },
+      { id: "q2", label: "2. What feeling tone was present? (Pleasant / Unpleasant / Neutral)", placeholder: "Describe the affective feeling tone..." },
+      { id: "q3", label: "3. What did I crave or resist?", placeholder: "Notice where the mind pulled or pushed..." },
+      { id: "q4", label: "4. What view, expectation, or identity did I cling to?", placeholder: "Identify the self-story or demand..." },
+      { id: "q5", label: "5. What did I learn about conditionality from this?", placeholder: "Insight gained from seeing causes and effects..." },
+      { id: "q6", label: "6. Which sutta illuminated this experience?", placeholder: "e.g., SN 36.6, SN 12.11, SN 12.20..." }
+    ],
+    saveButtonText: "Save Journal Entry",
+    entriesHeading: "Your Saved Reflections",
+    noEntriesNotice: "No entries recorded yet. Complete the prompt above to begin your personal contemplation archive.",
+    exportButtonText: "Export Entries (JSON)",
+    clearAllButtonText: "Clear Archive"
+  },
+
+  // J. Frequently Asked Questions (10 Canonical FAQs)
+  faqs: {
+    sectionTitle: "Frequently Asked Questions",
+    sectionSubtitle: "Rigorous canonical answers grounded in early Buddhist discourses",
+    items: [
+      {
+        q: "What is dependent arising in simple terms?",
+        a: "Dependent arising (paṭiccasamuppāda) is the universal principle that phenomena do not exist independently, causelessly, or by divine decree. When specific causes and conditions gather, corresponding results arise; when those conditions dissolve, the results cease. In Buddhism, it specifically diagnoses how psychological suffering arises from craving and ignorance, and how it permanently ceases through wisdom."
+      },
+      {
+        q: "Why are there twelve links? Are they fixed?",
+        a: "The standard list of twelve links is the most complete and frequently repeated teaching model in the discourses, but it is not a rigid dogma. In other suttas, the Buddha articulates shorter variations: DN 15 omits the six sense bases and begins with consciousness and name-and-form; SN 12.65 emphasizes the reciprocal loop between consciousness and name-and-form; and the Fire Sermon (SN 35.28) focuses directly on sense bases, contact, and feeling. The core principle remains conditionality (idappaccayatā)."
+      },
+      {
+        q: "Does dependent arising mean that everything in my life is predetermined?",
+        a: "No. The Buddha explicitly refuted fatalism and strict predetermination (niyativāda / pubbekatahetu). Conditionality means that current experience is shaped by past karma, but your present intention (cetanā) right now is a new, creative condition. If everything were predetermined, spiritual practice and ethical choices would be meaningless. You cannot change the feeling that has already arisen, but you can choose not to react with craving."
+      },
+      {
+        q: "Is dependent arising the same as karma?",
+        a: "Karma is an essential component within dependent arising, specifically represented by link #2 (Saṅkhārā / volitional formations) and link #10 (Bhava / becoming). However, dependent arising is the broader cosmic and psychological framework of conditionality within which karma operates."
+      },
+      {
+        q: "How does dependent arising relate to the teaching of Non-Self (Anattā)?",
+        a: "Dependent arising is the direct structural proof of non-self. If there were an immutable, autonomous 'soul' or 'controller', things would not depend on conditions—you could simply command your mind never to feel stress, age, or sickness. Because all experiences arise dependent on causes and cease when causes cease, no permanent independent owner can be found among the five aggregates."
+      },
+      {
+        q: "Does the teaching apply to everyday lay experience, or only to monks?",
+        a: "It applies directly to every human mind. The Buddha taught causation to householders like Anāthapiṇḍika, Citta the householder, and queen Mallikā. Every time you get annoyed at a text message, compulsively buy something, or pause before retaliating in an argument, you are directly experiencing and working with the links of dependent arising."
+      },
+      {
+        q: "How does dependent arising relate to the Four Noble Truths?",
+        a: "They are two sides of the same diagnostic coin. The forward sequence of dependent arising (arising of links 1 through 12) is an expanded anatomical breakdown of the Second Noble Truth (Samudaya / Origin of Dukkha). The reverse sequence (cessation of links 1 through 12) is the detailed breakdown of the Third Noble Truth (Nirodha / Cessation of Dukkha)."
+      },
+      {
+        q: "How does the cessation of craving relate to ultimate liberation (Nibbāna)?",
+        a: "Craving (taṇhā) is the proximate cause that fuels clinging and renewed becoming. In the discourses, Nibbāna is described as 'taṇhākkhayo' (the destruction of craving) and 'virāgo' (dispassion). When the fire of craving is starved of fuel, the unconditioned peace of Nibbāna is directly realized."
+      },
+      {
+        q: "Must I become a monastic to practice and benefit from this teaching?",
+        a: "No. While monastic life provides seclusion for intensive contemplation, hundreds of lay men and women in the canonical suttas attained the first three stages of awakening (Stream-entry, Once-returning, and Non-returning) while running businesses, raising children, and governing households by understanding dependent arising and practicing Right View."
+      },
+      {
+        q: "How do different Theravāda interpretations understand the twelve links?",
+        a: "In the classical commentarial tradition represented by Ācariya Buddhaghosa in the Visuddhimagga, the twelve links are primarily mapped across three lifetimes (past life: ignorance and formations; present life: consciousness through becoming; future life: birth and aging-death). In modern Theravāda, teachers like Ajahn Buddhadāsa and Bhikkhu Bodhi emphasize that while the three-lives model explains saṁsāric rebirth, the links also describe the moment-to-moment psychological birth of the ego in daily experience. Both models are rooted in the same canonical principle of conditionality."
+      }
+    ]
+  }
+};
+const DEPENDENT_ARISING_MODULE_PT = {
+  // A. Hero Section & Master Principle
+  hero: {
+    title: "Origem Dependente na Vida Cotidiana",
+    paliTitle: "Paṭiccasamuppāda",
+    subtitle: "Compreender como o sofrimento surge, como é sustentado e como pode cessar.",
+    introText: "A origem dependente é o ensinamento do Buda sobre a condicionalidade: quando condições particulares estão presentes, os fenômenos correspondentes surgem; quando essas condições cessam, os fenômenos dependentes cessam. Ela fornece a estrutura para compreender o sofrimento e a possibilidade de libertação.",
+    canonicalPassage: {
+      suttaCode: "SN 12.20",
+      paliTitle: "Paccaya Sutta",
+      englishTitle: "Condições",
+      excerptPali: "Uppādā vā, bhikkhave, tathāgatānaṁ anuppādā vā tathāgatānaṁ, ṭhitāva sā dhātu dhammaṭṭhitatā dhammaniyāmatā idappaccayatā.",
+      excerptTrans: "Quer os Realizados surjam ou não, permanece esta realidade fundamental: a estabilidade do Dhamma, a lei do Dhamma, a condicionalidade específica.",
+      sourceUrl: "https://suttacentral.net/sn12.20/en/sujato",
+      citation: "Saṁyutta Nikāya 12.20 • Paccaya Sutta"
+    },
+    primaryActions: [
+      { id: "action-study", label: "Iniciar o Estudo", target: "#pa-what-is", icon: "📖" },
+      { id: "action-links", label: "Explorar os 12 Elos", target: "#pa-twelve-links", icon: "🔗" },
+      { id: "action-daily", label: "Prática no Cotidiano", target: "#tab-household", icon: "🏡" }
+    ]
+  },
+
+  // B. What is Dependent Arising? (Three Levels & Comparison Panel)
+  whatIs: {
+    sectionTitle: "O que é a Origem Dependente?",
+    sectionSubtitle: "Uma exposição gradual em três níveis sobre condicionalidade e libertação",
+    level1: {
+      number: "1",
+      badge: "Nível 1 — O Princípio Mestre",
+      title: "Condicionalidade Específica (Idappaccayatā)",
+      paliFormula: "Imasmiṁ sati idaṁ hoti, imassuppādā idaṁ uppajjati; imasmiṁ asati idaṁ na hoti, imassa nirodhā idaṁ nirujjhati.",
+      translationFormula: "Quando isto existe, aquilo vem a ser; com o surgimento disto, aquilo surge. Quando isto não existe, aquilo não vem a ser; com a cessação disto, aquilo cessa.",
+      detail: "A condicionalidade não é uma corrente linear rígida de predestinação fatalista, nem o decreto de uma entidade criadora. No Budismo primitivo, todas as experiências surgem quando condições favoráveis convergem e se dissolvem quando tais condições se dispersam. Para praticantes leigos, isso remove a culpa paralisante: em vez de dizer 'sou uma pessoa raivosa', investiga-se: 'quais condições geraram este estado?'"
+    },
+    level2: {
+      number: "2",
+      badge: "Nível 2 — O Surgimento do Sofrimento (Samudaya-vāra)",
+      title: "A Sequência Padrão dos Doze Elos",
+      intro: "A formulação canônica padrão articula os doze elos pelos quais o sofrimento e o ciclo de renascimentos são sustentados:",
+      linksSequence: [
+        { num: "01", pali: "Avijjā", trans: "Ignorância / Desconhecimento das Quatro Nobres Verdades" },
+        { num: "02", pali: "Saṅkhārā", trans: "Formações Volitivas / Fabricações Kármicas" },
+        { num: "03", pali: "Viññāṇa", trans: "Consciência / Conhecimento Discriminativo" },
+        { num: "04", pali: "Nāmarūpa", trans: "Nome-e-Forma / Fatores Mentais e Matéria" },
+        { num: "05", pali: "Saḷāyatana", trans: "Seis Bases dos Sentidos (Olhos, Ouvidos, Nariz, Língua, Corpo, Mente)" },
+        { num: "06", pali: "Phassa", trans: "Contato Sensorial" },
+        { num: "07", pali: "Vedanā", trans: "Sensação (Agradável, Desagradável, Neutra)" },
+        { num: "08", pali: "Taṇhā", trans: "Desejo / Sede Compulsiva" },
+        { num: "09", pali: "Upādāna", trans: "Apego / Agarre (Prazeres, Visões, Ritos, Identidade)" },
+        { num: "10", pali: "Bhava", trans: "Devir / Estados de Existência" },
+        { num: "11", pali: "Jāti", trans: "Nascimento / Emergência de Identidade" },
+        { num: "12", pali: "Jarāmaraṇa", trans: "Envelhecimento e Morte, Pesar, Lamentação e Desespero" }
+      ],
+      canonicalCulmination: "Evametassa kevalassa dukkhakkhandhassa samudayo hoti — 'Assim é a origem de toda esta massa de sofrimento.'",
+      caveat: "Salvaguarda Doutrinária: Estes doze elos não devem ser vistos como objetos estanques nem reduzidos meramente a um processo psicológico instantâneo sem continuidade kármica entre vidas. No Theravāda clássico, eles explicam tanto a continuidade trans-temporal quanto a reatividade no momento presente."
+    },
+    level3: {
+      number: "3",
+      badge: "Nível 3 — A Cessação do Sofrimento (Nirodha-vāra)",
+      title: "A Formulação Inversa e a Verdadeira Libertação",
+      paliFormula: "Avijjāya tv’eva asesavirāganirodhā saṅkhāranirodho... evametassa kevalassa dukkhakkhandhassa nirodho hoti.",
+      translationFormula: "Com o desvanecimento e cessação completa da ignorância, as formações cessam... assim é a cessação de toda esta massa de sofrimento.",
+      detail: "A cessação é a extinção do desejo compulsivo, não a aniquilação física. Uma pessoa liberta continua a perceber o mundo e sentir sensações físicas, mas como a ilusão foi extinta, o contato ocorre sem gerar apego ou sofrimento."
+    },
+    comparisonPanel: {
+      title: "As Três Dimensões da Condicionalidade",
+      subtitle: "Visão geral operacional da prática Theravāda",
+      arisingBox: {
+        title: "Surgimento (Samudaya)",
+        desc: "As condições sustentam ativamente o sofrimento: a ignorância alimenta formações volitivas, e a sensação sem vigilância condiciona o desejo compulsivo."
+      },
+      cessationBox: {
+        title: "Cessação (Nirodha)",
+        desc: "As condições são cessadas: através da visão clara, o desejo perde o apoio, o apego é extinto e o combustível do devir se esgota."
+      },
+      practiceBox: {
+        title: "Prática (Magga)",
+        desc: "A conduta ética (sīla), o recolhimento mental (samādhi) e a sabedoria (paññā) transformam a mente gradualmente, cultivando o Caminho Óctuplo."
+      }
+    }
+  },
+
+  // C. Twelve Links Explorer (PT)
+  twelveLinksExplorer: {
+    sectionTitle: "Explorador Interativo dos Doze Elos",
+    sectionSubtitle: "Inspecione cada elo através de definições canônicas autênticas ou aplicações cotidianas",
+    canonicalModeLabel: "Modo Canônico (Suttas)",
+    everydayModeLabel: "Modo Vida Cotidiana",
+    modeNotice: "Nota: Os exemplos cotidianos são aplicações ilustrativas demonstrando como a condicionalidade opera no dia a dia, e não transcrições literais de um único discurso.",
+    links: [
+      {
+        num: 1,
+        pali: "Avijjā",
+        trans: "Ignorância / Não-saber",
+        preceding: "Condição raiz sustentada pelas impurezas e atenção desatenta",
+        following: "Condiciona Formações Volitivas (Saṅkhārā)",
+        canonicalRef: "SN 12.2 • SN 12.12",
+        canonicalDef: "Não compreender as Quatro Nobres Verdades. Tomar o impermanente como permanente, o insatisfatório como satisfatório, e o não-eu como um eu substancial.",
+        everydayIllustration: "Acreditar piamente que mais uma compra, aprovação social ou vitória em um debate trará paz definitiva.",
+        reflectionQuestion: "Onde no meu dia estou assumindo sem questionar que circunstâncias mundanas podem trazer felicidade estável?",
+        studyNote: "Avijjā não é falta de erudição intelectual, mas ausência de penetração vivencial nas Quatro Nobres Verdades."
+      },
+      {
+        num: 2,
+        pali: "Saṅkhārā",
+        trans: "Formações Volitivas",
+        preceding: "Condicionado por Ignorância (Avijjā)",
+        following: "Condiciona Consciência (Viññāṇa)",
+        canonicalRef: "SN 12.2 • MN 44",
+        canonicalDef: "Formações corporais (respiração), verbais (pensamento aplicado e sustentado) e mentais (percepção e sensação) impulsionadas pela volição (cetanā).",
+        everydayIllustration: "Construir roteiros mentais, ensaiar justificativas interiores e planejar reações defensivas.",
+        reflectionQuestion: "Quais scripts mentais e intenções reativas estou fabricando agora?",
+        studyNote: "Formações são construções kármicas que preparam o terreno para experiências futuras."
+      },
+      {
+        num: 3,
+        pali: "Viññāṇa",
+        trans: "Consciência",
+        preceding: "Condicionado por Formações (Saṅkhārā)",
+        following: "Condiciona Nome-e-Forma (Nāmarūpa)",
+        canonicalRef: "SN 12.2 • SN 12.38 • DN 15",
+        canonicalDef: "Cognição discriminativa através dos seis sentidos: olhos, ouvidos, nariz, língua, corpo e mente.",
+        everydayIllustration: "A percepção imediata que se acende quando a tela do celular pisca com uma notificação.",
+        reflectionQuestion: "Consigo observar a consciência pura de saber um som antes de iniciar o comentário mental?",
+        studyNote: "A consciência não é uma alma imutável, mas um fluxo condicionado que surge dependente de portas dos sentidos."
+      },
+      {
+        num: 4,
+        pali: "Nāmarūpa",
+        trans: "Nome-e-Forma",
+        preceding: "Condicionado por Consciência (Viññāṇa)",
+        following: "Condiciona Seis Bases dos Sentidos (Saḷāyatana)",
+        canonicalRef: "SN 12.2 • DN 15 • MN 9",
+        canonicalDef: "Nome (nāma): sensação, percepção, volição, contato e atenção. Forma (rūpa): os quatro grandes elementos físicos.",
+        everydayIllustration: "O corpo sentado na cadeira conjugado aos atos mentais de rotular, prestar atenção e planejar o trabalho.",
+        reflectionQuestion: "Como meus rótulos mentais alteram a vivência das sensações físicas?",
+        studyNote: "Em DN 15, consciência e nome-e-forma apoiam-se mutuamente como feixes de junco (SN 12.67)."
+      },
+      {
+        num: 5,
+        pali: "Saḷāyatana",
+        trans: "Seis Bases dos Sentidos",
+        preceding: "Condicionado por Nome-e-Forma (Nāmarūpa)",
+        following: "Condiciona Contato (Phassa)",
+        canonicalRef: "SN 12.2 • SN 35.28",
+        canonicalDef: "Os órgãos e faculdades internas através das quais o mundo é experimentado: visão, audição, olfato, paladar, tato e intelecto.",
+        everydayIllustration: "Ter olhos, ouvidos e intelecto expostos diariamente ao bombardeio visual e sonoro de telas e conversas.",
+        reflectionQuestion: "Minhas seis portas dos sentidos estão guardadas ou estão inundadas por estímulos desordenados?",
+        studyNote: "A guarda dos sentidos (indriya-saṁvara) é o escudo protetor do praticante leigo."
+      },
+      {
+        num: 6,
+        pali: "Phassa",
+        trans: "Contato",
+        preceding: "Condicionado por Seis Bases (Saḷāyatana)",
+        following: "Condiciona Sensação (Vedanā)",
+        canonicalRef: "SN 12.2 • MN 148",
+        canonicalDef: "O encontro entre órgão dos sentidos, objeto sensorial e a respectiva consciência sensorial.",
+        everydayIllustration: "Ouvir uma crítica ácida de um colega. O contato é o ponto exato de impacto entre o som e a audição.",
+        reflectionQuestion: "Consigo notar a fração de segundo do contato sensorial antes da reação emocional?",
+        studyNote: "O contato é o gatilho direto onde a informação do mundo adentra a esfera da consciência."
+      },
+      {
+        num: 7,
+        pali: "Vedanā",
+        trans: "Sensação",
+        preceding: "Condicionado por Contato (Phassa)",
+        following: "Condiciona Desejo (Taṇhā)",
+        canonicalRef: "SN 12.2 • SN 36.6",
+        canonicalDef: "O tom afetivo imediato: agradável (sukha), desagradável (dukkha) ou neutro (adukkhamasukha).",
+        everydayIllustration: "O aperto visceral e desagradável no peito ao ler uma mensagem ríspida.",
+        reflectionQuestion: "Estou confundindo a sensação pura desagradável com uma narrativa melodramática sobre mim mesmo?",
+        studyNote: "Vedanā não é uma emoção complexa, mas o tom afetivo cru. A emoção só surge se o desejo se associar a ela."
+      },
+      {
+        num: 8,
+        pali: "Taṇhā",
+        trans: "Desejo Compulsivo / Sede",
+        preceding: "Condicionado por Sensação (Vedanā)",
+        following: "Condiciona Apego (Upādāna)",
+        canonicalRef: "SN 12.2 • SN 56.11",
+        canonicalDef: "A sede compulsiva: desejo por prazeres sensuais (kāma-taṇhā), por existir/tornar-se (bhava-taṇhā) e por não-existir/aniquilar o desconforto (vibhava-taṇhā).",
+        everydayIllustration: "Um colega critica você. O tom desagradável surge. Imediatamente brota o desejo febril de retrucar, silenciá-lo ou provar superioridade.",
+        reflectionQuestion: "Consigo sentir o desconforto físico sem permitir que o desejo dite uma resposta automática?",
+        studyNote: "Este é o ponto de virada da prática leiga: a sensação é fruto de causas passadas, mas o desejo requer nosso consentimento presente."
+      },
+      {
+        num: 9,
+        pali: "Upādāna",
+        trans: "Apego / Agarre",
+        preceding: "Condicionado por Desejo (Taṇhā)",
+        following: "Condiciona Devir (Bhava)",
+        canonicalRef: "SN 12.2 • MN 11",
+        canonicalDef: "Agarre consolidado a prazeres sensuais, opiniões/visões, rituais e ideias sobre um 'eu'.",
+        everydayIllustration: "Bater o pé em uma discussão: 'Eu estou certo! Meu ponto de vista é inegociável!' Agarrar-se a expectativas rígidas.",
+        reflectionQuestion: "A qual imagem pessoal ou expectativa inflexível estou me agarrando com unhas e dentes?",
+        studyNote: "Upādāna também significa 'combustível'. O desejo é a faísca e o apego alimenta o fogo do estresse."
+      },
+      {
+        num: 10,
+        pali: "Bhava",
+        trans: "Devir / Existência",
+        preceding: "Condicionado por Apego (Upādāna)",
+        following: "Condiciona Nascimento (Jāti)",
+        canonicalRef: "SN 12.2 • AN 3.76",
+        canonicalDef: "A cristalização de um estado de ser pronto para frutificar nos reinos de existência ou mentalmente em papéis psicológicos.",
+        everydayIllustration: "Tornar-se completamente absorto no papel da 'vítima incompreendida' ou do 'injustiçado'.",
+        reflectionQuestion: "Em qual papel dramático acabei de me engajar?",
+        studyNote: "Em AN 3.76, o kamma é o campo, a consciência é a semente e o desejo é a umidade gerando novo devir."
+      },
+      {
+        num: 11,
+        pali: "Jāti",
+        trans: "Nascimento",
+        preceding: "Condicionado por Devir (Bhava)",
+        following: "Condiciona Envelhecimento e Morte (Jarāmaraṇa)",
+        canonicalRef: "SN 12.2 • MN 141",
+        canonicalDef: "O surgimento e consolidação de uma entidade nos planos de existência; psicologicamente, o nascimento pleno de um ego rígido.",
+        everydayIllustration: "A personificação completa da identidade ofendida na discussão.",
+        reflectionQuestion: "Quem acabou de 'nascer' neste estado mental e que vulnerabilidades esse nascimento gerou?",
+        studyNote: "Tudo o que nasce na mente herda imediatamente a fragilidade à decadência e ao ataque."
+      },
+      {
+        num: 12,
+        pali: "Jarāmaraṇa",
+        trans: "Envelhecimento & Morte",
+        preceding: "Condicionado por Nascimento (Jāti)",
+        following: "Culmina em Sofrimento, Pesar, Lamentação e Desespero",
+        canonicalRef: "SN 12.2 • SN 12.23",
+        canonicalDef: "O declínio, a dissolução inevitável e o colapso do que nasceu, gerando dor, lamento e desolação.",
+        everydayIllustration: "O desgaste da briga, o cansaço emocional, a distância interpessoal e o remorso amargo após o conflito.",
+        reflectionQuestion: "Consigo traçar claramente como esta exaustão presente nasceu do apego inicial?",
+        studyNote: "Jarāmaraṇa revela a verdade incontornável: o que nasce do desejo culmina necessariamente em desgaste e perda."
+      }
+    ]
+  },
+
+  // D. Sutta Library (PT)
+  suttaLibrary: {
+    sectionTitle: "Biblioteca de Suttas Fundamentais",
+    sectionSubtitle: "12 Discursos canônicos sobre causalidade, verificação empírica e aplicação na vida leiga",
+    searchPlaceholder: "Pesquisar por título, código, termo Pāli ou palavra-chave...",
+    filterCategories: [
+      { id: "all", label: "Todos os Suttas (12)" },
+      { id: "foundational", label: "Fundamentais (6)" },
+      { id: "daily-life", label: "Vida Leiga e Causalidade (3)" },
+      { id: "mindfulness", label: "Atenção Plena & Vedanā (3)" },
+      { id: "liberation", label: "Libertação & Cessação (2)" }
+    ],
+    suttas: [
+      {
+        code: "SN 12.2",
+        paliTitle: "Vibhaṅga Sutta",
+        transTitle: "Análise da Origem Dependente",
+        nikaya: "Saṁyutta Nikāya (Nidānavagga)",
+        category: "foundational",
+        readingTime: "5 min",
+        importance: "O dicionário analítico definitivo do cânone primitivo para os doze elos.",
+        layRelevance: "Oferece definições canônicas rigorosas, evitando interpretações vagas de autoajuda.",
+        keyConcepts: ["12 Elos", "Definições Analíticas", "Condicionalidade", "Avijjā", "Jarāmaraṇa"],
+        suttaCentralUrl: "https://suttacentral.net/sn12.2/en/sujato",
+        studyNotes: "O Buda define explicitamente cada elo, do envelhecimento-e-morte até a ignorância.",
+        reflectionQuestion: "Em momentos de turbulência emocional, consigo recorrer a estas definições precisas?"
+      },
+      {
+        code: "SN 12.15",
+        paliTitle: "Kaccāyanagotta Sutta",
+        transTitle: "Discurso a Kaccāyana",
+        nikaya: "Saṁyutta Nikāya (Nidānavagga)",
+        category: "foundational",
+        readingTime: "4 min",
+        importance: "Articula a Visão Correta como o Caminho do Meio entre o existencialismo ingênuo e o niilismo.",
+        layRelevance: "Protege o praticante do cinismo niilista e do apego eterno, oferecendo equilíbrio mental.",
+        keyConcepts: ["Visão Correta", "Caminho do Meio", "Tudo Existe", "Nada Existe"],
+        suttaCentralUrl: "https://suttacentral.net/sn12.15/en/sujato",
+        studyNotes: "Ver o surgimento do mundo através da condicionalidade afasta o niilismo; ver a cessação afasta o eternalismo.",
+        reflectionQuestion: "Estou oscilando entre o cinismo ('nada tem sentido') e a fantasia de estabilidade permanente?"
+      },
+      {
+        code: "MN 9",
+        paliTitle: "Sammādiṭṭhi Sutta",
+        transTitle: "Discurso sobre a Visão Correta",
+        nikaya: "Majjhima Nikāya",
+        category: "foundational",
+        readingTime: "12 min",
+        importance: "O Ven. Sāriputta unifica a Origem Dependente com os Quatro Alimentos e as raízes benéficas e prejudiciais.",
+        layRelevance: "Estrutura mestra para discernimento ético, clareza mental e desapego na rotina doméstica.",
+        keyConcepts: ["Visão Correta", "Quatro Alimentos", "Kusala & Akusala", "Tendências Subjacentes"],
+        suttaCentralUrl: "https://suttacentral.net/mn9/en/sujato",
+        studyNotes: "A Visão Correta é estabelecida compreendendo o prejudicial, suas raízes, o benéfico e a nutrição da mente.",
+        reflectionQuestion: "Qual tipo de alimento mental estou consumindo durante meu expediente profissional?"
+      },
+      {
+        code: "SN 12.20",
+        paliTitle: "Paccaya Sutta",
+        transTitle: "Condições",
+        nikaya: "Saṁyutta Nikāya (Nidānavagga)",
+        category: "foundational",
+        readingTime: "4 min",
+        importance: "Distingue entre a lei natural da condicionalidade e os fenômenos originados dependentemente.",
+        layRelevance: "Lembra o praticante de que a condicionalidade é uma lei natural cósmica, não uma opinião dogmática.",
+        keyConcepts: ["Dhamma-ṭṭhitatā", "Dhamma-niyāmatā", "Idappaccayatā", "Fenômenos Dependentes"],
+        suttaCentralUrl: "https://suttacentral.net/sn12.20/en/sujato",
+        studyNotes: "Quer os Budas surjam ou não, a condicionalidade permanece constante.",
+        reflectionQuestion: "Consigo relaxar percebendo que os desafios da vida respondem a leis causais e não a conspirações contra mim?"
+      },
+      {
+        code: "SN 12.23",
+        paliTitle: "Upanisa Sutta",
+        transTitle: "Pré-requisitos / Origem Transcendental",
+        nikaya: "Saṁyutta Nikāya (Nidānavagga)",
+        category: "liberation",
+        readingTime: "6 min",
+        importance: "Expõe a Origem Dependente Transcendental: como o próprio sofrimento se torna condição para fé, alegria e libertação.",
+        layRelevance: "Mostra como a dor doméstica e as decepções podem ser o próprio trampolim para o despertar espiritual.",
+        keyConcepts: ["Condicionalidade Transcendental", "Sofrimento como Causa da Fé", "Alegria (Pāmojja)", "Desapego (Virāga)"],
+        suttaCentralUrl: "https://suttacentral.net/sn12.23/en/bodhi",
+        studyNotes: "Dukkha -> Fé (Saddhā) -> Alegria -> Êxtase -> Tranquilidade -> Felicidade -> Concentração -> Visão das Coisas como São -> Desapego -> Libertação.",
+        reflectionQuestion: "Consigo usar minhas dificuldades atuais como impulso para refúgio espiritual e contemplação?"
+      },
+      {
+        code: "DN 15",
+        paliTitle: "Mahānidāna Sutta",
+        transTitle: "O Grande Discurso sobre a Causalidade",
+        nikaya: "Dīgha Nikāya",
+        category: "foundational",
+        readingTime: "20 min",
+        importance: "A mais detalhada e profunda exploração canônica de causalidade, consciência e conflitos interpessoais.",
+        layRelevance: "Mostra como o desejo leva à busca, posse, apego, avareza e discórdias sociais e familiares.",
+        keyConcepts: ["Causalidade Profunda", "Consciência e Nome-e-Forma", "Origem dos Conflitos", "Discórdia Social"],
+        suttaCentralUrl: "https://suttacentral.net/dn15/en/sujato",
+        studyNotes: "O Buda adverte Ānanda sobre a profundidade da origem dependente: é por não compreendê-la que a humanidade é como um novelo emaranhado.",
+        reflectionQuestion: "Em discussões familiares, consigo enxergar como a defensividade nasceu do desejo inicial?"
+      },
+      {
+        code: "SN 12.11",
+        paliTitle: "Āhāra Sutta",
+        transTitle: "Discurso sobre os Alimentos",
+        nikaya: "Saṁyutta Nikāya (Nidānavagga)",
+        category: "daily-life",
+        readingTime: "5 min",
+        importance: "Examina os quatro alimentos que sustentam a existência: comida física, contato, volição e consciência.",
+        layRelevance: "Essencial para investigar o que alimenta o consumismo e o apego na vida cotidiana.",
+        keyConcepts: ["Quatro Alimentos", "Comida Física", "Contato (Phassāhāra)", "Volição Mental", "Consciência"],
+        suttaCentralUrl: "https://suttacentral.net/sn12.11/en/sujato",
+        studyNotes: "Compreendendo o que oferecemos aos sentidos, esvaziamos os hábitos prejudiciais.",
+        reflectionQuestion: "Que tipo de impressões sensoriais estou continuamente alimentando em minha mente nas horas de folga?"
+      },
+      {
+        code: "SN 12.17",
+        paliTitle: "Acela Sutta",
+        transTitle: "Discurso ao Asceta Nu Kassapa",
+        nikaya: "Saṁyutta Nikāya (Nidānavagga)",
+        category: "daily-life",
+        readingTime: "5 min",
+        importance: "Examina responsabilidade ética e causalidade, rejeitando a culpa fatalista e o vitimismo passivo.",
+        layRelevance: "Evita o sentimento tóxico de culpa ao mesmo tempo em que preserva a responsabilidade no trabalho e no lar.",
+        keyConcepts: ["Sofrimento Auto-criado", "Sofrimento Criado por Outros", "Responsabilidade Ética", "Caminho do Meio"],
+        suttaCentralUrl: "https://suttacentral.net/sn12.17/en/sujato",
+        studyNotes: "Nem todo sofrimento é causado puramente por um eu imutável, nem exclusivamente por agentes externos; tudo surge condicionalmente.",
+        reflectionQuestion: "Estou preso em autopunição exagerada ou em vitimismo ressentido em relação aos outros?"
+      },
+      {
+        code: "SN 12.38",
+        paliTitle: "Cetanā Sutta",
+        transTitle: "Discurso sobre a Volição",
+        nikaya: "Saṁyutta Nikāya (Nidānavagga)",
+        category: "daily-life",
+        readingTime: "4 min",
+        importance: "Revela como intenções deliberadas, planejamentos e obsessões latentes dão base para a consciência florescer.",
+        layRelevance: "Alerta para como devaneios silenciosos e planejamentos secretos moldam o caráter e o destino.",
+        keyConcepts: ["Intenção (Cetanā)", "Planejamento (Pakappeti)", "Obsessão Latente (Anuseti)", "Estação da Consciência"],
+        suttaCentralUrl: "https://suttacentral.net/sn12.38/en/sujato",
+        studyNotes: "Mesmo que você não planeje ativamente, tendências dormentes alimentam o sofrimento futuro.",
+        reflectionQuestion: "Que preocupações de fundo estou constantemente ensaiando nos momentos de silêncio?"
+      },
+      {
+        code: "SN 36.6",
+        paliTitle: "Salla Sutta",
+        transTitle: "A Flecha",
+        nikaya: "Saṁyutta Nikāya (Vedanāsaṁyutta)",
+        category: "mindfulness",
+        readingTime: "5 min",
+        importance: "Distingue com clareza a primeira flecha (dor física/circunstancial) da segunda flecha (resistência mental e aflição).",
+        layRelevance: "A mais libertadora lição prática para navegar doenças, cansaço, críticas e contratempos.",
+        keyConcepts: ["Primeira Flecha (Dor Corporal)", "Segunda Flecha (Angústia Mental)", "Aversão (Paṭigha)", "Fuga Sensorial"],
+        suttaCentralUrl: "https://suttacentral.net/sn36.6/en/sujato",
+        studyNotes: "A pessoa comum atinge-se com duas flechas; o discípulo nobre sente a primeira sem disparar a segunda contra si mesmo.",
+        reflectionQuestion: "Consigo separar a dor física ou verbal inevitável do meu protesto emocional contra ela?"
+      },
+      {
+        code: "SN 35.28",
+        paliTitle: "Ādittapariyāya Sutta",
+        transTitle: "O Sermão do Fogo",
+        nikaya: "Saṁyutta Nikāya (Saḷāyatanasaṁyutta)",
+        category: "mindfulness",
+        readingTime: "6 min",
+        importance: "Proclama que tudo está em chamas: os sentidos ardem com o fogo da ganância, da aversão e da ilusão.",
+        layRelevance: "Desperta da complacência sensorial no mundo hiperestimulado moderno.",
+        keyConcepts: ["Tudo Está em Chamas", "Fogo da Ganância, Raiva e Ilusão", "Desencanto (Nibbidā)", "Chama Sensorial"],
+        suttaCentralUrl: "https://suttacentral.net/sn35.28/en/sujato",
+        studyNotes: "Reconhecer que os sentidos ardem esfria o desejo de correr atrás de prazeres efêmeros.",
+        reflectionQuestion: "O uso das minhas telas está esfriando minha mente ou jogando mais lenha na fogueira sensorial?"
+      },
+      {
+        code: "SN 47.13",
+        paliTitle: "Cunda Sutta",
+        transTitle: "Discurso com Cunda",
+        nikaya: "Saṁyutta Nikāya (Satipaṭṭhānasaṁyutta)",
+        category: "mindfulness",
+        readingTime: "7 min",
+        importance: "Diante da morte do Ven. Sāriputta, o Buda orienta Ānanda a ser uma ilha para si mesmo, tendo o Dhamma como refúgio.",
+        layRelevance: "Guia indispensável para lidar com perdas, luto e dissolução de vínculos familiares.",
+        keyConcepts: ["Ilha para Si Mesmo (Attadīpā)", "Dhamma como Refúgio", "Quatro Fundamentos da Atenção Plena", "Aceitação da Impermanência"],
+        suttaCentralUrl: "https://suttacentral.net/sn47.13/en/sujato",
+        studyNotes: "Perante grandes perdas familiares, a atenção plena enraizada no Dhamma oferece o refúgio inabalável.",
+        reflectionQuestion: "Diante de mudanças e perdas, estou apoiado em muletas externas ou ancorado no Dhamma?"
+      }
+    ]
+  },
+
+  // E. Daily Scenarios (PT)
+  dailyScenarios: {
+    sectionTitle: "Origem Dependente na Vida Cotidiana",
+    sectionSubtitle: "Cinco cenários reais demonstrando como os elos operam e como a sabedoria do Dhamma intervém",
+    intro: "Os elos da origem dependente não são fórmulas abstratas; eles descrevem sua psicologia diária concreta. Inspecione os cenários abaixo:",
+    scenarios: [
+      {
+        id: "scenario-1",
+        number: "01",
+        title: "Crítica no Ambiente Profissional",
+        situation: "Em uma reunião de trabalho, um gestor ou colega critica publicamente sua proposta, dizendo que foi mal planejada e ineficiente.",
+        directlyExperienced: "Ouvir o som da voz crítica (contato auditivo). Sensação visceral de aperto e calor desagradável no peito (vedanā desagradável).",
+        conditionsPresent: "Cansaço acumulado, insegurança sobre o emprego e necessidade de aprovação profissional.",
+        cravingPoint: "Desejo de aniquilar o desconforto (vibhava-taṇhā): ímpeto de retrucar com agressividade, desqualificar o outro ou se justificar defensivamente.",
+        clingingPoint: "Apego à identidade de competência: 'Como ousam me desrespeitar?'. Apego à expectativa de que todos concordem com minhas ideias.",
+        dhammaResponse: "Aplique o Salla Sutta (SN 36.6): Pause imediatamente. 'A primeira flecha atingiu meu ouvido. Vou disparar a segunda flecha de raiva?' Respire, sinta o tom afetivo cru sem emitir palavras reativas e responda com calma técnica e profissional.",
+        reflectionQuestion: "Consigo sustentar cinco segundos de silêncio antes de responder a uma crítica?",
+        suttas: ["SN 36.6 (A Flecha)", "MN 21 (O Símile da Serra)", "SN 12.2 (Vibhaṅga)"]
+      },
+      {
+        id: "scenario-2",
+        number: "02",
+        title: "Desejo Compulsivo de Comprar",
+        situation: "Navegando tarde da noite pela internet, você vê um produto tecnológico ou peça de luxo com desconto atraente.",
+        directlyExperienced: "Fótons atingem os olhos (contato visual). Disparo de sensação agradável e imagens de status (vedanā agradável).",
+        conditionsPresent: "Tédio, fadiga após o expediente e facilidade de pagamento com um clique.",
+        cravingPoint: "Kāma-taṇhā: sede de antecipar o prazer de abrir a caixa e desfrutar da novidade.",
+        clingingPoint: "Apego à identidade: 'Com isso serei mais produtivo e elegante'. Racionalização da compra como necessária.",
+        dhammaResponse: "Aplique o Āhāra Sutta (SN 12.11): Reconheça que o desejo é uma queimação de fome sensorial, não uma necessidade real. Espere 48 horas antes de comprar. Contemple a obsolescência do objeto e sinta o alívio de não ser manipulado.",
+        reflectionQuestion: "Que vazio emocional imediato estou tentando preencher com esta compra?",
+        suttas: ["SN 12.11 (Alimento)", "MN 13 (A Massa do Sofrimento)", "AN 4.62 (Anaṇa Sutta)"]
+      },
+      {
+        id: "scenario-3",
+        number: "03",
+        title: "Conflito Familiar ou Amoroso",
+        situation: "Seu cônjuge ou familiar expressa irritação sobre despesas da casa ou divisão de tarefas domésticas.",
+        directlyExperienced: "Ouvir o tom ríspido (contato auditivo). Sensação de rejeição ou injustiça (vedanā desagradável).",
+        conditionsPresent: "Estresse doméstico acumulado, noites mal dormidas e histórico de mágoas passadas.",
+        cravingPoint: "Desejo de vingança moral: listar os erros do outro ou fechar-se em silêncio punitivo.",
+        clingingPoint: "Apego à autojustificação (diṭṭhupādāna): 'Eu faço tudo nesta casa e ninguém reconhece'.",
+        dhammaResponse: "Aplique DN 15: O tom ríspido do outro nasceu do cansaço e medo dele próprio. Não leve para o lado pessoal. Escute com compaixão (karuṇā) e coopere na solução prática.",
+        reflectionQuestion: "Estou tentando resolver o problema prático ou tentando vencer uma disputa de ego contra quem amo?",
+        suttas: ["DN 15 (Mahānidāna)", "SN 12.38 (Volição)", "MN 128 (Upakkilesa)"]
+      },
+      {
+        id: "scenario-4",
+        number: "04",
+        title: "Ansiedade com Finanças e Segurança Futura",
+        situation: "Analisar contas a pagar, inflação ou metas de faturamento gera apreensão aguda sobre o futuro.",
+        directlyExperienced: "Ler números na tela (contato visual). Tensão no estômago e respiração curta (vedanā desagradável).",
+        conditionsPresent: "Incerteza econômica real, responsabilidade com dependentes e o hábito de buscar solidez permanente em um mundo instável.",
+        cravingPoint: "Bhava-taṇhā: sede de controle absoluto e garantia de invulnerabilidade futura.",
+        clingingPoint: "Apego ao controle: ruminação incessante ('E se eu falir?') e checagem compulsiva de extratos.",
+        dhammaResponse: "Aplique SN 12.20 e AN 4.62: Separe o planejamento prudente (ação correta no presente) da ruminação catastrófica (saṅkhāra desgovernado). Tome as medidas financeiras sóbrias e reconheça que a única verdadeira segurança é a conduta íntegra.",
+        reflectionQuestion: "Consigo distinguir entre planejamento financeiro sábio e ruminação ansiosa estéril?",
+        suttas: ["SN 12.20 (Condições)", "AN 4.62 (Anaṇa Sutta)", "AN 8.54 (Dīghajāṇu)"]
+      },
+      {
+        id: "scenario-5",
+        number: "05",
+        title: "Prazer, Distração e Redes Sociais",
+        situation: "Você abre o aplicativo de vídeos 'só por dois minutos' e se vê rolando a tela por mais de uma hora.",
+        directlyExperienced: "Estímulos visuais rápidos (contato). Microdoses de sensação agradável seguidas de vazio imediato.",
+        conditionsPresent: "Algoritmos otimizados para vício, cansaço do trabalho e resistência a encarar tarefas desafiadoras.",
+        cravingPoint: "Kāma-taṇhā pelo próximo estímulo e aversão ao silêncio interior.",
+        clingingPoint: "Apego à distração: 'Só mais um vídeo, eu mereço descansar'.",
+        dhammaResponse: "Aplique o Sermão do Fogo (SN 35.28): Observe: 'Este estímulo está me acalmando ou me incendiando?' Sinta a fadiga nos olhos. Coloque o aparelho em outro cômodo e sinta o contato dos pés com o chão.",
+        reflectionQuestion: "Que paz interior profunda estou sacrificando em troca de doses rápidas de dopamina digital?",
+        suttas: ["SN 35.28 (O Sermão do Fogo)", "MN 118 (Ānāpānasati)", "MN 20 (A Quietude dos Pensamentos)"]
+      }
+    ]
+  },
+
+  // F. Practical Exercise (PT)
+  guidedExercise: {
+    title: "Exercício Prático: Observar os Elos",
+    subtitle: "Ferramenta contemplativa de 3 a 5 minutos para inspecionar a causalidade na sua experiência direta",
+    privacyNotice: "🔒 100% Privado: Suas respostas permanecem estritamente gravadas neste navegador local.",
+    disclaimer: "Nota: Este é um treinamento gradual em atenção plena e discernimento (sati-sampajañña). Ele desenvolve a capacidade de pausar entre a sensação e a reação.",
+    steps: [
+      {
+        step: 1,
+        title: "1. Recordar a Experiência Recente",
+        prompt: "Traga à mente uma situação recente de atração, incômodo ou contratempo (ex: um e-mail irritante, desejo súbito de comprar ou pequeno atraso):",
+        placeholder: "Descreva brevemente a situação..."
+      },
+      {
+        step: 2,
+        title: "2. Identificar o Contato Sensorial (Phassa)",
+        prompt: "Qual porta sensorial recebeu o impacto inicial antes de você criar a narrativa mental?",
+        options: [
+          "Olhos (Vi algo)",
+          "Ouvidos (Ouvi palavras ou som)",
+          "Nariz / Língua (Cheiro ou gosto)",
+          "Corpo (Sensação física de dor, calor ou toque)",
+          "Mente (Lembrança, ideia ou pensamento súbito)"
+        ],
+        placeholder: "Nomeie o contato sensorial bruto..."
+      },
+      {
+        step: 3,
+        title: "3. Nomear a Sensação (Vedanā)",
+        prompt: "Qual tom afetivo emergiu naquela fração de segundo?",
+        options: [
+          "Agradável (Sukha — gostei, pareceu recompensador)",
+          "Desagradável (Dukkha — incomodou, pareceu apertado)",
+          "Neutra (Upekkhā — nem agradável nem desagradável)"
+        ],
+        placeholder: "Descreva a sensação física no corpo..."
+      },
+      {
+        step: 4,
+        title: "4. Notar o Desejo Compulsivo (Taṇhā)",
+        prompt: "O desejo surgiu? Para onde a mente foi puxada?",
+        options: [
+          "Querer segurar e prolongar o prazer (Kāma-taṇhā)",
+          "Querer afirmar um status ou papel (Bhava-taṇhā)",
+          "Querer eliminar ou fugir do desconforto (Vibhava-taṇhā)",
+          "Havia atenção plena: Nenhum desejo compulsivo surgiu"
+        ],
+        placeholder: "Descreva o impulso notado..."
+      },
+      {
+        step: 5,
+        title: "5. Observar o Apego (Upādāna)",
+        prompt: "A mente agarrou-se a uma identidade, expectativa ou ponto de vista rígido?",
+        placeholder: "ex: 'Eles deveriam me valorizar' / 'Preciso disso agora'..."
+      },
+      {
+        step: 6,
+        title: "6. Refletir sobre as Consequências",
+        prompt: "Quais foram (ou seriam) as consequências de seguir cegamente essa reação em palavras ou atos?",
+        placeholder: "ex: Conflito conjugal, gasto impulsivo, remorso, agitação mental prolongada..."
+      },
+      {
+        step: 7,
+        title: "7. O Poder do Intervalo Dourado",
+        prompt: "O que muda quando a sensação é reconhecida com clareza no ponto de contato sem alimentar a reação automática?",
+        placeholder: "ex: A sensação surge e se dissipa sozinha; minhas palavras permanecem equilibradas..."
+      }
+    ],
+    finishButton: "Gerar Síntese Contemplativa",
+    resetButton: "Reiniciar Exercício"
+  },
+
+  // G. Path of Practice (PT)
+  pathOfPractice: {
+    sectionTitle: "O Caminho da Prática: Origem Dependente e o Caminho Óctuplo",
+    sectionSubtitle: "Como a condicionalidade é direcionada através dos oito fatores do Nobre Caminho",
+    intro: "A origem dependente não é um modelo para observação passiva; ela revela as alavancas da libertação. O Nobre Caminho Óctuplo desmonta as condições da ignorância e cultiva condições salutares para a paz.",
+    factors: [
+      {
+        factor: "Visão Correta (Sammā-diṭṭhi)",
+        pali: "Sammā-diṭṭhi",
+        relation: "Enxerga a condicionalidade: o sofrimento surge do desejo e cessa ao cultivar o Caminho (MN 9, SN 12.15)."
+      },
+      {
+        factor: "Intenção Reta (Sammā-saṅkappa)",
+        pali: "Sammā-saṅkappa",
+        relation: "Substitui o desejo sensual e a raiva por renúncia, benevolência e não-violência."
+      },
+      {
+        factor: "Linguagem Correta (Sammā-vācā)",
+        pali: "Sammā-vācā",
+        relation: "Interrompe o elo entre sensação desagradável e fala ríspida, caluniosa ou fútil."
+      },
+      {
+        factor: "Ação Correta (Sammā-kammanta)",
+        pali: "Sammā-kammanta",
+        relation: "Garante que as formações volitivas não causem dano: não matar, não roubar, conduta sexual respeitosa."
+      },
+      {
+        factor: "Meio de Vida Correto (Sammā-ājīva)",
+        pali: "Sammā-ājīva",
+        relation: "Estrutura o trabalho sem engano ou exploração, construindo condições limpas para a paz no lar."
+      },
+      {
+        factor: "Esforço Correto (Sammā-vāyāma)",
+        pali: "Sammā-vāyāma",
+        relation: "Guarda a mente: previne e abandona estados prejudiciais, e desperta e sustenta estados benéficos."
+      },
+      {
+        factor: "Atenção Plena Correta (Sammā-sati)",
+        pali: "Sammā-sati",
+        relation: "Mantém vigilância nas seis portas dos sentidos, captando a sensação no contato antes do apego brotar."
+      },
+      {
+        factor: "Concentração Correta (Sammā-samādhi)",
+        pali: "Sammā-samādhi",
+        relation: "Unifica e pacifica a mente, provendo a calma necessária para ver a condicionalidade claramente."
+      }
+    ],
+    dailyPractices: [
+      {
+        timing: "Contemplação Matinal (5–10 min)",
+        title: "Bússola da Condicionalidade",
+        practice: "Antes de olhar mensagens, recorde SN 12.20: 'Tudo o que eu vivenciar hoje surgirá dependente de condições. Vou proteger meus sentidos e não disparar segundas flechas.'"
+      },
+      {
+        timing: "Atenção no Trabalho",
+        title: "O Ponto de Contato",
+        practice: "Pause por três respirações conscientes sempre que chegar um e-mail ríspido ou contratempo. Sinta o tom da sensação antes de responder."
+      },
+      {
+        timing: "Revisão Ética Noturna (5 min)",
+        title: "Avaliação Serena do Dia",
+        practice: "Revise: Onde o desejo surgiu? Onde o desapego foi vitorioso? Alegre-se com qualquer momento de sobriedade."
+      },
+      {
+        timing: "Meditação Sentada Regular",
+        title: "Samatha e Vipassanā Conectados",
+        practice: "Colete a mente na respiração para acalmar, e então observe o surgimento e cessação de sensações como processos dependentes."
+      }
+    ]
+  },
+
+  // H. Study Pathways (PT)
+  studyPathways: {
+    sectionTitle: "Roteiros de Estudo Estruturados",
+    sectionSubtitle: "Trilhas graduais desenhadas para conduzir do entendimento inicial à maestria canônica",
+    disclaimer: "Estas trilhas são roteiros pedagógicos práticos para estudantes leigos, não imposições rígidas.",
+    tracks: [
+      {
+        id: "beginner-track",
+        name: "Trilha Iniciante — 7 Dias",
+        duration: "7 Dias (15 min/dia)",
+        description: "Introdução ao princípio mestre, memorização dos 12 elos e gestão das reações emocionais cotidianas.",
+        days: [
+          { day: 1, sutta: "SN 12.20 (Paccaya Sutta)", task: "Leia a lei da condicionalidade. Reflita sobre leis naturais vs controle pessoal." },
+          { day: 2, sutta: "SN 12.2 (Vibhaṅga Sutta)", task: "Leia a sequência dos doze elos. Memorize os termos principais." },
+          { day: 3, sutta: "SN 36.6 (Salla Sutta)", task: "Leia o sutta da Flecha. Pratique notar a primeira vs a segunda flecha no trabalho." },
+          { day: 4, sutta: "SN 35.28 (Ādittapariyāya)", task: "Leia o Sermão do Fogo. Observe como as telas inflamam a mente." },
+          { day: 5, sutta: "SN 12.15 (Kaccāyanagotta)", task: "Leia o sutta da Visão Correta. Evite os extremos do niilismo e do apego." },
+          { day: 6, sutta: "5 Cenários Cotidianos", task: "Revise os cenários práticos e faça o exercício guiado interativo." },
+          { day: 7, sutta: "Síntese e Diário", task: "Escreva uma reflexão no diário sobre as descobertas da sua mente." }
+        ]
+      },
+      {
+        id: "intermediate-track",
+        name: "Trilha Intermediária — 14 Dias",
+        duration: "14 Dias (25 min/dia)",
+        description: "Aprofundamento em alimentos mentais, volição, agência ética e causalidade transcendental.",
+        days: [
+          { day: 1, sutta: "MN 9 (Parte 1)", task: "Estude as raízes benéficas e prejudiciais com o Ven. Sāriputta." },
+          { day: 2, sutta: "MN 9 (Parte 2)", task: "Estude os quatro alimentos e sua ligação com o sofrimento." },
+          { day: 3, sutta: "SN 12.11 (Āhāra Sutta)", task: "Faça uma auditoria no seu consumo de impressões sensoriais ao longo do dia." },
+          { day: 4, sutta: "SN 12.17 (Acela Sutta)", task: "Contemple causalidade ética sem culpa paralisante nem vitimismo." },
+          { day: 5, sutta: "SN 12.38 (Cetanā Sutta)", task: "Inspecione seus planejamentos silenciosos e obsessões latentes." },
+          { day: 6, sutta: "Exercício Guiado", task: "Complete os 7 passos do exercício diante de uma tensão real no relacionamento." },
+          { day: 7, sutta: "Revisão Intermediária", task: "Revise suas notas do diário e consolide a observação do elo contato-sensação." },
+          { day: 8, sutta: "SN 12.23 (Upanisa Sutta)", task: "Estude a Origem Transcendental: o sofrimento como mola para a fé." },
+          { day: 9, sutta: "SN 12.23 (Meditação)", task: "Medite na respiração contemplando a progressão da alegria ao desapego." },
+          { day: 10, sutta: "SN 47.13 (Cunda Sutta)", task: "A atenção plena como refúgio perante o luto e perdas familiares." },
+          { day: 11, sutta: "MN 141 (Saccavibhaṅga)", task: "Conecte os 12 elos aos Cinco Agregados do Apego." },
+          { day: 12, sutta: "Integração ao Caminho Óctuplo", task: "Examine como cada um dos oito fatores opera em sua carreira." },
+          { day: 13, sutta: "Dia de Guarda dos Sentidos", task: "Pratique vigilância atenta das seis portas dos sentidos ao usar o celular." },
+          { day: 14, sutta: "Reflexão Final e Dedicação", task: "Sintetize os 14 dias de prática e firme resoluções para o dia a dia." }
+        ]
+      },
+      {
+        id: "advanced-track",
+        name: "Trilha Avançada — 30 Dias",
+        duration: "30 Dias (40 min/dia)",
+        description: "Estudo canônico aprofundado de DN 15, comparação textual e perspectivas comentariais.",
+        days: [
+          { day: 1, sutta: "DN 15 (Seção 1)", task: "A advertência a Ānanda: a natureza profunda e intrincada da origem dependente." },
+          { day: 2, sutta: "DN 15 (Seção 2)", task: "A relação recíproca entre consciência e nome-e-forma." },
+          { day: 3, sutta: "DN 15 (Seção 3)", task: "A cadeia social: do desejo à busca, posse e conflitos entre seres." },
+          { day: 4, sutta: "DN 15 (Síntese)", task: "Escreva uma reflexão sobre a psicologia social da causalidade." },
+          { day: 5, sutta: "SN 12.65 (Nagara Sutta)", task: "O discurso da Cidade Antiga: o Buda redescobrindo o caminho ancestral." },
+          { day: 6, sutta: "SN 12.67 (Naḷakalāpī)", task: "O símile dos dois feixes de juncos que se apoiam mutuamente." },
+          { day: 7, sutta: "Avaliação Doutrinária", task: "Compare o modelo de 3 vidas (Buddhaghosa) com o modelo momento a momento." }
+        ]
+      }
+    ]
+  },
+
+  // I. Reflection Journal (PT)
+  reflectionJournal: {
+    sectionTitle: "Diário Contemplativo de Reflexão",
+    sectionSubtitle: "Registre observações reais da condicionalidade em sua vida. Salvo estritamente no seu navegador.",
+    formHeading: "Novo Registro de Reflexão",
+    prompts: [
+      { id: "q1", label: "1. O que aconteceu? (Situação ou evento)", placeholder: "Descreva brevemente o evento..." },
+      { id: "q2", label: "2. Qual tom de sensação estava presente? (Agradável / Desagradável / Neutro)", placeholder: "Descreva a sensação sentida..." },
+      { id: "q3", label: "3. O que eu desejei ou resisti?", placeholder: "Para onde a mente puxou ou empurrou..." },
+      { id: "q4", label: "4. A que ponto de vista ou expectativa me apeguei?", placeholder: "Identifique a historinha do ego..." },
+      { id: "q5", label: "5. O que aprendi sobre a condicionalidade com isso?", placeholder: "O discernimento de ver causas e efeitos..." },
+      { id: "q6", label: "6. Qual sutta iluminou essa experiência?", placeholder: "ex: SN 36.6, SN 12.11, SN 12.20..." }
+    ],
+    saveButtonText: "Salvar Registro no Diário",
+    entriesHeading: "Suas Reflexões Salvas",
+    noEntriesNotice: "Nenhum registro gravado ainda. Preencha o formulário acima para iniciar seu arquivo pessoal.",
+    exportButtonText: "Exportar Registros (JSON)",
+    clearAllButtonText: "Limpar Histórico"
+  },
+
+  // J. FAQs (PT)
+  faqs: {
+    sectionTitle: "Perguntas Frequentes",
+    sectionSubtitle: "Respostas canônicas rigorosas fundamentadas nos discursos do Budismo primitivo",
+    items: [
+      {
+        q: "O que é a origem dependente em termos simples?",
+        a: "A origem dependente (paṭiccasamuppāda) é o princípio de que as coisas não surgem por acaso nem por decreto divino. Quando causas e condições convergem, os resultados surgem; quando as condições cessam, os resultados desaparecem. No Budismo, explica especificamente como o sofrimento surge do desejo e da ignorância, e como cessa com a sabedoria."
+      },
+      {
+        q: "Por que existem doze elos? Essa lista é imutável?",
+        a: "A lista de doze elos é a formulação padrão e mais completa nos suttas, mas não é um dogma rígido. Em DN 15, o Buda omite os seis sentidos e inicia na consciência e nome-e-forma; em SN 12.65 enfatiza a relação recíproca entre consciência e nome-e-forma; no Sermão do Fogo enfoca os sentidos, contato e sensação. A essência comum é a condicionalidade (idappaccayatā)."
+      },
+      {
+        q: "A origem dependente significa que tudo na minha vida é pré-determinado?",
+        a: "Não. O Buda refutou explicitamente o determinismo estrito (niyativāda). As condições passadas moldam o presente, mas sua intenção atual (cetanā) neste instante é uma nova condição ativa. Não se pode impedir a sensação que já brotou, mas pode-se escolher não reagir com desejo compulsivo."
+      },
+      {
+        q: "A origem dependente é a mesma coisa que o karma?",
+        a: "O karma é um componente essencial dentro da origem dependente, correspondendo aos elos #2 (Saṅkhārā) e #10 (Bhava). Porém, a origem dependente é a lei ampla da condicionalidade universal na qual o karma se insere."
+      },
+      {
+        q: "Como a origem dependente se relaciona com o Não-Eu (Anattā)?",
+        a: "Ela é a prova prática de anattā. Se existisse um 'eu' autônomo soberano, as coisas não dependeriam de causas: você poderia simplesmente ordenar à mente que nunca sentisse dor ou envelhecesse. Como tudo depende de condições passageiras, nenhum eu permanente pode ser encontrado nos cinco agregados."
+      },
+      {
+        q: "Esse ensinamento aplica-se à vida leiga ou é exclusivo de monges?",
+        a: "Aplica-se diretamente à mente de qualquer ser humano. O Buda ensinou causalidade a chefes de família como Anāthapiṇḍika e Citta. Sempre que você se irrita no trânsito, compra compulsivamente ou pausa antes de brigar, está vivenciando e trabalhando com os elos da origem dependente."
+      },
+      {
+        q: "Como a origem dependente se relaciona com as Quatro Nobres Verdades?",
+        a: "São duas faces da mesma moeda clínica. A sequência direta (elos 1 ao 12) é a anatomia expandida da Segunda Nobre Verdade (Origem do Sofrimento). A sequência inversa (cessação dos elos 1 ao 12) é o detalhamento da Terceira Nobre Verdade (Cessação do Sofrimento)."
+      },
+      {
+        q: "Como a cessação do desejo se relaciona com o Nibbāna?",
+        a: "O desejo (taṇhā) é o combustível do devir e do sofrimento. Nos suttas, Nibbāna é frequentemente descrito como 'taṇhākkhayo' (a destruição do desejo). Cessado o combustível, a paz incondicionada se revela."
+      },
+      {
+        q: "Preciso me tornar monge para praticar esse ensinamento?",
+        a: "Não. Centenas de homens e mulheres leigos nos textos canônicos alcançaram os primeiros estágios da iluminação enquanto administravam lares e negócios, compreendendo a origem dependente e praticando a Visão Correta."
+      },
+      {
+        q: "Como diferentes tradições do Theravāda entendem os doze elos?",
+        a: "A tradição comentarial clássica do Visuddhimmaga divide os doze elos em três vidas sucessivas (vida passada, presente e futura). Mestres modernos como Ajahn Buddhadāsa e Bhikkhu Bodhi ressaltam que, além do renascimento cósmico, os elos descrevem o nascimento momentâneo do ego nas reações diárias. Ambos os modelos baseiam-se no mesmo princípio canônico de condicionalidade."
+      }
+    ]
+  }
+};
+
+
+  // ==========================================
+  // 2. FOURTH NOBLE TRUTH DATA MODULE
   // ==========================================
 /**
  * The Lay Dharma Household Mārga — Fourth Noble Truth Study Module
@@ -1278,7 +2828,2182 @@ const FOURTH_NOBLE_TRUTH_MODULE_PT = {
 
 
   // ==========================================
-  // 2. CANONICAL TOPICS DATA
+  // 3. BUDDHIST COSMOLOGY DATA MODULE
+  // ==========================================
+/**
+ * The Lay Dharma Household Mārga (Upāsaka-Dharma)
+ * Topic 09: Buddhist Cosmology (Lokadhātu & The 31 Planes of Existence)
+ * Comprehensive Theravāda Learning Module:
+ * Grounded in the Pāli Canon & Classical Theravāda Systematization.
+ * Features:
+ * - A Universe of Conditioned Existence (Kāmaloka, Rūpaloka, Arūpaloka)
+ * - The 31 Planes Interactive Explorer (11 Sensual, 16 Fine-Material, 4 Immaterial)
+ * - 15 Essential Suttas Library with SuttaCentral Deep Links
+ * - Daily-Life Applications: 5 Realistic Lay Scenarios
+ * - Educational Section on Kamma, Rebirth, and Ethical Responsibility
+ * - Interactive Ethical Decision Exercise (6 Ordinary Dilemmas)
+ * - "Nibbāna Is Not Another Realm" (The Goal Beyond Conditioned Existence)
+ * - Three Configurable Study Pathways (7-Day, 14-Day, 30-Day)
+ * - Contemplative Reflection Journal Prompts
+ * - 14 Canonical FAQs
+ * Bilingual: English (EN) and Portuguese (PT-BR).
+ */
+const BUDDHIST_COSMOLOGY_MODULE_EN = {
+  // A. Hero Section
+  hero: {
+    title: "Buddhist Cosmology",
+    paliTitle: "Lokadhātu & Bhavacakra",
+    subtitle: "Understanding the realms of existence, the workings of kamma, and the path beyond saṁsāra.",
+    introText: "In the Theravāda tradition, Buddhist cosmology describes a vast range of forms of existence within saṁsāra. These include states of deprivation, ordinary human existence, heavenly realms, and highly refined Brahmā worlds. Beings are reborn according to conditions that include kamma, yet every conditioned realm remains impermanent. The ultimate goal of the Buddha's teaching is not a better position within the cosmos, but liberation from the cycle of rebirth and suffering.",
+    systematizationNote: "Doctrinal Clarification: The familiar Theravāda classification of 31 planes of existence is a traditional systematization of cosmological teachings found across various discourses of the Pāli Canon and later classical treatises (such as the Abhidhammattha-saṅgaha and commentaries). It should not be assumed that all 31 planes are listed sequentially in a single early sutta.",
+    primaryActions: [
+      { id: "action-planes", label: "Explore the 31 Planes of Existence", target: "#cosmo-31-planes", icon: "🌌" },
+      { id: "action-suttas", label: "Study the Suttas", target: "#tab-canonical", icon: "📜" },
+      { id: "action-kamma", label: "Understand Kamma & Rebirth", target: "#cosmo-kamma", icon: "⚖️" }
+    ],
+    canonicalPassage: {
+      suttaCode: "SN 56.48",
+      paliTitle: "Chiggala Sutta",
+      englishTitle: "The Hole in the Yoke (The Blind Turtle)",
+      excerptPali: "Seyyathāpi, bhikkhave, puriso ekacchiggalaṁ yugaṁ mahāsamudde pakkhipeyya. Tatra assa kāṇo kacchapo... Evametadappaṁ, bhikkhave, yadidaṁ manussattapaṭilābho.",
+      excerptTrans: "Suppose a man threw into the great ocean a yoke with a single hole. A blind sea turtle came up once every hundred years... More difficult and rare than that turtle putting its neck through that single yoke is obtaining human birth and encountering the Dhamma.",
+      sourceUrl: "https://suttacentral.net/sn56.48/en/sujato",
+      citation: "Saṁyutta Nikāya 56.48 • Chiggala Sutta"
+    }
+  },
+
+  // B. Main Section: Understanding the Buddhist Cosmos
+  understandingCosmos: {
+    sectionTitle: "A Universe of Conditioned Existence",
+    sectionSubtitle: "The three overarching tiers of existence in early Buddhist doctrine",
+    leadText: "Buddhist cosmology describes different realms in which beings are reborn according to their intentional choices (kamma), differing profoundly in lifespan, somatic subtlety, pleasure, suffering, and meditative attainment. All realms without exception are impermanent (anicca), unsatisfactory (dukkha), and non-self (anattā).",
+    tiers: [
+      {
+        id: "kamaloka",
+        name: "Kāmaloka — The Sensual Realm",
+        planesCount: "11 Planes",
+        description: "Encompasses all modes of existence characterized by the dominance of the five physical sense bases and the drive of sensual desire (kāma-taṇhā). It includes the lower states of suffering, the human world, and the six sensual heavens.",
+        subdivisions: [
+          { name: "Four States of Deprivation (Apāya-bhūmi)", detail: "Hell beings (niraya), animals (tiracchāna), hungry ghosts (peta), and asuras (demi-gods associated with perpetual conflict). Born from unwholesome kamma rooted in greed, hatred, and delusion." },
+          { name: "The Human Realm (Manussa-loka)", detail: "A balanced realm blending pleasure and pain, uniquely suited for ethical choice, spiritual reflection, and realizing awakening." },
+          { name: "Six Sensual Deva Realms (Devaloka)", detail: "From the Four Great Kings to beings wielding power over others' creations. Characterized by radiant bodies and long lifespans fueled by wholesome merit (puñña)." }
+        ],
+        practicalReflection: "How do greed, aversion, confusion, generosity, kindness, and restraint shape the quality of our present experience and our actions? (Note: Ethical and psychological reflection complements rather than replaces the traditional teaching about rebirth.)"
+      },
+      {
+        id: "rupaloka",
+        name: "Rūpaloka — The Fine-Material Realm",
+        planesCount: "16 Planes",
+        description: "Exalted Brahmā realms attained through mastery of the four material meditative absorptions (rūpa-jhāna). Physical senses are refined, gross sensual desire is suspended, and beings abide in radiant meditative bliss.",
+        subdivisions: [
+          { name: "1st Jhāna Brahmās (3 planes)", detail: "Retinue, ministers, and Great Brahmās (Mahābrahmā) who dwell in tranquil majesty." },
+          { name: "2nd Jhāna Brahmās (3 planes)", detail: "Abodes of radiance and streaming light (Ābhassara), untouched by gross fire cycles." },
+          { name: "3rd Jhāna Brahmās (3 planes)", detail: "Abodes of refulgent, steady glory (Subhakiṇha) sustained by spiritual happiness." },
+          { name: "4th Jhāna Brahmās & Pure Abodes (7 planes)", detail: "Includes Great Reward (Vehapphala), Unconscious beings (Asaññasatta), and the Five Pure Abodes (Suddhāvāsa) inhabited exclusively by Non-returners (Anāgāmīs)." }
+        ],
+        doctrinalNote: "Doctrinal Safeguard: Traditional Theravāda teaches that attaining jhāna provides the conditional momentum for Brahmā rebirth, but rebirth is governed by kamma and conditions. Furthermore, even lifespans lasting cosmic eons (kappas) end in death; Brahmā existence is not final liberation."
+      },
+      {
+        id: "arupaloka",
+        name: "Arūpaloka — The Immaterial Realm",
+        planesCount: "4 Planes",
+        description: "The apex of conditioned existence, entirely devoid of physical form or matter. Rebirth here is conditioned by mastery of the four immaterial meditative attainments (arūpa-samāpatti).",
+        subdivisions: [
+          { name: "1. Infinite Space (Ākāsānañcāyatana)", detail: "Consciousness transcending all perceptions of physical form to dwell on boundless space." },
+          { name: "2. Infinite Consciousness (Viññāṇañcāyatana)", detail: "Turning awareness back onto the infinite consciousness that perceives space." },
+          { name: "3. Nothingness (Ākiñcaññāyatana)", detail: "Transcending consciousness itself to dwell on the subtle perception that 'there is nothing'." },
+          { name: "4. Neither-Perception-Nor-Non-Perception (Nevasaññānāsaññāyatana)", detail: "The most rarefied, delicate mental state in saṁsāra, where perception is so subtle it can neither be said to exist nor not exist." }
+        ],
+        reflectionQuestion: "Why would a state of extraordinary peace or subtlety still be insufficient if ignorance and the underlying causes of renewed existence remain?"
+      }
+    ]
+  },
+
+  // C. Interactive Exploration of the 31 Planes
+  planesExplorer: {
+    sectionTitle: "Interactive Exploration of the 31 Planes",
+    sectionSubtitle: "The traditional Theravāda classification of realms across the Three Worlds",
+    categoryFilterLabels: {
+      all: "All 31 Planes",
+      kama: "Sensual Realm (1–11)",
+      rupa: "Fine-Material (12–27)",
+      arupa: "Immaterial (28–31)"
+    },
+    planesNotice: "Note: The 31 planes are not permanent locations, stages of moral superiority, or mandatory linear steps through which every soul must travel. They represent states of conditioned becoming (bhava) populated by beings driven by kamma.",
+    planes: [
+      // 1-4: The Four States of Deprivation (Apāya-bhūmi)
+      {
+        id: "plane-1",
+        number: 1,
+        tier: "kama",
+        subTier: "Four States of Deprivation (Apāya)",
+        paliName: "Niraya",
+        englishName: "Hell / Realms of Extreme Anguish",
+        lifespan: "Varies from thousands of years to an antarakappa; determined by kamma",
+        kammaCause: "Heavy unwholesome actions: intentional killing, cruel cruelty, persistent hatred, extreme greed, malicious views",
+        canonicalSources: "MN 129 (Bālapaṇḍita), MN 130 (Devadūta), SN 56.47",
+        commentarialSources: "Visuddhimagga, Abhidhammattha-saṅgaha (Eight Great Hells: Sañjīva, Kālasutta, etc.)",
+        characteristics: "States of unrelenting sensory and mental anguish where beings exhaust severe negative kamma. Not eternal damnation; when the causal karma is spent, the being is reborn elsewhere.",
+        reflection: "How does fiery resentment or explosive rage in daily life reflect the visceral quality of niraya?"
+      },
+      {
+        id: "plane-2",
+        number: 2,
+        tier: "kama",
+        subTier: "Four States of Deprivation (Apāya)",
+        paliName: "Tiracchāna-yoni",
+        englishName: "Animal Realm",
+        lifespan: "Varies from minutes (insects) to centuries",
+        kammaCause: "Actions heavily dominated by animalistic delusion (moha), blind instinct, fear, and unrestrained lust",
+        canonicalSources: "MN 129, MN 135, SN 56.47",
+        commentarialSources: "Dhammapada-aṭṭhakathā",
+        characteristics: "Prey-predator dynamics, fear of slaughter, instinct-driven existence without capacity for philosophical reflection or ethical choice.",
+        reflection: "When we surrender ethical discernment to react purely from survival fear or instinct, how close do we step to animal consciousness?"
+      },
+      {
+        id: "plane-3",
+        number: 3,
+        tier: "kama",
+        subTier: "Four States of Deprivation (Apāya)",
+        paliName: "Peta-visaya",
+        englishName: "Realm of Hungry Ghosts",
+        lifespan: "Indefinite; often thousands of years until merit is shared or kamma dissolves",
+        kammaCause: "Obsessive miserliness, extreme avarice, hoarding, possessiveness, and clinging to wealth or family",
+        canonicalSources: "Khuddaka Nikāya (Petavatthu), SN 19 (Lakkhaṇa-saṁyutta)",
+        commentarialSources: "Paramatthadīpanī (Petavatthu Commentary)",
+        characteristics: "Beings plagued by insatiable hunger, burning thirst, and unfulfilled longing, often possessing enormous bellies and needle-thin throats.",
+        reflection: "Notice the hunger of compulsive consumerism: wanting more and more without ever feeling satisfied."
+      },
+      {
+        id: "plane-4",
+        number: 4,
+        tier: "kama",
+        subTier: "Four States of Deprivation (Apāya)",
+        paliName: "Asura-kāya",
+        englishName: "Asura Realm (Demons / Titans)",
+        lifespan: "Varies; long lifespans characterized by conflict",
+        kammaCause: "Actions driven by intense competitiveness, envy, combativeness, jealousy of others' virtue, arrogance",
+        canonicalSources: "DN 20 (Mahāsamaya), SN 35.207, AN 7.72",
+        commentarialSources: "Visuddhimagga (Classification as apāya varies in some texts)",
+        characteristics: "Beings caught in perpetual conflict, envy of the devas, paranoia, and defensive warfare.",
+        reflection: "Where does the compulsion to compare, compete, and conquer rob my daily life of peaceful contentment?"
+      },
+
+      // 5: The Human Realm
+      {
+        id: "plane-5",
+        number: 5,
+        tier: "kama",
+        subTier: "Sensual Blissful Realms (Kāma-sugati)",
+        paliName: "Manussa-loka",
+        englishName: "Human Realm",
+        lifespan: "Historically ~100 years; fluctuating across world cycles",
+        kammaCause: "Wholesome kamma rooted in the Five Precepts (pañca-sīla), human compassion, and moral restraint",
+        canonicalSources: "SN 56.48 (Blind Turtle), AN 8.54 (Dīghajāṇu), AN 5.57",
+        commentarialSources: "Abhidhammattha-saṅgaha",
+        characteristics: "The supreme crucible for practice. The balanced mixture of happiness and sorrow awakens spiritual urgency (saṁvega) and permits the realization of Nibbāna.",
+        reflection: "Am I using this precious, rare human embodiment for spiritual growth, or merely squandering it on sensory distraction?"
+      },
+
+      // 6-11: The Six Sensual Deva Realms (Devaloka)
+      {
+        id: "plane-6",
+        number: 6,
+        tier: "kama",
+        subTier: "Sensual Deva Heavens",
+        paliName: "Cātummahārājika",
+        englishName: "Realm of the Four Great Kings",
+        lifespan: "500 deva years (= 9 million human years)",
+        kammaCause: "Basic generosity, ethical restraint, and devotion to protecting community and virtue",
+        canonicalSources: "DN 20, DN 32 (Āṭānāṭiya), AN 3.70",
+        commentarialSources: "Visuddhimagga",
+        characteristics: "The lowest celestial realm, encompassing guardians of the four cardinal directions (Dhataraṭṭha, Virūḷhaka, Virūpakkha, Vessavaṇa).",
+        reflection: "Protective benevolence and guarding wholesome conduct in our home creates a safe refuge."
+      },
+      {
+        id: "plane-7",
+        number: 7,
+        tier: "kama",
+        subTier: "Sensual Deva Heavens",
+        paliName: "Tāvatiṁsa",
+        englishName: "Realm of the Thirty-Three (Sakka's Realm)",
+        lifespan: "1,000 deva years (= 36 million human years)",
+        kammaCause: "Civic generosity, public service (building roads, planting trees, digging wells), devotion to parents",
+        canonicalSources: "SN 11 (Sakka-saṁyutta), DN 21 (Sakkapañha Sutta)",
+        commentarialSources: "Dhammapada Commentary (Story of Magha / Sakka)",
+        characteristics: "Governed by Sakka, Lord of Devas, who is a faithful disciple of the Buddha. Celestial gardens and council halls.",
+        reflection: "Notice how unselfish community service and kindness elevate the quality of human consciousness."
+      },
+      {
+        id: "plane-8",
+        number: 8,
+        tier: "kama",
+        subTier: "Sensual Deva Heavens",
+        paliName: "Yāma",
+        englishName: "Yāma Devas (Realm of Free Joy)",
+        lifespan: "2,000 deva years (= 144 million human years)",
+        kammaCause: "Pure ethical restraint, serene generosity, non-harming, and early spiritual cultivation",
+        canonicalSources: "AN 3.70, AN 8.36",
+        commentarialSources: "Abhidhammattha-saṅgaha",
+        characteristics: "Living in perpetual luminous delight, floating in the celestial atmosphere without strife.",
+        reflection: "When the mind is free from remorse through clean moral virtue, it experiences an inner sky of peaceful delight."
+      },
+      {
+        id: "plane-9",
+        number: 9,
+        tier: "kama",
+        subTier: "Sensual Deva Heavens",
+        paliName: "Tusita",
+        englishName: "Contented Devas",
+        lifespan: "4,000 deva years (= 576 million human years)",
+        kammaCause: "Exemplary virtue, deep study of the Dhamma, dedication of merit toward enlightenment",
+        canonicalSources: "MN 123 (Acchariya-abbhuta Sutta), AN 3.70",
+        commentarialSources: "Jātaka Nidānakathā (Abode of Bodhisattas before final birth)",
+        characteristics: "The realm where Bodhisattas reside before their final human birth. Filled with joy, contentment, and Dhamma discussion.",
+        reflection: "True contentment (santuṭṭhi) does not depend on accumulating things, but on peaceful sufficiency."
+      },
+      {
+        id: "plane-10",
+        number: 10,
+        tier: "kama",
+        subTier: "Sensual Deva Heavens",
+        paliName: "Nimmānaratī",
+        englishName: "Devas Delighting in Creation",
+        lifespan: "8,000 deva years (= 2.3 billion human years)",
+        kammaCause: "Abundant generosity, creative wholesome endeavors, delight in artistic virtue",
+        canonicalSources: "AN 3.70, AN 8.36",
+        commentarialSources: "Abhidhammattha-saṅgaha",
+        characteristics: "Devas who create their own sensory delights through the sheer power of mind and enjoy them.",
+        reflection: "The creative mind is powerful; when directed toward wholesome art and kindness, it beautifies life."
+      },
+      {
+        id: "plane-11",
+        number: 11,
+        tier: "kama",
+        subTier: "Sensual Deva Heavens",
+        paliName: "Paranimmitavasavattī",
+        englishName: "Devas Wielding Power Over Others' Creation",
+        lifespan: "16,000 deva years (= 9.2 billion human years)",
+        kammaCause: "Superlative worldly generosity combined with leadership; subtle attachment to dominion",
+        canonicalSources: "MN 49, AN 3.70, SN 4.25",
+        commentarialSources: "Visuddhimagga (Māra also occupies a sector of this realm)",
+        characteristics: "The highest of the sensual heavens. They do not need to create pleasures; others manifest pleasures for their enjoyment.",
+        reflection: "Even supreme cosmic leadership and pleasure are bound to the wheel of craving and eventual decay."
+      },
+
+      // 12-14: First-Jhāna Planes (Rūpaloka)
+      {
+        id: "plane-12",
+        number: 12,
+        tier: "rupa",
+        subTier: "First Jhāna Planes",
+        paliName: "Brahmapārisajja",
+        englishName: "Brahmā's Retinue",
+        lifespan: "1/3 of an asankheyya-kappa",
+        kammaCause: "Attaining the First Jhāna in a modest, introductory degree",
+        canonicalSources: "AN 4.123, AN 4.125",
+        commentarialSources: "Abhidhammattha-saṅgaha",
+        characteristics: "Beings dwelling in peaceful companionship in the radiant court of Brahmā, free from sensual agitation.",
+        reflection: "When initial meditative focus quiets sensual restlessness, a clean, unburdened clarity opens up."
+      },
+      {
+        id: "plane-13",
+        number: 13,
+        tier: "rupa",
+        subTier: "First Jhāna Planes",
+        paliName: "Brahmapurohita",
+        englishName: "Brahmā's Ministers / Counsellors",
+        lifespan: "1/2 of an asankheyya-kappa",
+        kammaCause: "Attaining the First Jhāna with medium stability and clarity",
+        canonicalSources: "AN 4.123, AN 4.125",
+        commentarialSources: "Abhidhammattha-saṅgaha",
+        characteristics: "Ministers of the Great Brahmā with greater radiance and mental collectedness.",
+        reflection: "Mental steadiness transforms into quiet wisdom that supports others."
+      },
+      {
+        id: "plane-14",
+        number: 14,
+        tier: "rupa",
+        subTier: "First Jhāna Planes",
+        paliName: "Mahābrahmā",
+        englishName: "Great Brahmās",
+        lifespan: "1 full asankheyya-kappa",
+        kammaCause: "Superior mastery of the First Jhāna combined with boundless goodwill (mettā)",
+        canonicalSources: "DN 1 (Brahmajāla), DN 11 (Kevaddha), MN 49",
+        commentarialSources: "Visuddhimagga",
+        characteristics: "Radiant, dignified beings often mistakenly assuming they are the eternal Creator of the universe due to being born first in the world cycle (DN 1).",
+        reflection: "Notice the subtlest spiritual trap: mistaking extraordinary mental peace and power for sovereign divinity."
+      },
+
+      // 15-17: Second-Jhāna Planes (Rūpaloka)
+      {
+        id: "plane-15",
+        number: 15,
+        tier: "rupa",
+        subTier: "Second Jhāna Planes",
+        paliName: "Parittābha",
+        englishName: "Brahmās of Limited Radiance",
+        lifespan: "2 kappa eons",
+        kammaCause: "Developing the Second Jhāna (with inner tranquility and rapture, free from applied thought) to a modest degree",
+        canonicalSources: "AN 4.123, MN 120",
+        commentarialSources: "Abhidhammattha-saṅgaha",
+        characteristics: "Light-emitting beings whose bodily radiance is clear but constrained compared to higher planes.",
+        reflection: "When verbal chatter stops in meditation, the natural light of mind begins to shine."
+      },
+      {
+        id: "plane-16",
+        number: 16,
+        tier: "rupa",
+        subTier: "Second Jhāna Planes",
+        paliName: "Appamāṇābha",
+        englishName: "Brahmās of Measureless Radiance",
+        lifespan: "4 kappa eons",
+        kammaCause: "Developing the Second Jhāna with boundless radiant clarity",
+        canonicalSources: "AN 4.123, MN 120",
+        commentarialSources: "Abhidhammattha-saṅgaha",
+        characteristics: "Beings of unmeasured luminosity spreading light throughout their quadrant of the universe.",
+        reflection: "Measureless kindness generates measureless mental illumination."
+      },
+      {
+        id: "plane-17",
+        number: 17,
+        tier: "rupa",
+        subTier: "Second Jhāna Planes",
+        paliName: "Ābhassara",
+        englishName: "Brahmās of Streaming Radiance",
+        lifespan: "8 kappa eons",
+        kammaCause: "Excellence in the Second Jhāna; deep cultivation of spiritual joy (pīti)",
+        canonicalSources: "DN 27 (Aggañña), AN 4.123, AN 10.29",
+        commentarialSources: "Visuddhimagga (Beings when the world contracts)",
+        characteristics: "When the lower universe is destroyed by fire, beings take rebirth in Ābhassara, feeding on meditative joy like pure light.",
+        reflection: "Joy born of stillness is purer and more resilient than any pleasure born of sensory stimulation."
+      },
+
+      // 18-20: Third-Jhāna Planes (Rūpaloka)
+      {
+        id: "plane-18",
+        number: 18,
+        tier: "rupa",
+        subTier: "Third Jhāna Planes",
+        paliName: "Parittasubha",
+        englishName: "Brahmās of Limited Glory / Aura",
+        lifespan: "16 kappa eons",
+        kammaCause: "Attaining the Third Jhāna (equanimous, mindful, experiencing bodily happiness without rapture) to a modest degree",
+        canonicalSources: "AN 4.123, MN 120",
+        commentarialSources: "Abhidhammattha-saṅgaha",
+        characteristics: "Beings of steady, quiet luminescence, free from the excitement of rapture.",
+        reflection: "Moving beyond emotional highs into calm, steady spiritual well-being."
+      },
+      {
+        id: "plane-19",
+        number: 19,
+        tier: "rupa",
+        subTier: "Third Jhāna Planes",
+        paliName: "Appamāṇasubha",
+        englishName: "Brahmās of Measureless Glory",
+        lifespan: "32 kappa eons",
+        kammaCause: "Developing the Third Jhāna with deep unshakeable happiness and equanimity",
+        canonicalSources: "AN 4.123, MN 120",
+        commentarialSources: "Abhidhammattha-saṅgaha",
+        characteristics: "Immensely peaceful beings of measureless golden glory unaffected by cosmic water destruction.",
+        reflection: "Quiet, undemanding happiness that does not need to announce itself to anyone."
+      },
+      {
+        id: "plane-20",
+        number: 20,
+        tier: "rupa",
+        subTier: "Third Jhāna Planes",
+        paliName: "Subhakiṇha",
+        englishName: "Brahmās of Refulgent / Steady Glory",
+        lifespan: "64 kappa eons",
+        kammaCause: "Supreme mastery of the Third Jhāna",
+        canonicalSources: "AN 4.123, AN 10.29",
+        commentarialSources: "Visuddhimagga",
+        characteristics: "The pinnacle of fine-material pleasant feeling; their radiance is completely steady, like light in a lamp shielded from wind.",
+        reflection: "Even 64 eons of uninterrupted meditative bliss will eventually end when the causal kamma dissolves."
+      },
+
+      // 21-27: Fourth-Jhāna Planes (Rūpaloka)
+      {
+        id: "plane-21",
+        number: 21,
+        tier: "rupa",
+        subTier: "Fourth Jhāna Planes",
+        paliName: "Vehapphala",
+        englishName: "Brahmās of Great Reward",
+        lifespan: "500 mahā-kappas",
+        kammaCause: "Attaining the Fourth Jhāna with pure equanimity and mindfulness (upekkhā-satipārisuddhi)",
+        canonicalSources: "AN 4.123, MN 120",
+        commentarialSources: "Abhidhammattha-saṅgaha",
+        characteristics: "The principal abode for ordinary beings who master the Fourth Jhāna. Not destroyed by cosmic wind cycles.",
+        reflection: "Equanimity is the strongest fortress of the heart, neither swayed by praise nor crushed by blame."
+      },
+      {
+        id: "plane-22",
+        number: 22,
+        tier: "rupa",
+        subTier: "Fourth Jhāna Planes",
+        paliName: "Asaññasatta",
+        englishName: "Unconscious Beings",
+        lifespan: "500 mahā-kappas",
+        kammaCause: "Developing Fourth Jhāna while clinging to the view that consciousness itself is the sole cause of suffering; willing cessation of perception",
+        canonicalSources: "DN 1 (Brahmajāla), DN 33",
+        commentarialSources: "Visuddhimagga",
+        characteristics: "Beings existing as mere bodily form without conscious mental processes. When the karma exhausts, a thought arises and they pass away.",
+        reflection: "A critical warning: mere suppression of thought or blankness is not wisdom; awakening requires clear knowing (paññā)."
+      },
+      {
+        id: "plane-23",
+        number: 23,
+        tier: "rupa",
+        subTier: "The Pure Abodes (Suddhāvāsa)",
+        paliName: "Avihā",
+        englishName: "The Durable / Immobile",
+        lifespan: "1,000 mahā-kappas",
+        kammaCause: "Attaining Non-Returner (Anāgāmī) status with dominant faculty of faith (saddhā)",
+        canonicalSources: "SN 56.11, DN 14, MN 120",
+        commentarialSources: "Visuddhimagga",
+        characteristics: "The lowest of the five Pure Abodes. Non-returners realize Arahantship here and attain final Nibbāna without ever returning to the sensual world.",
+        reflection: "Faith established upon direct discernment never backslides into sensual addiction."
+      },
+      {
+        id: "plane-24",
+        number: 24,
+        tier: "rupa",
+        subTier: "The Pure Abodes (Suddhāvāsa)",
+        paliName: "Atappā",
+        englishName: "The Untroubled / Serene",
+        lifespan: "2,000 mahā-kappas",
+        kammaCause: "Non-Returner with dominant spiritual faculty of energy / diligence (viriya)",
+        canonicalSources: "DN 14, MN 120",
+        commentarialSources: "Visuddhimagga",
+        characteristics: "Beings who cause no torment to themselves or others, abiding in tranquil contemplation until final unbinding.",
+        reflection: "True spiritual energy is calm and persistent, not anxious or aggressive."
+      },
+      {
+        id: "plane-25",
+        number: 25,
+        tier: "rupa",
+        subTier: "The Pure Abodes (Suddhāvāsa)",
+        paliName: "Sudassā",
+        englishName: "The Clearly Visible / Beautiful",
+        lifespan: "4,000 mahā-kappas",
+        kammaCause: "Non-Returner with dominant spiritual faculty of mindfulness (sati)",
+        canonicalSources: "DN 14, MN 120",
+        commentarialSources: "Visuddhimagga",
+        characteristics: "Beings possessing pristine mental clarity, where phenomena are clearly perceived as impermanent, unsatisfactory, and not-self.",
+        reflection: "Clear mindfulness makes reality transparent and free of delusion."
+      },
+      {
+        id: "plane-26",
+        number: 26,
+        tier: "rupa",
+        subTier: "The Pure Abodes (Suddhāvāsa)",
+        paliName: "Sudassī",
+        englishName: "The Clear-Sighted",
+        lifespan: "8,000 mahā-kappas",
+        kammaCause: "Non-Returner with dominant spiritual faculty of concentration (samādhi)",
+        canonicalSources: "DN 14, MN 120",
+        commentarialSources: "Visuddhimagga",
+        characteristics: "Beings of profound vision whose samādhi effortlessly penetrates the conditional nature of all formations.",
+        reflection: "Concentration is a clear mirror reflecting nature as it is."
+      },
+      {
+        id: "plane-27",
+        number: 27,
+        tier: "rupa",
+        subTier: "The Pure Abodes (Suddhāvāsa)",
+        paliName: "Akaniṭṭhā",
+        englishName: "The Highest / Peerless",
+        lifespan: "16,000 mahā-kappas",
+        kammaCause: "Non-Returner with dominant spiritual faculty of wisdom (paññā)",
+        canonicalSources: "DN 14, MN 120, SN 56.11",
+        commentarialSources: "Visuddhimagga",
+        characteristics: "The supreme realm of the fine-material sphere. Non-returners complete the destruction of all five higher fetters here and attain Parinibbāna.",
+        reflection: "Wisdom is the ultimate crown of Buddhist practice, opening the gate to unconditional release."
+      },
+
+      // 28-31: The Four Immaterial Planes (Arūpaloka)
+      {
+        id: "plane-28",
+        number: 28,
+        tier: "arupa",
+        subTier: "Immaterial Realms (Arūpa-bhūmi)",
+        paliName: "Ākāsānañcāyatana",
+        englishName: "Sphere of Infinite Space",
+        lifespan: "20,000 mahā-kappas",
+        kammaCause: "Mastery of the First Immaterial Attainment, having fully abandoned all perception of physical form and diversity",
+        canonicalSources: "MN 26 (Ariyapariyesanā), DN 15, MN 120",
+        commentarialSources: "Visuddhimagga",
+        characteristics: "Completely formless existence; pure mental consciousness absorbed in boundless space.",
+        reflection: "Space has no boundaries; when mind drops physical constriction, vastness appears—yet even vastness is conditioned."
+      },
+      {
+        id: "plane-29",
+        number: 29,
+        tier: "arupa",
+        subTier: "Immaterial Realms (Arūpa-bhūmi)",
+        paliName: "Viññāṇañcāyatana",
+        englishName: "Sphere of Infinite Consciousness",
+        lifespan: "40,000 mahā-kappas",
+        kammaCause: "Mastery of the Second Immaterial Attainment, turning awareness to consciousness itself as boundless",
+        canonicalSources: "DN 15, MN 120",
+        commentarialSources: "Visuddhimagga",
+        characteristics: "Mind contemplating mind with no spatial object or material anchor.",
+        reflection: "Consciousness can observe itself, yet consciousness remains a dependently arisen process."
+      },
+      {
+        id: "plane-30",
+        number: 30,
+        tier: "arupa",
+        subTier: "Immaterial Realms (Arūpa-bhūmi)",
+        paliName: "Ākiñcaññāyatana",
+        englishName: "Sphere of Nothingness",
+        lifespan: "60,000 mahā-kappas",
+        kammaCause: "Mastery of the Third Immaterial Attainment (attained by the Buddha's first teacher, Āḷāra Kālāma)",
+        canonicalSources: "MN 26, DN 15, MN 120",
+        commentarialSources: "Visuddhimagga",
+        characteristics: "Dwelling on the subtle perception: 'There is nothing whatsoever'.",
+        reflection: "Even profound emptiness is not Nibbāna if subtle identification with that emptiness remains."
+      },
+      {
+        id: "plane-31",
+        number: 31,
+        tier: "arupa",
+        subTier: "Immaterial Realms (Arūpa-bhūmi)",
+        paliName: "Nevasaññānāsaññāyatana",
+        englishName: "Sphere of Neither-Perception-Nor-Non-Perception",
+        lifespan: "84,000 mahā-kappas",
+        kammaCause: "Mastery of the Fourth Immaterial Attainment (attained by Uddaka Rāmaputta)",
+        canonicalSources: "MN 26, DN 15, MN 120",
+        commentarialSources: "Visuddhimagga",
+        characteristics: "The absolute ceiling of saṁsāra. Mental formations are so subtle they cannot be called active perception, nor are they completely absent. Yet when 84,000 great eons elapse, the being falls back into lower realms.",
+        reflection: "The Buddha left Uddaka Rāmaputta because this subtle peak did not lead to disenchantment, cessation, or Nibbāna."
+      }
+    ]
+  },
+
+  // D. Essential Sutta Library (15 Discourses)
+  suttaLibrary: {
+    sectionTitle: "Essential Sutta Library",
+    sectionSubtitle: "15 canonical discourses on cosmology, kamma, divine realms, and the precious human opportunity",
+    searchPlaceholder: "Search suttas by code, title, topic, or Pāli keyword...",
+    filterCategories: [
+      { id: "all", label: "All Discourses (15)" },
+      { id: "cosmology", label: "Cosmology & Range (3)" },
+      { id: "kamma", label: "Kamma & Rebirth (4)" },
+      { id: "devas", label: "Devas & Limits of Heaven (4)" },
+      { id: "human", label: "Human Life & Practice (4)" }
+    ],
+    suttas: [
+      // Category A: Cosmology & Range
+      {
+        code: "DN 27",
+        paliTitle: "Aggañña Sutta",
+        transTitle: "Discourse on Knowledge of Beginnings",
+        nikaya: "Dīgha Nikāya",
+        category: "cosmology",
+        level: "intermediate",
+        readingTime: "18 min",
+        importance: "Canonical narrative detailing the periodic contraction and expansion of the world, how luminous beings from Ābhassara descend, and how social classes and institutions arise from greed and social convention.",
+        layRelevance: "Demystifies hereditary class pride and caste claims: status is a constructed social convention, not a divine mandate. Shows how moral degeneration parallels material loss.",
+        keyConcepts: ["World Contraction (Saṁvaṭṭa)", "World Expansion (Vivaṭṭa)", "Ābhassara Beings", "Origin of Social Conventions"],
+        suttaCentralUrl: "https://suttacentral.net/dn27/en/sujato",
+        studyNotes: "The Buddha delivers this to two former brahmins, Vāseṭṭha and Bhāradvāja, dismantling the claim that brahmins are born from Brahmā's mouth. The text is both a cosmological discourse and a brilliant sociopolitical satire.",
+        reflectionQuestion: "In what ways do our modern corporate and social hierarchies mirror the constructed illusions described in this discourse?"
+      },
+      {
+        code: "DN 1",
+        paliTitle: "Brahmajāla Sutta",
+        transTitle: "The All-Embracing Net of Views",
+        nikaya: "Dīgha Nikāya",
+        category: "cosmology",
+        level: "advanced",
+        readingTime: "30 min",
+        importance: "The foundational discourse classifying all 62 speculative metaphysical views regarding the eternity, non-eternity, finite nature, or infinity of the world and soul.",
+        layRelevance: "Teaches acute discernment about metaphysical dogmas and explains how cosmological memories of past lives lead philosophers to misunderstand Mahābrahmā as an eternal creator.",
+        keyConcepts: ["62 Views", "Cosmic Speculation", "Contact as Condition for Views", "Mahābrahmā Illusion"],
+        suttaCentralUrl: "https://suttacentral.net/dn1/en/sujato",
+        studyNotes: "The Buddha traces every speculative view to sensory contact (phassa), feeling (vedanā), and craving (taṇhā). Rather than debate cosmology endlessly, he exposes the psychological hooks that create metaphysical dogma.",
+        reflectionQuestion: "Am I clinging to speculative opinions about cosmic origins, or observing the conditions that give rise to my thoughts right now?"
+      },
+      {
+        code: "AN 3.80",
+        paliTitle: "Cūḷanikā Sutta",
+        transTitle: "The Minor Discourse on the Thousandfold Cosmos",
+        nikaya: "Aṅguttara Nikāya (Tikanipāta)",
+        category: "cosmology",
+        level: "intermediate",
+        readingTime: "6 min",
+        importance: "The Buddha outlines the staggering multidimensional scale of the universe: a thousandfold minor world system (sahassī cūḷanikā lokadhātu), a millionfold middling system, and a billionfold great galaxy system.",
+        layRelevance: "Expands the practitioner's perspective beyond petty provincialism, inspiring cosmic humility without implying that physical exploration replaces inner liberation.",
+        keyConcepts: ["Thousandfold Galaxy", "Cosmic Scale", "Voice of the Buddha Across Realms", "Billionfold Cosmos"],
+        suttaCentralUrl: "https://suttacentral.net/an3.80/en/sujato",
+        studyNotes: "Ānanda marvels at the vast scale of the cosmos. The Buddha clarifies that although his voice can resonate across ten thousand worlds, physical immensity does not equal liberation.",
+        reflectionQuestion: "How does realizing the infinitesimal nature of our planet dissolve daily egotistical drama?"
+      },
+
+      // Category B: Kamma and Rebirth
+      {
+        code: "MN 135",
+        paliTitle: "Cūḷakammavibhaṅga Sutta",
+        transTitle: "The Shorter Exposition of Action",
+        nikaya: "Majjhima Nikāya",
+        category: "kamma",
+        level: "beginner",
+        readingTime: "10 min",
+        importance: "The young student Subha asks why beings are seen to be short-lived or long-lived, sickly or healthy, ugly or beautiful, influential or uninfluential, poor or rich, low-born or high-born. The Buddha explains the kamma behind each tendency.",
+        layRelevance: "Instills ethical sobriety and personal accountability for actions, speech, and mental habits. Must never be weaponized to blame victims of assault, poverty, or disease.",
+        keyConcepts: ["Kammassakā Sattā", "Intention & Consequence", "Roots of Wealth & Health", "Non-Harm"],
+        suttaCentralUrl: "https://suttacentral.net/mn135/en/sujato",
+        studyNotes: "The Buddha proclaims: 'Beings are owners of their actions, heirs of their actions, born of their actions, bound to their actions, supported by their actions. It is action that distinguishes beings as inferior and superior.'",
+        reflectionQuestion: "Can I take full responsibility for my present actions without falling into the trap of self-righteous judgment toward others?"
+      },
+      {
+        code: "MN 136",
+        paliTitle: "Mahākammavibhaṅga Sutta",
+        transTitle: "The Great Exposition of Action",
+        nikaya: "Majjhima Nikāya",
+        category: "kamma",
+        level: "advanced",
+        readingTime: "16 min",
+        importance: "A vital corrective against naive, simplistic formulas of kamma. The Buddha demonstrates that a person who did bad deeds may still be reborn in heaven, while a good person may be reborn in hell, due to other karmic conditions or death-bed consciousness.",
+        layRelevance: "Prevents cynicism when good people suffer or unethical people prosper in worldly life. Kamma is a complex multidimensional stream, not an immediate vending machine.",
+        keyConcepts: ["Complexity of Kamma", "Four Types of Persons", "Past & Near-Death Kamma", "Refutation of Simplistic Generalizations"],
+        suttaCentralUrl: "https://suttacentral.net/mn136/en/sujato",
+        studyNotes: "The Buddha critiques ascetics who overgeneralize from a single meditative vision: 'Because I saw someone who killed go to heaven, all killing leads to heaven.' The Buddha shows the intricate matrix of conditions governing karmic ripening.",
+        reflectionQuestion: "Do I expect immediate worldly rewards for every good deed, or do I trust the deeper, long-term law of ethical causation?"
+      },
+      {
+        code: "AN 6.63",
+        paliTitle: "Nibbedhika Sutta",
+        transTitle: "Penetrative Discourse",
+        nikaya: "Aṅguttara Nikāya (Chakkanipāta)",
+        category: "kamma",
+        level: "beginner",
+        readingTime: "7 min",
+        importance: "Contains the Buddha's definitive canonical definition of kamma: 'Intention, monastics, is what I call kamma. Having intended, one performs an action through body, speech, or mind.'",
+        layRelevance: "Crucial for lay ethics: unintentional accidents (like accidentally stepping on an insect in the dark) do not constitute unwholesome kamma. Intention (cetanā) is the heart of practice.",
+        keyConcepts: ["Cetanāhaṁ Kammaṁ Vadāmi", "Intention", "Cessation of Kamma Through Eightfold Path"],
+        suttaCentralUrl: "https://suttacentral.net/an6.63/en/sujato",
+        studyNotes: "Kamma is defined by its source (contact), its variety (pleasant, painful, neutral results), its result (experiential maturation), its cessation (the ending of craving), and the way to its cessation (the Noble Eightfold Path).",
+        reflectionQuestion: "What unspoken intention was driving my most recent words or choices?"
+      },
+      {
+        code: "SN 15.3",
+        paliTitle: "Tiṇakaṭṭha Sutta",
+        transTitle: "Sticks and Grass",
+        nikaya: "Saṁyutta Nikāya (Anamataggasaṁyutta)",
+        category: "kamma",
+        level: "beginner",
+        readingTime: "4 min",
+        importance: "The Buddha uses evocative similes—gathering all sticks in India to count mother-generations, and showing that the tears shed in saṁsāra exceed the waters of the four great oceans.",
+        layRelevance: "Awakens profound spiritual urgency (saṁvega) and boundless compassion: every being we meet has been our mother, father, brother, sister, or child in this beginningless wandering.",
+        keyConcepts: ["Anamatagga (Beginningless Saṁsāra)", "Ocean of Tears", "Mother's Milk", "Spiritual Urgency (Saṁvega)"],
+        suttaCentralUrl: "https://suttacentral.net/sn15.3/en/sujato",
+        studyNotes: "The purpose of reflecting on the incomprehensible scale of rebirth is not curiosity or despair, but disenchantment (nibbidā): 'Long enough have you experienced stress, monastics; enough to become disenchanted with all conditioned things.'",
+        reflectionQuestion: "If the stranger irritating me has likely been my loving mother in past eons, how can I treat them with patience today?"
+      },
+
+      // Category C: Devas, Brahmās, & Limits of Heavenly Existence
+      {
+        code: "DN 11",
+        paliTitle: "Kevaddha Sutta",
+        transTitle: "To Kevaddha",
+        nikaya: "Dīgha Nikāya",
+        category: "devas",
+        level: "intermediate",
+        readingTime: "15 min",
+        importance: "Narrative of a monk who visits every celestial realm asking where the four great elements cease without remainder. Even the Great Brahmā admits in private that he does not know, redirecting the monk back to the Buddha.",
+        layRelevance: "Demystifies the omniscient pretensions of gods and cosmic powers. No cosmic creator or celestial entity possesses the ultimate wisdom of liberation.",
+        keyConcepts: ["Where Elements Cease", "Mahābrahmā's Limitation", "The Miracle of Education", "Cessation in Consciousness"],
+        suttaCentralUrl: "https://suttacentral.net/dn11/en/sujato",
+        studyNotes: "When the monk corners Mahābrahmā, Brahmā takes him by the arm and whispers: 'The other gods think I know everything, but I do not know. Go back to the Blessed One.' The Buddha answers: elements cease where consciousness is unmanifest, boundless, and luminous all around.",
+        reflectionQuestion: "Do I place my spiritual trust in external cosmic patrons, or in the direct purification of my own mind?"
+      },
+      {
+        code: "DN 13",
+        paliTitle: "Tevijja Sutta",
+        transTitle: "The Threefold Knowledge",
+        nikaya: "Dīgha Nikāya",
+        category: "devas",
+        level: "intermediate",
+        readingTime: "14 min",
+        importance: "Two young brahmins argue over the true path to union with Brahmā. The Buddha critiques their blind trust in rituals and reveals that the true path to fellowship with Brahmā is cultivating the Four Sublime Abodes (Brahmavihāras).",
+        layRelevance: "Connects spiritual aspiration directly to boundless loving-kindness (mettā), compassion (karuṇā), appreciative joy (muditā), and equanimity (upekkhā).",
+        keyConcepts: ["Union with Brahmā", "Critique of Vedic Dogma", "Four Brahmavihāras", "Pervading the Cosmos with Goodwill"],
+        suttaCentralUrl: "https://suttacentral.net/dn13/en/sujato",
+        studyNotes: "The Buddha asks: 'Does Brahmā have wives and property? Is he angry or pure?' The brahmins reply: 'He is pure, without malice.' The Buddha responds: 'Then how can angry, greedy men unite with an unmalicious Brahmā? Cultivate the brahmavihāras to be like Brahmā.'",
+        reflectionQuestion: "Can I radiate unconditional goodwill toward all directions of my city before beginning my day?"
+      },
+      {
+        code: "MN 49",
+        paliTitle: "Brahmanimantanika Sutta",
+        transTitle: "The Invitation of a Brahmā",
+        nikaya: "Majjhima Nikāya",
+        category: "devas",
+        level: "advanced",
+        readingTime: "16 min",
+        importance: "Baka Brahmā falls into the dangerous delusion that his exalted realm is eternal, permanent, and the ultimate refuge. The Buddha travels directly to the Brahmā realm to dismantle this delusion.",
+        layRelevance: "Shows that even beings who live for cosmic cycles can fall into spiritual blindness. Refined meditative bliss must not be mistaken for unconditioned liberation.",
+        keyConcepts: ["Baka Brahmā's Delusion", "Limits of Fine-Material Existence", "The Unconditioned Beyond Brahmā", "Māra's Intervention"],
+        suttaCentralUrl: "https://suttacentral.net/mn49/en/sujato",
+        studyNotes: "The Buddha warns Baka: 'You do not know the realms above your own; but I know them, and I know your origin and your passing away.' The Buddha demonstrates that Nibbāna transcends all realms of form and formlessness.",
+        reflectionQuestion: "Have I mistaken a temporary peaceful emotional plateau for permanent spiritual realization?"
+      },
+      {
+        code: "AN 4.77",
+        paliTitle: "Acinteyya Sutta",
+        transTitle: "The Unthinkable / Incomprehensible",
+        nikaya: "Aṅguttara Nikāya (Catukkanipāta)",
+        category: "devas",
+        level: "beginner",
+        readingTime: "3 min",
+        importance: "The Buddha enumerates four unthinkables (acinteyyā) that lead to madness and vexation if one attempts to calculate them: the range of a Buddha, the range of jhāna, the precise ripening of kamma, and speculation about the world.",
+        layRelevance: "Promotes intellectual humility and psychological sanity. Encourages practitioners to focus on practical ethical training rather than obsessing over cosmic physics.",
+        keyConcepts: ["Four Unthinkables", "Limits of Conceptual Thought", "Kammavipāka Inscrutability", "Loka-cintā"],
+        suttaCentralUrl: "https://suttacentral.net/an4.77/en/sujato",
+        studyNotes: "Trying to deduce exactly which specific past action caused every detail of present life is impossible for an unawakened mind. Focus on present intention instead.",
+        reflectionQuestion: "Am I wasting mental energy trying to solve metaphysical riddles that do not lead to the ending of suffering?"
+      },
+
+      // Category D: Human Life & Opportunity for Practice
+      {
+        code: "SN 56.48",
+        paliTitle: "Chiggala Sutta",
+        transTitle: "The Hole in the Yoke (Blind Turtle)",
+        nikaya: "Saṁyutta Nikāya (Saccasaṁyutta)",
+        category: "human",
+        level: "beginner",
+        readingTime: "3 min",
+        importance: "The definitive discourse declaring the astronomical rarity of obtaining a human birth equipped to encounter the True Dhamma.",
+        layRelevance: "Shakes the lay practitioner awake from complacency. Human birth is not guaranteed, easy, or routine; it is an extraordinary stroke of spiritual fortune.",
+        keyConcepts: ["Blind Sea Turtle", "Yoke with One Hole", "Rarity of Human Life", "Rare Encounter with Dhamma"],
+        suttaCentralUrl: "https://suttacentral.net/sn56.48/en/sujato",
+        studyNotes: "The turtle surfaces once every hundred years in a stormy ocean. The Buddha asks if its neck would easily enter the floating yoke. Ānanda replies: 'Only by a miracle, Bhante.' The Buddha says human rebirth is even rarer.",
+        reflectionQuestion: "Knowing how rare this human life is, what will I prioritize with my remaining years?"
+      },
+      {
+        code: "AN 8.54",
+        paliTitle: "Dīghajāṇu Sutta",
+        transTitle: "Conditions for Lay Welfare",
+        nikaya: "Aṅguttara Nikāya (Aṭṭhakanipāta)",
+        category: "human",
+        level: "beginner",
+        readingTime: "8 min",
+        importance: "The layman Dīghajāṇu asks for teachings suitable for householders who enjoy family life, perfumes, and wealth. The Buddha gives four conditions for welfare in this life and four for future welfare.",
+        layRelevance: "Directly bridges Buddhist cosmology and lay domestic reality: diligence (uṭṭhāna-sampadā), protection (ārakkha-sampadā), good friends (kalyāṇamittatā), and balanced living (samajīvitā).",
+        keyConcepts: ["Lay Welfare Here & Now", "Future Welfare (Faith, Virtue, Giving, Wisdom)", "Financial Stewardship", "Noble Friendship"],
+        suttaCentralUrl: "https://suttacentral.net/an8.54/en/sujato",
+        studyNotes: "The Buddha does not ask laypeople to renounce their households; he shows them how to cultivate ethical stewardship that secures prosperity here and a fortunate rebirth hereafter.",
+        reflectionQuestion: "Is my household financial management balanced, and am I surrounded by friends who inspire ethical integrity?"
+      },
+      {
+        code: "AN 5.57",
+        paliTitle: "Upajjhaṭṭhana Sutta",
+        transTitle: "Subjects for Frequent Recollection",
+        nikaya: "Aṅguttara Nikāya (Pañcakanipāta)",
+        category: "human",
+        level: "beginner",
+        readingTime: "5 min",
+        importance: "The Five Daily Remembrances that every person—lay or monastic—should contemplate frequently: aging, illness, death, separation, and ownership of kamma.",
+        layRelevance: "The ultimate daily contemplations grounding cosmological teachings into immediate moral lucidity, cutting through pride in youth, health, and life.",
+        keyConcepts: ["Five Remembrances", "I am Subject to Aging", "Illness & Death", "Owner of My Kamma"],
+        suttaCentralUrl: "https://suttacentral.net/an5.57/en/sujato",
+        studyNotes: "Contemplating that 'I am the owner of my kamma, heir to my kamma' overcomes negligence (pamāda) and inspires unshakeable commitment to wholesome living.",
+        reflectionQuestion: "Recite the Five Remembrances: How does facing aging and death transform my priorities today?"
+      },
+      {
+        code: "DN 16",
+        paliTitle: "Mahāparinibbāna Sutta",
+        transTitle: "The Great Discourse on the Final Nibbāna",
+        nikaya: "Dīgha Nikāya",
+        category: "human",
+        level: "advanced",
+        readingTime: "35 min",
+        importance: "The epic canonical account of the Buddha's final months, the earthquake shaking cosmological realms, his passing, and his immortal final exhortation.",
+        layRelevance: "The final words of the Buddha: 'All conditioned things are subject to decay; strive diligently with vigilance (appamādena sampādetha).' Puts all cosmological inquiry in perspective.",
+        keyConcepts: ["Vaya-dhammā Saṅkhārā", "Appamādena Sampādetha", "Cosmic Shaking at Parinibbāna", "Dhamma as Eternal Teacher"],
+        suttaCentralUrl: "https://suttacentral.net/dn16/en/sujato",
+        studyNotes: "Even the Supreme Buddha's physical body—the finest form in the universe—undergoes natural dissolution. The Dhamma alone remains the eternal island of refuge.",
+        reflectionQuestion: "How will I embody the Buddha's final command: 'Strive diligently with heedfulness'?"
+      }
+    ]
+  },
+
+  // E. Lay Life and Cosmology: 5 Realistic Lay Scenarios
+  layScenarios: {
+    sectionTitle: "What Buddhist Cosmology Means for Daily Life",
+    sectionSubtitle: "Translating cosmic perspectives into domestic ethical conduct, emotional resilience, and compassion",
+    scenarios: [
+      {
+        id: "cosmo-sc-1",
+        number: "01",
+        title: "Anger, Vindictiveness, and Harmful Speech",
+        narrative: "During a bitter family dispute or high-stakes corporate negotiation, someone blindsides you with deceitful accusations. An intense urge surges to ruin their reputation, retaliate maliciously, and destroy their credibility.",
+        dhammaPrinciple: "In Buddhist cosmology, repeated hatred and intent to harm condition a state of mind analogous to niraya (hell) and plant karmic seeds for future suffering. AN 6.63 reminds us that intention is kamma. Retaliation does not defeat hatred; it merely binds both parties to a mutual downward spiral.",
+        practicalExercise: "Apply the Brahmavihāras (DN 13): Pause for 10 conscious breaths. Acknowledge: 'Anger has arisen in my chest. If I act from this malice, I shoot myself with a poisoned dart.' Guard right speech (sammā-vācā). Speak the truth calmly without slander or abusive words.",
+        reflectionQuestion: "If every hateful word builds my future psychological dwelling place, what realm am I constructing right now?",
+        suttas: ["AN 6.63 (Nibbedhika)", "DN 13 (Tevijja)", "MN 21 (The Saw)"]
+      },
+      {
+        id: "cosmo-sc-2",
+        number: "02",
+        title: "Generosity, Giving, and Household Wealth",
+        narrative: "You receive an annual bonus or significant profit in your business. Friends encourage you to spend it on status symbols, while a local monastic community or humanitarian shelter requests support.",
+        dhammaPrinciple: "Traditional cosmology connects sincere generosity (dāna) with pleasant future outcomes, human security, and heavenly rebirth. However, AN 8.54 stresses that householder generosity must be balanced: one must not impoverish one's family or business while seeking merit.",
+        practicalExercise: "Practice fourfold financial stewardship from the Sigālovāda Sutta (DN 31): 1 part for daily household sustenance, 2 parts reinvested in honest livelihood, and 1 part saved for emergencies, while joyfully dedicating a clean portion of surplus to authentic generosity without pride or expectation of return.",
+        reflectionQuestion: "Can I give freely with a glad heart, without turning the gift into a tool for social vanity?",
+        suttas: ["AN 8.54 (Dīghajāṇu)", "AN 4.62 (Anaṇa Sutta)", "DN 31 (Sigālovāda)"]
+      },
+      {
+        id: "cosmo-sc-3",
+        number: "03",
+        title: "Status, Wealth, and Heavenly Aspiration",
+        narrative: "You find yourself admiring affluent influencers or wealthy socialites, wishing you could be reborn into a family of immense privilege, ease, luxury, and effortless pleasure.",
+        dhammaPrinciple: "Aspirations for heavenly rebirth or worldly wealth may motivate moral actions, but DN 11 and MN 49 warn that even the highest heavens are impermanent. When the merit that created that luxury runs out, beings fall back into hardship. The highest purpose of the Dhamma is not comfortable reincarnation, but Nibbāna.",
+        practicalExercise: "Contemplate the impermanence of luxury: Look at antique palaces, bankrupt empires, and aged celebrities. Notice how quickly pleasure evaporates. Re-orient your primary aspiration from 'favorable worldly rebirth' to 'freedom from craving and delusion'.",
+        reflectionQuestion: "Am I treating the Dhamma as a ticket to luxury, or as the path to eradicate the root of suffering?",
+        suttas: ["DN 11 (Kevaddha)", "MN 49 (Brahmanimantanika)", "SN 15.3 (Sticks & Grass)"]
+      },
+      {
+        id: "cosmo-sc-4",
+        number: "04",
+        title: "Illness, Disability, Poverty, and Adversity",
+        narrative: "A friend, family member, or neighbor is diagnosed with a chronic degenerative disease or faces severe financial ruin. Someone casually suggests: 'It must be their bad past kamma.'",
+        dhammaPrinciple: "CRITICAL DOCTRINAL SAFEGUARD: The Buddha explicitly rejected the fatalistic doctrine that every single experience of pain is directly due to past kamma (pubbekatahetu). Pain arises from bile, phlegm, seasonal changes, accidents, and external causes (SN 36.21). Suttas strictly forbid using kamma to blame victims of illness, disability, or injustice.",
+        practicalExercise: "Never judge another person's adversity through superficial karmic speculation. Respond immediately with active compassion (karuṇā), medical support, practical aid, and ethical solidarity, recognizing that in saṁsāra, all beings have experienced every misfortune.",
+        reflectionQuestion: "How can I eradicate any trace of self-righteous spiritual blaming and replace it with unconditional, practical care?",
+        suttas: ["SN 36.21 (Sīvaka Sutta)", "MN 136 (Mahākammavibhaṅga)", "AN 4.77 (Acinteyya)"]
+      },
+      {
+        id: "cosmo-sc-5",
+        number: "05",
+        title: "Facing Death, Grief, and Cosmic Uncertainty",
+        narrative: "You receive an alarming health diagnosis, or a beloved family member passes away. Existential dread strikes: 'Where am I going after death? What will happen to my consciousness?'",
+        dhammaPrinciple: "Reflecting on death and rebirth (maraṇassati) is taught to generate heedfulness, not neurotic panic. AN 5.57 teaches the Five Remembrances so that we invest our energy into what actually protects us: wholesome intention, ethical conduct, and inner wisdom.",
+        practicalExercise: "Recite the fifth remembrance daily: 'I am the owner of my kamma, heir to my kamma. Whatever action I perform, good or bad, of that I shall be the heir.' Take refuge in the Triple Gem, practice forgiveness, resolve old conflicts, and establish the mind in calm mindfulness.",
+        reflectionQuestion: "When my time comes to release this physical body, will my mind be anchored in peaceful non-clinging?",
+        suttas: ["AN 5.57 (Upajjhaṭṭhana)", "SN 56.48 (Blind Turtle)", "DN 16 (Mahāparinibbāna)"]
+      }
+    ]
+  },
+
+  // F. Kamma, Rebirth, and Responsibility & Interactive Exercise
+  kammaSection: {
+    sectionTitle: "Kamma, Rebirth, and Responsibility",
+    sectionSubtitle: "The ethical engine driving the cosmic wheel: intention, ripening, and freedom",
+    leadText: "Kamma is not fatalism, destiny, or cosmic punishment. In Theravāda Buddhism, kamma is the law of ethical cause and effect driven by intention (cetanā).",
+    corePrinciples: [
+      {
+        title: "Kamma as Intentional Action",
+        detail: "Actions performed intentionally through body, speech, or mind produce karmic momentum. Unintentional acts (such as involuntarily bumping into an object) do not create karmic seeds (AN 6.63)."
+      },
+      {
+        title: "Distinction Between Action (Kamma) & Result (Vipāka)",
+        detail: "Kamma is the active cause planted now; vipāka is the passive experiential fruition ripening later. You have sovereign power over your present choices, even when dealing with difficult conditions."
+      },
+      {
+        title: "Ripening Is Neither Simple nor Immediate",
+        detail: "Kamma ripens across three timeframes: in this present life (diṭṭhadhammavedanīya), in the next life (upapajjavedanīya), or in future lives (aparāpariyavedanīya) when supporting conditions align (MN 136)."
+      },
+      {
+        title: "No Static Soul Transmigrates",
+        detail: "Rebirth is not an eternal soul (attā) migrating into a new vessel like someone changing clothes. It is an unbroken causal stream of consciousness (viññāṇa-sota), like one candle flame lighting another."
+      }
+    ],
+    decisionExercise: {
+      title: "Interactive Ethical Decision Exercise",
+      subtitle: "Observe the karmic momentum of ordinary choices in daily lay life",
+      dilemmas: [
+        {
+          id: "dilemma-1",
+          situation: "Speaking truthfully when a convenient lie would avoid embarrassment at work.",
+          options: [
+            { text: "Tell the convenient lie to protect immediate image", momentum: "Reinforces habitual delusion and fear; plants seeds of mistrust and anxiety." },
+            { text: "Speak the truth with humility and propose a constructive solution", momentum: "Cultivates Right Speech (sammā-vācā); establishes unshakeable self-respect and karmic trustworthiness." }
+          ]
+        },
+        {
+          id: "dilemma-2",
+          situation: "Responding to a furious verbal insult from an acquaintance.",
+          options: [
+            { text: "Retaliate with sharp, wounding sarcasm", momentum: "Feeds the fire of aversion; binds consciousness to reciprocal hostility (niraya-seed)." },
+            { text: "Pause, breathe, and refuse to return hostility", momentum: "Breaks the karmic link; cultivates the sublime abode of patience and equanimity (khanti-pāramī)." }
+          ]
+        },
+        {
+          id: "dilemma-3",
+          situation: "A charity asks for help, but donating would cut into your emergency savings.",
+          options: [
+            { text: "Donate recklessly beyond your means to look generous", momentum: "Creates financial instability and anxiety; neglects householder duty (AN 8.54)." },
+            { text: "Give an appropriate, heartfelt donation while responsibly protecting household security", momentum: "Pure, balanced generosity (dāna) aligned with wise lay stewardship." }
+          ]
+        },
+        {
+          id: "dilemma-4",
+          situation: "An opportunity to take credit for a coworker's unacknowledged hard work.",
+          options: [
+            { text: "Quietly accept the credit and bonus", momentum: "Karmic violation of taking what is not given; strengthens deceit and future vulnerability." },
+            { text: "Publicly acknowledge and praise the coworker's contribution", momentum: "Cultivates appreciative joy (muditā) and ethical integrity; establishes noble friendship." }
+          ]
+        },
+        {
+          id: "dilemma-5",
+          situation: "Facing physical exhaustion and sickness on a busy day.",
+          options: [
+            { text: "Rage against the body and catastrophize the illness", momentum: "Shoots oneself with the second arrow (SN 36.6); multiplies distress." },
+            { text: "Care for the body with medicine and rest while contemplating impermanence", momentum: "Wisdom contemplating the nature of form (rūpa); fulfills the first duty of understanding Dukkha." }
+          ]
+        },
+        {
+          id: "dilemma-6",
+          situation: "Noticing an impulse to indulge in compulsive online shopping late at night.",
+          options: [
+            { text: "Immediately buy the item to escape boredom", momentum: "Nourishes the hungry ghost habit loop of endless thirst (taṇhā)." },
+            { text: "Recognize the craving, step away from the device, and take five conscious breaths", momentum: "Strengthens sense restraint (indriya-saṁvara) and inner contentment." }
+          ]
+        }
+      ]
+    }
+  },
+
+  // G. The Goal Beyond the 31 Planes: Nibbāna Is Not Another Realm
+  beyondPlanes: {
+    sectionTitle: "Nibbāna Is Not Another Realm",
+    sectionSubtitle: "The unconditioned reality transcending all cosmological dimensions",
+    leadText: "One of the most profound teachings in Theravāda Buddhism is that the goal of practice is NOT to secure a seat in the highest heaven. Nibbāna is not plane #32.",
+    points: [
+      {
+        title: "All Conditioned Existence Is Impermanent",
+        detail: "Even the longest celestial lifespans (such as 84,000 eons in the immaterial spheres) eventually dissolve. When the underlying merit is spent, beings pass away and are reborn according to remaining karmic conditions (MN 49)."
+      },
+      {
+        title: "Pleasure Does Not Equal Freedom",
+        detail: "Sensual and meditative pleasures temporarily mask the underlying presence of ignorance (avijjā) and latent defilements (anusaya). Awakening requires penetrating the Four Noble Truths, not accumulating celestial bliss."
+      },
+      {
+        title: "The Unconditioned (Asaṅkhata)",
+        detail: "Nibbāna is the unconditioned: unborn, unoriginated, uncreated, and unformed (Udāna 8.3). It is the complete extinguishing of greed, hatred, and delusion—the total cessation of suffering."
+      }
+    ],
+    reflectionQuestion: "If even the most refined conditioned existence in the cosmos is subject to impermanence and decay, what does it mean to seek true freedom rather than merely a comfortable temporary rebirth?"
+  },
+
+  // H. Guided Study Pathways (3 Tracks)
+  studyPathways: {
+    sectionTitle: "Guided Study Pathways",
+    sectionSubtitle: "Structured learning curricula for beginners, intermediate students, and advanced practitioners",
+    disclaimer: "These pathways are pedagogical suggestions to guide personal study, not rigid dogmas.",
+    tracks: [
+      {
+        id: "beginner-track",
+        name: "Beginner Track — 7 Days",
+        duration: "7 Days (15 min/day)",
+        description: "Foundational introduction to the human opportunity, kamma as intention, and daily ethical conduct.",
+        days: [
+          { day: 1, sutta: "Cosmology Overview", task: "Read the overview of the 3 tiers (Kāma, Rūpa, Arūpa) and the Hero section." },
+          { day: 2, sutta: "SN 56.48 (Chiggala Sutta)", task: "Study the Blind Turtle simile. Contemplate the rarity of human life." },
+          { day: 3, sutta: "AN 6.63 (Nibbedhika Sutta)", task: "Learn the definition of kamma as intention (cetanā)." },
+          { day: 4, sutta: "MN 135 (Cūḷakammavibhaṅga)", task: "Investigate how actions distinguish beings in health, wealth, and character." },
+          { day: 5, sutta: "DN 11 (Kevaddha Sutta)", task: "Discover the limitations of Mahābrahmā and why gods are not omniscient." },
+          { day: 6, sutta: "AN 8.54 (Dīghajāṇu Sutta)", task: "Apply Buddhist ethics to household financial stewardship and friendship." },
+          { day: 7, sutta: "AN 5.57 (Upajjhaṭṭhana)", task: "Recite the Five Remembrances and write your reflection in the journal." }
+        ]
+      },
+      {
+        id: "intermediate-track",
+        name: "Intermediate Track — 14 Days",
+        duration: "14 Days (25 min/day)",
+        description: "Deeper study of kamma complexity, sensual and fine-material planes, and the Brahmavihāras.",
+        days: [
+          { day: 1, sutta: "The 31 Planes: Sensual Tier", task: "Explore planes 1 to 11 in the interactive explorer." },
+          { day: 2, sutta: "MN 136 (Mahākammavibhaṅga)", task: "Study why good people may face difficult ripening and vice versa." },
+          { day: 3, sutta: "SN 15.3 (Tiṇakaṭṭha Sutta)", task: "Contemplate the beginningless ocean of tears and spiritual urgency." },
+          { day: 4, sutta: "DN 13 (Tevijja Sutta)", task: "Understand the 4 Brahmavihāras as the authentic path to Brahmā." },
+          { day: 5, sutta: "The 31 Planes: Rūpa Tier", task: "Explore the 16 fine-material realms and their relation to jhāna." },
+          { day: 6, sutta: "MN 49 (Brahmanimantanika)", task: "Examine Baka Brahmā's illusion of permanence and the Buddha's refutation." },
+          { day: 7, sutta: "Midway Review & Exercise", task: "Complete the 6 dilemmas in the Ethical Decision Exercise." },
+          { day: 8, sutta: "The 31 Planes: Arūpa Tier", task: "Explore the 4 immaterial realms (space, consciousness, nothingness, neither)." },
+          { day: 9, sutta: "AN 4.77 (Acinteyya Sutta)", task: "Study the four unthinkables and cultivate intellectual humility." },
+          { day: 10, sutta: "AN 3.80 (Cūḷanikā Sutta)", task: "Contemplate the billionfold cosmic scale and human perspective." },
+          { day: 11, sutta: "Pure Abodes & Non-Return", task: "Study planes 23–27 and the spiritual faculties required for Non-return." },
+          { day: 12, sutta: "Scenarios 1 & 2", task: "Review Anger & Speech and Wealth Stewardship in daily life." },
+          { day: 13, sutta: "Scenarios 3, 4 & 5", task: "Review Status Aspirations, Adversity Safeguards, and Death." },
+          { day: 14, sutta: "Nibbāna Beyond the Planes", task: "Synthesize study: why Nibbāna is not realm #32." }
+        ]
+      },
+      {
+        id: "advanced-track",
+        name: "Advanced Track — 30 Days",
+        duration: "30 Days (40 min/day)",
+        description: "Exhaustive exploration of DN 1, DN 27, DN 16, Abhidhamma systematization, and liberation.",
+        days: [
+          { day: 1, sutta: "DN 27 (Aggañña Sutta - Part 1)", task: "World contraction, expansion, and the descent of luminous beings." },
+          { day: 2, sutta: "DN 27 (Aggañña Sutta - Part 2)", task: "Emergence of food, physical differentiation, and social class critique." },
+          { day: 3, sutta: "DN 1 (Brahmajāla Sutta - Part 1)", task: "The initial moralities and the first sets of eternalist cosmic views." },
+          { day: 4, sutta: "DN 1 (Brahmajāla Sutta - Part 2)", task: "Partial eternalism, finite/infinite universe views, and agnosticism." },
+          { day: 5, sutta: "DN 1 (Brahmajāla Sutta - Part 3)", task: "The entrapment of views in contact and how noble disciples transcend them." },
+          { day: 6, sutta: "Abhidhammattha-saṅgaha (Chapter 5)", task: "Study the classical Theravāda mapping of realms and planes." },
+          { day: 7, sutta: "DN 16 (Mahāparinibbāna Sutta)", task: "The cosmic quaking at the Buddha's passing and his final instruction." }
+        ]
+      }
+    ]
+  },
+
+  // I. Contemplative Reflection Journal
+  reflectionJournal: {
+    sectionTitle: "Cosmological Reflection Journal",
+    sectionSubtitle: "Private contemplation log stored strictly in your local browser storage",
+    prompts: [
+      { id: "cq1", label: "1. What did this discourse or realm teach me about the range of conditioned existence?", placeholder: "Reflect on lifespans, realms, or states of being..." },
+      { id: "cq2", label: "2. How does this teaching connect my present intentions (cetanā) to future results?", placeholder: "Examine intention in daily choices..." },
+      { id: "cq3", label: "3. What does this reveal about the inherent impermanence of even exalted states?", placeholder: "Notice how all conditioned things pass away..." },
+      { id: "cq4", label: "4. Am I pursuing ethical welfare, heavenly approval, or ultimate liberation (Nibbāna)?", placeholder: "Clarify your spiritual compass..." },
+      { id: "cq5", label: "5. How can I practice compassion without judging or blaming others for their adversity?", placeholder: "Cultivate non-judgmental kindness..." },
+      { id: "cq6", label: "6. Which canonical sutta illuminated this experience today?", placeholder: "e.g., SN 56.48, MN 135, AN 6.63, DN 11..." }
+    ],
+    saveButtonText: "Save Cosmological Reflection",
+    entriesHeading: "Your Saved Reflections",
+    noEntriesNotice: "No reflections logged yet. Complete the prompt above to begin your personal practice archive.",
+    exportButtonText: "Export Reflections (JSON)",
+    clearAllButtonText: "Clear Archive"
+  },
+
+  // J. Frequently Asked Questions (14 Canonical FAQs)
+  faqs: {
+    sectionTitle: "Frequently Asked Questions",
+    sectionSubtitle: "Authentic Theravāda doctrinal answers grounded in canonical discourses",
+    items: [
+      {
+        q: "What is Buddhist cosmology in the Theravāda tradition?",
+        a: "In Theravāda Buddhism, cosmology is not mythological fiction; it is a descriptive map of conditioned existence (saṁsāra). It charts the realms populated by sentient beings according to their kamma, divided into the Sensual (Kāma), Fine-Material (Rūpa), and Immaterial (Arūpa) realms. Its purpose is soteriological: to inspire spiritual urgency (saṁvega), demonstrate the universal law of kamma, and highlight the necessity of liberation."
+      },
+      {
+        q: "What are the 31 planes of existence?",
+        a: "The 31 planes are a traditional Theravāda classification summarizing the cosmos: 11 sensual realms (4 lower states of deprivation, the human world, and 6 deva heavens), 16 fine-material Brahmā worlds (corresponding to the 4 jhānas and including the 5 Pure Abodes), and 4 immaterial realms (corresponding to formless meditative attainments)."
+      },
+      {
+        q: "Does every early sutta describe all 31 planes in sequence?",
+        a: "No. The 31-plane scheme is a later traditional systematization (consolidated in the Abhidhamma and commentarial treatises like the Visuddhimagga and Abhidhammattha-saṅgaha). The individual realms (such as Tāvatiṁsa, Mahābrahmā, Ābhassara, and the Pure Abodes) are described throughout the discourses, but they are not listed as a single 31-plane schema in any single early discourse."
+      },
+      {
+        q: "What determines where a being is reborn?",
+        a: "Rebirth is determined by intention (cetanā), habitual actions, and near-death consciousness. Unwholesome kamma rooted in greed, hatred, and delusion leads downward; wholesome kamma rooted in generosity, virtue, and loving-kindness leads to human or celestial realms; mastery of jhāna conditions Brahmā rebirth; and eradicating all defilements brings the end of rebirth."
+      },
+      {
+        q: "Are devas and Brahmās immortal in Buddhism?",
+        a: "No. All beings in the cosmos—including the most exalted Great Brahmā living for entire world cycles—are impermanent (anicca) and mortal. When the karmic energy that propelled their celestial rebirth is exhausted, they die and take rebirth elsewhere according to their past kamma."
+      },
+      {
+        q: "What is the difference between devas and Brahmās?",
+        a: "Devas inhabit the Sensual Realm (Kāmaloka); they possess refined sensory bodies, experience refined sensual pleasure, and are subject to sensual desires. Brahmās inhabit the Fine-Material (Rūpa) and Immaterial (Arūpa) realms; their minds have surpassed sensual desire through meditative absorption (jhāna), dwelling in luminous peace and boundless qualities like loving-kindness and equanimity."
+      },
+      {
+        q: "What are the Pure Abodes (Suddhāvāsa)?",
+        a: "The Pure Abodes are the top five fine-material realms (planes 23–27: Avihā, Atappā, Sudassā, Sudassī, Akaniṭṭhā). They are inhabited exclusively by Non-returners (Anāgāmīs)—noble disciples who have severed the five lower fetters. They attain Arahantship and final Parinibbāna in these realms without ever returning to the sensual world."
+      },
+      {
+        q: "Are the cosmological realms literal physical places, psychological states, or both?",
+        a: "In traditional Theravāda, the realms are understood literally as objective planes of rebirth experienced by beings across saṁsāra. However, the Buddha also taught that psychological states reflect these realms: explosive rage mirrors hell, obsessive hunger mirrors hungry ghosts, and meditative stillness mirrors Brahmā worlds. Both dimensions are valid, but psychological interpretation must not erase the authentic doctrine of rebirth."
+      },
+      {
+        q: "Is rebirth the transmigration of an unchanging soul (attā)?",
+        a: "No. Buddhism explicitly rejects the idea of a permanent, unchanging soul migrating from body to body (anattā). Rebirth is a dynamic, causal process: just as a flame is passed from one candle to another without an entity moving between them, so consciousness continues dependently conditioned by kamma."
+      },
+      {
+        q: "Is attaining a heavenly rebirth the ultimate goal of Buddhism?",
+        a: "No. The Buddha explicitly declared that seeking rebirth in heaven is an inferior aspiration because heavens are impermanent and still subject to suffering. The ultimate and singular goal of the Buddha's dispensation is Nibbāna: complete liberation from the cycle of birth, aging, and death."
+      },
+      {
+        q: "Can we know another person's past kamma or predict their next rebirth?",
+        a: "No. In the Acinteyya Sutta (AN 4.77), the Buddha warns that the precise ripening of kamma (kammavipāka) is incomprehensible to unawakened minds. Suttas strictly prohibit judging or blaming others for their misfortunes based on karmic assumptions."
+      },
+      {
+        q: "How does cosmology connect to Dependent Arising (Paṭiccasamuppāda)?",
+        a: "They are deeply interconnected: Dependent Arising explains the exact causal mechanism (Ignorance → Formations → Consciousness → Name-and-Form → Becoming → Birth) that drives the wheel of saṁsāra through the 31 planes."
+      },
+      {
+        q: "Why is the human realm considered uniquely precious for spiritual practice?",
+        a: "In the lower realms, intense pain and fear paralyze the mind, making meditation and ethical practice almost impossible. In heavenly realms, prolonged pleasure induces complacency. The human realm offers the ideal balance of joy and suffering, awakening spiritual urgency (saṁvega) and allowing one to hear the Dhamma and cultivate wisdom."
+      },
+      {
+        q: "How does Nibbāna differ from the highest cosmological realms?",
+        a: "The highest realms (such as the Sphere of Neither-Perception-Nor-Non-Perception) are conditioned (saṅkhata), dependently arisen, and impermanent. Nibbāna is unconditioned (asaṅkhata), unborn, unoriginated, and permanent—the total extinguishing of craving and the final cessation of stress."
+      }
+    ]
+  }
+};
+const BUDDHIST_COSMOLOGY_MODULE_PT = {
+  // A. Hero Section
+  hero: {
+    title: "Cosmologia Budista",
+    paliTitle: "Lokadhātu & Bhavacakra",
+    subtitle: "Compreender os planos de existência, o funcionamento do kamma e o caminho além do saṁsāra.",
+    introText: "Na tradição Theravāda, a cosmologia budista descreve uma vasta gama de formas de existência no saṁsāra: estados de privação, a existência humana comum, planos celestiais e mundos refinados de Brahmā. Os seres renascem de acordo com condições que incluem o kamma, mas todos os planos condicionados permanecem impermanentes. O objetivo supremo do ensinamento do Buda não é conquistar uma posição superior no cosmos, mas a libertação definitiva do ciclo de renascimentos e sofrimento.",
+    systematizationNote: "Esclarecimento Doutrinário: A tradicional classificação Theravāda dos 31 planos de existência é uma sistematização dos ensinamentos cosmológicos dispersos pelo Cânone Pāli e tratados clássicos posteriores (como o Abhidhammattha-saṅgaha e comentários). Não se deve presumir que todos os 31 planos apareçam listados em um único discurso primitivo.",
+    primaryActions: [
+      { id: "action-planes", label: "Explorar os 31 Planos de Existência", target: "#cosmo-31-planes", icon: "🌌" },
+      { id: "action-suttas", label: "Estudar os Suttas Canônicos", target: "#tab-canonical", icon: "📜" },
+      { id: "action-kamma", label: "Compreender Kamma & Renascimento", target: "#cosmo-kamma", icon: "⚖️" }
+    ],
+    canonicalPassage: {
+      suttaCode: "SN 56.48",
+      paliTitle: "Chiggala Sutta",
+      englishTitle: "O Símile da Tartaruga Cega",
+      excerptPali: "Seyyathāpi, bhikkhave, puriso ekacchiggalaṁ yugaṁ mahāsamudde pakkhipeyya. Tatra assa kāṇo kacchapo... Evametadappaṁ, bhikkhave, yadidaṁ manussattapaṭilābho.",
+      excerptTrans: "Imaginem um jugo de madeira com um único orifício lançado ao oceano e uma tartaruga cega que emerge uma vez a cada cem anos... Mais difícil e raro do que essa tartaruga encaixar o pescoço nesse orifício é obter o renascimento humano e encontrar o Dhamma.",
+      sourceUrl: "https://suttacentral.net/sn56.48/en/sujato",
+      citation: "Saṁyutta Nikāya 56.48 • Chiggala Sutta"
+    }
+  },
+
+  // B. Main Section: Understanding the Buddhist Cosmos
+  understandingCosmos: {
+    sectionTitle: "Um Universo de Existência Condicionada",
+    sectionSubtitle: "Os três grandes níveis de existência na doutrina budista primitiva",
+    leadText: "A cosmologia budista descreve diferentes reinos onde os seres renascem de acordo com suas intenções e ações (kamma), diferindo amplamente em longevidade, sutileza corpórea, prazer, dor e refinamento meditativo. Todos os planos, sem exceção, são impermanentes (anicca), insatisfatórios (dukkha) e desprovidos de um eu permanente (anattā).",
+    tiers: [
+      {
+        id: "kamaloka",
+        name: "Kāmaloka — O Reino Sensual",
+        planesCount: "11 Planos",
+        description: "Abrange todas as formas de existência marcadas pela predominância dos cinco sentidos físicos e pelo anseio do desejo sensorial (kāma-taṇhā). Inclui os reinos inferiores de sofrimento, o plano humano e os seis céus sensuais.",
+        subdivisions: [
+          { name: "Quatro Estados de Privação (Apāya-bhūmi)", detail: "Seres do inferno (niraya), animais (tiracchāna), fantasmas famintos (peta) e asuras (titãs em conflito perpétuo). Fruto de ações prejudiciais enraizadas em ganância, aversão e ilusão." },
+          { name: "O Plano Humano (Manussa-loka)", detail: "Um reino de equilíbrio entre prazer e dor, singularmente favorável ao cultivo ético e à realização do despertar espiritual." },
+          { name: "Seis Céus dos Devas Sensuais (Devaloka)", detail: "Desde os Quatro Grandes Reis até seres que reinam sobre as criações de outros. Marcados por luz radiante e longevidade sustentada por méritos kármicos." }
+        ],
+        practicalReflection: "De que maneira ganância, aversão, ilusão, generosidade e contenção moldam nossa experiência psicológica no presente? (A reflexão psicológica complementa, mas não substitui, a doutrina tradicional do renascimento)."
+      },
+      {
+        id: "rupaloka",
+        name: "Rūpaloka — O Reino da Matéria Sutil",
+        planesCount: "16 Planos",
+        description: "Planos exaltados de Brahmā alcançados pelo domínio das quatro absorções meditativas da matéria sutil (rūpa-jhāna). O desejo sensorial grosseiro é suspenso e os seres habitam em radiante serenidade mental.",
+        subdivisions: [
+          { name: "Brahmās do 1º Jhāna (3 planos)", detail: "Séquito, ministros e Grandes Brahmās (Mahābrahmā) imersos em serena majestade." },
+          { name: "Brahmās do 2º Jhāna (3 planos)", detail: "Planos de esplendor e radiância fluida (Ābhassara), intocados por ciclos cósmicos de fogo." },
+          { name: "Brahmās do 3º Jhāna (3 planos)", detail: "Planos de glória límpida e estável (Subhakiṇha) sustentados por felicidade serena." },
+          { name: "Brahmās do 4º Jhāna e Moradas Puras (7 planos)", detail: "Inclui a Grande Recompensa (Vehapphala), Seres Inconscientes (Asaññasatta) e as Cinco Moradas Puras (Suddhāvāsa) reservadas a Não-retornantes (Anāgāmīs)." }
+        ],
+        doctrinalNote: "Salvaguarda Doutrinária: O Theravāda ensina que o jhāna oferece a condição para o renascimento em Brahmā, mas o renascimento é governado pelo kamma global. Mesmo vidas que duram éons cósmicos terminam na morte; a existência em Brahmā não é libertação definitiva."
+      },
+      {
+        id: "arupaloka",
+        name: "Arūpaloka — O Reino Imaterial",
+        planesCount: "4 Planos",
+        description: "O topo da existência condicionada, desprovido de qualquer forma física ou matéria. O renascimento nesses planos resulta do domínio dos quatro estados meditativos imateriais (arūpa-samāpatti).",
+        subdivisions: [
+          { name: "1. Espaço Infinito (Ākāsānañcāyatana)", detail: "Consciência que transcende a percepção da matéria para contemplar o espaço ilimitado." },
+          { name: "2. Consciência Infinita (Viññāṇañcāyatana)", detail: "Voltar a atenção para a própria consciência ilimitada que apreende o espaço." },
+          { name: "3. Nada Absoluto (Ākiñcaññāyatana)", detail: "Transcender a consciência para repousar na percepção de que 'não há absolutamente nada'." },
+          { name: "4. Nem Percepção Nem Não-Percepção (Nevasaññānāsaññāyatana)", detail: "O estado mental mais sutil do saṁsāra, onde a percepção é tão tênue que quase cessa por completo." }
+        ],
+        reflectionQuestion: "Por que mesmo um estado de paz e refinamento tão extraordinário ainda é insuficiente se a ignorância e as causas do renascimento continuarem presentes?"
+      }
+    ]
+  },
+
+  // C. Interactive Exploration of the 31 Planes (PT)
+  planesExplorer: {
+    sectionTitle: "Explorador Interativo dos 31 Planos",
+    sectionSubtitle: "A classificação Theravāda tradicional através dos Três Mundos",
+    categoryFilterLabels: {
+      all: "Todos os 31 Planos",
+      kama: "Reino Sensual (1–11)",
+      rupa: "Matéria Sutil (12–27)",
+      arupa: "Imaterial (28–31)"
+    },
+    planesNotice: "Nota: Os 31 planos não são lugares permanentes, etapas de mérito moral compulsório ou degraus obrigatórios pelos quais toda alma deve passar em ordem. Representam modos condicionados de devir (bhava).",
+    planes: [
+      {
+        id: "plane-1",
+        number: 1,
+        tier: "kama",
+        subTier: "Quatro Estados de Privação (Apāya)",
+        paliName: "Niraya",
+        englishName: "Reinos de Sofrimento Extremo / Infernos",
+        lifespan: "Variável, de milhares de anos a éons; determinado pelo kamma",
+        kammaCause: "Ações prejudiciais graves: crueldade, ódio deliberado, cobiça obsessiva e visões nocivas",
+        canonicalSources: "MN 129, MN 130 (Devadūta), SN 56.47",
+        commentarialSources: "Visuddhimagga, Abhidhammattha-saṅgaha",
+        characteristics: "Estados de extrema aflição onde seres esgotam kamma negativo pesado. Não é danação eterna; quando a causa se extingue, o ser renasce em outro plano.",
+        reflection: "Como a raiva cega e o ódio visceral no cotidiano espelham a atmosfera de niraya?"
+      },
+      {
+        id: "plane-2",
+        number: 2,
+        tier: "kama",
+        subTier: "Quatro Estados de Privação (Apāya)",
+        paliName: "Tiracchāna-yoni",
+        englishName: "Reino Animal",
+        lifespan: "Variável, de minutos (insetos) a séculos",
+        kammaCause: "Ações dominadas por ilusão (moha), instinto cego, medo e compulsão biológica",
+        canonicalSources: "MN 129, MN 135, SN 56.47",
+        commentarialSources: "Dhammapada-aṭṭhakathā",
+        characteristics: "Dinâmica predador-presa, medo constante de abate, ausência de capacidade para discernimento ético e filosófico.",
+        reflection: "Quando abrimos mão da ética e reagimos puramente por instinto de sobrevivência, como nos aproximamos da mente animal?"
+      },
+      {
+        id: "plane-3",
+        number: 3,
+        tier: "kama",
+        subTier: "Quatro Estados de Privação (Apāya)",
+        paliName: "Peta-visaya",
+        englishName: "Reino dos Fantasmas Famintos",
+        lifespan: "Indefinido; frequentemente milhares de anos até o kamma ser atenuado",
+        kammaCause: "Avareza compulsiva, apego obsessivo a bens materiais, mesquinhez extrema",
+        canonicalSources: "Khuddaka Nikāya (Petavatthu), SN 19",
+        commentarialSources: "Paramatthadīpanī (Comentário ao Petavatthu)",
+        characteristics: "Seres atormentados por fome e sede insaciáveis, com ventres imensos e gargantas tão estreitas quanto o orifício de uma agulha.",
+        reflection: "Observe a fome do consumismo moderno: comprar sem cessar sem jamais sentir saciedade interior."
+      },
+      {
+        id: "plane-4",
+        number: 4,
+        tier: "kama",
+        subTier: "Quatro Estados de Privação (Apāya)",
+        paliName: "Asura-kāya",
+        englishName: "Reino dos Asuras (Titãs em Conflito)",
+        lifespan: "Longevidade marcada por beligerância e inveja",
+        kammaCause: "Competitividade agressiva, arrogância, inveja do mérito alheio, sede de poder",
+        canonicalSources: "DN 20 (Mahāsamaya), SN 35.207, AN 7.72",
+        commentarialSources: "Visuddhimagga",
+        characteristics: "Seres belicosos em combate perpétuo contra os devas, dominados por ressentimento e desconfiança.",
+        reflection: "Onde o impulso de competir e derrotar os outros me afasta da serenidade interior?"
+      },
+      {
+        id: "plane-5",
+        number: 5,
+        tier: "kama",
+        subTier: "Planos Felizes Sensuais (Kāma-sugati)",
+        paliName: "Manussa-loka",
+        englishName: "Reino Humano",
+        lifespan: "Em média 100 anos na época do Buda; variável ao longo de ciclos",
+        kammaCause: "Kamma benéfico baseado nos Cinco Preceitos Éticos (pañca-sīla) e generosidade",
+        canonicalSources: "SN 56.48 (Tartaruga Cega), AN 8.54, AN 5.57",
+        commentarialSources: "Abhidhammattha-saṅgaha",
+        characteristics: "O solo supremo para a prática. O equilíbrio entre sofrimento e alegria estimula a urgência espiritual (saṁvega) e permite a realização do Nibbāna.",
+        reflection: "Estou utilizando este raro renascimento humano para crescer no Dhamma ou desperdiçando-o em trivialidades?"
+      },
+      {
+        id: "plane-6",
+        number: 6,
+        tier: "kama",
+        subTier: "Céus dos Devas Sensuais",
+        paliName: "Cātummahārājika",
+        englishName: "Reino dos Quatro Grandes Reis",
+        lifespan: "500 anos divinos (= 9 milhões de anos humanos)",
+        kammaCause: "Generosidade sincera, proteção comunitária e respeito pelos preceitos",
+        canonicalSources: "DN 20, DN 32, AN 3.70",
+        commentarialSources: "Visuddhimagga",
+        characteristics: "O plano celestial mais próximo da Terra, governado pelos quatro guardiões das direções cardeais.",
+        reflection: "A postura de proteger e acolher os outros estabelece um refúgio luminoso na mente."
+      },
+      {
+        id: "plane-7",
+        number: 7,
+        tier: "kama",
+        subTier: "Céus dos Devas Sensuais",
+        paliName: "Tāvatiṁsa",
+        englishName: "Reino dos Trinta e Três (Reino de Sakka)",
+        lifespan: "1.000 anos divinos (= 36 milhões de anos humanos)",
+        kammaCause: "Serviço comunitário abnegado, cuidar de estradas e fontes de água, respeito aos pais",
+        canonicalSources: "SN 11 (Sakka-saṁyutta), DN 21 (Sakkapañha)",
+        commentarialSources: "Comentário ao Dhammapada",
+        characteristics: "Presidido por Sakka, o rei dos deuses que busca instruções com o Buda. Jardins celestiais luminosos.",
+        reflection: "O serviço desinteressado à comunidade eleva e pacifica o estado da consciência humana."
+      },
+      {
+        id: "plane-8",
+        number: 8,
+        tier: "kama",
+        subTier: "Céus dos Devas Sensuais",
+        paliName: "Yāma",
+        englishName: "Reino dos Devas Yāma (Alegria Plena)",
+        lifespan: "2.000 anos divinos (= 144 milhões de anos humanos)",
+        kammaCause: "Conduta moral pura, desapego das brigas mundanas e serenidade interior",
+        canonicalSources: "AN 3.70, AN 8.36",
+        commentarialSources: "Abhidhammattha-saṅgaha",
+        characteristics: "Habitantes de um céu etéreo livre de conflitos, desfrutando de paz contínua.",
+        reflection: "Quando a mente está limpa de remorso pela integridade ética, experimenta-se um céu interior."
+      },
+      {
+        id: "plane-9",
+        number: 9,
+        tier: "kama",
+        subTier: "Céus dos Devas Sensuais",
+        paliName: "Tusita",
+        englishName: "Céu dos Devas Satisfeitos / Contentamento",
+        lifespan: "4.000 anos divinos (= 576 milhões de anos humanos)",
+        kammaCause: "Vida de profunda virtude, estudo dedicado do Dhamma e altruísmo",
+        canonicalSources: "MN 123, AN 3.70",
+        commentarialSources: "Jātaka Nidānakathā",
+        characteristics: "A morada onde os Bodhisattas aguardam sua encarnação final para se tornarem Budas. Ambiente de estudo do Dhamma.",
+        reflection: "O verdadeiro contentamento (santuṭṭhi) não surge de possuir tudo, mas de viver em paz consigo mesmo."
+      },
+      {
+        id: "plane-10",
+        number: 10,
+        tier: "kama",
+        subTier: "Céus dos Devas Sensuais",
+        paliName: "Nimmānaratī",
+        englishName: "Devas que se Deleitam na Criação Própria",
+        lifespan: "8.000 anos divinos (= 2,3 bilhões de anos humanos)",
+        kammaCause: "Generosidade magnânima e alegria em manifestar o belo e o benéfico",
+        canonicalSources: "AN 3.70, AN 8.36",
+        commentarialSources: "Abhidhammattha-saṅgaha",
+        characteristics: "Seres que moldam suas próprias manifestações de alegria mental e sensorial.",
+        reflection: "A mente criativa é poderosa; quando alinhada ao bem, transforma positivamente o mundo ao redor."
+      },
+      {
+        id: "plane-11",
+        number: 11,
+        tier: "kama",
+        subTier: "Céus dos Devas Sensuais",
+        paliName: "Paranimmitavasavattī",
+        englishName: "Devas com Poder sobre as Criações Alheias",
+        lifespan: "16.000 anos divinos (= 9,2 bilhões de anos humanos)",
+        kammaCause: "Liderança ética suprema combinada com sutil apego ao comando",
+        canonicalSources: "MN 49, AN 3.70, SN 4.25",
+        commentarialSources: "Visuddhimagga",
+        characteristics: "O pico do reino sensorial. Não precisam criar nada; outros produzem satisfações para eles.",
+        reflection: "Mesmo a liderança cósmica mais exaltada está presa à roda do desejo e ao fim inevitável."
+      },
+      // 12-27: Rūpaloka
+      {
+        id: "plane-12",
+        number: 12,
+        tier: "rupa",
+        subTier: "Planos do 1º Jhāna",
+        paliName: "Brahmapārisajja",
+        englishName: "Séquito de Brahmā",
+        lifespan: "1/3 de asankheyya-kappa",
+        kammaCause: "Atingir o 1º Jhāna em nível inicial",
+        canonicalSources: "AN 4.123, AN 4.125",
+        commentarialSources: "Abhidhammattha-saṅgaha",
+        characteristics: "Habitantes serenos no círculo radiante de Brahmā, livres da agitação dos sentidos físicos.",
+        reflection: "Quando o foco meditativo inicial aquieta o burburinho do desejo, uma clareza límpida se abre."
+      },
+      {
+        id: "plane-13",
+        number: 13,
+        tier: "rupa",
+        subTier: "Planos do 1º Jhāna",
+        paliName: "Brahmapurohita",
+        englishName: "Ministros de Brahmā",
+        lifespan: "1/2 de asankheyya-kappa",
+        kammaCause: "Atingir o 1º Jhāna com estabilidade intermediária",
+        canonicalSources: "AN 4.123, AN 4.125",
+        commentarialSources: "Abhidhammattha-saṅgaha",
+        characteristics: "Conselheiros luminosos de Brahmā com serenidade e brilho aprofundados.",
+        reflection: "A firmeza interior converte-se em sabedoria serena para orientar a vida."
+      },
+      {
+        id: "plane-14",
+        number: 14,
+        tier: "rupa",
+        subTier: "Planos do 1º Jhāna",
+        paliName: "Mahābrahmā",
+        englishName: "Os Grandes Brahmās",
+        lifespan: "1 asankheyya-kappa completo",
+        kammaCause: "Domínio superior do 1º Jhāna combinado com benevolência ilimitada (mettā)",
+        canonicalSources: "DN 1 (Brahmajāla), DN 11 (Kevaddha), MN 49",
+        commentarialSources: "Visuddhimagga",
+        characteristics: "Seres majestosos que, por nascerem primeiro na renovação do mundo, equivocadamente imaginam ser o criador eterno (DN 1).",
+        reflection: "A sutil armadilha espiritual: confundir um estado sublime de calma e poder com soberania eterna."
+      },
+      {
+        id: "plane-15",
+        number: 15,
+        tier: "rupa",
+        subTier: "Planos do 2º Jhāna",
+        paliName: "Parittābha",
+        englishName: "Brahmās de Radiância Limitada",
+        lifespan: "2 kappas",
+        kammaCause: "Desenvolvimento do 2º Jhāna (sem pensamento aplicado, com alegria meditativa)",
+        canonicalSources: "AN 4.123, MN 120",
+        commentarialSources: "Abhidhammattha-saṅgaha",
+        characteristics: "Seres cuja aura emite luz contínua, superior à agitação do pensamento discursivo.",
+        reflection: "Quando o tagarelar mental cessa na meditação, a luz natural da mente desponta."
+      },
+      {
+        id: "plane-16",
+        number: 16,
+        tier: "rupa",
+        subTier: "Planos do 2º Jhāna",
+        paliName: "Appamāṇābha",
+        englishName: "Brahmās de Radiância Ilimitada",
+        lifespan: "4 kappas",
+        kammaCause: "2º Jhāna cultivado com expansão vasta de luminosidade e alegria espiritual",
+        canonicalSources: "AN 4.123, MN 120",
+        commentarialSources: "Abhidhammattha-saṅgaha",
+        characteristics: "Luminosidade imensurável que ilumina vastos quadrantes cósmicos.",
+        reflection: "A bondade sem limites gera um clarão mental imensurável."
+      },
+      {
+        id: "plane-17",
+        number: 17,
+        tier: "rupa",
+        subTier: "Planos do 2º Jhāna",
+        paliName: "Ābhassara",
+        englishName: "Brahmās de Radiância Fluida",
+        lifespan: "8 kappas",
+        kammaCause: "Maestria no 2º Jhāna com êxtase espiritual límpido (pīti)",
+        canonicalSources: "DN 27 (Aggañña), AN 4.123, AN 10.29",
+        commentarialSources: "Visuddhimagga",
+        characteristics: "Quando o cosmos inferior se contrai por fogo, os seres renascem em Ābhassara, nutrindo-se de alegria meditativa.",
+        reflection: "A alegria que nasce da quietude interior é mais pura e estável do que qualquer euforia sensorial."
+      },
+      {
+        id: "plane-18",
+        number: 18,
+        tier: "rupa",
+        subTier: "Planos do 3º Jhāna",
+        paliName: "Parittasubha",
+        englishName: "Brahmās de Glória Serena Limitada",
+        lifespan: "16 kappas",
+        kammaCause: "3º Jhāna (felicidade sutil, equanimidade, sem a excitação do êxtase)",
+        canonicalSources: "AN 4.123, MN 120",
+        commentarialSources: "Abhidhammattha-saṅgaha",
+        characteristics: "Seres com luminescência dourada constante e serena.",
+        reflection: "Avançar além dos picos de empolgação emocional para alcançar a felicidade calma e estável."
+      },
+      {
+        id: "plane-19",
+        number: 19,
+        tier: "rupa",
+        subTier: "Planos do 3º Jhāna",
+        paliName: "Appamāṇasubha",
+        englishName: "Brahmās de Glória Ilimitada",
+        lifespan: "32 kappas",
+        kammaCause: "3º Jhāna desenvolvido com equanimidade profunda e imensurável",
+        canonicalSources: "AN 4.123, MN 120",
+        commentarialSources: "Abhidhammattha-saṅgaha",
+        characteristics: "Paz imutável intocada pela destruição cíclica da água cósmica.",
+        reflection: "Felicidade quieta e despojada que não precisa provar nada a ninguém."
+      },
+      {
+        id: "plane-20",
+        number: 20,
+        tier: "rupa",
+        subTier: "Planos do 3º Jhāna",
+        paliName: "Subhakiṇha",
+        englishName: "Brahmās de Glória Refulgente Constante",
+        lifespan: "64 kappas",
+        kammaCause: "Maestria máxima no 3º Jhāna",
+        canonicalSources: "AN 4.123, AN 10.29",
+        commentarialSources: "Visuddhimagga",
+        characteristics: "O cume do bem-estar na matéria sutil; sua luz é estável como a chama de uma lamparina protegida do vento.",
+        reflection: "Mesmo 64 éons cósmicos de serenidade ininterrupta terminarão quando o kamma causal se esgotar."
+      },
+      {
+        id: "plane-21",
+        number: 21,
+        tier: "rupa",
+        subTier: "Planos do 4º Jhāna",
+        paliName: "Vehapphala",
+        englishName: "Brahmās da Grande Recompensa",
+        lifespan: "500 mahā-kappas",
+        kammaCause: "4º Jhāna cultivado com pura equanimidade e atenção lúcida (upekkhā-satipārisuddhi)",
+        canonicalSources: "AN 4.123, MN 120",
+        commentarialSources: "Abhidhammattha-saṅgaha",
+        characteristics: "O principal destino dos seres comuns que dominam o 4º Jhāna. Intocado por vendavais cósmicos.",
+        reflection: "A equanimidade é o escudo inabalável do coração, que não se abala com louvores nem com críticas."
+      },
+      {
+        id: "plane-22",
+        number: 22,
+        tier: "rupa",
+        subTier: "Planos do 4º Jhāna",
+        paliName: "Asaññasatta",
+        englishName: "Seres Inconscientes",
+        lifespan: "500 mahā-kappas",
+        kammaCause: "4º Jhāna cultivado com a crença de que a consciência é a única raiz do sofrimento; desejo de suprimir o pensamento",
+        canonicalSources: "DN 1, DN 33",
+        commentarialSources: "Visuddhimagga",
+        characteristics: "Seres que subsistem como pura matéria corporal sem processos conscientes. Ao fim do kamma, um pensamento ressurge e eles renascem.",
+        reflection: "Alerta doutrinário: a mera supressão do pensamento ou o vazio mental não é libertação; o despertar exige sabedoria (paññā)."
+      },
+      {
+        id: "plane-23",
+        number: 23,
+        tier: "rupa",
+        subTier: "As Moradas Puras (Suddhāvāsa)",
+        paliName: "Avihā",
+        englishName: "Os Duráveis / Imutáveis",
+        lifespan: "1.000 mahā-kappas",
+        kammaCause: "Conquista do estágio de Não-retornante (Anāgāmī) com a faculdade da fé (saddhā) predominante",
+        canonicalSources: "SN 56.11, DN 14, MN 120",
+        commentarialSources: "Visuddhimagga",
+        characteristics: "O primeiro dos cinco planos puros exclusivos para Não-retornantes, que alcançam o Arahantado ali sem retornar ao mundo sensual.",
+        reflection: "A fé enraizada no discernimento direto nunca retrocede para a escravidão dos sentidos."
+      },
+      {
+        id: "plane-24",
+        number: 24,
+        tier: "rupa",
+        subTier: "As Moradas Puras (Suddhāvāsa)",
+        paliName: "Atappā",
+        englishName: "Os Serenos / Sem Aflição",
+        lifespan: "2.000 mahā-kappas",
+        kammaCause: "Não-retornante com predominância da energia perseverante (viriya)",
+        canonicalSources: "DN 14, MN 120",
+        commentarialSources: "Visuddhimagga",
+        characteristics: "Seres que não causam aflição a si mesmos nem aos outros, meditando até o desatamento final.",
+        reflection: "A autêntica energia espiritual é serena e contínua, sem ansiedade ou pressa."
+      },
+      {
+        id: "plane-25",
+        number: 25,
+        tier: "rupa",
+        subTier: "As Moradas Puras (Suddhāvāsa)",
+        paliName: "Sudassā",
+        englishName: "Os Claramente Visíveis / Belos",
+        lifespan: "4.000 mahā-kappas",
+        kammaCause: "Não-retornante com predominância da atenção plena (sati)",
+        canonicalSources: "DN 14, MN 120",
+        commentarialSources: "Visuddhimagga",
+        characteristics: "Percepção translúcida onde todas as formações são vistas como impermanentes e vazias de um eu.",
+        reflection: "A atenção pura torna a realidade transparente e liberta de ilusões."
+      },
+      {
+        id: "plane-26",
+        number: 26,
+        tier: "rupa",
+        subTier: "As Moradas Puras (Suddhāvāsa)",
+        paliName: "Sudassī",
+        englishName: "Os de Visão Clara",
+        lifespan: "8.000 mahā-kappas",
+        kammaCause: "Não-retornante com predominância da concentração profunda (samādhi)",
+        canonicalSources: "DN 14, MN 120",
+        commentarialSources: "Visuddhimagga",
+        characteristics: "A concentração contínua penetra sem esforço a teia causal de todas as formações mentais.",
+        reflection: "A concentração límpida é um espelho que reflete as coisas com exatidão."
+      },
+      {
+        id: "plane-27",
+        number: 27,
+        tier: "rupa",
+        subTier: "As Moradas Puras (Suddhāvāsa)",
+        paliName: "Akaniṭṭhā",
+        englishName: "O Mais Alto / Incomparável",
+        lifespan: "16.000 mahā-kappas",
+        kammaCause: "Não-retornante com predominância da sabedoria direta (paññā)",
+        canonicalSources: "DN 14, MN 120, SN 56.11",
+        commentarialSources: "Visuddhimagga",
+        characteristics: "O zênite do reino da matéria sutil. Os Não-retornantes dissolvem os últimos cinco grilhões e realizam o Parinibbāna.",
+        reflection: "A sabedoria liberta de todos os apegos é o portal definitivo para a paz incondicionada."
+      },
+      // 28-31: Arūpaloka
+      {
+        id: "plane-28",
+        number: 28,
+        tier: "arupa",
+        subTier: "Planos Imateriais (Arūpa-bhūmi)",
+        paliName: "Ākāsānañcāyatana",
+        englishName: "Esfera do Espaço Infinito",
+        lifespan: "20.000 mahā-kappas",
+        kammaCause: "Domínio do 1º Jhāna Imaterial, superando qualquer percepção de forma ou diversidade física",
+        canonicalSources: "MN 26, DN 15, MN 120",
+        commentarialSources: "Visuddhimagga",
+        characteristics: "Existência sem corpo físico; consciência pura imersa no espaço ilimitado.",
+        reflection: "O espaço não possui limites; quando a mente abandona as barreiras corporais, a vastidão se revela — mas até o espaço é condicionado."
+      },
+      {
+        id: "plane-29",
+        number: 29,
+        tier: "arupa",
+        subTier: "Planos Imateriais (Arūpa-bhūmi)",
+        paliName: "Viññāṇañcāyatana",
+        englishName: "Esfera da Consciência Infinita",
+        lifespan: "40.000 mahā-kappas",
+        kammaCause: "Domínio do 2º Jhāna Imaterial, focando na própria consciência sem limites que percebe o espaço",
+        canonicalSources: "DN 15, MN 120",
+        commentarialSources: "Visuddhimagga",
+        characteristics: "A consciência contemplando a si mesma sem ancoragem em matéria.",
+        reflection: "A consciência pode se auto-observar, mas ainda é um processo condicionado."
+      },
+      {
+        id: "plane-30",
+        number: 30,
+        tier: "arupa",
+        subTier: "Planos Imateriais (Arūpa-bhūmi)",
+        paliName: "Ākiñcaññāyatana",
+        englishName: "Esfera do Nada Absoluto",
+        lifespan: "60.000 mahā-kappas",
+        kammaCause: "Domínio do 3º Jhāna Imaterial (atingido pelo primeiro mestre do Buda, Āḷāra Kālāma)",
+        canonicalSources: "MN 26, DN 15, MN 120",
+        commentarialSources: "Visuddhimagga",
+        characteristics: "Repouso na percepção sutil de que 'não há absolutamente coisa alguma'.",
+        reflection: "Mesmo a vacuidade refinada não é o Nibbāna se ainda houver sutil identificação do eu com o nada."
+      },
+      {
+        id: "plane-31",
+        number: 31,
+        tier: "arupa",
+        subTier: "Planos Imateriais (Arūpa-bhūmi)",
+        paliName: "Nevasaññānāsaññāyatana",
+        englishName: "Esfera da Nem Percepção Nem Não-Percepção",
+        lifespan: "84.000 mahā-kappas",
+        kammaCause: "Domínio do 4º Jhāna Imaterial (atingido por Uddaka Rāmaputta)",
+        canonicalSources: "MN 26, DN 15, MN 120",
+        commentarialSources: "Visuddhimagga",
+        characteristics: "O cume absoluto do saṁsāra. As formações mentais são tão sutis que mal se distinguem. Contudo, após 84.000 éons, o ser renasce em planos inferiores.",
+        reflection: "O Buda partiu de Uddaka Rāmaputta porque esse topo supremo não conduzia à cessação final do sofrimento."
+      }
+    ]
+  },
+
+  // D. Essential Sutta Library (PT)
+  suttaLibrary: {
+    sectionTitle: "Biblioteca de Suttas Fundamentais",
+    sectionSubtitle: "15 discursos canônicos sobre cosmologia, kamma, reinos divinos e a rara oportunidade humana",
+    searchPlaceholder: "Pesquisar por código, título, tema ou termo Pāli...",
+    filterCategories: [
+      { id: "all", label: "Todos os Suttas (15)" },
+      { id: "cosmology", label: "Cosmologia & Escala (3)" },
+      { id: "kamma", label: "Kamma & Renascimento (4)" },
+      { id: "devas", label: "Devas & Limites Celestes (4)" },
+      { id: "human", label: "Vida Humana & Prática (4)" }
+    ],
+    suttas: [
+      {
+        code: "DN 27",
+        paliTitle: "Aggañña Sutta",
+        transTitle: "Discurso sobre o Conhecimento das Origens",
+        nikaya: "Dīgha Nikāya",
+        category: "cosmology",
+        level: "intermediate",
+        readingTime: "18 min",
+        importance: "Narrativa canônica detalhando a contração e expansão do mundo, como seres luminosos de Ābhassara descem e como castas e instituições sociais surgem de convenções e desejos.",
+        layRelevance: "Desmistifica o preconceito social e orgulho de casta: a hierarquia social é uma convenção construída e não decreto divino.",
+        keyConcepts: ["Contração Cósmica", "Expansão Cósmica", "Seres de Ābhassara", "Convenções Sociais"],
+        suttaCentralUrl: "https://suttacentral.net/dn27/en/sujato",
+        studyNotes: "O Buda demonstra que a nobreza real provém da conduta moral e da sabedoria, não do nascimento.",
+        reflectionQuestion: "Como as convenções sociais e corporativas modernas reproduzem ilusões de superioridade herdada?"
+      },
+      {
+        code: "DN 1",
+        paliTitle: "Brahmajāla Sutta",
+        transTitle: "A Rede Universal de Visões",
+        nikaya: "Dīgha Nikāya",
+        category: "cosmology",
+        level: "advanced",
+        readingTime: "30 min",
+        importance: "Classificação das 62 visões especulativas sobre a eternidade do universo, o destino da alma e o escopo da metafísica.",
+        layRelevance: "Ensina discernimento contra dogmas cósmicos e revela como memórias parciais de vidas passadas levaram filósofos a crer num criador eterno.",
+        keyConcepts: ["62 Visões", "Especulação Metafísica", "Contato como Condição", "Ilusão de Mahābrahmā"],
+        suttaCentralUrl: "https://suttacentral.net/dn1/en/sujato",
+        studyNotes: "O Buda aponta que todas as teorias metafísicas são enraizadas em contato sensorial (phassa) e desejo de autoafirmação.",
+        reflectionQuestion: "Estou apegado a teorias intelectuais sobre o cosmos ou observando como os pensamentos surgem agora?"
+      },
+      {
+        code: "AN 3.80",
+        paliTitle: "Cūḷanikā Sutta",
+        transTitle: "O Menor Discurso sobre o Cosmos de Mil Mundos",
+        nikaya: "Aṅguttara Nikāya",
+        category: "cosmology",
+        level: "intermediate",
+        readingTime: "6 min",
+        importance: "O Buda expõe a escala multidimensional do cosmos: galáxias menores de mil mundos até sistemas bilionários.",
+        layRelevance: "Inspira humildade cósmica sem sugerir que viajar pelo universo físico substitua a purificação da mente.",
+        keyConcepts: ["Galáxias de Mil Mundos", "Escala Cósmica", "Voz do Buda pelos Reinos", "Cosmos Bilionário"],
+        suttaCentralUrl: "https://suttacentral.net/an3.80/en/sujato",
+        studyNotes: "A vastidão espacial é imensa, mas o alcance da mente desperta transcende todas as dimensões físicas.",
+        reflectionQuestion: "Como a percepção da pequenez da Terra no cosmos ajuda a dissolver o estresse egóico diário?"
+      },
+      {
+        code: "MN 135",
+        paliTitle: "Cūḷakammavibhaṅga Sutta",
+        transTitle: "A Pequena Análise da Ação",
+        nikaya: "Majjhima Nikāya",
+        category: "kamma",
+        level: "beginner",
+        readingTime: "10 min",
+        importance: "O jovem Subha pergunta por que os seres diferem em saúde, longevidade, beleza, prestígio e riqueza. O Buda explica as raízes de kamma.",
+        layRelevance: "Estimula sobriedade moral e responsabilidade. Não deve ser usado para culpar vítimas de doenças ou injustiças.",
+        keyConcepts: ["Herdeiros de Nossas Ações", "Intenção e Fruto", "Raízes da Saúde e Riqueza", "Não-Violência"],
+        suttaCentralUrl: "https://suttacentral.net/mn135/en/sujato",
+        studyNotes: "Os seres são donos e herdeiros de suas ações; a conduta ética determina o destino.",
+        reflectionQuestion: "Consigo assumir plena responsabilidade por minhas escolhas sem cair em julgamento orgulhoso dos outros?"
+      },
+      {
+        code: "MN 136",
+        paliTitle: "Mahākammavibhaṅga Sutta",
+        transTitle: "A Grande Análise da Ação",
+        nikaya: "Majjhima Nikāya",
+        category: "kamma",
+        level: "advanced",
+        readingTime: "16 min",
+        importance: "Corrige visões ingênuas sobre o kamma, mostrando que pessoas com atos ruins podem renascer em céus e pessoas boas podem renascer em sofrimento devido a outras causas ou à mente no leito de morte.",
+        layRelevance: "Evita o cinismo quando pessoas desonestas parecem prosperar no curto prazo; a lei causal opera em teias profundas e extensas.",
+        keyConcepts: ["Complexidade do Kamma", "Quatro Tipos de Pessoas", "Kamma Passado e na Morte", "Superação de Regras Simplistas"],
+        suttaCentralUrl: "https://suttacentral.net/mn136/en/sujato",
+        studyNotes: "O kamma é uma corrente complexa de condições, não uma máquina automática de recompensa imediata.",
+        reflectionQuestion: "Espero recompensas imediatas para cada boa atitude ou confio na maturação profunda da integridade ética?"
+      },
+      {
+        code: "AN 6.63",
+        paliTitle: "Nibbedhika Sutta",
+        transTitle: "Discurso da Penetração",
+        nikaya: "Aṅguttara Nikāya",
+        category: "kamma",
+        level: "beginner",
+        readingTime: "7 min",
+        importance: "A definição canônica definitiva de kamma: 'Intenção (cetanā), ó monges, é o que chamo de kamma. Tendo a intenção, age-se pelo corpo, fala ou mente.'",
+        layRelevance: "Fundamental para a ética prática: acidentes sem intenção não criam kamma negativo. A intenção é a alma de cada ato.",
+        keyConcepts: ["Cetanā é Kamma", "Intenção Consciente", "Cessação do Kamma pelo Nobre Caminho"],
+        suttaCentralUrl: "https://suttacentral.net/an6.63/en/sujato",
+        studyNotes: "O kamma cessa quando a cobiça, a raiva e a ilusão são extintas através do Nobre Caminho Óctuplo.",
+        reflectionQuestion: "Qual intenção secreta estava por trás das minhas palavras ou escolhas mais recentes?"
+      },
+      {
+        code: "SN 15.3",
+        paliTitle: "Tiṇakaṭṭha Sutta",
+        transTitle: "Gravetos e Capim",
+        nikaya: "Saṁyutta Nikāya",
+        category: "kamma",
+        level: "beginner",
+        readingTime: "4 min",
+        importance: "Similes evocativos: todas as lágrimas derramadas no saṁsāra superam as águas dos oceanos.",
+        layRelevance: "Desperta urgência espiritual e profunda compaixão por todos os seres, que já foram nossos pais e irmãos em éons passados.",
+        keyConcepts: ["Saṁsāra Sem Começo", "Oceano de Lágrimas", "Leite Materno", "Urgência Espiritual (Saṁvega)"],
+        suttaCentralUrl: "https://suttacentral.net/sn15.3/en/sujato",
+        studyNotes: "A reflexão sobre a vastidão do sofrimento inspira desapego e soltura de querelas superficiais.",
+        reflectionQuestion: "Se o estranho que me irritou já foi minha mãe em vidas passadas, como posso tratá-lo com gentileza?"
+      },
+      {
+        code: "DN 11",
+        paliTitle: "Kevaddha Sutta",
+        transTitle: "A Kevaddha",
+        nikaya: "Dīgha Nikāya",
+        category: "devas",
+        level: "intermediate",
+        readingTime: "15 min",
+        importance: "Um monge percorre os céus perguntando onde os quatro elementos cessam. O Grande Brahmā admite em segredo que não sabe e o encaminha ao Buda.",
+        layRelevance: "Desmistifica deuses cósmicos: nenhum ser celestial possui a sabedoria libertadora que extingue o sofrimento.",
+        keyConcepts: ["Cessação dos Elementos", "Limitação de Mahābrahmā", "O Milagre do Ensinamento"],
+        suttaCentralUrl: "https://suttacentral.net/dn11/en/sujato",
+        studyNotes: "O Buda esclarece que os elementos cessam onde a consciência não tem apoio na cobiça nem na forma.",
+        reflectionQuestion: "Estou buscando salvação em forças externas ou na purificação da minha própria mente?"
+      },
+      {
+        code: "DN 13",
+        paliTitle: "Tevijja Sutta",
+        transTitle: "O Conhecimento Tríplice",
+        nikaya: "Dīgha Nikāya",
+        category: "devas",
+        level: "intermediate",
+        readingTime: "14 min",
+        importance: "Jovens debatem o caminho para a união com Brahmā. O Buda revela que o verdadeiro caminho é cultivar as Quatro Moradas Sublimes (Brahmavihāras).",
+        layRelevance: "Conecta a elevação espiritual ao amor-bondade, compaixão, alegria apreciativa e equanimidade no cotidiano.",
+        keyConcepts: ["União com Brahmā", "Crítica a Rituais Cegos", "Quatro Brahmavihāras"],
+        suttaCentralUrl: "https://suttacentral.net/dn13/en/sujato",
+        studyNotes: "Brahmā não tem ira nem apego; para se aproximar de Brahmā, viva com amor e equanimidade universais.",
+        reflectionQuestion: "Consigo irradiar amor-bondade irrestrito para todas as direções da minha cidade antes de sair de casa?"
+      },
+      {
+        code: "MN 49",
+        paliTitle: "Brahmanimantanika Sutta",
+        transTitle: "O Convite de Brahmā",
+        nikaya: "Majjhima Nikāya",
+        category: "devas",
+        level: "advanced",
+        readingTime: "16 min",
+        importance: "Baka Brahmā crê que seu reino é eterno e supremo. O Buda vai até seu plano para dissolver essa perigosa ilusão de permanência.",
+        layRelevance: "Alerta para não confundir serenidade meditativa refinada com a libertação definitiva do Nibbāna.",
+        keyConcepts: ["Ilusão de Baka Brahmā", "Limites da Matéria Sutil", "O Incondicionado Além de Brahmā"],
+        suttaCentralUrl: "https://suttacentral.net/mn49/en/sujato",
+        studyNotes: "O Buda revela que conhece os reinos acima de Brahmā e a cessação última de toda existência condicionada.",
+        reflectionQuestion: "Confundi uma fase emocional calma e agradável com iluminação espiritual definitiva?"
+      },
+      {
+        code: "AN 4.77",
+        paliTitle: "Acinteyya Sutta",
+        transTitle: "Os Impensáveis",
+        nikaya: "Aṅguttara Nikāya",
+        category: "devas",
+        level: "beginner",
+        readingTime: "3 min",
+        importance: "Quatro temas incompreensíveis para mentes não iluminadas: o alcance de um Buda, do jhāna, do kamma e a especulação cósmica.",
+        layRelevance: "Promove sanidade mental e sobriedade: focar no treino ético do presente em vez de obsessões metafísicas estéreis.",
+        keyConcepts: ["Quatro Impensáveis", "Limites do Pensamento Lógico", "Inescrutabilidade do Kamma"],
+        suttaCentralUrl: "https://suttacentral.net/an4.77/en/sujato",
+        studyNotes: "Tentar calcular mentalmente todos os karmas de vidas passadas leva ao esgotamento mental desnecessário.",
+        reflectionQuestion: "Estou desperdiçando energia tentando decifrar charadas metafísicas que não cessam o sofrimento?"
+      },
+      {
+        code: "SN 56.48",
+        paliTitle: "Chiggala Sutta",
+        transTitle: "O Orifício no Jugo (Tartaruga Cega)",
+        nikaya: "Saṁyutta Nikāya",
+        category: "human",
+        level: "beginner",
+        readingTime: "3 min",
+        importance: "A raridade cósmica astronômica do nascimento humano acompanhado do encontro com o verdadeiro Dhamma.",
+        layRelevance: "Desperta da complacência: a vida humana é uma bênção rara que não deve ser jogada fora em futilidades.",
+        keyConcepts: ["Tartaruga Cega", "Raridade da Vida Humana", "Oportunidade do Dhamma"],
+        suttaCentralUrl: "https://suttacentral.net/sn56.48/en/sujato",
+        studyNotes: "Encaixar o pescoço no jugo é quase impossível; renascer como humano com lucidez é ainda mais extraordinário.",
+        reflectionQuestion: "Sabendo quão rara é esta existência humana, o que priorizarei nos anos que me restam?"
+      },
+      {
+        code: "AN 8.54",
+        paliTitle: "Dīghajāṇu Sutta",
+        transTitle: "Condições de Bem-Estar para os Leigos",
+        nikaya: "Aṅguttara Nikāya",
+        category: "human",
+        level: "beginner",
+        readingTime: "8 min",
+        importance: "O Buda ensina a Dīghajāṇu quatro fatores para o sucesso nesta vida (diligência, proteção, amizade nobre, equilíbrio) e quatro para vidas futuras.",
+        layRelevance: "Conecta cosmologia e rotina financeira doméstica: administrar com sobriedade os recursos materiais e espirituais.",
+        keyConcepts: ["Bem-Estar no Lar", "Gestão Financeira Consciente", "Amizade Virtuosa", "Fé e Sabedoria"],
+        suttaCentralUrl: "https://suttacentral.net/an8.54/en/sujato",
+        studyNotes: "O Buda não exige que os leigos abandonem suas famílias, mas que governem o lar com ética e discernimento.",
+        reflectionQuestion: "Minha gestão financeira doméstica é equilibrada e convivo com amizades que apoiam meu crescimento moral?"
+      },
+      {
+        code: "AN 5.57",
+        paliTitle: "Upajjhaṭṭhana Sutta",
+        transTitle: "Temas para Frequente Recordação",
+        nikaya: "Aṅguttara Nikāya",
+        category: "human",
+        level: "beginner",
+        readingTime: "5 min",
+        importance: "As Cinco Recordações Diárias que todos devem contemplar: envelhecimento, enfermidade, morte, separação e herança do kamma.",
+        layRelevance: "Prática diária essencial que corta a soberba da juventude e a distração mental mundana.",
+        keyConcepts: ["Cinco Recordações", "Sujeito ao Envelhecimento", "Herdeiro das Ações"],
+        suttaCentralUrl: "https://suttacentral.net/an5.57/en/sujato",
+        studyNotes: "Lembrar diariamente que somos donos das nossas ações dissipa a negligência e firma a prática ética.",
+        reflectionQuestion: "Recite as Cinco Recordações: de que forma encarar o fim inevitável transforma minhas prioridades hoje?"
+      },
+      {
+        code: "DN 16",
+        paliTitle: "Mahāparinibbāna Sutta",
+        transTitle: "O Grande Discurso da Extinção Final",
+        nikaya: "Dīgha Nikāya",
+        category: "human",
+        level: "advanced",
+        readingTime: "35 min",
+        importance: "Relato dos últimos momentos do Buda, o abalo dos planos cósmicos e sua exortação final sobre a vigilância diligente.",
+        layRelevance: "A ordem final: 'Todas as formações condicionadas são perecíveis; empenhem-se com diligência (appamādena sampādetha)'.",
+        keyConcepts: ["Impermanência das Formações", "Empenho Diligente", "O Dhamma como Guia Supremo"],
+        suttaCentralUrl: "https://suttacentral.net/dn16/en/sujato",
+        studyNotes: "Até mesmo o corpo do Buda se dissolveu no tempo; o Dhamma praticado é o único refúgio seguro.",
+        reflectionQuestion: "Como colocarei em prática a recomendação final do Buda: 'Empenhem-se com vigilância'?"
+      }
+    ]
+  },
+
+  // E. Lay Scenarios (PT)
+  layScenarios: {
+    sectionTitle: "O que a Cosmologia Budista Significa para o Dia a Dia",
+    sectionSubtitle: "Traduzindo a perspectiva cósmica em responsabilidade ética, resiliência emocional e compaixão no lar",
+    scenarios: [
+      {
+        id: "cosmo-sc-1",
+        number: "01",
+        title: "Raiva, Rancor e Linguagem Nociva",
+        narrative: "Em uma disputa familiar ou conflito profissional tenso, alguém ataca sua integridade com mentiras. Surge o ímpeto violento de destruir a reputação da pessoa com vingança.",
+        dhammaPrinciple: "A raiva repetida e a intenção de ferir moldam uma mente idêntica aos reinos de sofrimento (niraya). A intenção é kamma (AN 6.63). Retrucar com agressividade não vence o ódio, apenas acorrenta ambos a um ciclo descendente.",
+        practicalExercise: "Aplique os Brahmavihāras (DN 13): Pause por 10 respirações conscientes. Reconheça: 'A raiva surgiu. Se eu falar sob seu efeito, dispararei uma flecha envenenada.' Guarde a fala correta e responda com clareza objetiva sem calúnia.",
+        reflectionQuestion: "Se cada palavra agressiva constrói minha futura habitação mental, que reino estou construindo agora?",
+        suttas: ["AN 6.63", "DN 13", "MN 21"]
+      },
+      {
+        id: "cosmo-sc-2",
+        number: "02",
+        title: "Generosidade, Bens Materiais e Sustento",
+        narrative: "Você recebe um bônus no trabalho ou lucro nos negócios. Colegas sugerem gastar com ostentação, enquanto uma instituição de caridade solicita apoio.",
+        dhammaPrinciple: "A generosidade desinteressada (dāna) planta condições para o bem-estar e renascimento feliz. Contudo, AN 8.54 ensina que a generosidade do leigo deve ser equilibrada, sem desamparar a família nem comprometer a subsistência do lar.",
+        practicalExercise: "Pratique a divisão quádrupla do Sigālovāda Sutta (DN 31): 1 parte para o sustento diário, 2 partes reinvestidas no trabalho honesto e 1 parte guardada para emergências, doando com alegria a sobra sem vaidade.",
+        reflectionQuestion: "Consigo doar com coração sereno, sem transformar o donativo em palco para o meu próprio ego?",
+        suttas: ["AN 8.54", "AN 4.62", "DN 31"]
+      },
+      {
+        id: "cosmo-sc-3",
+        number: "03",
+        title: "Prestígio, Riqueza e Desejos Celestes",
+        narrative: "Você se pega contemplando pessoas influentes e bilionárias, desejando ter renascido em berço de ouro com facilidades infindáveis e luxo.",
+        dhammaPrinciple: "Desejar um renascimento rico ou celestial pode motivar virtudes, mas DN 11 e MN 49 alertam que até os céus são impermanentes. Ao término do mérito, os seres decaem. O propósito do Dhamma é a cessação do sofrimento, não o luxo passageiro.",
+        practicalExercise: "Contemple a impermanência do luxo: impérios caem e a juventude se esvai. Mude sua aspiração de 'um renascimento confortável' para 'a libertação do apego e da ilusão'.",
+        reflectionQuestion: "Estou encarando o Dhamma como passaporte para o luxo ou como o caminho para erradicar a cobiça?",
+        suttas: ["DN 11", "MN 49", "SN 15.3"]
+      },
+      {
+        id: "cosmo-sc-4",
+        number: "04",
+        title: "Enfermidade, Deficiência, Pobreza e Adversidade",
+        narrative: "Um amigo ou vizinho enfrenta uma grave doença degenerativa ou ruína financeira. Alguém sugere: 'Deve ser o fruto do kamma ruim dele.'",
+        dhammaPrinciple: "SALVAGUARDA DOUTRINÁRIA ESSENCIAL: O Buda refutou enfaticamente a teoria de que todo sofrimento vem de vidas passadas (SN 36.21). Dores surgem de infecções, causas biológicas, clima e acidentes. É terminantemente proibido culpar vítimas de infortúnios por suposto kamma pretérito.",
+        practicalExercise: "Nunca julgue a adversidade do outro. Responda imediatamente com compaixão ativa (karuṇā), suporte prático, remédios e solidariedade fraterna.",
+        reflectionQuestion: "Como posso erradicar qualquer vestígio de julgamento arrogante e substituí-lo por compaixão prática incondicional?",
+        suttas: ["SN 36.21", "MN 136", "AN 4.77"]
+      },
+      {
+        id: "cosmo-sc-5",
+        number: "05",
+        title: "Diante da Morte, do Luto e do Mistério",
+        narrative: "Receber um diagnóstico preocupante ou perder um ente querido desperta angústia: 'Para onde vou após a morte? O que restará?'",
+        dhammaPrinciple: "A reflexão sobre a morte (maraṇassati) é ensinada para gerar sobriedade, não terror neurótico. AN 5.57 nos convida a investir naquilo que realmente nos protege: intenções nobres, conduta íntegra e sabedoria interior.",
+        practicalExercise: "Recite a quinta recordação: 'Sou dono das minhas ações, herdeiro das minhas ações.' Busque refúgio na mente serena, perdoe mágoas antigas e firme a consciência no desapego lúcido.",
+        reflectionQuestion: "Quando chegar a hora de soltar este corpo físico, minha mente estará ancorada na paz da não-reatividade?",
+        suttas: ["AN 5.57", "SN 56.48", "DN 16"]
+      }
+    ]
+  },
+
+  // F. Kamma & Decision Exercise (PT)
+  kammaSection: {
+    sectionTitle: "Kamma, Renascimento e Responsabilidade Ética",
+    sectionSubtitle: "O motor causal da existência: intenção, maturação e libertação",
+    leadText: "O kamma não é destino cego nem punição cósmica. No Budismo Theravāda, o kamma é a lei natural de causa e efeito moral movida pela intenção (cetanā).",
+    corePrinciples: [
+      {
+        title: "Kamma como Intenção Deliberada",
+        detail: "Ações corporais, verbais ou mentais feitas com intenção geram frutos. Atos involuntários sem intenção consciente não geram sementes kármicas (AN 6.63)."
+      },
+      {
+        title: "Diferença entre Ação (Kamma) e Fruto (Vipāka)",
+        detail: "Kamma é o plantio ativo do agora; vipāka é a colheita experiencial passiva. Você sempre tem liberdade soberana de escolha sobre o presente."
+      },
+      {
+        title: "A Maturação Kármica Não é Simplista",
+        detail: "O kamma pode maturar nesta vida, na próxima ou em vidas futuras quando as condições convergirem (MN 136)."
+      },
+      {
+        title: "Nenhuma Alma Substancial Transmigra",
+        detail: "O renascimento não é uma alma que troca de corpo; é um fluxo contínuo de consciência causal (viññāṇa-sota), como a chama de uma vela que acende outra."
+      }
+    ],
+    decisionExercise: {
+      title: "Exercício Interativo de Decisão Ética",
+      subtitle: "Observe o momentum kármico de escolhas reais na vida cotidiana",
+      dilemmas: [
+        {
+          id: "dilemma-1",
+          situation: "Falar a verdade quando uma mentira conveniente evitaria constrangimento no trabalho.",
+          options: [
+            { text: "Mentir para proteger a imagem imediata", momentum: "Fortalece a mentira habitual e o medo; planta desconfiança e insegurança futura." },
+            { text: "Dizer a verdade com humildade e oferecer solução prática", momentum: "Cultiva a Fala Correta (sammā-vācā); estabelece firmeza moral e confiabilidade." }
+          ]
+        },
+        {
+          id: "dilemma-2",
+          situation: "Responder a uma ofensa verbal ríspida em família.",
+          options: [
+            { text: "Retrucar com sarcasmo ferino", momentum: "Alimenta o fogo da aversão; vincula a mente à hostilidade recíproca." },
+            { text: "Pausar, respirar e não devolver o ataque", momentum: "Quebra o elo kármico; cultiva a paciência sublime (khanti-pāramī)." }
+          ]
+        },
+        {
+          id: "dilemma-3",
+          situation: "Um pedido de doação que comprometeria suas reservas financeiras de emergência.",
+          options: [
+            { text: "Doar impulsivamente além das forças para parecer generoso", momentum: "Gera instabilidade financeira e ansiedade doméstica (AN 8.54)." },
+            { text: "Doar um valor sincero e equilibrado, protegendo a subsistência do lar", momentum: "Generosidade consciente e equilibrada (dāna) alinhada à boa governança leiga." }
+          ]
+        },
+        {
+          id: "dilemma-4",
+          situation: "Oportunidade de assumir os créditos pelo trabalho árduo de um colega.",
+          options: [
+            { text: "Ficar calado e receber os elogios indevidos", momentum: "Violação ética de tomar o que não foi dado; planta vulnerabilidade futura." },
+            { text: "Reconhecer publicamente a contribuição e dedicação do colega", momentum: "Cultiva alegria apreciativa (muditā) e integridade nobre no ambiente profissional." }
+          ]
+        },
+        {
+          id: "dilemma-5",
+          situation: "Cansaço físico e indisposição em um dia de muitas demandas.",
+          options: [
+            { text: "Reclamar com raiva do corpo e entrar em desespero", momentum: "Dispara a segunda flecha emocional contra si mesmo (SN 36.6)." },
+            { text: "Cuidar do corpo com repouso consciente contemplando a impermanência", momentum: "Sabedoria investigando a natureza da matéria (rūpa)." }
+          ]
+        },
+        {
+          id: "dilemma-6",
+          situation: "Impulso de compras compulsivas tarde da noite na internet.",
+          options: [
+            { text: "Comprar imediatamente para anestesiar o tédio", momentum: "Alimenta a fome insaciável do hábito fantasma (taṇhā)." },
+            { text: "Notar o impulso, desligar a tela e respirar conscientemente", momentum: "Fortalece a contenção dos sentidos e a paz do contentamento interior." }
+          ]
+        }
+      ]
+    }
+  },
+
+  // G. Beyond the Planes (PT)
+  beyondPlanes: {
+    sectionTitle: "Nibbāna Não É Outro Reino",
+    sectionSubtitle: "A realidade incondicionada que transcende todas as dimensões cosmológicas",
+    leadText: "O objetivo supremo do Budismo Theravāda NÃO é conquistar uma vaga no céu mais alto. O Nibbāna não é o plano número 32.",
+    points: [
+      {
+        title: "Toda Existência Condicionada é Perecível",
+        detail: "Mesmo as vidas imateriais mais longas (de 84.000 éons) chegam ao fim. Esgotado o mérito, os seres decaem e renascem de acordo com outras causas (MN 49)."
+      },
+      {
+        title: "Prazer Meditativo Não É Libertação",
+        detail: "As delícias sensuais e a calma das absorções mascaram temporariamente as raízes da ignorância (avijjā). O despertar exige penetrar as Quatro Nobres Verdades."
+      },
+      {
+        title: "O Incondicionado (Asaṅkhata)",
+        detail: "O Nibbāna é o incondicionado: o desvanecimento completo da cobiça, da raiva e da ilusão — o fim absoluto de todo sofrimento."
+      }
+    ],
+    reflectionQuestion: "Se até o plano mais exaltado do cosmos está sujeito ao fim, o que significa buscar a verdadeira liberdade em vez de apenas um renascimento confortável?"
+  },
+
+  // H. Pathways (PT)
+  studyPathways: {
+    sectionTitle: "Roteiros de Estudo Estruturados",
+    sectionSubtitle: "Currículos graduais para estudantes iniciantes, intermediários e avançados",
+    disclaimer: "Estas trilhas são sugestões pedagógicas para orientar o estudo individual.",
+    tracks: [
+      {
+        id: "beginner-track",
+        name: "Trilha Iniciante — 7 Dias",
+        duration: "7 Dias (15 min/dia)",
+        description: "Introdução à oportunidade humana, intenção kármica e ética na vida leiga.",
+        days: [
+          { day: 1, sutta: "Visão Geral Cosmológica", task: "Leia sobre os três mundos (Kāma, Rūpa, Arūpa) na seção inicial." },
+          { day: 2, sutta: "SN 56.48 (Chiggala Sutta)", task: "Estude o símile da tartaruga cega e a preciosidade do nascimento humano." },
+          { day: 3, sutta: "AN 6.63 (Nibbedhika Sutta)", task: "Aprenda a definição de kamma como intenção (cetanā)." },
+          { day: 4, sutta: "MN 135 (Cūḷakammavibhaṅga)", task: "Examine como as ações moldam tendências em saúde, riqueza e caráter." },
+          { day: 5, sutta: "DN 11 (Kevaddha Sutta)", task: "Descubra as limitações de Mahābrahmā e por que os deuses não sabem tudo." },
+          { day: 6, sutta: "AN 8.54 (Dīghajāṇu Sutta)", task: "Aplique a ética budista à gestão financeira do lar e às boas amizades." },
+          { day: 7, sutta: "AN 5.57 (Upajjhaṭṭhana)", task: "Recite as Cinco Recordações Diárias e registre sua reflexão no diário." }
+        ]
+      },
+      {
+        id: "intermediate-track",
+        name: "Trilha Intermediária — 14 Dias",
+        duration: "14 Dias (25 min/dia)",
+        description: "Estudo da complexidade do kamma, dos planos de jhāna e dos Brahmavihāras.",
+        days: [
+          { day: 1, sutta: "Planos Sensuais (1 a 11)", task: "Explore os reinos sensuais no explorador interativo." },
+          { day: 2, sutta: "MN 136 (Mahākammavibhaṅga)", task: "Entenda por que pessoas boas podem ter frutos difíceis e vice-versa." },
+          { day: 3, sutta: "SN 15.3 (Tiṇakaṭṭha Sutta)", task: "Contemple a vastidão do oceano de lágrimas e a urgência espiritual." },
+          { day: 4, sutta: "DN 13 (Tevijja Sutta)", task: "Compreenda os 4 Brahmavihāras como o autêntico caminho até Brahmā." },
+          { day: 5, sutta: "Planos de Matéria Sutil (12 a 27)", task: "Examine os 16 reinos de Rūpaloka e sua conexão com o jhāna." },
+          { day: 6, sutta: "MN 49 (Brahmanimantanika)", task: "Examine a ilusão de Baka Brahmā e a refutação do Buda." },
+          { day: 7, sutta: "Exercício Ético Interativo", task: "Complete os 6 dilemas éticos no exercício de decisão." },
+          { day: 8, sutta: "Planos Imateriais (28 a 31)", task: "Conheça os 4 reinos de Arūpaloka e seus limites." },
+          { day: 9, sutta: "AN 4.77 (Acinteyya Sutta)", task: "Estude os quatro temas impensáveis e pratique humildade intelectual." },
+          { day: 10, sutta: "AN 3.80 (Cūḷanikā Sutta)", task: "Contemple a escala cósmica de bilhões de mundos e a perspectiva humana." },
+          { day: 11, sutta: "As Moradas Puras", task: "Estude os planos 23 a 27 e as faculdades espirituais para o Não-retorno." },
+          { day: 12, sutta: "Cenários 1 e 2", task: "Revise Raiva e Linguagem Nociva e Gestão de Riqueza no lar." },
+          { day: 13, sutta: "Cenários 3, 4 e 5", task: "Revise Desejo de Prestígio, Não-julgamento da Doença e a Morte." },
+          { day: 14, sutta: "Nibbāna Além dos Planos", task: "Sintetize seu estudo: por que o Nibbāna não é o reino número 32." }
+        ]
+      },
+      {
+        id: "advanced-track",
+        name: "Trilha Avançada — 30 Days",
+        duration: "30 Dias (40 min/dia)",
+        description: "Estudo canônico aprofundado de DN 1, DN 27, DN 16 e sistematização do Abhidhamma.",
+        days: [
+          { day: 1, sutta: "DN 27 (Aggañña Sutta - Parte 1)", task: "Contração e expansão cósmica e a descida de seres de Ābhassara." },
+          { day: 2, sutta: "DN 27 (Aggañña Sutta - Parte 2)", task: "Origem dos alimentos materiais e desconstrução das castas sociais." },
+          { day: 3, sutta: "DN 1 (Brahmajāla Sutta - Parte 1)", task: "A conduta inicial e o primeiro grupo de teorias cósmicas eternistas." },
+          { day: 4, sutta: "DN 1 (Brahmajāla Sutta - Parte 2)", task: "Eternismo parcial e teorias sobre a finitude ou infinitude do mundo." },
+          { day: 5, sutta: "DN 1 (Brahmajāla Sutta - Parte 3)", task: "O aprisionamento das visões no contato e a superação pelo sábio." },
+          { day: 6, sutta: "Abhidhammattha-saṅgaha (Cap. 5)", task: "Estude o mapa Theravāda clássico dos planos e faculdades." },
+          { day: 7, sutta: "DN 16 (Mahāparinibbāna Sutta)", task: "O abalo cósmico na passagem final do Buda e sua instrução eterna." }
+        ]
+      }
+    ]
+  },
+
+  // I. Reflection Journal (PT)
+  reflectionJournal: {
+    sectionTitle: "Diário de Reflexão Cosmológica",
+    sectionSubtitle: "Arquivo pessoal de estudos gravado estritamente no navegador local",
+    prompts: [
+      { id: "cq1", label: "1. O que este sutta ou plano me ensinou sobre a existência condicionada?", placeholder: "Reflita sobre longevidades e estados de ser..." },
+      { id: "cq2", label: "2. Como este ensinamento conecta minhas intenções atuais (cetanā) a resultados futuros?", placeholder: "Examine a intenção nas decisões cotidianas..." },
+      { id: "cq3", label: "3. O que isso revela sobre a impermanência mesmo de estados espirituais elevados?", placeholder: "Observe como tudo o que surge se extingue..." },
+      { id: "cq4", label: "4. Estou buscando vantagens materiais, renascimento no céu ou o Nibbāna definitivo?", placeholder: "Esclareça sua bússola espiritual..." },
+      { id: "cq5", label: "5. Como posso praticar compaixão sem culpar os outros pelas adversidades que enfrentam?", placeholder: "Cultive gentileza ativa sem julgamentos..." },
+      { id: "cq6", label: "6. Qual sutta canônico iluminou esta experiência hoje?", placeholder: "ex: SN 56.48, MN 135, AN 6.63, DN 11..." }
+    ],
+    saveButtonText: "Salvar Reflexão Cosmológica",
+    entriesHeading: "Suas Reflexões Salvas",
+    noEntriesNotice: "Nenhuma reflexão registrada ainda. Preencha o formulário acima para iniciar seu arquivo pessoal.",
+    exportButtonText: "Exportar Reflexões (JSON)",
+    clearAllButtonText: "Limpar Arquivo"
+  },
+
+  // J. FAQs (PT)
+  faqs: {
+    sectionTitle: "Perguntas Frequentes",
+    sectionSubtitle: "Respostas doutrinárias autênticas ancoradas nos discursos canônicos do Theravāda",
+    items: [
+      {
+        q: "O que é a cosmologia budista na tradição Theravāda?",
+        a: "No Budismo Theravāda, a cosmologia não é mitologia folclórica; é um mapa da existência condicionada (saṁsāra). Descreve os reinos onde os seres renascem segundo o kamma, distribuídos nos planos Sensual (Kāma), de Matéria Sutil (Rūpa) e Imaterial (Arūpa). Sua finalidade é soteriológica: despertar urgência espiritual (saṁvega), demonstrar a lei do kamma e apontar para a libertação."
+      },
+      {
+        q: "O que são os 31 planos de existência?",
+        a: "Os 31 planos são uma classificação Theravāda tradicional: 11 planos sensuais (4 estados de sofrimento, o plano humano e 6 céus de devas), 16 planos de matéria sutil de Brahmā (ligados aos 4 jhānas e incluindo as 5 Moradas Puras) e 4 planos imateriais (ligados às absorções sem forma)."
+      },
+      {
+        q: "Todos os suttas primitivos trazem os 31 planos em sequência?",
+        a: "Não. A estrutura dos 31 planos é uma consolidação tradicional posterior (estruturada no Abhidhamma e em tratados como o Visuddhimagga). Os reinos individuais aparecem dispersos pelos suttas, mas não em uma lista única e fechada de 31 planos num só discurso."
+      },
+      {
+        q: "O que determina onde um ser renasce?",
+        a: "O renascimento é determinado pela intenção (cetanā), hábitos kármicos e a consciência no momento da morte. Atos nocivos levam aos planos inferiores; virtude e generosidade conduzem aos reinos humano e celestial; absorções meditativas conduzem a Brahmā; e a extinção de todas as impurezas encerra o ciclo."
+      },
+      {
+        q: "Os devas e Brahmās são imortais no Budismo?",
+        a: "Não. Todos os seres no cosmos — mesmo o Grande Brahmā que vive por éons — são impermanentes (anicca) e mortais. Esgotada a energia kármica, eles morrem e renascem em outros reinos conforme seu kamma acumulado."
+      },
+      {
+        q: "Qual é a diferença entre devas e Brahmās?",
+        a: "Os devas habitam o Reino Sensual (Kāmaloka); têm corpos refinados mas ainda experimentam desejos sensoriais. Os Brahmās habitam os reinos da Matéria Sutil (Rūpa) e Imaterial (Arūpa); superaram o desejo sensorial por meio do jhāna e habitam em serenidade e amor-bondade."
+      },
+      {
+        q: "O que são as Moradas Puras (Suddhāvāsa)?",
+        a: "São os cinco planos mais altos da matéria sutil (planos 23 a 27: Avihā, Atappā, Sudassā, Sudassī, Akaniṭṭhā), habitados exclusivamente por Não-retornantes (Anāgāmīs). Eles alcançam o Arahantado e o Parinibbāna ali, sem jamais retornar ao mundo sensual."
+      },
+      {
+        q: "Os reinos são lugares físicos literais ou estados psicológicos?",
+        a: "No Theravāda tradicional, são realidades literais experimentadas após a morte. Contudo, o Buda ensinou que estados psicológicos espelham esses reinos: a fúria reflete o inferno, a cobiça insaciável reflete fantasmas famintos e a serenidade reflete Brahmā. Ambas as dimensões são verdadeiras, mas a leitura psicológica não deve apagar a realidade do renascimento."
+      },
+      {
+        q: "O renascimento é a transmigração de uma alma imutável (attā)?",
+        a: "Não. O Budismo rejeita a ideia de uma alma eterna que muda de corpo como quem troca de roupa (anattā). O renascimento é um fluxo contínuo de causas e efeitos de consciência (viññāṇa-sota), como uma vela que acende outra sem que uma substância passe de uma para a outra."
+      },
+      {
+        q: "Renascer no céu é o objetivo do Budismo?",
+        a: "Não. O Buda afirmou expressamente que almejar o céu é uma aspiração inferior, pois os céus são passageiros e continuam no saṁsāra. O objetivo supremo da prática é o Nibbāna: a cessação completa do ciclo de renascimentos e sofrimento."
+      },
+      {
+        q: "Podemos saber o kamma passado de outra pessoa ou prever seu renascimento?",
+        a: "Não. No Acinteyya Sutta (AN 4.77), o Buda ensina que o cálculo exato do kamma é incompreensível para mentes não iluminadas. Os suttas proíbem expressamente culpar pessoas por suas enfermidades ou infortúnios com base em suposto kamma."
+      },
+      {
+        q: "Como a cosmologia se conecta à Origem Dependente (Paṭiccasamuppāda)?",
+        a: "Elas são inseparáveis: a Origem Dependente explica a engrenagem causal (Ignorância → Formações → Consciência → Nome-e-Forma → Devir → Nascimento) que gira a roda do saṁsāra através dos 31 planos."
+      },
+      {
+        q: "Por que a vida humana é considerada especialmente valiosa para a prática?",
+        a: "Nos planos inferiores, o terror e a dor paralisam a mente; nos céus, o prazer contínuo induz à complacência. O plano humano equilibra dor e alegria, despertando a urgência espiritual (saṁvega) e permitindo ouvir o Dhamma e despertar."
+      },
+      {
+        q: "Em que o Nibbāna difere dos planos cosmológicos mais elevados?",
+        a: "Os planos mais altos são condicionados (saṅkhata) e impermanentes. O Nibbāna é incondicionado (asaṅkhata), não-nascido e imutável — a extinção total da cobiça, da raiva e da ilusão."
+      }
+    ]
+  }
+};
+
+
+  // ==========================================
+  // 4. CANONICAL TOPICS DATA
   // ==========================================
 /**
  * The Lay Dharma Household Mārga (Upāsaka-Dharma)
@@ -1942,24 +5667,26 @@ const TOPICS_DATA = [
     id: "paticcasamuppada",
     number: "02",
     paliTitle: "Paṭiccasamuppāda",
-    canonicalRef: "Mahānidāna Sutta (DN 15), Paṭiccasamuppāda-vibhaṅga Sutta (SN 12.2)",
+    canonicalRef: "SN 12.2 • SN 12.15 • MN 9 • SN 12.20 • SN 12.23 • DN 15 • SN 12.11 • SN 12.17 • SN 12.38 • SN 36.6 • SN 35.28 • SN 47.13",
     en: {
-      title: "Dependent Arising",
+      title: "Dependent Arising in Everyday Life",
       tagline: "The Cosmic & Psychological Law of Interconnected Causality",
       category: "Deep Insight",
       keyPaliTerms: [
         { term: "Idappaccayatā", meaning: "Specific conditionality: 'When this exists, that comes to be; with the arising of this, that arises.'" },
         { term: "Phassa", meaning: "Sensory contact (eye-object-consciousness, ear-sound-consciousness, etc.)" },
         { term: "Vedanā", meaning: "Feeling tone (pleasant, painful, neither-painful-nor-pleasant)" },
+        { term: "Taṇhā", meaning: "Craving, feverish thirst (sensual pleasures, becoming, and non-becoming)" },
         { term: "Upādāna", meaning: "Clinging, fuel, grasping onto views, pleasure, rites, and self-identity" },
         { term: "Saṅkhāra", meaning: "Volitional formations, mental fabrications, conditioned karmic patterns" }
       ],
-      overview: "Dependent Arising is the heart of the Buddha's profound realization beneath the Bodhi tree. It demonstrates that nothing exists in isolation or by sovereign accident; everything arises dependent on conditions and ceases when those conditions dissolve. For the lay practitioner, understanding the chain between Contact (Phassa), Feeling (Vedanā), and Craving (Taṇhā) provides the master key to breaking reactive habits.",
+      overview: "Dependent arising is the Buddha's teaching on conditionality: when particular conditions are present, corresponding phenomena arise; when those conditions cease, the dependent phenomena cease. It provides a framework for understanding suffering and the possibility of liberation.",
+      dependentArisingModule: DEPENDENT_ARISING_MODULE_EN,
       canonicalExcerpts: [
         {
-          source: "SN 12.65 — The Ancient Path",
-          pali: "Imasmiṁ sati idaṁ hoti, imassuppādā idaṁ uppajjati; imasmiṁ asati idaṁ na hoti, imassa nirodhā idaṁ nirujjhati.",
-          translation: "When this exists, that comes to be; with the arising of this, that arises. When this does not exist, that does not come to be; with the cessation of this, that ceases."
+          source: "SN 12.20 — Paccaya Sutta",
+          pali: "Uppādā vā, bhikkhave, tathāgatānaṁ anuppādā vā tathāgatānaṁ, ṭhitāva sā dhātu dhammaṭṭhitatā dhammaniyāmatā idappaccayatā.",
+          translation: "Whether Realized Ones arise or not, this fundamental reality remains: the stability of the Dhamma, the law of the Dhamma, specific conditionality."
         },
         {
           source: "DN 15 — Mahānidāna Sutta",
@@ -1987,22 +5714,24 @@ const TOPICS_DATA = [
       ]
     },
     pt: {
-      title: "Origem Dependente",
+      title: "Origem Dependente na Vida Cotidiana",
       tagline: "A Lei Cósmica e Psicológica da Causalidade Interconectada",
       category: "Discernimento Profundo",
       keyPaliTerms: [
         { term: "Idappaccayatā", meaning: "Condicionalidade específica: 'Quando isto existe, aquilo vem a ser; com o surgir disto, aquilo surge.'" },
         { term: "Phassa", meaning: "Contato sensorial (órgão dos sentidos, objeto correspondente e consciência)" },
         { term: "Vedanā", meaning: "Tom afetivo da sensação (agradável, doloroso ou nem doloroso nem agradável)" },
+        { term: "Taṇhā", meaning: "Sede compulsiva, anseio febril (pelos sentidos, vir-a-ser e não-vir-a-ser)" },
         { term: "Upādāna", meaning: "Apego, combustível mental, apego a prazeres sensoriais, opiniões e identidade pessoal" },
         { term: "Saṅkhāra", meaning: "Formações volitivas, fabricações mentais, padrões cármicos condicionados" }
       ],
-      overview: "A Origem Dependente é o coração da iluminação do Buda sob a árvore Bodhi. Demonstra que nada subsiste isoladamente ou por mero acaso; tudo surge dependente de condições e cessa quando tais condições se extinguem. Para o praticante leigo, compreender o elo entre Contato (Phassa), Sensação (Vedanā) e Desejo (Taṇhā) é a chave-mestra para desarmar impulsos reativos.",
+      overview: "A origem dependente é o ensinamento do Buda sobre a condicionalidade: quando condições particulares estão presentes, os fenômenos correspondentes surgem; quando essas condições cessam, os fenômenos dependentes cessam. Ela fornece a estrutura para compreender o sofrimento e a possibilidade de libertação.",
+      dependentArisingModule: DEPENDENT_ARISING_MODULE_PT,
       canonicalExcerpts: [
         {
-          source: "SN 12.65 — O Caminho Antigo",
-          pali: "Imasmiṁ sati idaṁ hoti, imassuppādā idaṁ uppajjati; imasmiṁ asati idaṁ na hoti, imassa nirodhā idaṁ nirujjhati.",
-          translation: "Quando isto existe, aquilo vem a ser; com o surgimento disto, aquilo surge. Quando isto inexiste, aquilo não vem a ser; com a cessação disto, aquilo cessa."
+          source: "SN 12.20 — Paccaya Sutta",
+          pali: "Uppādā vā, bhikkhave, tathāgatānaṁ anuppādā vā tathāgatānaṁ, ṭhitāva sā dhātu dhammaṭṭhitatā dhammaniyāmatā idappaccayatā.",
+          translation: "Quer os Realizados surjam ou não, permanece esta realidade fundamental: a estabilidade do Dhamma, a lei do Dhamma, a condicionalidade específica."
         },
         {
           source: "DN 15 — Mahānidāna Sutta",
@@ -2586,7 +6315,7 @@ const TOPICS_DATA = [
     id: "lokadhatu",
     number: "09",
     paliTitle: "Lokadhātu",
-    canonicalRef: "Kevatta Sutta (DN 11), Cūḷataṇhāsaṅkhaya Sutta (MN 37), Mahāgopālaka Sutta (MN 33)",
+    canonicalRef: "DN 27 • DN 1 • AN 3.80 • MN 135 • MN 136 • AN 6.63 • SN 15.3 • DN 11 • DN 13 • MN 49 • AN 4.77 • SN 56.48 • AN 8.54 • AN 5.57 • DN 16",
     en: {
       title: "Buddhist Cosmology",
       tagline: "The 31 Planes of Existence, the Wheel of Saṁsāra, and the Rare Human Opportunity",
@@ -2599,6 +6328,7 @@ const TOPICS_DATA = [
         { term: "Sakkāyadiṭṭhi", meaning: "The root illusion of an unchanging, isolated self within conditioned existence" }
       ],
       overview: "Buddhist cosmology is not mythological folklore; it is an existential psychological map. Across 31 distinct realms spanning heavens, human planes, ghost realms, animal worlds, and hells, the Buddha revealed that every state of existence reflects the quality of mind and moral choices. For householders, this macro-perspective imbues human life with deep urgency and dignity.",
+      buddhistCosmologyModule: BUDDHIST_COSMOLOGY_MODULE_EN,
       canonicalExcerpts: [
         {
           source: "SN 56.48 — The Blind Turtle Simile (Chiggalayuga Sutta)",
@@ -2642,6 +6372,7 @@ const TOPICS_DATA = [
         { term: "Sakkāyadiṭṭhi", meaning: "A ilusão fundamental de uma identidade estática e permanente no cosmos" }
       ],
       overview: "A cosmologia budista não é folclore mitológico; é uma cartografia da psicologia existencial. Através de 31 planos distintos que abrangem céus, esferas humanas, reinos animais, reinos de espíritos aflitos e infernos, o Buda ensinou que todo estado reflete a qualidade da consciência e dos atos morais. Essa perspectiva macro confere à vida humana uma gravidade e uma dignidade singulares.",
+      buddhistCosmologyModule: BUDDHIST_COSMOLOGY_MODULE_PT,
       canonicalExcerpts: [
         {
           source: "SN 56.48 — A Símile da Tartaruga Cega (Chiggalayuga Sutta)",
@@ -2678,7 +6409,7 @@ const TOPICS_DATA = [
 
 
   // ==========================================
-  // 3. APPLICATION CONTROLLER
+  // 5. APPLICATION CONTROLLER
   // ==========================================
 /**
  * The Lay Dharma Household Mārga — Main Application Controller
@@ -3155,6 +6886,48 @@ class LayDharmaApp {
         <div class="pali-term-def">${k.meaning}</div>
       </div>
     `).join('');
+
+    // If Dependent Arising Module is available, render its full learning portal
+    if (langContent.dependentArisingModule) {
+      const pam = langContent.dependentArisingModule;
+      if (this.dom.modalOverview) this.dom.modalOverview.textContent = '';
+      if (this.dom.modalDoctrinalFramework) {
+        this.dom.modalDoctrinalFramework.innerHTML = this.renderDependentArisingOverview(pam, this.currentLang);
+        this.dom.modalDoctrinalFramework.style.display = 'block';
+      }
+      if (this.dom.modalExcerptsList) {
+        this.dom.modalExcerptsList.innerHTML = this.renderDependentArisingCanonical(pam, this.currentLang);
+      }
+      if (this.dom.householdIntroText) {
+        this.dom.householdIntroText.textContent = pam.dailyScenarios.intro;
+      }
+      if (this.dom.modalHouseholdList) {
+        this.dom.modalHouseholdList.innerHTML = this.renderDependentArisingHousehold(pam, this.currentLang);
+      }
+      this.bindDependentArisingInteractions(pam, this.currentLang);
+      return;
+    }
+
+    // If Buddhist Cosmology Module is available, render its full learning portal
+    if (langContent.buddhistCosmologyModule) {
+      const cm = langContent.buddhistCosmologyModule;
+      if (this.dom.modalOverview) this.dom.modalOverview.textContent = '';
+      if (this.dom.modalDoctrinalFramework) {
+        this.dom.modalDoctrinalFramework.innerHTML = this.renderCosmologyOverview(cm, this.currentLang);
+        this.dom.modalDoctrinalFramework.style.display = 'block';
+      }
+      if (this.dom.modalExcerptsList) {
+        this.dom.modalExcerptsList.innerHTML = this.renderCosmologyCanonical(cm, this.currentLang);
+      }
+      if (this.dom.householdIntroText) {
+        this.dom.householdIntroText.textContent = cm.layScenarios.intro;
+      }
+      if (this.dom.modalHouseholdList) {
+        this.dom.modalHouseholdList.innerHTML = this.renderCosmologyHousehold(cm, this.currentLang);
+      }
+      this.bindCosmologyInteractions(cm, this.currentLang);
+      return;
+    }
 
     // Doctrinal Operational Matrix (Catukicca Framework)
     if (this.dom.modalDoctrinalFramework) {
@@ -3922,6 +7695,1748 @@ class LayDharmaApp {
     `;
   }
 
+
+  renderDependentArisingOverview(m, lang) {
+    if (!m) return '';
+
+    // Hero Section
+    const hero = m.hero;
+    const heroHtml = `
+      <div class="pa-hero-wrap" id="pa-hero">
+        <div class="pa-hero-badge"><span>☸</span> ${hero.paliTitle}</div>
+        <h2 class="pa-hero-title">${hero.title}</h2>
+        <div class="pa-hero-pali">${hero.paliTitle}</div>
+        <div class="pa-hero-subtitle">${hero.subtitle}</div>
+        <p class="pa-hero-intro">${hero.introText}</p>
+
+        <div class="pa-canonical-box">
+          <div class="pa-canonical-header">
+            <span class="pa-canonical-badge">${hero.canonicalPassage.citation}</span>
+            <a href="${hero.canonicalPassage.sourceUrl}" target="_blank" rel="noopener noreferrer" class="pa-canonical-link">
+              <span>${lang === 'pt' ? 'Ler no SuttaCentral' : 'Read on SuttaCentral'}</span>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+            </a>
+          </div>
+          <div class="pa-canonical-pali">"${hero.canonicalPassage.excerptPali}"</div>
+          <div class="pa-canonical-trans">"${hero.canonicalPassage.excerptTrans}"</div>
+        </div>
+
+        <div class="pa-hero-actions">
+          ${hero.primaryActions.map(act => `
+            <a href="${act.target}" class="pa-action-btn" data-target="${act.target}">
+              <span>${act.icon}</span> <span>${act.label}</span>
+            </a>
+          `).join('')}
+        </div>
+      </div>
+    `;
+
+    // Section B: What is Dependent Arising?
+    const w = m.whatIs;
+    const l1 = w.level1;
+    const l2 = w.level2;
+    const l3 = w.level3;
+    const comp = w.comparisonPanel;
+
+    const whatIsHtml = `
+      <section class="pa-section-block" id="pa-what-is">
+        <div class="pa-section-title-wrap">
+          <h3 class="pa-section-title"><span>☸</span> ${w.sectionTitle}</h3>
+          <div class="pa-section-subtitle">${w.sectionSubtitle}</div>
+        </div>
+
+        <div class="pa-levels-grid">
+          <!-- Level 1 -->
+          <article class="pa-level-card">
+            <span class="pa-level-badge">${l1.badge}</span>
+            <h4 class="pa-level-title">${l1.title}</h4>
+            <div class="pa-formula-box">
+              <div class="pa-formula-pali">"${l1.paliFormula}"</div>
+              <div class="pa-formula-trans">"${l1.translationFormula}"</div>
+            </div>
+            <p class="pa-level-detail">${l1.detail}</p>
+          </article>
+
+          <!-- Level 2 -->
+          <article class="pa-level-card">
+            <span class="pa-level-badge">${l2.badge}</span>
+            <h4 class="pa-level-title">${l2.title}</h4>
+            <p class="pa-level-detail" style="margin-bottom: 12px;">${l2.intro}</p>
+            <div class="pa-sequence-pills">
+              ${l2.linksSequence.map(link => `
+                <div class="pa-seq-pill">
+                  <span class="pa-seq-num">${link.num}</span>
+                  <span class="pa-seq-pali">${link.pali}</span>
+                  <span class="pa-seq-trans">${link.trans}</span>
+                </div>
+              `).join('')}
+            </div>
+            <div class="pa-formula-box" style="margin-top: 14px;">
+              <div class="pa-formula-trans" style="font-style: italic; color: var(--gold-light);">
+                "${l2.canonicalCulmination}"
+              </div>
+            </div>
+            <div class="pa-caveat-box">${l2.caveat}</div>
+          </article>
+
+          <!-- Level 3 -->
+          <article class="pa-level-card">
+            <span class="pa-level-badge">${l3.badge}</span>
+            <h4 class="pa-level-title">${l3.title}</h4>
+            <div class="pa-formula-box">
+              <div class="pa-formula-pali">"${l3.paliFormula}"</div>
+              <div class="pa-formula-trans">"${l3.translationFormula}"</div>
+            </div>
+            <p class="pa-level-detail">${l3.detail}</p>
+          </article>
+        </div>
+
+        <!-- Comparison Panel -->
+        <div class="pa-comparison-panel">
+          <div class="pa-comp-header">
+            <h4 class="pa-comp-title"><span>☸</span> ${comp.title}</h4>
+            <div style="font-size: 0.88rem; color: var(--text-muted); margin-top: 4px;">${comp.subtitle}</div>
+          </div>
+          <div class="pa-comp-grid">
+            <div class="pa-comp-card pa-comp-arising">
+              <div class="pa-comp-badge">▼ ${comp.arisingBox.title}</div>
+              <p class="pa-comp-desc">${comp.arisingBox.desc}</p>
+            </div>
+            <div class="pa-comp-card pa-comp-cessation">
+              <div class="pa-comp-badge">▲ ${comp.cessationBox.title}</div>
+              <p class="pa-comp-desc">${comp.cessationBox.desc}</p>
+            </div>
+            <div class="pa-comp-card pa-comp-practice">
+              <div class="pa-comp-badge">☸ ${comp.practiceBox.title}</div>
+              <p class="pa-comp-desc">${comp.practiceBox.desc}</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    `;
+
+    // Section C: The Twelve Links Explorer
+    const tle = m.twelveLinksExplorer;
+    const linksExplorerHtml = `
+      <section class="pa-section-block" id="pa-twelve-links">
+        <div class="pa-section-title-wrap">
+          <h3 class="pa-section-title"><span>☸</span> ${tle.sectionTitle}</h3>
+          <div class="pa-section-subtitle">${tle.sectionSubtitle}</div>
+        </div>
+
+        <div class="pa-explorer-toolbar">
+          <div class="pa-mode-control" role="group" aria-label="Explorer Mode">
+            <button class="pa-mode-btn active" id="paModeCanonical" data-mode="canonical">
+              📜 ${tle.canonicalModeLabel}
+            </button>
+            <button class="pa-mode-btn" id="paModeEveryday" data-mode="everyday">
+              🏡 ${tle.everydayModeLabel}
+            </button>
+          </div>
+          <div class="pa-mode-notice">${tle.modeNotice}</div>
+        </div>
+
+        <div class="pa-links-list" id="paLinksList">
+          ${tle.links.map(link => `
+            <article class="pa-link-item" id="pa-link-${link.num}">
+              <header class="pa-link-top">
+                <div class="pa-link-title-group">
+                  <span class="pa-link-num-tag">${String(link.num).padStart(2, '0')}</span>
+                  <h4 class="pa-link-pali-name">${link.pali}</h4>
+                  <span class="pa-link-trans-name">— ${link.trans}</span>
+                </div>
+                <span class="pa-link-ref-badge">${link.canonicalRef}</span>
+              </header>
+
+              <div class="pa-link-relations-bar">
+                <span class="pa-rel-tag"><strong>← Preceding:</strong> ${link.preceding}</span>
+                <span class="pa-rel-tag"><strong>→ Following:</strong> ${link.following}</span>
+              </div>
+
+              <div class="pa-link-body-text pa-canonical-mode-content">
+                ${link.canonicalDef}
+              </div>
+
+              <div class="pa-link-body-text pa-everyday-mode-content" style="display: none; color: #f5f0e6; background: rgba(224, 169, 68, 0.05); padding: 12px; border-radius: 6px; border-left: 3px solid var(--gold-primary);">
+                <strong>${lang === 'pt' ? 'Aplicação Prática no Cotidiano:' : 'Everyday Lay Illustration:'}</strong> ${link.everydayIllustration}
+              </div>
+
+              <div class="pa-link-reflection-card">
+                <span>☸</span>
+                <div><strong>Yoniso Manasikāra:</strong> ${link.reflectionQuestion}</div>
+              </div>
+
+              <div>
+                <button class="pa-toggle-note-btn" data-target="pa-note-${link.num}">
+                  <span>▼</span> <span>${lang === 'pt' ? 'Nota Doutrinária Detalhada' : 'Full Doctrinal Study Note'}</span>
+                </button>
+                <div class="pa-study-note-drawer" id="pa-note-${link.num}">
+                  ${link.studyNote}
+                </div>
+              </div>
+            </article>
+          `).join('')}
+        </div>
+      </section>
+    `;
+
+    // Section J: FAQs
+    const faqs = m.faqs;
+    const faqsHtml = `
+      <section class="pa-section-block" id="pa-faqs">
+        <div class="pa-section-title-wrap">
+          <h3 class="pa-section-title"><span>☸</span> ${faqs.sectionTitle}</h3>
+          <div class="pa-section-subtitle">${faqs.sectionSubtitle}</div>
+        </div>
+
+        <div class="pa-faq-list">
+          ${faqs.items.map((item, idx) => `
+            <div class="pa-faq-item" id="pa-faq-${idx}">
+              <button class="pa-faq-q-btn" data-faq-index="${idx}">
+                <span>${idx + 1}. ${item.q}</span>
+                <span class="pa-faq-icon">▾</span>
+              </button>
+              <div class="pa-faq-a-body">
+                ${item.a}
+              </div>
+            </div>
+          `).join('')}
+        </div>
+      </section>
+    `;
+
+    return heroHtml + whatIsHtml + linksExplorerHtml + faqsHtml;
+  }
+
+  renderDependentArisingCanonical(m, lang) {
+    if (!m) return '';
+    const lib = m.suttaLibrary;
+
+    const toolbarHtml = `
+      <div class="pa-library-controls">
+        <div class="pa-section-title-wrap">
+          <h3 class="pa-section-title"><span>☸</span> ${lib.sectionTitle}</h3>
+          <div class="pa-section-subtitle">${lib.sectionSubtitle}</div>
+        </div>
+
+        <div class="pa-search-wrap">
+          <svg class="pa-search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <input type="search" class="pa-search-input" id="paSuttaSearch" placeholder="${lib.searchPlaceholder}" aria-label="Search Suttas">
+        </div>
+
+        <div class="pa-filter-pills" id="paFilterPills">
+          ${lib.filterCategories.map(cat => `
+            <button class="pa-filter-pill ${cat.id === 'all' ? 'active' : ''}" data-cat="${cat.id}">
+              ${cat.label}
+            </button>
+          `).join('')}
+        </div>
+      </div>
+    `;
+
+    // Sutta Cards
+    const suttasHtml = `
+      <div class="pa-suttas-grid" id="paSuttasGrid">
+        ${lib.suttas.map((s, idx) => `
+          <article class="pa-sutta-card" id="pa-sutta-${idx}" data-code="${s.code}" data-cat="${s.category}" data-search="${(s.code + ' ' + s.paliTitle + ' ' + s.transTitle + ' ' + s.keyConcepts.join(' ')).toLowerCase()}">
+            <header class="pa-sutta-top">
+              <div class="pa-sutta-badges">
+                <span class="pa-sutta-code-tag">${s.code}</span>
+                <span class="pa-sutta-cat-tag">${s.category}</span>
+                <span class="pa-sutta-time-tag">⏱ ${s.readingTime}</span>
+              </div>
+              <label class="pa-read-toggle-wrap" data-code="${s.code}">
+                <input type="checkbox" class="pa-sutta-read-check" data-code="${s.code}">
+                <span class="pa-read-label">${lang === 'pt' ? 'Marcar como Lido' : 'Mark as Read'}</span>
+              </label>
+            </header>
+
+            <div class="pa-sutta-titles">
+              <h3 class="pa-sutta-pali-title">${s.paliTitle}</h3>
+              <div class="pa-sutta-trans-title">“${s.transTitle}”</div>
+              <div class="pa-sutta-nikaya">${s.nikaya}</div>
+            </div>
+
+            <p class="pa-sutta-importance">${s.importance}</p>
+
+            <div class="pa-lay-relevance-card">
+              <strong>${lang === 'pt' ? 'Relevância para a Vida Leiga:' : 'Lay Relevance:'}</strong> ${s.layRelevance}
+            </div>
+
+            <div class="pa-concepts-row">
+              ${s.keyConcepts.map(c => `<span class="pa-concept-chip">#${c}</span>`).join('')}
+            </div>
+
+            <div class="pa-link-reflection-card" style="margin-bottom: 14px;">
+              <span>☸</span>
+              <div><strong>${lang === 'pt' ? 'Reflexão:' : 'Reflection:'}</strong> ${s.reflectionQuestion}</div>
+            </div>
+
+            <div style="margin-bottom: 14px;">
+              <button class="pa-toggle-note-btn" data-target="pa-sutta-note-${idx}">
+                <span>▼</span> <span>${lang === 'pt' ? 'Notas de Estudo' : 'Study Notes'}</span>
+              </button>
+              <div class="pa-study-note-drawer" id="pa-sutta-note-${idx}">
+                ${s.studyNotes}
+              </div>
+            </div>
+
+            <footer class="pa-sutta-action-row">
+              <a href="${s.suttaCentralUrl}" target="_blank" rel="noopener noreferrer" class="suttacentral-btn">
+                <span>${lang === 'pt' ? 'Ler no SuttaCentral' : 'Read on SuttaCentral'} (${s.code})</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+              </a>
+            </footer>
+          </article>
+        `).join('')}
+      </div>
+    `;
+
+    return toolbarHtml + suttasHtml;
+  }
+
+  renderDependentArisingHousehold(m, lang) {
+    if (!m) return '';
+
+    // Section E: Daily Scenarios
+    const ds = m.dailyScenarios;
+    const scenariosHtml = `
+      <section class="pa-section-block" id="pa-scenarios">
+        <div class="pa-section-title-wrap">
+          <h3 class="pa-section-title"><span>☸</span> ${ds.sectionTitle}</h3>
+          <div class="pa-section-subtitle">${ds.sectionSubtitle}</div>
+        </div>
+
+        <div class="pa-scenarios-list">
+          ${ds.scenarios.map(sc => `
+            <article class="pa-scenario-card" id="${sc.id}">
+              <header class="pa-scenario-header">
+                <span class="pa-sc-num">${sc.number}</span>
+                <h4 class="pa-sc-title">${sc.title}</h4>
+              </header>
+
+              <div class="pa-sc-grid">
+                <div class="pa-sc-item">
+                  <div class="pa-sc-label">${lang === 'pt' ? 'Situação' : 'Situation'}</div>
+                  <div class="pa-sc-text">${sc.situation}</div>
+                </div>
+
+                <div class="pa-sc-item">
+                  <div class="pa-sc-label">${lang === 'pt' ? 'Experiência Direta (Phassa & Vedanā)' : 'Directly Experienced (Phassa & Vedanā)'}</div>
+                  <div class="pa-sc-text">${sc.directlyExperienced}</div>
+                </div>
+
+                <div class="pa-sc-item">
+                  <div class="pa-sc-label">${lang === 'pt' ? 'Condições Presentes' : 'Conditions Present'}</div>
+                  <div class="pa-sc-text">${sc.conditionsPresent}</div>
+                </div>
+
+                <div class="pa-sc-item">
+                  <div class="pa-sc-label">${lang === 'pt' ? 'Ponto de Desejo & Apego (Taṇhā & Upādāna)' : 'Where Craving & Clinging Develop (Taṇhā & Upādāna)'}</div>
+                  <div class="pa-sc-text"><strong>${lang === 'pt' ? 'Desejo:' : 'Craving:'}</strong> ${sc.cravingPoint}</div>
+                  <div class="pa-sc-text" style="margin-top: 4px;"><strong>${lang === 'pt' ? 'Apego:' : 'Clinging:'}</strong> ${sc.clingingPoint}</div>
+                </div>
+
+                <div class="pa-sc-item dhamma-response">
+                  <div class="pa-sc-label">✓ ${lang === 'pt' ? 'Resposta Prática do Dhamma' : 'Practical Dhamma Response'}</div>
+                  <div class="pa-sc-text">${sc.dhammaResponse}</div>
+                </div>
+
+                <div class="pa-sc-item">
+                  <div class="pa-sc-label">☸ ${lang === 'pt' ? 'Pergunta Reflexiva' : 'Contemplative Question'}</div>
+                  <div class="pa-sc-text" style="color: var(--gold-light); font-style: italic;">"${sc.reflectionQuestion}"</div>
+                  <div class="pa-sc-suttas">
+                    ${sc.suttas.map(st => `<span class="pa-concept-chip">📖 ${st}</span>`).join('')}
+                  </div>
+                </div>
+              </div>
+            </article>
+          `).join('')}
+        </div>
+      </section>
+    `;
+
+    // Section F: Practical Exercise (Observe the Links)
+    const ge = m.guidedExercise;
+    const exerciseHtml = `
+      <section class="pa-section-block" id="pa-exercise">
+        <div class="pa-exercise-wrap">
+          <div class="pa-section-title-wrap">
+            <h3 class="pa-section-title"><span>☸</span> ${ge.title}</h3>
+            <div class="pa-section-subtitle">${ge.subtitle}</div>
+          </div>
+          <div style="display: flex; gap: 12px; margin-bottom: 20px; flex-wrap: wrap;">
+            <span class="pa-canonical-badge">${ge.privacyNotice}</span>
+          </div>
+          <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 20px; line-height: 1.5;">${ge.disclaimer}</p>
+
+          <div class="pa-exercise-progress-bar" id="paExerciseProgressBar">
+            ${ge.steps.map((_, i) => `<div class="pa-progress-step ${i === 0 ? 'active' : ''}" data-step="${i + 1}"></div>`).join('')}
+          </div>
+
+          <div class="pa-step-card" id="paStepCard">
+            <!-- Dynamic step injected by JS -->
+          </div>
+
+          <div class="pa-step-nav-row">
+            <button class="pa-nav-btn" id="paStepPrevBtn" disabled>${lang === 'pt' ? '← Passo Anterior' : '← Previous Step'}</button>
+            <span id="paStepIndicator" style="font-size: 0.85rem; color: var(--text-muted);">Step 1 of 7</span>
+            <button class="pa-nav-btn" id="paStepNextBtn">${lang === 'pt' ? 'Próximo Passo →' : 'Next Step →'}</button>
+          </div>
+
+          <div id="paExerciseSummaryWrap" style="display: none;"></div>
+        </div>
+      </section>
+    `;
+
+    // Section G: The Path of Practice
+    const pop = m.pathOfPractice;
+    const pathHtml = `
+      <section class="pa-section-block" id="pa-path">
+        <div class="pa-section-title-wrap">
+          <h3 class="pa-section-title"><span>☸</span> ${pop.sectionTitle}</h3>
+          <div class="pa-section-subtitle">${pop.sectionSubtitle}</div>
+        </div>
+        <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 22px;">${pop.intro}</p>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px; margin-bottom: 30px;">
+          ${pop.factors.map(fac => `
+            <div class="pa-level-card" style="padding: 16px;">
+              <span class="pa-level-badge">${fac.factor}</span>
+              <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6; margin-top: 6px;">${fac.relation}</p>
+            </div>
+          `).join('')}
+        </div>
+
+        <h4 class="pa-comp-title" style="margin-bottom: 14px;"><span>☸</span> ${lang === 'pt' ? 'Rotina Cotidiana do Praticante Leigo' : 'Daily Lay Routine'}</h4>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; margin-bottom: 36px;">
+          ${pop.dailyPractices.map(dp => `
+            <div class="pa-comp-card pa-comp-practice">
+              <div class="pa-comp-badge">⏱ ${dp.timing}</div>
+              <strong style="color: var(--text-primary); font-size: 0.92rem; display: block; margin-bottom: 6px;">${dp.title}</strong>
+              <p class="pa-comp-desc">${dp.practice}</p>
+            </div>
+          `).join('')}
+        </div>
+      </section>
+    `;
+
+    // Section H: Study Pathways
+    const sp = m.studyPathways;
+    const pathwaysHtml = `
+      <section class="pa-section-block" id="pa-pathways">
+        <div class="pa-section-title-wrap">
+          <h3 class="pa-section-title"><span>☸</span> ${sp.sectionTitle}</h3>
+          <div class="pa-section-subtitle">${sp.sectionSubtitle}</div>
+        </div>
+        <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 16px;">${sp.disclaimer}</p>
+
+        <div class="pa-track-tabs" id="paTrackTabs">
+          ${sp.tracks.map((track, i) => `
+            <button class="pa-track-tab ${i === 0 ? 'active' : ''}" data-track-id="${track.id}">
+              ${track.name}
+            </button>
+          `).join('')}
+        </div>
+
+        <div id="paActiveTrackContent">
+          <!-- Dynamic track days injected by JS -->
+        </div>
+      </section>
+    `;
+
+    // Section I: Reflection Journal
+    const rj = m.reflectionJournal;
+    const journalHtml = `
+      <section class="pa-section-block" id="pa-journal">
+        <div class="pa-journal-wrap">
+          <div class="pa-section-title-wrap">
+            <h3 class="pa-section-title"><span>☸</span> ${rj.sectionTitle}</h3>
+            <div class="pa-section-subtitle">${rj.sectionSubtitle}</div>
+          </div>
+
+          <form id="paJournalForm" class="pa-journal-form">
+            ${rj.prompts.map(p => `
+              <div>
+                <label class="pa-journal-prompt-label" for="pa-journal-${p.id}">${p.label}</label>
+                <textarea class="pa-step-textarea" id="pa-journal-${p.id}" style="min-height: 60px;" placeholder="${p.placeholder}"></textarea>
+              </div>
+            `).join('')}
+            <div style="display: flex; gap: 12px; margin-top: 10px;">
+              <button type="submit" class="pa-finish-btn">${rj.saveButtonText}</button>
+            </div>
+          </form>
+
+          <div style="border-top: 1px solid var(--border-subtle); padding-top: 24px; margin-top: 24px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 10px;">
+              <h4 class="pa-comp-title"><span>☸</span> ${rj.entriesHeading}</h4>
+              <div style="display: flex; gap: 8px;">
+                <button class="pa-action-btn" id="paExportJournalBtn" style="padding: 6px 12px; font-size: 0.78rem;">${rj.exportButtonText}</button>
+                <button class="pa-action-btn" id="paClearJournalBtn" style="padding: 6px 12px; font-size: 0.78rem; border-color: rgba(201, 84, 56, 0.4); color: #e5b3a3;">${rj.clearAllButtonText}</button>
+              </div>
+            </div>
+            <div class="pa-journal-entries-list" id="paJournalEntriesList"></div>
+          </div>
+        </div>
+      </section>
+    `;
+
+    return scenariosHtml + exerciseHtml + pathHtml + pathwaysHtml + journalHtml;
+  }
+
+  bindDependentArisingInteractions(m, lang) {
+    // 1. Jump Action Buttons inside Hero
+    const actionBtns = document.querySelectorAll('.pa-action-btn[data-target]');
+    actionBtns.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const target = btn.dataset.target;
+        if (target === '#tab-household') {
+          e.preventDefault();
+          this.switchTab('tab-household');
+          const scEl = document.getElementById('pa-scenarios');
+          if (scEl) scEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        } else if (target && target.startsWith('#')) {
+          e.preventDefault();
+          const el = document.querySelector(target);
+          if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    // 2. Mode Switcher (Canonical vs Everyday)
+    const btnCanon = document.getElementById('paModeCanonical');
+    const btnEveryday = document.getElementById('paModeEveryday');
+    const canonContents = document.querySelectorAll('.pa-canonical-mode-content');
+    const everydayContents = document.querySelectorAll('.pa-everyday-mode-content');
+
+    const setExplorerMode = (mode) => {
+      if (btnCanon) btnCanon.classList.toggle('active', mode === 'canonical');
+      if (btnEveryday) btnEveryday.classList.toggle('active', mode === 'everyday');
+      canonContents.forEach(el => el.style.display = (mode === 'canonical' ? 'block' : 'none'));
+      everydayContents.forEach(el => el.style.display = (mode === 'everyday' ? 'block' : 'none'));
+    };
+
+    if (btnCanon) btnCanon.addEventListener('click', () => setExplorerMode('canonical'));
+    if (btnEveryday) btnEveryday.addEventListener('click', () => setExplorerMode('everyday'));
+
+    // 3. Collapsible Drawers (Study Notes)
+    document.querySelectorAll('.pa-toggle-note-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const targetId = btn.dataset.target;
+        const drawer = document.getElementById(targetId);
+        if (drawer) {
+          drawer.classList.toggle('open');
+          const isOpen = drawer.classList.contains('open');
+          const arrow = btn.querySelector('span:first-child');
+          if (arrow) arrow.textContent = isOpen ? '▲' : '▼';
+        }
+      });
+    });
+
+    // 4. FAQ Accordion
+    document.querySelectorAll('.pa-faq-q-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.pa-faq-item');
+        if (item) {
+          const wasOpen = item.classList.contains('open');
+          document.querySelectorAll('.pa-faq-item').forEach(i => i.classList.remove('open'));
+          if (!wasOpen) item.classList.add('open');
+        }
+      });
+    });
+
+    // 5. Sutta Library Search & Category Filter
+    const searchInput = document.getElementById('paSuttaSearch');
+    const filterPills = document.querySelectorAll('.pa-filter-pill');
+    const suttaCards = document.querySelectorAll('.pa-sutta-card');
+
+    let currentCat = 'all';
+    let currentSearch = '';
+
+    const filterSuttas = () => {
+      suttaCards.forEach(card => {
+        const cardCat = card.dataset.cat || '';
+        const searchBlob = card.dataset.search || '';
+        const matchesCat = (currentCat === 'all' || cardCat === currentCat);
+        const matchesSearch = (!currentSearch || searchBlob.includes(currentSearch));
+        card.style.display = (matchesCat && matchesSearch) ? 'block' : 'none';
+      });
+    };
+
+    if (searchInput) {
+      searchInput.addEventListener('input', (e) => {
+        currentSearch = e.target.value.trim().toLowerCase();
+        filterSuttas();
+      });
+    }
+
+    filterPills.forEach(pill => {
+      pill.addEventListener('click', () => {
+        filterPills.forEach(p => p.classList.remove('active'));
+        pill.classList.add('active');
+        currentCat = pill.dataset.cat || 'all';
+        filterSuttas();
+      });
+    });
+
+    // 6. Sutta "Mark as Read" Checkboxes (Local Storage)
+    const readStorageKey = 'lay_dharma_pa_read';
+    let readSuttas = [];
+    try {
+      readSuttas = JSON.parse(localStorage.getItem(readStorageKey) || '[]');
+    } catch (e) {
+      readSuttas = [];
+    }
+
+    document.querySelectorAll('.pa-sutta-read-check').forEach(chk => {
+      const code = chk.dataset.code;
+      if (readSuttas.includes(code)) {
+        chk.checked = true;
+        const wrap = chk.closest('.pa-read-toggle-wrap');
+        if (wrap) wrap.classList.add('completed');
+      }
+      chk.addEventListener('change', () => {
+        if (chk.checked) {
+          if (!readSuttas.includes(code)) readSuttas.push(code);
+        } else {
+          readSuttas = readSuttas.filter(c => c !== code);
+        }
+        localStorage.setItem(readStorageKey, JSON.stringify(readSuttas));
+        const wrap = chk.closest('.pa-read-toggle-wrap');
+        if (wrap) wrap.classList.toggle('completed', chk.checked);
+      });
+    });
+
+    // 7. Guided Exercise (Observe the Links - 7 Steps)
+    const ge = m.guidedExercise;
+    if (ge && ge.steps) {
+      let currentStepIdx = 0;
+      const userAnswers = {};
+
+      const stepCard = document.getElementById('paStepCard');
+      const prevBtn = document.getElementById('paStepPrevBtn');
+      const nextBtn = document.getElementById('paStepNextBtn');
+      const indicator = document.getElementById('paStepIndicator');
+      const progressSteps = document.querySelectorAll('.pa-progress-step');
+      const summaryWrap = document.getElementById('paExerciseSummaryWrap');
+
+      const renderStep = (idx) => {
+        if (!stepCard) return;
+        const s = ge.steps[idx];
+        const stepNum = idx + 1;
+        const currentAns = userAnswers[stepNum] || {};
+
+        let optionsHtml = '';
+        if (s.options && s.options.length > 0) {
+          optionsHtml = `
+            <div class="pa-step-options">
+              ${s.options.map((opt, oIdx) => `
+                <button type="button" class="pa-option-btn ${currentAns.selectedOpt === opt ? 'selected' : ''}" data-opt-idx="${oIdx}">
+                  ${opt}
+                </button>
+              `).join('')}
+            </div>
+          `;
+        }
+
+        stepCard.innerHTML = `
+          <h4 class="pa-step-title">${s.title}</h4>
+          <p class="pa-step-prompt">${s.prompt}</p>
+          ${optionsHtml}
+          <textarea class="pa-step-textarea" id="paStepTextInput" placeholder="${s.placeholder}">${currentAns.text || ''}</textarea>
+        `;
+
+        if (prevBtn) prevBtn.disabled = (idx === 0);
+        if (nextBtn) {
+          nextBtn.textContent = (idx === ge.steps.length - 1) ? ge.finishButton : (lang === 'pt' ? 'Próximo Passo →' : 'Next Step →');
+        }
+        if (indicator) indicator.textContent = `${lang === 'pt' ? 'Passo' : 'Step'} ${stepNum} ${lang === 'pt' ? 'de' : 'of'} ${ge.steps.length}`;
+
+        progressSteps.forEach((ps, pIdx) => {
+          ps.classList.toggle('active', pIdx === idx);
+          ps.classList.toggle('done', pIdx < idx);
+        });
+
+        stepCard.querySelectorAll('.pa-option-btn').forEach(btn => {
+          btn.addEventListener('click', () => {
+            stepCard.querySelectorAll('.pa-option-btn').forEach(b => b.classList.remove('selected'));
+            btn.classList.add('selected');
+            if (!userAnswers[stepNum]) userAnswers[stepNum] = {};
+            userAnswers[stepNum].selectedOpt = btn.textContent.trim();
+          });
+        });
+
+        const ta = document.getElementById('paStepTextInput');
+        if (ta) {
+          ta.addEventListener('input', (e) => {
+            if (!userAnswers[stepNum]) userAnswers[stepNum] = {};
+            userAnswers[stepNum].text = e.target.value;
+          });
+        }
+      };
+
+      const showSummary = () => {
+        if (!summaryWrap) return;
+        const summaryRows = ge.steps.map((st, i) => {
+          const ans = userAnswers[i + 1] || {};
+          const ansText = [ans.selectedOpt, ans.text].filter(Boolean).join(' — ') || (lang === 'pt' ? '(Nenhuma nota informada)' : '(No note entered)');
+          return `
+            <div class="pa-summary-item">
+              <strong>${st.title}:</strong>
+              <div>${ansText}</div>
+            </div>
+          `;
+        }).join('');
+
+        summaryWrap.innerHTML = `
+          <div class="pa-summary-card">
+            <h4 class="pa-summary-title">☸ ${lang === 'pt' ? 'Síntese Contemplativa da Investigação' : 'Contemplative Investigation Summary'}</h4>
+            ${summaryRows}
+            <div style="display: flex; gap: 10px; margin-top: 18px; flex-wrap: wrap;">
+              <button class="pa-finish-btn" id="paSaveToJournalFromSummary">
+                ${lang === 'pt' ? 'Salvar no Diário de Reflexão' : 'Save into Reflection Journal'}
+              </button>
+              <button class="pa-nav-btn" id="paResetExerciseBtn">
+                ${ge.resetButton}
+              </button>
+            </div>
+          </div>
+        `;
+        summaryWrap.style.display = 'block';
+        summaryWrap.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+        const saveBtn = document.getElementById('paSaveToJournalFromSummary');
+        if (saveBtn) {
+          saveBtn.addEventListener('click', () => {
+            const jWhat = document.getElementById('pa-journal-q1');
+            const jVedana = document.getElementById('pa-journal-q2');
+            const jTanha = document.getElementById('pa-journal-q3');
+            const jUpadana = document.getElementById('pa-journal-q4');
+            const jLesson = document.getElementById('pa-journal-q5');
+            const jSutta = document.getElementById('pa-journal-q6');
+
+            if (jWhat && userAnswers[1]) jWhat.value = userAnswers[1].text || '';
+            if (jVedana && userAnswers[3]) jVedana.value = [userAnswers[3].selectedOpt, userAnswers[3].text].filter(Boolean).join(' ');
+            if (jTanha && userAnswers[4]) jTanha.value = [userAnswers[4].selectedOpt, userAnswers[4].text].filter(Boolean).join(' ');
+            if (jUpadana && userAnswers[5]) jUpadana.value = userAnswers[5].text || '';
+            if (jLesson && userAnswers[7]) jLesson.value = userAnswers[7].text || '';
+            if (jSutta) jSutta.value = 'SN 36.6 • SN 12.20';
+
+            const jForm = document.getElementById('paJournalForm');
+            if (jForm) jForm.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          });
+        }
+
+        const rstBtn = document.getElementById('paResetExerciseBtn');
+        if (rstBtn) {
+          rstBtn.addEventListener('click', () => {
+            currentStepIdx = 0;
+            summaryWrap.style.display = 'none';
+            renderStep(0);
+          });
+        }
+      };
+
+      if (prevBtn) {
+        prevBtn.addEventListener('click', () => {
+          if (currentStepIdx > 0) {
+            currentStepIdx--;
+            renderStep(currentStepIdx);
+          }
+        });
+      }
+
+      if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+          if (currentStepIdx < ge.steps.length - 1) {
+            currentStepIdx++;
+            renderStep(currentStepIdx);
+          } else {
+            showSummary();
+          }
+        });
+      }
+
+      renderStep(0);
+    }
+
+    // 8. Study Pathways (Tracks and Checkboxes)
+    const sp = m.studyPathways;
+    if (sp && sp.tracks) {
+      const pathwayStorageKey = 'lay_dharma_pa_pathway';
+      let pathwayState = {};
+      try {
+        pathwayState = JSON.parse(localStorage.getItem(pathwayStorageKey) || '{}');
+      } catch (e) {
+        pathwayState = {};
+      }
+
+      const activeContentWrap = document.getElementById('paActiveTrackContent');
+      const trackTabs = document.querySelectorAll('.pa-track-tab');
+
+      const renderTrack = (trackId) => {
+        const track = sp.tracks.find(t => t.id === trackId) || sp.tracks[0];
+        if (!activeContentWrap || !track) return;
+
+        const checkedDays = pathwayState[track.id] || [];
+        const percent = Math.round((checkedDays.length / track.days.length) * 100);
+
+        activeContentWrap.innerHTML = `
+          <div style="margin-bottom: 14px;">
+            <div style="display: flex; justify-content: space-between; font-size: 0.85rem; color: var(--gold-light); margin-bottom: 6px;">
+              <span><strong>${track.duration}:</strong> ${track.description}</span>
+              <span><strong>${percent}%</strong> ${lang === 'pt' ? 'Concluído' : 'Completed'}</span>
+            </div>
+            <div class="pa-track-progress-bar">
+              <div class="pa-track-fill" style="width: ${percent}%;"></div>
+            </div>
+          </div>
+
+          <div class="pa-days-list">
+            ${track.days.map(d => {
+              const isChecked = checkedDays.includes(d.day);
+              return `
+                <label class="pa-day-row">
+                  <input type="checkbox" class="pa-day-check" data-track="${track.id}" data-day="${d.day}" ${isChecked ? 'checked' : ''}>
+                  <span class="pa-day-num">${lang === 'pt' ? 'Dia' : 'Day'} ${String(d.day).padStart(2, '0')}</span>
+                  <span class="pa-day-sutta">${d.sutta}</span>
+                  <span class="pa-day-task">${d.task}</span>
+                </label>
+              `;
+            }).join('')}
+          </div>
+        `;
+
+        activeContentWrap.querySelectorAll('.pa-day-check').forEach(chk => {
+          chk.addEventListener('change', () => {
+            const trkId = chk.dataset.track;
+            const dayNum = parseInt(chk.dataset.day, 10);
+            if (!pathwayState[trkId]) pathwayState[trkId] = [];
+
+            if (chk.checked) {
+              if (!pathwayState[trkId].includes(dayNum)) pathwayState[trkId].push(dayNum);
+            } else {
+              pathwayState[trkId] = pathwayState[trkId].filter(d => d !== dayNum);
+            }
+            localStorage.setItem(pathwayStorageKey, JSON.stringify(pathwayState));
+            renderTrack(trkId);
+          });
+        });
+      };
+
+      trackTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          trackTabs.forEach(t => t.classList.remove('active'));
+          tab.classList.add('active');
+          renderTrack(tab.dataset.trackId);
+        });
+      });
+
+      renderTrack(sp.tracks[0].id);
+    }
+
+    // 9. Reflection Journal Form and Persistence
+    const journalStorageKey = 'lay_dharma_pa_journal';
+    let journalEntries = [];
+    try {
+      journalEntries = JSON.parse(localStorage.getItem(journalStorageKey) || '[]');
+    } catch (e) {
+      journalEntries = [];
+    }
+
+    const journalList = document.getElementById('paJournalEntriesList');
+    const journalForm = document.getElementById('paJournalForm');
+    const exportBtn = document.getElementById('paExportJournalBtn');
+    const clearBtn = document.getElementById('paClearJournalBtn');
+
+    const renderJournalList = () => {
+      if (!journalList) return;
+      if (journalEntries.length === 0) {
+        journalList.innerHTML = `<p style="font-size: 0.88rem; color: var(--text-muted); font-style: italic;">${m.reflectionJournal.noEntriesNotice}</p>`;
+        return;
+      }
+
+      journalList.innerHTML = journalEntries.map((entry, idx) => `
+        <article class="pa-journal-entry-card" id="pa-entry-${idx}">
+          <header class="pa-entry-header">
+            <span>📅 ${new Date(entry.timestamp).toLocaleString()}</span>
+            <button class="pa-entry-delete-btn" data-entry-idx="${idx}">🗑 ${lang === 'pt' ? 'Excluir' : 'Delete'}</button>
+          </header>
+          <div style="font-size: 0.9rem; line-height: 1.6; color: var(--text-secondary);">
+            <div style="margin-bottom: 4px;"><strong>1. Event:</strong> ${entry.q1 || '-'}</div>
+            <div style="margin-bottom: 4px;"><strong>2. Feeling (Vedanā):</strong> ${entry.q2 || '-'}</div>
+            <div style="margin-bottom: 4px;"><strong>3. Craving/Aversion (Taṇhā):</strong> ${entry.q3 || '-'}</div>
+            <div style="margin-bottom: 4px;"><strong>4. Clinging (Upādāna):</strong> ${entry.q4 || '-'}</div>
+            <div style="margin-bottom: 4px;"><strong>5. Conditionality Lesson:</strong> ${entry.q5 || '-'}</div>
+            <div><strong>6. Sutta Reference:</strong> ${entry.q6 || '-'}</div>
+          </div>
+        </article>
+      `).join('');
+
+      journalList.querySelectorAll('.pa-entry-delete-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const idx = parseInt(btn.dataset.entryIdx, 10);
+          journalEntries.splice(idx, 1);
+          localStorage.setItem(journalStorageKey, JSON.stringify(journalEntries));
+          renderJournalList();
+        });
+      });
+    };
+
+    if (journalForm) {
+      journalForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const entry = {
+          timestamp: new Date().toISOString(),
+          q1: document.getElementById('pa-journal-q1')?.value.trim() || '',
+          q2: document.getElementById('pa-journal-q2')?.value.trim() || '',
+          q3: document.getElementById('pa-journal-q3')?.value.trim() || '',
+          q4: document.getElementById('pa-journal-q4')?.value.trim() || '',
+          q5: document.getElementById('pa-journal-q5')?.value.trim() || '',
+          q6: document.getElementById('pa-journal-q6')?.value.trim() || ''
+        };
+
+        if (!entry.q1 && !entry.q2 && !entry.q3) {
+          alert(lang === 'pt' ? 'Por favor, preencha pelo menos um campo para salvar a reflexão.' : 'Please enter at least one field to save your reflection.');
+          return;
+        }
+
+        journalEntries.unshift(entry);
+        localStorage.setItem(journalStorageKey, JSON.stringify(journalEntries));
+        journalForm.reset();
+        renderJournalList();
+      });
+    }
+
+    if (exportBtn) {
+      exportBtn.addEventListener('click', () => {
+        const dataStr = 'data:text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(journalEntries, null, 2));
+        const dlAnchor = document.createElement('a');
+        dlAnchor.setAttribute('href', dataStr);
+        dlAnchor.setAttribute('download', 'dependent_arising_journal.json');
+        dlAnchor.click();
+      });
+    }
+
+    if (clearBtn) {
+      clearBtn.addEventListener('click', () => {
+        if (confirm(lang === 'pt' ? 'Tem certeza de que deseja limpar todo o histórico de reflexões?' : 'Are you sure you want to clear all saved reflections?')) {
+          journalEntries = [];
+          localStorage.removeItem(journalStorageKey);
+          renderJournalList();
+        }
+      });
+    }
+
+    renderJournalList();
+  }
+
+  // =========================================================================
+  // BUDDHIST COSMOLOGY (LOKADHĀTU & THE 31 PLANES) METHODS
+  // =========================================================================
+
+  renderCosmologyOverview(m, lang) {
+    if (!m) return '';
+
+    // Hero Section
+    const hero = m.hero;
+    const heroHtml = `
+      <div class="cosmo-hero-wrap" id="cosmo-hero">
+        <div class="cosmo-hero-badge"><span>☸</span> ${hero.paliTitle}</div>
+        <h2 class="cosmo-hero-title">${hero.title}</h2>
+        <div class="cosmo-hero-pali">${hero.paliTitle}</div>
+        <div class="cosmo-hero-subtitle">${hero.subtitle}</div>
+        <p class="cosmo-hero-intro">${hero.introText}</p>
+
+        <div class="cosmo-canonical-box">
+          <div class="cosmo-canonical-header">
+            <span class="cosmo-canonical-badge">${hero.canonicalPassage.citation}</span>
+            <a href="${hero.canonicalPassage.sourceUrl}" target="_blank" rel="noopener noreferrer" class="cosmo-canonical-link">
+              <span>${lang === 'pt' ? 'Ler no SuttaCentral' : 'Read on SuttaCentral'}</span>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+            </a>
+          </div>
+          <div class="cosmo-canonical-pali">"${hero.canonicalPassage.excerptPali}"</div>
+          <div class="cosmo-canonical-trans">"${hero.canonicalPassage.excerptTrans}"</div>
+        </div>
+
+        <div class="cosmo-system-notice">
+          <div class="cosmo-notice-badge">⚖️ ${lang === 'pt' ? 'Nota Doutrinária Fundamental' : 'Doctrinal Clarification'}</div>
+          <p>${hero.systematizationNote}</p>
+        </div>
+
+        <div class="cosmo-hero-actions">
+          ${hero.primaryActions.map(act => `
+            <a href="${act.target}" class="cosmo-action-btn" data-target="${act.target}">
+              <span>${act.icon}</span> <span>${act.label}</span>
+            </a>
+          `).join('')}
+        </div>
+      </div>
+    `;
+
+    // Understanding the Buddhist Cosmos (Kāmaloka, Rūpaloka, Arūpaloka)
+    const uc = m.understandingCosmos;
+    const universeHtml = `
+      <section class="cosmo-section-block" id="cosmo-universe">
+        <div class="cosmo-section-title-wrap">
+          <h3 class="cosmo-section-title"><span>☸</span> ${uc.sectionTitle}</h3>
+          <div class="cosmo-section-subtitle">${uc.sectionSubtitle}</div>
+        </div>
+        <p class="cosmo-lead-text">${uc.leadText}</p>
+
+        <div class="cosmo-tiers-grid">
+          ${uc.tiers.map(tier => `
+            <article class="cosmo-tier-card" id="tier-${tier.id}">
+              <div class="cosmo-tier-header">
+                <span class="cosmo-tier-badge">${tier.planesCount}</span>
+                <h4 class="cosmo-tier-title">${tier.name}</h4>
+              </div>
+              <p class="cosmo-tier-desc">${tier.description}</p>
+              
+              <div class="cosmo-subdivisions-list">
+                ${tier.subdivisions.map(sub => `
+                  <div class="cosmo-subdiv-item">
+                    <strong class="cosmo-subdiv-name">${sub.name}</strong>
+                    <p class="cosmo-subdiv-detail">${sub.detail}</p>
+                  </div>
+                `).join('')}
+              </div>
+
+              ${tier.practicalReflection ? `
+                <div class="cosmo-tier-reflection">
+                  <span>☸</span>
+                  <div><strong>${lang === 'pt' ? 'Reflexão Prática:' : 'Practical Reflection:'}</strong> ${tier.practicalReflection}</div>
+                </div>
+              ` : ''}
+
+              ${tier.doctrinalNote ? `
+                <div class="cosmo-tier-caveat">
+                  <span>⚠</span>
+                  <div>${tier.doctrinalNote}</div>
+                </div>
+              ` : ''}
+
+              ${tier.reflectionQuestion ? `
+                <div class="cosmo-tier-reflection">
+                  <span>☸</span>
+                  <div><strong>${lang === 'pt' ? 'Pergunta Reflexiva:' : 'Contemplative Question:'}</strong> ${tier.reflectionQuestion}</div>
+                </div>
+              ` : ''}
+            </article>
+          `).join('')}
+        </div>
+      </section>
+    `;
+
+    // Interactive Exploration of the 31 Planes
+    const pe = m.planesExplorer;
+    const planesHtml = `
+      <section class="cosmo-section-block" id="cosmo-31-planes">
+        <div class="cosmo-section-title-wrap">
+          <h3 class="cosmo-section-title"><span>☸</span> ${pe.sectionTitle}</h3>
+          <div class="cosmo-section-subtitle">${pe.sectionSubtitle}</div>
+        </div>
+
+        <div class="cosmo-planes-notice">
+          <span>ℹ️</span> <div>${pe.planesNotice}</div>
+        </div>
+
+        <div class="cosmo-planes-toolbar">
+          <div class="cosmo-tier-filters" id="cosmoTierFilters" role="group" aria-label="Planes Filter">
+            <button class="cosmo-filter-btn active" data-tier="all">🌌 ${pe.categoryFilterLabels.all}</button>
+            <button class="cosmo-filter-btn" data-tier="kama">🔥 ${pe.categoryFilterLabels.kama}</button>
+            <button class="cosmo-filter-btn" data-tier="rupa">✨ ${pe.categoryFilterLabels.rupa}</button>
+            <button class="cosmo-filter-btn" data-tier="arupa">💠 ${pe.categoryFilterLabels.arupa}</button>
+          </div>
+        </div>
+
+        <div class="cosmo-planes-grid" id="cosmoPlanesGrid">
+          ${pe.planes.map(p => `
+            <article class="cosmo-plane-card" id="${p.id}" data-tier="${p.tier}">
+              <header class="cosmo-plane-header">
+                <div class="cosmo-plane-num-wrap">
+                  <span class="cosmo-plane-num">#${String(p.number).padStart(2, '0')}</span>
+                  <span class="cosmo-plane-subtier">${p.subTier}</span>
+                </div>
+                <span class="cosmo-plane-lifespan">⏱ ${p.lifespan}</span>
+              </header>
+
+              <div class="cosmo-plane-titles">
+                <h4 class="cosmo-plane-pali">${p.paliName}</h4>
+                <div class="cosmo-plane-trans">— ${p.englishName}</div>
+              </div>
+
+              <div class="cosmo-plane-meta-row">
+                <div class="cosmo-meta-box">
+                  <span class="cosmo-meta-label">⚖️ ${lang === 'pt' ? 'Causa Cármica / Condição:' : 'Kammic Cause / Conditions:'}</span>
+                  <div class="cosmo-meta-val">${p.kammaCause}</div>
+                </div>
+              </div>
+
+              <p class="cosmo-plane-chars">${p.characteristics}</p>
+
+              <div class="cosmo-plane-action-row">
+                <button class="cosmo-toggle-drawer-btn" data-target="drawer-${p.id}">
+                  <span>▼</span> <span>${lang === 'pt' ? 'Fontes Canônicas & Estudo' : 'Canonical Sources & Study'}</span>
+                </button>
+              </div>
+
+              <div class="cosmo-plane-drawer" id="drawer-${p.id}">
+                <div class="cosmo-drawer-content">
+                  <div class="cosmo-source-line">
+                    <strong>📜 ${lang === 'pt' ? 'Fontes Canônicas (Suttas):' : 'Canonical Sources (Suttas):'}</strong> ${p.canonicalSources}
+                  </div>
+                  <div class="cosmo-source-line commentarial">
+                    <strong>📚 ${lang === 'pt' ? 'Fontes Comentariais (Tradição Posterior):' : 'Commentarial Sources (Later Systematization):'}</strong> ${p.commentarialSources}
+                  </div>
+                  <div class="cosmo-drawer-reflection">
+                    <span>☸</span>
+                    <div><strong>${lang === 'pt' ? 'Reflexão Yoniso Manasikāra:' : 'Contemplative Reflection:'}</strong> ${p.reflection}</div>
+                  </div>
+                </div>
+              </div>
+            </article>
+          `).join('')}
+        </div>
+      </section>
+    `;
+
+    // Section: Nibbāna Is Not Another Realm
+    const bp = m.beyondPlanes;
+    const beyondHtml = `
+      <section class="cosmo-section-block" id="cosmo-nibbana">
+        <div class="cosmo-nibbana-card">
+          <div class="cosmo-nibbana-header">
+            <span class="cosmo-nibbana-badge">☸ ${lang === 'pt' ? 'A Meta Além do Saṁsāra' : 'The Goal Beyond Saṁsāra'}</span>
+            <h3 class="cosmo-nibbana-title">${bp.sectionTitle}</h3>
+            <div class="cosmo-nibbana-subtitle">${bp.sectionSubtitle}</div>
+          </div>
+          <p class="cosmo-nibbana-lead">${bp.leadText}</p>
+
+          <div class="cosmo-nibbana-points-grid">
+            ${bp.points.map(pt => `
+              <div class="cosmo-nibbana-point-card">
+                <h4 class="cosmo-nibbana-point-title">✨ ${pt.title}</h4>
+                <p class="cosmo-nibbana-point-desc">${pt.detail}</p>
+              </div>
+            `).join('')}
+          </div>
+
+          <div class="cosmo-nibbana-reflection-box">
+            <div class="cosmo-reflection-icon">☸</div>
+            <div>
+              <div class="cosmo-reflection-title">${lang === 'pt' ? 'Reflexão Doutrinária Central' : 'Central Doctrinal Inquiry'}</div>
+              <div class="cosmo-reflection-text">"${bp.reflectionQuestion}"</div>
+            </div>
+          </div>
+        </div>
+      </section>
+    `;
+
+    // FAQs Section
+    const faqs = m.faqs;
+    const faqsHtml = `
+      <section class="cosmo-section-block" id="cosmo-faqs">
+        <div class="cosmo-section-title-wrap">
+          <h3 class="cosmo-section-title"><span>☸</span> ${faqs.sectionTitle}</h3>
+          <div class="cosmo-section-subtitle">${faqs.sectionSubtitle}</div>
+        </div>
+
+        <div class="cosmo-faq-list">
+          ${faqs.items.map((item, idx) => `
+            <div class="cosmo-faq-item" id="cosmo-faq-${idx}">
+              <button class="cosmo-faq-q-btn" data-faq-index="${idx}">
+                <span>${idx + 1}. ${item.q}</span>
+                <span class="cosmo-faq-icon">▾</span>
+              </button>
+              <div class="cosmo-faq-a-body">
+                ${item.a}
+              </div>
+            </div>
+          `).join('')}
+        </div>
+      </section>
+    `;
+
+    return heroHtml + universeHtml + planesHtml + beyondHtml + faqsHtml;
+  }
+
+  renderCosmologyCanonical(m, lang) {
+    if (!m) return '';
+    const lib = m.suttaLibrary;
+
+    const toolbarHtml = `
+      <div class="cosmo-library-controls">
+        <div class="cosmo-section-title-wrap">
+          <h3 class="cosmo-section-title"><span>☸</span> ${lib.sectionTitle}</h3>
+          <div class="cosmo-section-subtitle">${lib.sectionSubtitle}</div>
+        </div>
+
+        <div class="cosmo-search-wrap">
+          <svg class="cosmo-search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <input type="search" class="cosmo-search-input" id="cosmoSuttaSearch" placeholder="${lib.searchPlaceholder}" aria-label="Search Suttas">
+        </div>
+
+        <div class="cosmo-filter-pills" id="cosmoFilterPills">
+          ${lib.filterCategories.map(cat => `
+            <button class="cosmo-filter-pill ${cat.id === 'all' ? 'active' : ''}" data-cat="${cat.id}">
+              ${cat.label}
+            </button>
+          `).join('')}
+        </div>
+      </div>
+    `;
+
+    const suttasHtml = `
+      <div class="cosmo-suttas-grid" id="cosmoSuttasGrid">
+        ${lib.suttas.map((s, idx) => {
+          const lvl = s.level || 'intermediate';
+          return `
+          <article class="cosmo-sutta-card" id="cosmo-sutta-${idx}" data-code="${s.code}" data-cat="${s.category}" data-level="${lvl}" data-search="${(s.code + ' ' + s.paliTitle + ' ' + s.transTitle + ' ' + s.keyConcepts.join(' ')).toLowerCase()}">
+            <header class="cosmo-sutta-top">
+              <div class="cosmo-sutta-badges">
+                <span class="cosmo-sutta-code-tag">${s.code}</span>
+                <span class="cosmo-sutta-cat-tag">${s.category}</span>
+                <span class="cosmo-sutta-level-tag ${lvl}">${lvl.toUpperCase()}</span>
+                <span class="cosmo-sutta-time-tag">⏱ ${s.readingTime}</span>
+              </div>
+              <label class="cosmo-read-toggle-wrap" data-code="${s.code}">
+                <input type="checkbox" class="cosmo-sutta-read-check" data-code="${s.code}">
+                <span class="cosmo-read-label">${lang === 'pt' ? 'Marcar como Lido' : 'Mark as Read'}</span>
+              </label>
+            </header>
+
+            <div class="cosmo-sutta-titles">
+              <h3 class="cosmo-sutta-pali-title">${s.paliTitle}</h3>
+              <div class="cosmo-sutta-trans-title">“${s.transTitle}”</div>
+              <div class="cosmo-sutta-nikaya">${s.nikaya}</div>
+            </div>
+
+            <p class="cosmo-sutta-importance">${s.importance}</p>
+
+            <div class="cosmo-lay-relevance-card">
+              <strong>${lang === 'pt' ? 'Relevância para a Vida Leiga:' : 'Lay Relevance:'}</strong> ${s.layRelevance}
+            </div>
+
+            <div class="cosmo-concepts-row">
+              ${s.keyConcepts.map(c => `<span class="cosmo-concept-chip">#${c}</span>`).join('')}
+            </div>
+
+            <div class="cosmo-link-reflection-card">
+              <span>☸</span>
+              <div><strong>${lang === 'pt' ? 'Reflexão Yoniso Manasikāra:' : 'Reflection:'}</strong> ${s.reflectionQuestion}</div>
+            </div>
+
+            <div style="margin-bottom: 14px;">
+              <button class="cosmo-toggle-note-btn" data-target="cosmo-sutta-note-${idx}">
+                <span>▼</span> <span>${lang === 'pt' ? 'Notas de Estudo Canônico' : 'Canonical Study Notes'}</span>
+              </button>
+              <div class="cosmo-study-note-drawer" id="cosmo-sutta-note-${idx}">
+                ${s.studyNotes}
+              </div>
+            </div>
+
+            <footer class="cosmo-sutta-action-row">
+              <a href="${s.suttaCentralUrl}" target="_blank" rel="noopener noreferrer" class="suttacentral-btn">
+                <span>${lang === 'pt' ? 'Ler no SuttaCentral' : 'Read on SuttaCentral'} (${s.code})</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+              </a>
+            </footer>
+          </article>
+        `;
+        }).join('')}
+      </div>
+    `;
+
+    return toolbarHtml + suttasHtml;
+  }
+
+  renderCosmologyHousehold(m, lang) {
+    if (!m) return '';
+
+    // Section 1: 5 Daily Scenarios
+    const ls = m.layScenarios;
+    const scenariosHtml = `
+      <section class="cosmo-section-block" id="cosmo-scenarios">
+        <div class="cosmo-section-title-wrap">
+          <h3 class="cosmo-section-title"><span>☸</span> ${ls.sectionTitle}</h3>
+          <div class="cosmo-section-subtitle">${ls.sectionSubtitle}</div>
+        </div>
+
+        <div class="cosmo-scenarios-list">
+          ${ls.scenarios.map(sc => `
+            <article class="cosmo-scenario-card" id="${sc.id}">
+              <header class="cosmo-sc-header">
+                <span class="cosmo-sc-num">${sc.number}</span>
+                <h4 class="cosmo-sc-title">${sc.title}</h4>
+              </header>
+
+              <div class="cosmo-sc-grid">
+                <div class="cosmo-sc-item">
+                  <div class="cosmo-sc-label">${lang === 'pt' ? 'Situação Cotidiana' : 'Everyday Situation'}</div>
+                  <div class="cosmo-sc-text">${sc.narrative}</div>
+                </div>
+
+                <div class="cosmo-sc-item">
+                  <div class="cosmo-sc-label">☸ ${lang === 'pt' ? 'Princípio do Dhamma' : 'Dhamma Principle'}</div>
+                  <div class="cosmo-sc-text">${sc.dhammaPrinciple}</div>
+                </div>
+
+                <div class="cosmo-sc-item dhamma-response">
+                  <div class="cosmo-sc-label">✓ ${lang === 'pt' ? 'Prática Recomendada' : 'Recommended Practice'}</div>
+                  <div class="cosmo-sc-text">${sc.practicalExercise}</div>
+                </div>
+
+                <div class="cosmo-sc-item">
+                  <div class="cosmo-sc-label">❓ ${lang === 'pt' ? 'Pergunta Reflexiva' : 'Reflection Question'}</div>
+                  <div class="cosmo-sc-text" style="font-style: italic; color: var(--gold-light);">"${sc.reflectionQuestion}"</div>
+                  <div class="cosmo-sc-suttas">
+                    ${sc.suttas.map(st => `<span class="cosmo-concept-chip">📖 ${st}</span>`).join('')}
+                  </div>
+                </div>
+              </div>
+            </article>
+          `).join('')}
+        </div>
+      </section>
+    `;
+
+    // Section 2: Kamma, Rebirth & Ethical Responsibility + Decision Exercise
+    const ks = m.kammaSection;
+    const de = ks.decisionExercise;
+    const kammaHtml = `
+      <section class="cosmo-section-block" id="cosmo-kamma">
+        <div class="cosmo-section-title-wrap">
+          <h3 class="cosmo-section-title"><span>☸</span> ${ks.sectionTitle}</h3>
+          <div class="cosmo-section-subtitle">${ks.sectionSubtitle}</div>
+        </div>
+        <p class="cosmo-lead-text">${ks.leadText}</p>
+
+        <div class="cosmo-principles-grid">
+          ${ks.corePrinciples.map(pr => `
+            <div class="cosmo-principle-card">
+              <span class="cosmo-principle-badge">⚖️ ${lang === 'pt' ? 'Princípio Canônico' : 'Canonical Principle'}</span>
+              <h4 class="cosmo-principle-title">${pr.title}</h4>
+              <p class="cosmo-principle-desc">${pr.detail}</p>
+            </div>
+          `).join('')}
+        </div>
+
+        <!-- Interactive Ethical Decision Exercise -->
+        <div class="cosmo-decision-wrap" id="cosmo-decision-exercise">
+          <div class="cosmo-decision-header">
+            <h4 class="cosmo-decision-title"><span>☸</span> ${de.title}</h4>
+            <div class="cosmo-decision-subtitle">${de.subtitle}</div>
+          </div>
+          <p class="cosmo-decision-intro">${lang === 'pt' ? 'Selecione uma resposta para analisar o momentum kármico de cada escolha sem especulações fatalistas:' : 'Select a response to analyze the intentional momentum and karmic mechanics without fatalistic speculation:'}</p>
+
+          <div class="cosmo-dilemmas-list">
+            ${de.dilemmas.map((d, dIdx) => `
+              <div class="cosmo-dilemma-card" id="${d.id}" data-dilemma-index="${dIdx}">
+                <div class="cosmo-dilemma-top">
+                  <span class="cosmo-dilemma-num">${lang === 'pt' ? 'Dilema' : 'Dilemma'} ${dIdx + 1}</span>
+                  <h5 class="cosmo-dilemma-heading">${d.situation}</h5>
+                </div>
+
+                <div class="cosmo-dilemma-options">
+                  ${d.options.map((opt, optIdx) => `
+                    <button class="cosmo-opt-btn" data-dilemma-id="${d.id}" data-opt-idx="${optIdx}">
+                      <span class="cosmo-opt-key">${String.fromCharCode(65 + optIdx)}</span>
+                      <span class="cosmo-opt-text">${opt.text}</span>
+                    </button>
+                  `).join('')}
+                </div>
+
+                <div class="cosmo-dilemma-feedback" id="feedback-${d.id}" style="display: none;"></div>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      </section>
+    `;
+
+    // Section 3: Guided Study Pathways
+    const sp = m.studyPathways;
+    const pathwaysHtml = `
+      <section class="cosmo-section-block" id="cosmo-pathways">
+        <div class="cosmo-section-title-wrap">
+          <h3 class="cosmo-section-title"><span>☸</span> ${sp.sectionTitle}</h3>
+          <div class="cosmo-section-subtitle">${sp.sectionSubtitle}</div>
+        </div>
+        <p class="cosmo-lead-text" style="margin-bottom: 8px;">${sp.disclaimer}</p>
+
+        <div class="cosmo-track-tabs" id="cosmoTrackTabs">
+          ${sp.tracks.map((track, i) => `
+            <button class="cosmo-track-tab ${i === 0 ? 'active' : ''}" data-track-id="${track.id}">
+              ${track.name}
+            </button>
+          `).join('')}
+        </div>
+
+        <div id="cosmoActiveTrackContent"></div>
+      </section>
+    `;
+
+    // Section 4: Contemplative Reflection Journal
+    const rj = m.reflectionJournal;
+    const journalHtml = `
+      <section class="cosmo-section-block" id="cosmo-journal">
+        <div class="cosmo-journal-wrap">
+          <div class="cosmo-section-title-wrap">
+            <h3 class="cosmo-section-title"><span>☸</span> ${rj.sectionTitle}</h3>
+            <div class="cosmo-section-subtitle">${rj.sectionSubtitle}</div>
+          </div>
+
+          <form id="cosmoJournalForm" class="cosmo-journal-form">
+            ${rj.prompts.map(p => `
+              <div class="cosmo-prompt-row">
+                <label class="cosmo-journal-prompt-label" for="cosmo-journal-${p.id}">${p.label}</label>
+                <textarea class="cosmo-step-textarea" id="cosmo-journal-${p.id}" placeholder="${p.placeholder}"></textarea>
+              </div>
+            `).join('')}
+            <div style="display: flex; gap: 12px; margin-top: 14px;">
+              <button type="submit" class="cosmo-finish-btn">${rj.saveButtonText}</button>
+            </div>
+          </form>
+
+          <div style="border-top: 1px solid var(--border-subtle); padding-top: 24px; margin-top: 30px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 10px;">
+              <h4 class="cosmo-comp-title"><span>☸</span> ${rj.entriesHeading}</h4>
+              <div style="display: flex; gap: 8px;">
+                <button class="cosmo-action-btn" id="cosmoExportJournalBtn" style="padding: 6px 12px; font-size: 0.78rem;">${rj.exportButtonText}</button>
+                <button class="cosmo-action-btn" id="cosmoClearJournalBtn" style="padding: 6px 12px; font-size: 0.78rem; border-color: rgba(201, 84, 56, 0.4); color: #e5b3a3;">${rj.clearAllButtonText}</button>
+              </div>
+            </div>
+            <div class="cosmo-journal-entries-list" id="cosmoJournalEntriesList"></div>
+          </div>
+        </div>
+      </section>
+    `;
+
+    return scenariosHtml + kammaHtml + pathwaysHtml + journalHtml;
+  }
+
+  bindCosmologyInteractions(m, lang) {
+    // 1. Jump Action Buttons inside Hero
+    const actionBtns = document.querySelectorAll('.cosmo-action-btn[data-target]');
+    actionBtns.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const target = btn.dataset.target;
+        if (target === '#tab-canonical') {
+          e.preventDefault();
+          this.switchTab('tab-canonical');
+          const libEl = document.getElementById('cosmoSuttasGrid');
+          if (libEl) libEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        } else if (target === '#tab-household') {
+          e.preventDefault();
+          this.switchTab('tab-household');
+          const scEl = document.getElementById('cosmo-scenarios');
+          if (scEl) scEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        } else if (target && target.startsWith('#')) {
+          e.preventDefault();
+          const el = document.querySelector(target);
+          if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    // 2. 31 Planes Tier Filters (All, Kama, Rupa, Arupa)
+    const tierFilters = document.querySelectorAll('.cosmo-tier-filters .cosmo-filter-btn');
+    const planeCards = document.querySelectorAll('.cosmo-plane-card');
+
+    tierFilters.forEach(btn => {
+      btn.addEventListener('click', () => {
+        tierFilters.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const selectedTier = btn.dataset.tier;
+        planeCards.forEach(card => {
+          if (selectedTier === 'all' || card.dataset.tier === selectedTier) {
+            card.style.display = 'block';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+
+    // 3. Collapsible Drawers (Plane detail drawers & Sutta notes)
+    document.querySelectorAll('.cosmo-toggle-drawer-btn, .cosmo-toggle-note-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const targetId = btn.dataset.target;
+        const drawer = document.getElementById(targetId);
+        if (drawer) {
+          drawer.classList.toggle('open');
+          const isOpen = drawer.classList.contains('open');
+          const arrow = btn.querySelector('span:first-child');
+          if (arrow) arrow.textContent = isOpen ? '▲' : '▼';
+        }
+      });
+    });
+
+    // 4. FAQ Accordion
+    document.querySelectorAll('.cosmo-faq-q-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.cosmo-faq-item');
+        if (item) {
+          const wasOpen = item.classList.contains('open');
+          document.querySelectorAll('.cosmo-faq-item').forEach(i => i.classList.remove('open'));
+          if (!wasOpen) item.classList.add('open');
+        }
+      });
+    });
+
+    // 5. Sutta Library Search & Category Filter
+    const searchInput = document.getElementById('cosmoSuttaSearch');
+    const filterPills = document.querySelectorAll('#cosmoFilterPills .cosmo-filter-pill');
+    const suttaCards = document.querySelectorAll('.cosmo-sutta-card');
+
+    let currentCat = 'all';
+    let currentSearch = '';
+
+    const filterSuttas = () => {
+      suttaCards.forEach(card => {
+        const cardCat = card.dataset.cat || '';
+        const searchBlob = card.dataset.search || '';
+        const matchesCat = (currentCat === 'all' || cardCat === currentCat);
+        const matchesSearch = (!currentSearch || searchBlob.includes(currentSearch));
+        card.style.display = (matchesCat && matchesSearch) ? 'block' : 'none';
+      });
+    };
+
+    if (searchInput) {
+      searchInput.addEventListener('input', (e) => {
+        currentSearch = e.target.value.trim().toLowerCase();
+        filterSuttas();
+      });
+    }
+
+    filterPills.forEach(pill => {
+      pill.addEventListener('click', () => {
+        filterPills.forEach(p => p.classList.remove('active'));
+        pill.classList.add('active');
+        currentCat = pill.dataset.cat || 'all';
+        filterSuttas();
+      });
+    });
+
+    // 6. Sutta "Mark as Read" Checkboxes (Local Storage)
+    const readStorageKey = 'lay_dharma_cosmo_read';
+    let readSuttas = [];
+    try {
+      readSuttas = JSON.parse(localStorage.getItem(readStorageKey) || '[]');
+    } catch (e) {
+      readSuttas = [];
+    }
+
+    document.querySelectorAll('.cosmo-sutta-read-check').forEach(chk => {
+      const code = chk.dataset.code;
+      if (readSuttas.includes(code)) {
+        chk.checked = true;
+        const wrap = chk.closest('.cosmo-read-toggle-wrap');
+        if (wrap) wrap.classList.add('completed');
+      }
+      chk.addEventListener('change', () => {
+        if (chk.checked) {
+          if (!readSuttas.includes(code)) readSuttas.push(code);
+        } else {
+          readSuttas = readSuttas.filter(c => c !== code);
+        }
+        localStorage.setItem(readStorageKey, JSON.stringify(readSuttas));
+        const wrap = chk.closest('.cosmo-read-toggle-wrap');
+        if (wrap) wrap.classList.toggle('completed', chk.checked);
+      });
+    });
+
+    // 7. Interactive Decision Exercise
+    const dilemmas = m.kammaSection?.decisionExercise?.dilemmas || [];
+    document.querySelectorAll('.cosmo-opt-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const dilemmaId = btn.dataset.dilemmaId;
+        const optIdx = parseInt(btn.dataset.optIdx, 10);
+        const parentCard = btn.closest('.cosmo-dilemma-card');
+        if (!parentCard) return;
+
+        parentCard.querySelectorAll('.cosmo-opt-btn').forEach(b => b.classList.remove('selected'));
+        btn.classList.add('selected');
+
+        const dilemmaData = dilemmas.find(d => d.id === dilemmaId);
+        if (!dilemmaData) return;
+        const optData = dilemmaData.options[optIdx];
+        if (!optData) return;
+
+        const fbEl = document.getElementById(`feedback-${dilemmaId}`);
+        if (fbEl) {
+          fbEl.innerHTML = `
+            <div class="cosmo-fb-header">
+              <span class="cosmo-fb-badge">⚖️ ${lang === 'pt' ? 'Momentum Kármico & Psicológico' : 'Kammic Momentum & Mechanics'}</span>
+            </div>
+            <div class="cosmo-fb-row">${optData.momentum}</div>
+          `;
+          fbEl.style.display = 'block';
+        }
+      });
+    });
+
+    // 8. Study Pathways Track Tabs & Checkbox Persistence
+    const sp = m.studyPathways;
+    if (sp && sp.tracks) {
+      const trackTabs = document.querySelectorAll('.cosmo-track-tab');
+      const trackContent = document.getElementById('cosmoActiveTrackContent');
+      const pathwayStorageKey = 'lay_dharma_cosmo_pathway';
+      let pathwayState = {};
+      try {
+        pathwayState = JSON.parse(localStorage.getItem(pathwayStorageKey) || '{}');
+      } catch (e) {
+        pathwayState = {};
+      }
+
+      const renderTrack = (trackId) => {
+        if (!trackContent) return;
+        const trk = sp.tracks.find(t => t.id === trackId) || sp.tracks[0];
+        trackContent.innerHTML = `
+          <div class="cosmo-track-overview">
+            <h4 class="cosmo-track-title">${trk.name} — ${trk.duration}</h4>
+            <p class="cosmo-track-desc">${trk.description}</p>
+          </div>
+          <div class="cosmo-days-grid">
+            ${trk.days.map(d => {
+              const itemKey = `${trackId}-day-${d.day}`;
+              const isDone = !!pathwayState[itemKey];
+              return `
+                <div class="cosmo-day-card ${isDone ? 'completed' : ''}" id="${itemKey}">
+                  <header class="cosmo-day-header">
+                    <span class="cosmo-day-badge">${lang === 'pt' ? 'Dia' : 'Day'} ${d.day}</span>
+                    <label class="cosmo-day-check-wrap">
+                      <input type="checkbox" class="cosmo-day-check" data-item-key="${itemKey}" ${isDone ? 'checked' : ''}>
+                      <span>${lang === 'pt' ? 'Concluído' : 'Done'}</span>
+                    </label>
+                  </header>
+                  <h5 class="cosmo-day-focus">${d.sutta}</h5>
+                  <div class="cosmo-day-reading"><strong>☸ ${lang === 'pt' ? 'Estudo & Prática:' : 'Study & Practice:'}</strong> ${d.task}</div>
+                </div>
+              `;
+            }).join('')}
+          </div>
+        `;
+
+        trackContent.querySelectorAll('.cosmo-day-check').forEach(chk => {
+          chk.addEventListener('change', () => {
+            const k = chk.dataset.itemKey;
+            pathwayState[k] = chk.checked;
+            localStorage.setItem(pathwayStorageKey, JSON.stringify(pathwayState));
+            const dayCard = document.getElementById(k);
+            if (dayCard) dayCard.classList.toggle('completed', chk.checked);
+          });
+        });
+      };
+
+      trackTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          trackTabs.forEach(t => t.classList.remove('active'));
+          tab.classList.add('active');
+          renderTrack(tab.dataset.trackId);
+        });
+      });
+
+      renderTrack(sp.tracks[0].id);
+    }
+
+    // 9. Reflection Journal Form and Persistence
+    const journalStorageKey = 'lay_dharma_cosmo_journal';
+    let journalEntries = [];
+    try {
+      journalEntries = JSON.parse(localStorage.getItem(journalStorageKey) || '[]');
+    } catch (e) {
+      journalEntries = [];
+    }
+
+    const journalList = document.getElementById('cosmoJournalEntriesList');
+    const journalForm = document.getElementById('cosmoJournalForm');
+    const exportBtn = document.getElementById('cosmoExportJournalBtn');
+    const clearBtn = document.getElementById('cosmoClearJournalBtn');
+
+    const renderJournalList = () => {
+      if (!journalList) return;
+      if (journalEntries.length === 0) {
+        journalList.innerHTML = `<p style="font-size: 0.88rem; color: var(--text-muted); font-style: italic;">${m.reflectionJournal.noEntriesNotice}</p>`;
+        return;
+      }
+
+      journalList.innerHTML = journalEntries.map((entry, idx) => `
+        <article class="cosmo-journal-entry-card" id="cosmo-entry-${idx}">
+          <header class="cosmo-entry-header">
+            <span>📅 ${new Date(entry.timestamp).toLocaleString()}</span>
+            <button class="cosmo-entry-delete-btn" data-entry-idx="${idx}">🗑 ${lang === 'pt' ? 'Excluir' : 'Delete'}</button>
+          </header>
+          <div style="font-size: 0.9rem; line-height: 1.6; color: var(--text-secondary);">
+            <div style="margin-bottom: 4px;"><strong>1. Range of Existence:</strong> ${entry.q1 || '-'}</div>
+            <div style="margin-bottom: 4px;"><strong>2. Kamma & Intention:</strong> ${entry.q2 || '-'}</div>
+            <div style="margin-bottom: 4px;"><strong>3. Impermanence:</strong> ${entry.q3 || '-'}</div>
+            <div style="margin-bottom: 4px;"><strong>4. Aspiration vs Liberation:</strong> ${entry.q4 || '-'}</div>
+            <div style="margin-bottom: 4px;"><strong>5. Non-judgmental Compassion:</strong> ${entry.q5 || '-'}</div>
+            <div><strong>6. Canonical Sutta:</strong> ${entry.q6 || '-'}</div>
+          </div>
+        </article>
+      `).join('');
+
+      journalList.querySelectorAll('.cosmo-entry-delete-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const idx = parseInt(btn.dataset.entryIdx, 10);
+          journalEntries.splice(idx, 1);
+          localStorage.setItem(journalStorageKey, JSON.stringify(journalEntries));
+          renderJournalList();
+        });
+      });
+    };
+
+    if (journalForm) {
+      journalForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const entry = {
+          timestamp: new Date().toISOString(),
+          q1: document.getElementById('cosmo-journal-cq1')?.value.trim() || '',
+          q2: document.getElementById('cosmo-journal-cq2')?.value.trim() || '',
+          q3: document.getElementById('cosmo-journal-cq3')?.value.trim() || '',
+          q4: document.getElementById('cosmo-journal-cq4')?.value.trim() || '',
+          q5: document.getElementById('cosmo-journal-cq5')?.value.trim() || '',
+          q6: document.getElementById('cosmo-journal-cq6')?.value.trim() || ''
+        };
+
+        if (!entry.q1 && !entry.q2 && !entry.q3 && !entry.q4 && !entry.q5 && !entry.q6) {
+          alert(lang === 'pt' ? 'Por favor, preencha pelo menos um campo para salvar a reflexão.' : 'Please enter at least one field to save your reflection.');
+          return;
+        }
+
+        journalEntries.unshift(entry);
+        localStorage.setItem(journalStorageKey, JSON.stringify(journalEntries));
+        journalForm.reset();
+        renderJournalList();
+      });
+    }
+
+    if (exportBtn) {
+      exportBtn.addEventListener('click', () => {
+        const dataStr = 'data:text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(journalEntries, null, 2));
+        const dlAnchor = document.createElement('a');
+        dlAnchor.setAttribute('href', dataStr);
+        dlAnchor.setAttribute('download', 'buddhist_cosmology_journal.json');
+        dlAnchor.click();
+      });
+    }
+
+    if (clearBtn) {
+      clearBtn.addEventListener('click', () => {
+        if (confirm(lang === 'pt' ? 'Tem certeza de que deseja limpar todo o histórico de reflexões?' : 'Are you sure you want to clear all saved reflections?')) {
+          journalEntries = [];
+          localStorage.removeItem(journalStorageKey);
+          renderJournalList();
+        }
+      });
+    }
+
+    renderJournalList();
+  }
 
   switchTab(targetTabId) {
     this.activeTabId = targetTabId;

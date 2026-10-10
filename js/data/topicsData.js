@@ -5,6 +5,8 @@
  */
 
 import { FOURTH_NOBLE_TRUTH_MODULE_EN, FOURTH_NOBLE_TRUTH_MODULE_PT } from './fourthNobleTruthData.js';
+import { DEPENDENT_ARISING_MODULE_EN, DEPENDENT_ARISING_MODULE_PT } from './dependentArisingData.js';
+import { BUDDHIST_COSMOLOGY_MODULE_EN, BUDDHIST_COSMOLOGY_MODULE_PT } from './buddhistCosmologyData.js';
 
 export const I18N_STRINGS = {
   en: {
@@ -664,24 +666,26 @@ export const TOPICS_DATA = [
     id: "paticcasamuppada",
     number: "02",
     paliTitle: "Paṭiccasamuppāda",
-    canonicalRef: "Mahānidāna Sutta (DN 15), Paṭiccasamuppāda-vibhaṅga Sutta (SN 12.2)",
+    canonicalRef: "SN 12.2 • SN 12.15 • MN 9 • SN 12.20 • SN 12.23 • DN 15 • SN 12.11 • SN 12.17 • SN 12.38 • SN 36.6 • SN 35.28 • SN 47.13",
     en: {
-      title: "Dependent Arising",
+      title: "Dependent Arising in Everyday Life",
       tagline: "The Cosmic & Psychological Law of Interconnected Causality",
       category: "Deep Insight",
       keyPaliTerms: [
         { term: "Idappaccayatā", meaning: "Specific conditionality: 'When this exists, that comes to be; with the arising of this, that arises.'" },
         { term: "Phassa", meaning: "Sensory contact (eye-object-consciousness, ear-sound-consciousness, etc.)" },
         { term: "Vedanā", meaning: "Feeling tone (pleasant, painful, neither-painful-nor-pleasant)" },
+        { term: "Taṇhā", meaning: "Craving, feverish thirst (sensual pleasures, becoming, and non-becoming)" },
         { term: "Upādāna", meaning: "Clinging, fuel, grasping onto views, pleasure, rites, and self-identity" },
         { term: "Saṅkhāra", meaning: "Volitional formations, mental fabrications, conditioned karmic patterns" }
       ],
-      overview: "Dependent Arising is the heart of the Buddha's profound realization beneath the Bodhi tree. It demonstrates that nothing exists in isolation or by sovereign accident; everything arises dependent on conditions and ceases when those conditions dissolve. For the lay practitioner, understanding the chain between Contact (Phassa), Feeling (Vedanā), and Craving (Taṇhā) provides the master key to breaking reactive habits.",
+      overview: "Dependent arising is the Buddha's teaching on conditionality: when particular conditions are present, corresponding phenomena arise; when those conditions cease, the dependent phenomena cease. It provides a framework for understanding suffering and the possibility of liberation.",
+      dependentArisingModule: DEPENDENT_ARISING_MODULE_EN,
       canonicalExcerpts: [
         {
-          source: "SN 12.65 — The Ancient Path",
-          pali: "Imasmiṁ sati idaṁ hoti, imassuppādā idaṁ uppajjati; imasmiṁ asati idaṁ na hoti, imassa nirodhā idaṁ nirujjhati.",
-          translation: "When this exists, that comes to be; with the arising of this, that arises. When this does not exist, that does not come to be; with the cessation of this, that ceases."
+          source: "SN 12.20 — Paccaya Sutta",
+          pali: "Uppādā vā, bhikkhave, tathāgatānaṁ anuppādā vā tathāgatānaṁ, ṭhitāva sā dhātu dhammaṭṭhitatā dhammaniyāmatā idappaccayatā.",
+          translation: "Whether Realized Ones arise or not, this fundamental reality remains: the stability of the Dhamma, the law of the Dhamma, specific conditionality."
         },
         {
           source: "DN 15 — Mahānidāna Sutta",
@@ -709,22 +713,24 @@ export const TOPICS_DATA = [
       ]
     },
     pt: {
-      title: "Origem Dependente",
+      title: "Origem Dependente na Vida Cotidiana",
       tagline: "A Lei Cósmica e Psicológica da Causalidade Interconectada",
       category: "Discernimento Profundo",
       keyPaliTerms: [
         { term: "Idappaccayatā", meaning: "Condicionalidade específica: 'Quando isto existe, aquilo vem a ser; com o surgir disto, aquilo surge.'" },
         { term: "Phassa", meaning: "Contato sensorial (órgão dos sentidos, objeto correspondente e consciência)" },
         { term: "Vedanā", meaning: "Tom afetivo da sensação (agradável, doloroso ou nem doloroso nem agradável)" },
+        { term: "Taṇhā", meaning: "Sede compulsiva, anseio febril (pelos sentidos, vir-a-ser e não-vir-a-ser)" },
         { term: "Upādāna", meaning: "Apego, combustível mental, apego a prazeres sensoriais, opiniões e identidade pessoal" },
         { term: "Saṅkhāra", meaning: "Formações volitivas, fabricações mentais, padrões cármicos condicionados" }
       ],
-      overview: "A Origem Dependente é o coração da iluminação do Buda sob a árvore Bodhi. Demonstra que nada subsiste isoladamente ou por mero acaso; tudo surge dependente de condições e cessa quando tais condições se extinguem. Para o praticante leigo, compreender o elo entre Contato (Phassa), Sensação (Vedanā) e Desejo (Taṇhā) é a chave-mestra para desarmar impulsos reativos.",
+      overview: "A origem dependente é o ensinamento do Buda sobre a condicionalidade: quando condições particulares estão presentes, os fenômenos correspondentes surgem; quando essas condições cessam, os fenômenos dependentes cessam. Ela fornece a estrutura para compreender o sofrimento e a possibilidade de libertação.",
+      dependentArisingModule: DEPENDENT_ARISING_MODULE_PT,
       canonicalExcerpts: [
         {
-          source: "SN 12.65 — O Caminho Antigo",
-          pali: "Imasmiṁ sati idaṁ hoti, imassuppādā idaṁ uppajjati; imasmiṁ asati idaṁ na hoti, imassa nirodhā idaṁ nirujjhati.",
-          translation: "Quando isto existe, aquilo vem a ser; com o surgimento disto, aquilo surge. Quando isto inexiste, aquilo não vem a ser; com a cessação disto, aquilo cessa."
+          source: "SN 12.20 — Paccaya Sutta",
+          pali: "Uppādā vā, bhikkhave, tathāgatānaṁ anuppādā vā tathāgatānaṁ, ṭhitāva sā dhātu dhammaṭṭhitatā dhammaniyāmatā idappaccayatā.",
+          translation: "Quer os Realizados surjam ou não, permanece esta realidade fundamental: a estabilidade do Dhamma, a lei do Dhamma, a condicionalidade específica."
         },
         {
           source: "DN 15 — Mahānidāna Sutta",
@@ -1308,7 +1314,7 @@ export const TOPICS_DATA = [
     id: "lokadhatu",
     number: "09",
     paliTitle: "Lokadhātu",
-    canonicalRef: "Kevatta Sutta (DN 11), Cūḷataṇhāsaṅkhaya Sutta (MN 37), Mahāgopālaka Sutta (MN 33)",
+    canonicalRef: "DN 27 • DN 1 • AN 3.80 • MN 135 • MN 136 • AN 6.63 • SN 15.3 • DN 11 • DN 13 • MN 49 • AN 4.77 • SN 56.48 • AN 8.54 • AN 5.57 • DN 16",
     en: {
       title: "Buddhist Cosmology",
       tagline: "The 31 Planes of Existence, the Wheel of Saṁsāra, and the Rare Human Opportunity",
@@ -1321,6 +1327,7 @@ export const TOPICS_DATA = [
         { term: "Sakkāyadiṭṭhi", meaning: "The root illusion of an unchanging, isolated self within conditioned existence" }
       ],
       overview: "Buddhist cosmology is not mythological folklore; it is an existential psychological map. Across 31 distinct realms spanning heavens, human planes, ghost realms, animal worlds, and hells, the Buddha revealed that every state of existence reflects the quality of mind and moral choices. For householders, this macro-perspective imbues human life with deep urgency and dignity.",
+      buddhistCosmologyModule: BUDDHIST_COSMOLOGY_MODULE_EN,
       canonicalExcerpts: [
         {
           source: "SN 56.48 — The Blind Turtle Simile (Chiggalayuga Sutta)",
@@ -1364,6 +1371,7 @@ export const TOPICS_DATA = [
         { term: "Sakkāyadiṭṭhi", meaning: "A ilusão fundamental de uma identidade estática e permanente no cosmos" }
       ],
       overview: "A cosmologia budista não é folclore mitológico; é uma cartografia da psicologia existencial. Através de 31 planos distintos que abrangem céus, esferas humanas, reinos animais, reinos de espíritos aflitos e infernos, o Buda ensinou que todo estado reflete a qualidade da consciência e dos atos morais. Essa perspectiva macro confere à vida humana uma gravidade e uma dignidade singulares.",
+      buddhistCosmologyModule: BUDDHIST_COSMOLOGY_MODULE_PT,
       canonicalExcerpts: [
         {
           source: "SN 56.48 — A Símile da Tartaruga Cega (Chiggalayuga Sutta)",
