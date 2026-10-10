@@ -1568,6 +1568,1035 @@ body {
 }
 
 /* ==========================================================================
+   The Fourth Noble Truth & Noble Eightfold Path Study Module (Magga)
+   ========================================================================== */
+
+.magga-module-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  margin-top: 10px;
+}
+
+/* Module Header Banner */
+.magga-module-header {
+  background: linear-gradient(135deg, rgba(28, 20, 10, 0.95) 0%, rgba(15, 18, 26, 0.95) 100%);
+  border: 1px solid var(--gold-border);
+  border-radius: 14px;
+  padding: 28px 32px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
+  position: relative;
+  overflow: hidden;
+}
+
+.magga-module-header::before {
+  content: "☸";
+  position: absolute;
+  top: -20px;
+  right: -10px;
+  font-size: 140px;
+  color: rgba(224, 169, 68, 0.04);
+  pointer-events: none;
+  line-height: 1;
+}
+
+.magga-header-badge {
+  display: inline-block;
+  font-size: 0.72rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold-primary);
+  background: rgba(224, 169, 68, 0.12);
+  border: 1px solid var(--gold-border);
+  padding: 4px 12px;
+  border-radius: 20px;
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+
+.magga-header-title {
+  font-family: var(--font-serif-sacred);
+  font-size: 1.65rem;
+  font-weight: 700;
+  color: var(--gold-light);
+  letter-spacing: 0.5px;
+  margin-bottom: 6px;
+  line-height: 1.3;
+}
+
+.magga-header-pali {
+  font-family: var(--font-canonical);
+  font-size: 1.1rem;
+  color: var(--text-pali);
+  font-style: italic;
+  margin-bottom: 14px;
+}
+
+.magga-header-lead {
+  font-family: var(--font-serif-body);
+  font-size: 1.02rem;
+  line-height: 1.7;
+  color: var(--text-primary);
+  max-width: 900px;
+}
+
+/* Sub-Navigation Jump Bar */
+.magga-nav-bar {
+  background: rgba(14, 17, 23, 0.9);
+  border: 1px solid rgba(224, 169, 68, 0.2);
+  border-radius: 10px;
+  padding: 12px 18px;
+  backdrop-filter: blur(8px);
+}
+
+.magga-nav-label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  color: var(--gold-primary);
+  font-weight: 700;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.magga-nav-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.magga-nav-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(224, 169, 68, 0.06);
+  border: 1px solid rgba(224, 169, 68, 0.22);
+  color: var(--text-primary);
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  text-decoration: none;
+  transition: var(--transition-smooth);
+}
+
+.magga-nav-pill:hover {
+  background: rgba(224, 169, 68, 0.18);
+  border-color: var(--gold-primary);
+  color: var(--gold-light);
+  transform: translateY(-1px);
+}
+
+.magga-nav-num {
+  font-weight: 700;
+  color: var(--gold-primary);
+  font-size: 0.76rem;
+}
+
+/* Section Card */
+.magga-sec-card {
+  background: linear-gradient(145deg, rgba(16, 20, 27, 0.95) 0%, rgba(10, 13, 18, 0.95) 100%);
+  border: 1px solid rgba(224, 169, 68, 0.22);
+  border-radius: 12px;
+  padding: 26px 30px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  scroll-margin-top: 100px;
+}
+
+.magga-sec-header {
+  border-bottom: 1px solid rgba(224, 169, 68, 0.15);
+  padding-bottom: 16px;
+  margin-bottom: 20px;
+}
+
+.magga-badges-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.magga-num-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--gold-gradient);
+  color: var(--bg-core);
+  font-weight: 800;
+  font-size: 0.82rem;
+}
+
+.magga-provenance-badge {
+  font-size: 0.72rem;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: #72e0a8;
+  background: rgba(62, 168, 118, 0.12);
+  border: 1px solid rgba(62, 168, 118, 0.35);
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-weight: 700;
+}
+
+.magga-sec-title {
+  font-family: var(--font-serif-sacred);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--gold-light);
+  margin-bottom: 4px;
+}
+
+.magga-sec-pali {
+  font-family: var(--font-canonical);
+  font-size: 1.05rem;
+  color: var(--text-pali);
+  font-style: italic;
+}
+
+/* Sutta Chips */
+.magga-sutta-chips-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.magga-sutta-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(224, 169, 68, 0.08);
+  border: 1px solid rgba(224, 169, 68, 0.3);
+  color: var(--gold-light);
+  padding: 6px 14px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 0.84rem;
+  font-weight: 600;
+  transition: var(--transition-smooth);
+}
+
+.magga-sutta-chip:hover {
+  background: rgba(224, 169, 68, 0.2);
+  border-color: var(--gold-primary);
+  transform: translateY(-1px);
+}
+
+.magga-sutta-chip-sm {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(224, 169, 68, 0.08);
+  border: 1px solid rgba(224, 169, 68, 0.25);
+  color: var(--gold-light);
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.78rem;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.magga-sutta-chip-sm:hover {
+  background: rgba(224, 169, 68, 0.18);
+  border-color: var(--gold-primary);
+}
+
+/* Quote Box */
+.magga-quote-box {
+  background: rgba(0, 0, 0, 0.4);
+  border-left: 3px solid var(--gold-primary);
+  border-radius: 0 10px 10px 0;
+  padding: 16px 20px;
+  margin-bottom: 20px;
+}
+
+.magga-quote-pali {
+  font-family: var(--font-canonical);
+  font-size: 0.96rem;
+  color: var(--text-pali);
+  font-style: italic;
+  margin-bottom: 8px;
+  line-height: 1.6;
+}
+
+.magga-quote-trans {
+  font-family: var(--font-serif-body);
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  line-height: 1.65;
+  margin-bottom: 6px;
+}
+
+.magga-quote-meta {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  text-align: right;
+  font-style: italic;
+}
+
+/* Prose Typography */
+.magga-prose {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--text-primary);
+  margin-bottom: 18px;
+}
+
+.magga-prose-sm {
+  font-size: 0.9rem;
+  line-height: 1.65;
+  color: var(--text-primary);
+  margin-bottom: 14px;
+}
+
+.magga-subheading {
+  font-family: var(--font-serif-sacred);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--gold-light);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.magga-subtext {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.magga-block-label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  color: var(--gold-primary);
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+/* Catukicca Tasks Grid */
+.magga-catukicca-card {
+  background: rgba(224, 169, 68, 0.04);
+  border: 1px solid rgba(224, 169, 68, 0.2);
+  border-radius: 10px;
+  padding: 20px 22px;
+  margin-top: 20px;
+}
+
+.magga-tasks-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+.magga-task-item {
+  background: rgba(12, 15, 22, 0.85);
+  border: 1px solid rgba(224, 169, 68, 0.18);
+  border-radius: 8px;
+  padding: 14px 16px;
+}
+
+.magga-task-truth {
+  font-weight: 700;
+  font-size: 0.88rem;
+  color: var(--gold-light);
+  margin-bottom: 6px;
+}
+
+.magga-task-duty-badge {
+  display: inline-block;
+  font-size: 0.74rem;
+  font-weight: 800;
+  color: var(--bg-core);
+  background: var(--gold-gradient);
+  padding: 2px 8px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.magga-task-action {
+  font-weight: 600;
+  font-size: 0.86rem;
+  color: #72e0a8;
+  margin-bottom: 6px;
+}
+
+.magga-task-desc {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.magga-core-note {
+  font-size: 0.88rem;
+  color: var(--gold-light);
+  background: rgba(224, 169, 68, 0.08);
+  border-left: 2px solid var(--gold-primary);
+  padding: 10px 14px;
+  border-radius: 0 6px 6px 0;
+  margin-top: 14px;
+  line-height: 1.6;
+}
+
+/* Section 2: Factors Deck */
+.magga-factors-deck {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.magga-factor-card {
+  background: rgba(14, 18, 25, 0.9);
+  border: 1px solid rgba(224, 169, 68, 0.22);
+  border-radius: 10px;
+  padding: 22px 24px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35);
+  scroll-margin-top: 90px;
+}
+
+.magga-factor-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(224, 169, 68, 0.15);
+  padding-bottom: 12px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.magga-factor-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.magga-factor-num {
+  font-family: var(--font-serif-sacred);
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--gold-primary);
+  background: rgba(224, 169, 68, 0.1);
+  border: 1px solid var(--gold-border);
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.magga-factor-pali {
+  font-family: var(--font-serif-sacred);
+  font-size: 1.2rem;
+  color: var(--gold-light);
+  margin-bottom: 2px;
+}
+
+.magga-factor-eng {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.magga-training-pill {
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 12px;
+}
+
+.training-panna {
+  color: #d1b46a;
+  background: rgba(209, 180, 106, 0.12);
+  border: 1px solid rgba(209, 180, 106, 0.35);
+}
+
+.training-sila {
+  color: #72e0a8;
+  background: rgba(62, 168, 118, 0.12);
+  border: 1px solid rgba(62, 168, 118, 0.35);
+}
+
+.training-samadhi {
+  color: #70b8ff;
+  background: rgba(80, 160, 255, 0.12);
+  border: 1px solid rgba(80, 160, 255, 0.35);
+}
+
+.magga-canonical-def-box {
+  background: rgba(0, 0, 0, 0.45);
+  border-left: 3px solid var(--gold-primary);
+  border-radius: 0 8px 8px 0;
+  padding: 14px 18px;
+  margin-bottom: 18px;
+}
+
+.magga-def-source {
+  font-size: 0.76rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--gold-primary);
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+/* Lay Application Box */
+.magga-lay-app-box {
+  background: rgba(80, 160, 255, 0.05);
+  border: 1px solid rgba(80, 160, 255, 0.25);
+  border-radius: 8px;
+  padding: 14px 18px;
+  margin-bottom: 16px;
+}
+
+.magga-lay-app-badge {
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #70b8ff;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.magga-factor-footer {
+  border-top: 1px solid rgba(224, 169, 68, 0.1);
+  padding-top: 12px;
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+}
+
+.magga-factor-links {
+  margin-bottom: 6px;
+}
+
+.magga-links-label {
+  color: var(--gold-primary);
+  font-weight: 700;
+  margin-right: 6px;
+}
+
+.magga-ref-link {
+  color: var(--gold-light);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.magga-ref-link:hover {
+  color: #fff;
+}
+
+.magga-further-study {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* Section 3: Tisikkha Grid */
+.magga-speaker-attribution {
+  font-size: 0.88rem;
+  color: var(--gold-primary);
+  margin-bottom: 14px;
+}
+
+.magga-tisikkha-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 18px;
+  margin-bottom: 18px;
+}
+
+.magga-tisikkha-col {
+  background: rgba(14, 18, 25, 0.9);
+  border: 1px solid rgba(224, 169, 68, 0.2);
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.magga-tisikkha-name {
+  font-family: var(--font-serif-sacred);
+  font-size: 1.05rem;
+  color: var(--gold-light);
+  margin-bottom: 12px;
+  border-bottom: 1px solid rgba(224, 169, 68, 0.15);
+  padding-bottom: 8px;
+}
+
+.magga-tisikkha-factors {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 14px 0;
+}
+
+.magga-tisikkha-factors li {
+  font-size: 0.88rem;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.magga-bullet {
+  color: var(--gold-primary);
+  font-size: 0.75rem;
+}
+
+.magga-tisikkha-purpose {
+  font-size: 0.84rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+
+/* Section 4: MN 117 Principles Grid */
+.magga-principles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.magga-principle-card {
+  background: rgba(12, 16, 22, 0.85);
+  border: 1px solid rgba(224, 169, 68, 0.18);
+  border-radius: 10px;
+  padding: 18px 20px;
+}
+
+.magga-principle-title {
+  font-family: var(--font-serif-sacred);
+  font-size: 0.98rem;
+  color: var(--gold-light);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.magga-principle-detail {
+  font-size: 0.88rem;
+  color: var(--text-primary);
+  line-height: 1.6;
+}
+
+/* Section 5: Gradual Training Pipeline */
+.magga-pipeline-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.magga-pipeline-step {
+  background: rgba(12, 16, 22, 0.85);
+  border: 1px solid rgba(224, 169, 68, 0.16);
+  border-radius: 8px;
+  padding: 16px;
+  display: flex;
+  gap: 14px;
+}
+
+.magga-step-num-badge {
+  font-family: var(--font-serif-sacred);
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--gold-primary);
+  background: rgba(224, 169, 68, 0.1);
+  border: 1px solid var(--gold-border);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.magga-step-content {
+  flex: 1;
+}
+
+.magga-step-pali {
+  font-family: var(--font-canonical);
+  font-size: 0.82rem;
+  color: var(--text-pali);
+  font-style: italic;
+  margin-bottom: 2px;
+}
+
+.magga-step-title {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--gold-light);
+  margin-bottom: 6px;
+}
+
+.magga-step-desc {
+  font-size: 0.84rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* Section 6: Mindfulness & Meditation */
+.magga-satipatthana-box {
+  background: rgba(12, 16, 22, 0.85);
+  border: 1px solid rgba(224, 169, 68, 0.2);
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.magga-foundations-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.magga-foundation-card {
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(224, 169, 68, 0.15);
+  border-radius: 6px;
+  padding: 12px 14px;
+}
+
+.magga-foundation-name {
+  font-weight: 700;
+  font-size: 0.88rem;
+  color: var(--gold-primary);
+  margin-bottom: 4px;
+}
+
+.magga-foundation-focus {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.magga-cascade-box {
+  background: rgba(62, 168, 118, 0.05);
+  border: 1px solid rgba(62, 168, 118, 0.25);
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 18px;
+}
+
+.magga-cascade-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.magga-cascade-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  line-height: 1.55;
+}
+
+.magga-cascade-arrow {
+  color: #72e0a8;
+  font-weight: 700;
+}
+
+.magga-warning-box {
+  background: rgba(224, 98, 80, 0.08);
+  border: 1px solid rgba(224, 98, 80, 0.3);
+  border-radius: 8px;
+  padding: 14px 18px;
+  font-size: 0.88rem;
+  color: #ffd8d3;
+  line-height: 1.6;
+}
+
+.magga-warning-label {
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #ff9888;
+  margin-bottom: 6px;
+  font-size: 0.78rem;
+}
+
+/* Section 7: Thoughts Comparison */
+.magga-thoughts-comparison-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.magga-thought-class-card {
+  border-radius: 10px;
+  padding: 18px 20px;
+}
+
+.thought-unwholesome {
+  background: rgba(224, 98, 80, 0.07);
+  border: 1px solid rgba(224, 98, 80, 0.3);
+}
+
+.thought-wholesome {
+  background: rgba(62, 168, 118, 0.07);
+  border: 1px solid rgba(62, 168, 118, 0.3);
+}
+
+.magga-thought-class-title {
+  font-family: var(--font-serif-sacred);
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.thought-unwholesome .magga-thought-class-title {
+  color: #ff9888;
+}
+
+.thought-wholesome .magga-thought-class-title {
+  color: #72e0a8;
+}
+
+.magga-thought-items {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 12px 0;
+}
+
+.magga-thought-items li {
+  font-size: 0.88rem;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+  padding-left: 14px;
+  position: relative;
+}
+
+.magga-thought-items li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--gold-primary);
+}
+
+.magga-thought-consequence {
+  font-size: 0.84rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 8px;
+}
+
+.magga-lay-points-list {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 0 0;
+}
+
+.magga-lay-points-list li {
+  font-size: 0.88rem;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  line-height: 1.55;
+}
+
+/* Section 8: Lay Suttas Deck */
+.magga-lay-suttas-deck {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.magga-lay-sutta-card {
+  background: rgba(14, 18, 25, 0.85);
+  border: 1px solid rgba(224, 169, 68, 0.18);
+  border-radius: 10px;
+  padding: 18px 22px;
+}
+
+.magga-lay-sutta-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 10px;
+  gap: 12px;
+}
+
+.magga-lay-sutta-title {
+  font-family: var(--font-serif-sacred);
+  font-size: 1.05rem;
+  color: var(--gold-light);
+  margin-bottom: 2px;
+}
+
+.magga-lay-sutta-theme {
+  font-size: 0.82rem;
+  color: var(--gold-primary);
+  font-weight: 600;
+}
+
+.magga-lay-sutta-content {
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  line-height: 1.65;
+}
+
+/* Section 9: Natural Causation Chain & Nibbana */
+.magga-natural-causation-box {
+  background: rgba(12, 16, 22, 0.85);
+  border: 1px solid rgba(224, 169, 68, 0.2);
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.magga-causation-chain {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.magga-causation-node {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(224, 169, 68, 0.12);
+  border-radius: 6px;
+  padding: 10px 14px;
+}
+
+.magga-node-num {
+  font-family: var(--font-serif-sacred);
+  font-weight: 800;
+  font-size: 0.78rem;
+  color: var(--gold-primary);
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: rgba(224, 169, 68, 0.1);
+  border: 1px solid var(--gold-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.magga-node-text {
+  font-size: 0.88rem;
+  color: var(--text-primary);
+}
+
+.magga-nibbana-box {
+  background: linear-gradient(135deg, rgba(28, 20, 10, 0.9) 0%, rgba(13, 17, 24, 0.9) 100%);
+  border: 1px solid var(--gold-border);
+  border-radius: 10px;
+  padding: 22px 24px;
+}
+
+/* Section 10: Misunderstandings Grid */
+.magga-misunderstandings-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.magga-misunderstanding-card {
+  background: rgba(14, 18, 25, 0.9);
+  border: 1px solid rgba(224, 169, 68, 0.2);
+  border-radius: 10px;
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.magga-misconception-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background: rgba(224, 98, 80, 0.06);
+  border: 1px solid rgba(224, 98, 80, 0.25);
+  border-radius: 8px;
+  padding: 12px 14px;
+}
+
+.magga-misconception-icon {
+  color: #ff9888;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.magga-misconception-label {
+  font-size: 0.76rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 800;
+  color: #ff9888;
+  margin-bottom: 2px;
+}
+
+.magga-misconception-text {
+  font-size: 0.9rem;
+  color: #ffe0db;
+  font-weight: 600;
+}
+
+.magga-rebuttal-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background: rgba(62, 168, 118, 0.06);
+  border: 1px solid rgba(62, 168, 118, 0.25);
+  border-radius: 8px;
+  padding: 12px 14px;
+}
+
+.magga-rebuttal-icon {
+  color: #72e0a8;
+  font-size: 1.1rem;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+.magga-rebuttal-label {
+  font-size: 0.76rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 800;
+  color: #72e0a8;
+  margin-bottom: 2px;
+}
+
+.magga-rebuttal-text {
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  line-height: 1.6;
+  margin-bottom: 4px;
+}
+
+.magga-rebuttal-citation {
+  font-size: 0.78rem;
+  color: var(--gold-light);
+  font-weight: 600;
+}
+
+/* ==========================================================================
    Responsive Adjustments for Radial Menu & In-Page Study Portal
    ========================================================================== */
 
@@ -1668,10 +2697,45 @@ body {
   .doctrinal-truths-grid {
     grid-template-columns: 1fr;
   }
+  .magga-tasks-grid,
+  .magga-tisikkha-grid,
+  .magga-principles-grid,
+  .magga-pipeline-grid,
+  .magga-thoughts-comparison-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 680px) {
+  .magga-module-header {
+    padding: 20px 16px;
+  }
+  .magga-header-title {
+    font-size: 1.35rem;
+  }
+  .magga-sec-card {
+    padding: 18px 16px;
+  }
+  .magga-factor-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .magga-quote-box,
+  .magga-canonical-def-box {
+    padding: 12px 14px;
+  }
 }
 
 @media (max-width: 480px) {
   .reader-tabs-nav {
     grid-template-columns: 1fr;
   }
+  .magga-nav-pills {
+    gap: 6px;
+  }
+  .magga-nav-pill {
+    font-size: 0.74rem;
+    padding: 4px 8px;
+  }
 }
+

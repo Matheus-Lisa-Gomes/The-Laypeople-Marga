@@ -4,6 +4,8 @@
  * Bilingual dataset: English (EN) and Portuguese (PT).
  */
 
+import { FOURTH_NOBLE_TRUTH_MODULE_EN, FOURTH_NOBLE_TRUTH_MODULE_PT } from './fourthNobleTruthData.js';
+
 export const I18N_STRINGS = {
   en: {
     siteTitle: "The Lay Dharma Household Mārga",
@@ -21,6 +23,7 @@ export const I18N_STRINGS = {
     keyPaliTermsHeading: "Key Pāli Terminology",
     canonicalSourcesPrefix: "Canonical Sources:",
     householdIntro: "Specific strategies, psychological guardrails, and behavioral advice for integrating this teaching into family dynamics, career, and household governance:",
+    householdIntroMagga: "The Fourth Noble Truth (Dukkha-nirodhagāminī Paṭipadā Ariyasacca): A comprehensive canonical study and operational guide for cultivating the Noble Eightfold Path in lay life.",
     inquiryHeading: "Yoniso Manasikāra (Wise Reflection Prompts)",
     inquiryIntro: "Use these reflective questions during your morning sitting, evening review, or whenever life triggers emotional reactivity:",
     notesHeading: "Personal Practice Journal & Notes",
@@ -72,6 +75,7 @@ export const I18N_STRINGS = {
     keyPaliTermsHeading: "Terminologia Pāli Essencial",
     canonicalSourcesPrefix: "Fontes Canônicas:",
     householdIntro: "Estratégias específicas, salvaguardas psicológicas e conduta prática para integrar este ensinamento à família, carreira e governança doméstica:",
+    householdIntroMagga: "A Quarta Nobre Verdade (Dukkha-nirodhagāminī Paṭipadā Ariyasacca): Estudo canônico exaustivo e guia operacional para cultivar o Nobre Caminho Óctuplo na vida cotidiana.",
     inquiryHeading: "Yoniso Manasikāra (Reflexão Sábia)",
     inquiryIntro: "Utilize estas perguntas reflexivas durante sua revisão diária ou quando surgir reatividade emocional no cotidiano:",
     notesHeading: "Diário de Prática & Anotações Pessoais",
@@ -379,6 +383,7 @@ export const TOPICS_DATA = [
           detail: "The 8 factors divide into Sīla (Ethical Integrity: Right Speech, Action, Livelihood), Samādhi (Mental Cultivation: Right Effort, Mindfulness, Stillness), and Paññā (Discernment: Right View, Intention). A householder practices this across workplace negotiations, dinner table conversations, and evening study."
         }
       ],
+      fourthNobleTruthModule: FOURTH_NOBLE_TRUTH_MODULE_EN,
       contemplativeInquiry: [
         "In the last 24 hours, where did I feel irritation or grief? What unspoken demand or craving was underlying it?",
         "Can I observe a moment of sensory pleasure without immediately clutching it, letting it arise and cease peacefully?"
@@ -648,6 +653,7 @@ export const TOPICS_DATA = [
           detail: "Os 8 fatores dividem-se em Sīla (Conduta Ética: Fala, Ação e Modo de Vida Corretos), Samādhi (Cultivo Mental: Esforço, Atenção Plena e Concentração) e Paññā (Sabedoria: Visão e Intenção Corretas). O leigo pratica esses pilares em negociações profissionais, diálogos à mesa e no estudo noturno."
         }
       ],
+      fourthNobleTruthModule: FOURTH_NOBLE_TRUTH_MODULE_PT,
       contemplativeInquiry: [
         "Nas últimas 24 horas, onde senti irritação ou desapontamento? Que expectativa ou anseio não expresso estava por trás disso?",
         "Consigo vivenciar uma sensação agradável sem me agarrar impulsivamente a ela, permitindo que surja e cesse em paz?"

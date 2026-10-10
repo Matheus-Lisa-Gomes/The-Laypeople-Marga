@@ -714,15 +714,535 @@ class LayDharmaApp {
     }
 
     // Household Practice
-    this.dom.modalHouseholdList.innerHTML = langContent.householdApplication.map(app => `
-      <div class="practice-card">
-        <div class="practice-card-title">
-          <span>☸</span> ${app.title}
+    if (langContent.fourthNobleTruthModule) {
+      if (this.dom.householdIntroText) {
+        this.dom.householdIntroText.textContent = t.householdIntroMagga || langContent.fourthNobleTruthModule.header.leadText;
+      }
+      this.dom.modalHouseholdList.innerHTML = this.renderFourthNobleTruthModule(langContent.fourthNobleTruthModule, this.currentLang);
+    } else {
+      if (this.dom.householdIntroText) {
+        this.dom.householdIntroText.textContent = t.householdIntro;
+      }
+      this.dom.modalHouseholdList.innerHTML = langContent.householdApplication.map(app => `
+        <div class="practice-card">
+          <div class="practice-card-title">
+            <span>☸</span> ${app.title}
+          </div>
+          <div class="practice-card-detail">${app.detail}</div>
         </div>
-        <div class="practice-card-detail">${app.detail}</div>
-      </div>
-    `).join('');
+      `).join('');
+    }
   }
+
+  renderFourthNobleTruthModule(m, lang) {
+    if (!m) return '';
+
+    // Quick Jump Navigation
+    const navPills = [
+      { id: "magga-sec-1", num: "01", label: lang === 'pt' ? "Quarta Verdade" : "4th Truth" },
+      { id: "magga-sec-2", num: "02", label: lang === 'pt' ? "Os 8 Fatores" : "8 Path Factors" },
+      { id: "magga-sec-3", num: "03", label: lang === 'pt' ? "Treino Tríplice" : "Threefold Training" },
+      { id: "magga-sec-4", num: "04", label: lang === 'pt' ? "Sinergia (MN 117)" : "Synergy (MN 117)" },
+      { id: "magga-sec-5", num: "05", label: lang === 'pt' ? "Treino Gradual" : "Gradual Training" },
+      { id: "magga-sec-6", num: "06", label: lang === 'pt' ? "Atenção Plena" : "Mindfulness" },
+      { id: "magga-sec-7", num: "07", label: lang === 'pt' ? "Intenção Reta" : "Right Intention" },
+      { id: "magga-sec-8", num: "08", label: lang === 'pt' ? "Vida Leiga" : "Lay Life" },
+      { id: "magga-sec-9", num: "09", label: lang === 'pt' ? "Cessação" : "Cessation" },
+      { id: "magga-sec-10", num: "10", label: lang === 'pt' ? "10 Equívocos" : "10 Misconceptions" }
+    ];
+
+    const navHtml = `
+      <div class="magga-nav-bar" role="navigation" aria-label="Fourth Noble Truth Sections">
+        <div class="magga-nav-label"><span>☸</span> ${lang === 'pt' ? 'Navegação do Módulo:' : 'Module Sections:'}</div>
+        <div class="magga-nav-pills">
+          ${navPills.map(p => `
+            <a href="#${p.id}" class="magga-nav-pill">
+              <span class="magga-nav-num">${p.num}</span>
+              <span>${p.label}</span>
+            </a>
+          `).join('')}
+        </div>
+      </div>
+    `;
+
+    // Section 1: What is the Fourth Noble Truth?
+    const s1 = m.section1;
+    const s1Html = `
+      <section class="magga-sec-card" id="magga-sec-1">
+        <header class="magga-sec-header">
+          <div class="magga-badges-row">
+            <span class="magga-num-badge">${s1.number}</span>
+            <span class="magga-provenance-badge">${s1.provenanceTag}</span>
+          </div>
+          <h3 class="magga-sec-title">${s1.title}</h3>
+          <div class="magga-sec-pali">${s1.paliTitle}</div>
+        </header>
+
+        <div class="magga-sutta-chips-row">
+          ${s1.sourceSuttas.map(s => `
+            <a href="${s.url}" target="_blank" rel="noopener noreferrer" class="magga-sutta-chip">
+              <span>📖 ${s.code} — ${s.title}</span>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+            </a>
+          `).join('')}
+        </div>
+
+        <div class="magga-quote-box">
+          <div class="magga-quote-pali">${s1.canonicalPassage.pali}</div>
+          <div class="magga-quote-trans">“${s1.canonicalPassage.translation}”</div>
+          <div class="magga-quote-meta">— ${s1.canonicalPassage.translator}</div>
+        </div>
+
+        <p class="magga-prose">${s1.doctrinalAnalysis}</p>
+
+        <div class="magga-catukicca-card">
+          <div class="magga-subheading"><span>☸</span> ${s1.catukiccaFramework.heading}</div>
+          <p class="magga-subtext">${s1.catukiccaFramework.explanation}</p>
+          <div class="magga-tasks-grid">
+            ${s1.catukiccaFramework.tasks.map(t => `
+              <div class="magga-task-item">
+                <div class="magga-task-truth">${t.truth}</div>
+                <div class="magga-task-duty-badge">${t.dutyPali}</div>
+                <div class="magga-task-action">${t.dutyEnglish}</div>
+                <div class="magga-task-desc">${t.description}</div>
+              </div>
+            `).join('')}
+          </div>
+          <div class="magga-core-note">${s1.catukiccaFramework.coreNote}</div>
+        </div>
+      </section>
+    `;
+
+    // Section 2: The 8 Path Factors
+    const s2 = m.section2;
+    const s2Html = `
+      <section class="magga-sec-card" id="magga-sec-2">
+        <header class="magga-sec-header">
+          <div class="magga-badges-row">
+            <span class="magga-num-badge">${s2.number}</span>
+            <span class="magga-provenance-badge">${s2.provenanceTag}</span>
+          </div>
+          <h3 class="magga-sec-title">${s2.title}</h3>
+          <div class="magga-sec-pali">${s2.paliTitle}</div>
+        </header>
+        <p class="magga-prose">${s2.intro}</p>
+
+        <div class="magga-factors-deck">
+          ${s2.factors.map(f => {
+            const trainingClass = f.trainingGroup.toLowerCase().includes('paññā') || f.trainingGroup.toLowerCase().includes('sabedoria')
+              ? 'training-panna'
+              : (f.trainingGroup.toLowerCase().includes('sīla') || f.trainingGroup.toLowerCase().includes('virtude') ? 'training-sila' : 'training-samadhi');
+
+            return `
+              <article class="magga-factor-card" id="factor-${f.factorNumber}">
+                <div class="magga-factor-header">
+                  <div class="magga-factor-title-wrap">
+                    <span class="magga-factor-num">0${f.factorNumber}</span>
+                    <div>
+                      <h4 class="magga-factor-pali">${f.paliName}</h4>
+                      <div class="magga-factor-eng">${f.englishName}</div>
+                    </div>
+                  </div>
+                  <span class="magga-training-pill ${trainingClass}">${f.trainingGroup}</span>
+                </div>
+
+                <div class="magga-canonical-def-box">
+                  <div class="magga-def-source">${f.canonicalDefinition.sutta} • ${f.canonicalDefinition.translator}</div>
+                  <div class="magga-quote-pali">${f.canonicalDefinition.paliQuote}</div>
+                  <div class="magga-quote-trans">“${f.canonicalDefinition.transQuote}”</div>
+                </div>
+
+                <div class="magga-factor-body">
+                  <div class="magga-block-label">${lang === 'pt' ? 'Explicação Doutrinária:' : 'Doctrinal Explanation:'}</div>
+                  <p class="magga-prose-sm">${f.doctrinalExplanation}</p>
+
+                  <div class="magga-block-label">${lang === 'pt' ? 'Função no Caminho:' : 'Function in the Path:'}</div>
+                  <p class="magga-prose-sm">${f.functionInPath}</p>
+
+                  <div class="magga-lay-app-box">
+                    <div class="magga-lay-app-badge"><span>✓</span> ${f.layApplication.tag}</div>
+                    <p class="magga-prose-sm">${f.layApplication.description}</p>
+                  </div>
+
+                  <div class="magga-factor-footer">
+                    <div class="magga-factor-links">
+                      <span class="magga-links-label">${lang === 'pt' ? 'Suttas Primários:' : 'Primary Suttas:'}</span>
+                      ${f.primaryReferences.map(ref => `
+                        <a href="${ref.url}" target="_blank" rel="noopener noreferrer" class="magga-ref-link">
+                          ${ref.code} (${ref.name})
+                        </a>
+                      `).join(' • ')}
+                    </div>
+                    ${f.furtherStudy ? `<div class="magga-further-study"><em>${lang === 'pt' ? 'Aprofundamento:' : 'Further Study:'}</em> ${f.furtherStudy}</div>` : ''}
+                  </div>
+                </div>
+              </article>
+            `;
+          }).join('')}
+        </div>
+      </section>
+    `;
+
+    // Section 3: The Threefold Training (Tisikkhā)
+    const s3 = m.section3;
+    const s3Html = `
+      <section class="magga-sec-card" id="magga-sec-3">
+        <header class="magga-sec-header">
+          <div class="magga-badges-row">
+            <span class="magga-num-badge">${s3.number}</span>
+            <span class="magga-provenance-badge">${s3.provenanceTag}</span>
+          </div>
+          <h3 class="magga-sec-title">${s3.title}</h3>
+          <div class="magga-sec-pali">${s3.paliTitle}</div>
+        </header>
+
+        <div class="magga-speaker-attribution">
+          <span>☸</span> ${lang === 'pt' ? 'Exposição Proferida por:' : 'Discourse Speaker:'} <strong>${s3.speaker}</strong>
+        </div>
+
+        <div class="magga-quote-box">
+          <div class="magga-quote-pali">${s3.canonicalPassage.pali}</div>
+          <div class="magga-quote-trans">“${s3.canonicalPassage.translation}”</div>
+          <div class="magga-quote-meta">— ${s3.canonicalPassage.translator}</div>
+        </div>
+
+        <p class="magga-prose">${s3.doctrinalAnalysis}</p>
+
+        <div class="magga-tisikkha-grid">
+          ${s3.trainings.map(tr => `
+            <div class="magga-tisikkha-col">
+              <h4 class="magga-tisikkha-name">${tr.name}</h4>
+              <ul class="magga-tisikkha-factors">
+                ${tr.factors.map(fact => `<li><span class="magga-bullet">☸</span> ${fact}</li>`).join('')}
+              </ul>
+              <p class="magga-tisikkha-purpose">${tr.purpose}</p>
+            </div>
+          `).join('')}
+        </div>
+
+        <div class="magga-core-note">${s3.relationshipExplanation}</div>
+      </section>
+    `;
+
+    // Section 4: How Path Factors Work Together (MN 117)
+    const s4 = m.section4;
+    const s4Html = `
+      <section class="magga-sec-card" id="magga-sec-4">
+        <header class="magga-sec-header">
+          <div class="magga-badges-row">
+            <span class="magga-num-badge">${s4.number}</span>
+            <span class="magga-provenance-badge">${s4.provenanceTag}</span>
+          </div>
+          <h3 class="magga-sec-title">${s4.title}</h3>
+          <div class="magga-sec-pali">${s4.paliTitle}</div>
+        </header>
+
+        <div class="magga-sutta-chips-row">
+          <a href="${s4.sourceSutta.url}" target="_blank" rel="noopener noreferrer" class="magga-sutta-chip">
+            <span>📖 ${s4.sourceSutta.code} — ${s4.sourceSutta.title}</span>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+          </a>
+        </div>
+
+        <div class="magga-principles-grid">
+          ${s4.keyPrinciples.map(pr => `
+            <div class="magga-principle-card">
+              <h4 class="magga-principle-title"><span>☸</span> ${pr.title}</h4>
+              <p class="magga-principle-detail">${pr.detail}</p>
+            </div>
+          `).join('')}
+        </div>
+      </section>
+    `;
+
+    // Section 5: The Gradual Training (MN 107 & MN 39)
+    const s5 = m.section5;
+    const s5Html = `
+      <section class="magga-sec-card" id="magga-sec-5">
+        <header class="magga-sec-header">
+          <div class="magga-badges-row">
+            <span class="magga-num-badge">${s5.number}</span>
+            <span class="magga-provenance-badge">${s5.provenanceTag}</span>
+          </div>
+          <h3 class="magga-sec-title">${s5.title}</h3>
+          <div class="magga-sec-pali">${s5.paliTitle}</div>
+        </header>
+
+        <div class="magga-sutta-chips-row">
+          ${s5.sourceSuttas.map(s => `
+            <a href="${s.url}" target="_blank" rel="noopener noreferrer" class="magga-sutta-chip">
+              <span>📖 ${s.code} — ${s.title}</span>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+            </a>
+          `).join('')}
+        </div>
+
+        <p class="magga-prose">${s5.intro}</p>
+
+        <div class="magga-pipeline-grid">
+          ${s5.progressionStages.map(st => `
+            <div class="magga-pipeline-step">
+              <div class="magga-step-num-badge">${st.stageNumber}</div>
+              <div class="magga-step-content">
+                <div class="magga-step-pali">${st.paliTerm}</div>
+                <h4 class="magga-step-title">${st.title}</h4>
+                <p class="magga-step-desc">${st.description}</p>
+              </div>
+            </div>
+          `).join('')}
+        </div>
+
+        <div class="magga-core-note">${s5.distinctionNote}</div>
+      </section>
+    `;
+
+    // Section 6: Mindfulness and Meditation (DN 22 & MN 118)
+    const s6 = m.section6;
+    const s6Html = `
+      <section class="magga-sec-card" id="magga-sec-6">
+        <header class="magga-sec-header">
+          <div class="magga-badges-row">
+            <span class="magga-num-badge">${s6.number}</span>
+            <span class="magga-provenance-badge">${s6.provenanceTag}</span>
+          </div>
+          <h3 class="magga-sec-title">${s6.title}</h3>
+          <div class="magga-sec-pali">${s6.paliTitle}</div>
+        </header>
+
+        <div class="magga-sutta-chips-row">
+          ${s6.sourceSuttas.map(s => `
+            <a href="${s.url}" target="_blank" rel="noopener noreferrer" class="magga-sutta-chip">
+              <span>📖 ${s.code} — ${s.title}</span>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+            </a>
+          `).join('')}
+        </div>
+
+        <div class="magga-satipatthana-box">
+          <h4 class="magga-subheading"><span>☸</span> ${s6.satipatthanaFramework.title}</h4>
+          <div class="magga-foundations-grid">
+            ${s6.satipatthanaFramework.foundations.map(fd => `
+              <div class="magga-foundation-card">
+                <div class="magga-foundation-name">${fd.name}</div>
+                <div class="magga-foundation-focus">${fd.focus}</div>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+
+        <div class="magga-cascade-box">
+          <h4 class="magga-subheading"><span>☸</span> ${s6.anapanasatiCascade.title}</h4>
+          <p class="magga-subtext">${s6.anapanasatiCascade.text}</p>
+          <div class="magga-cascade-steps">
+            ${s6.anapanasatiCascade.steps.map(step => `
+              <div class="magga-cascade-item">
+                <span class="magga-cascade-arrow">➔</span>
+                <span>${step}</span>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+
+        <div class="magga-warning-box">
+          <div class="magga-warning-label">⚠ ${lang === 'pt' ? 'Salvaguarda Canônica' : 'Canonical Guardrail'}</div>
+          <div>${s6.secularWarning}</div>
+        </div>
+      </section>
+    `;
+
+    // Section 7: Right Intention in Practice (MN 19)
+    const s7 = m.section7;
+    const s7Html = `
+      <section class="magga-sec-card" id="magga-sec-7">
+        <header class="magga-sec-header">
+          <div class="magga-badges-row">
+            <span class="magga-num-badge">${s7.number}</span>
+            <span class="magga-provenance-badge">${s7.provenanceTag}</span>
+          </div>
+          <h3 class="magga-sec-title">${s7.title}</h3>
+          <div class="magga-sec-pali">${s7.paliTitle}</div>
+        </header>
+
+        <div class="magga-sutta-chips-row">
+          <a href="${s7.sourceSutta.url}" target="_blank" rel="noopener noreferrer" class="magga-sutta-chip">
+            <span>📖 ${s7.sourceSutta.code} — ${s7.sourceSutta.title}</span>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+          </a>
+        </div>
+
+        <div class="magga-quote-box">
+          <div class="magga-quote-pali">${s7.bodhisattaMethod.paliQuote}</div>
+          <div class="magga-quote-trans">“${s7.bodhisattaMethod.quote}”</div>
+        </div>
+
+        <div class="magga-thoughts-comparison-grid">
+          ${s7.bodhisattaMethod.division.map(d => {
+            const isUnwholesome = d.class.includes('Unwholesome') || d.class.includes('Prejudiciais');
+            return `
+              <div class="magga-thought-class-card ${isUnwholesome ? 'thought-unwholesome' : 'thought-wholesome'}">
+                <h4 class="magga-thought-class-title">${isUnwholesome ? '⚠ ' : '✓ '}${d.class}</h4>
+                <ul class="magga-thought-items">
+                  ${d.items.map(it => `<li>${it}</li>`).join('')}
+                </ul>
+                <div class="magga-thought-consequence"><strong>${lang === 'pt' ? 'Consequência:' : 'Result:'}</strong> ${d.consequence}</div>
+              </div>
+            `;
+          }).join('')}
+        </div>
+
+        <div class="magga-lay-app-box">
+          <div class="magga-lay-app-badge"><span>✓</span> ${s7.layApplication.tag}</div>
+          <p class="magga-subtext">${s7.layApplication.intro}</p>
+          <ul class="magga-lay-points-list">
+            ${s7.layApplication.points.map(pt => `<li><span class="magga-bullet">☸</span> ${pt}</li>`).join('')}
+          </ul>
+        </div>
+      </section>
+    `;
+
+    // Section 8: The Path in Lay Life
+    const s8 = m.section8;
+    const s8Html = `
+      <section class="magga-sec-card" id="magga-sec-8">
+        <header class="magga-sec-header">
+          <div class="magga-badges-row">
+            <span class="magga-num-badge">${s8.number}</span>
+            <span class="magga-provenance-badge">${s8.provenanceTag}</span>
+          </div>
+          <h3 class="magga-sec-title">${s8.title}</h3>
+          <div class="magga-sec-pali">${s8.paliTitle}</div>
+        </header>
+
+        <p class="magga-prose">${s8.intro}</p>
+
+        <div class="magga-lay-suttas-deck">
+          ${s8.suttas.map(st => `
+            <article class="magga-lay-sutta-card">
+              <div class="magga-lay-sutta-header">
+                <div>
+                  <h4 class="magga-lay-sutta-title">${st.code} — ${st.title}</h4>
+                  <div class="magga-lay-sutta-theme">${st.theme}</div>
+                </div>
+                <a href="${st.url}" target="_blank" rel="noopener noreferrer" class="magga-sutta-chip-sm">
+                  <span>${lang === 'pt' ? 'Ler Texto' : 'Read Sutta'}</span>
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                </a>
+              </div>
+              <p class="magga-lay-sutta-content">${st.content}</p>
+            </article>
+          `).join('')}
+        </div>
+      </section>
+    `;
+
+    // Section 9: From Path Development to Cessation
+    const s9 = m.section9;
+    const s9Html = `
+      <section class="magga-sec-card" id="magga-sec-9">
+        <header class="magga-sec-header">
+          <div class="magga-badges-row">
+            <span class="magga-num-badge">${s9.number}</span>
+            <span class="magga-provenance-badge">${s9.provenanceTag}</span>
+          </div>
+          <h3 class="magga-sec-title">${s9.title}</h3>
+          <div class="magga-sec-pali">${s9.paliTitle}</div>
+        </header>
+
+        <div class="magga-sutta-chips-row">
+          ${s9.sourceSuttas.map(s => `
+            <a href="${s.url}" target="_blank" rel="noopener noreferrer" class="magga-sutta-chip">
+              <span>📖 ${s.code} — ${s.title}</span>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+            </a>
+          `).join('')}
+        </div>
+
+        <div class="magga-natural-causation-box">
+          <h4 class="magga-subheading"><span>☸</span> ${s9.naturalCausation.title}</h4>
+          <p class="magga-subtext">${s9.naturalCausation.text}</p>
+          <div class="magga-causation-chain">
+            ${s9.naturalCausation.chain.map((c, cIdx) => `
+              <div class="magga-causation-node">
+                <span class="magga-node-num">${cIdx + 1}</span>
+                <span class="magga-node-text">${c}</span>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+
+        <div class="magga-nibbana-box">
+          <h4 class="magga-subheading"><span>☸</span> ${s9.nibbanaDefinition.title}</h4>
+          <div class="magga-quote-pali">${s9.nibbanaDefinition.pali}</div>
+          <div class="magga-quote-trans">“${s9.nibbanaDefinition.translation}”</div>
+          <p class="magga-prose">${s9.nibbanaDefinition.explanation}</p>
+        </div>
+      </section>
+    `;
+
+    // Section 10: Common Misunderstandings Corrected
+    const s10 = m.section10;
+    const s10Html = `
+      <section class="magga-sec-card" id="magga-sec-10">
+        <header class="magga-sec-header">
+          <div class="magga-badges-row">
+            <span class="magga-num-badge">${s10.number}</span>
+            <span class="magga-provenance-badge">${s10.provenanceTag}</span>
+          </div>
+          <h3 class="magga-sec-title">${s10.title}</h3>
+          <div class="magga-sec-pali">${s10.paliTitle}</div>
+        </header>
+
+        <p class="magga-prose">${s10.intro}</p>
+
+        <div class="magga-misunderstandings-grid">
+          ${s10.items.map(it => `
+            <div class="magga-misunderstanding-card">
+              <div class="magga-misconception-row">
+                <span class="magga-misconception-icon">⚠</span>
+                <div>
+                  <div class="magga-misconception-label">${lang === 'pt' ? 'Equívoco Popular / Reducionismo Secular:' : 'Popular Misconception / Secular Reduction:'}</div>
+                  <div class="magga-misconception-text">${it.misunderstanding}</div>
+                </div>
+              </div>
+              <div class="magga-rebuttal-row">
+                <span class="magga-rebuttal-icon">✓</span>
+                <div>
+                  <div class="magga-rebuttal-label">${lang === 'pt' ? 'Realidade Canônica Autêntica:' : 'Authentic Canonical Reality:'}</div>
+                  <div class="magga-rebuttal-text">${it.rebuttal}</div>
+                  <div class="magga-rebuttal-citation">📖 ${lang === 'pt' ? 'Fonte Canônica:' : 'Canonical Authority:'} ${it.citation}</div>
+                </div>
+              </div>
+            </div>
+          `).join('')}
+        </div>
+      </section>
+    `;
+
+    return `
+      <div class="magga-module-wrap">
+        <div class="magga-module-header">
+          <span class="magga-header-badge">${m.header.badge}</span>
+          <h3 class="magga-header-title">${m.header.translation}</h3>
+          <div class="magga-header-pali">${m.header.paliFormula}</div>
+          <p class="magga-header-lead">${m.header.leadText}</p>
+        </div>
+
+        ${navHtml}
+
+        ${s1Html}
+        ${s2Html}
+        ${s3Html}
+        ${s4Html}
+        ${s5Html}
+        ${s6Html}
+        ${s7Html}
+        ${s8Html}
+        ${s9Html}
+        ${s10Html}
+      </div>
+    `;
+  }
+
 
   switchTab(targetTabId) {
     this.activeTabId = targetTabId;

@@ -1,10 +1,12 @@
 # Build script to bundle The Lay Dharma Household Mārga scripts into js/bundle.js
 
+$maggaContent = [System.IO.File]::ReadAllText("$PSScriptRoot/js/data/fourthNobleTruthData.js", [System.Text.Encoding]::UTF8)
 $topicsContent = [System.IO.File]::ReadAllText("$PSScriptRoot/js/data/topicsData.js", [System.Text.Encoding]::UTF8)
 $appContent = [System.IO.File]::ReadAllText("$PSScriptRoot/js/app.js", [System.Text.Encoding]::UTF8)
 
 # Strip ES module imports and exports for universal browser execution
-$topicsClean = $topicsContent -replace '(?m)^\s*export\s+const\s+', 'const '
+$maggaClean = $maggaContent -replace '(?m)^\s*export\s+const\s+', 'const '
+$topicsClean = $topicsContent -replace '(?m)^\s*export\s+const\s+', 'const ' -replace '(?m)^\s*import\s+[^;]+;\s*\r?\n', ''
 $appClean = $appContent -replace '(?m)^\s*import\s+[^;]+;\s*\r?\n', ''
 
 $bundle = @"
@@ -17,12 +19,17 @@ $bundle = @"
   'use strict';
 
   // ==========================================
-  // 1. CANONICAL TOPICS DATA
+  // 1. FOURTH NOBLE TRUTH DATA MODULE
+  // ==========================================
+$maggaClean
+
+  // ==========================================
+  // 2. CANONICAL TOPICS DATA
   // ==========================================
 $topicsClean
 
   // ==========================================
-  // 2. APPLICATION CONTROLLER
+  // 3. APPLICATION CONTROLLER
   // ==========================================
 $appClean
 
@@ -31,3 +38,4 @@ $appClean
 
 [System.IO.File]::WriteAllText("$PSScriptRoot/js/bundle.js", $bundle, [System.Text.Encoding]::UTF8)
 Write-Host "bundle.js successfully built! Total size: $([System.IO.FileInfo]::new("$PSScriptRoot/js/bundle.js").Length) bytes." -ForegroundColor Green
+
